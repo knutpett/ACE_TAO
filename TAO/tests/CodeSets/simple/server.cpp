@@ -69,7 +69,7 @@ public:
     ACE_DEBUG ((LM_DEBUG,
                 "Server: inserted string: %C\n\n", any_str));
 
-    CORBA::Any *out_ptr = 0;
+    CORBA::Any *out_ptr = nullptr;
     ACE_NEW_RETURN (out_ptr,
                     CORBA::Any,
                     0);
@@ -131,7 +131,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         return 1;
 
       // Create a C++ implementation of CORBA object
-      SimpleImpl* my_impl = 0;
+      SimpleImpl* my_impl = nullptr;
       ACE_NEW_RETURN (my_impl,
                       SimpleImpl (orb.in ()),
                       -1);

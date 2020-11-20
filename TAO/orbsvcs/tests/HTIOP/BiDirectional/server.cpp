@@ -6,7 +6,7 @@
 
 
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 int no_iterations = 10;
 
 int

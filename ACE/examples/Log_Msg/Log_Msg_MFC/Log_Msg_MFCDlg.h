@@ -19,7 +19,7 @@ class CLog_Msg_MFCDlg : public CDialog
 {
 public:
   // Construction
-  CLog_Msg_MFCDlg(CWnd* pParent = 0); // standard constructor
+  CLog_Msg_MFCDlg(CWnd* pParent = nullptr); // standard constructor
 
   // Dialog Data
   //{{AFX_DATA(CLog_Msg_MFCDlg)

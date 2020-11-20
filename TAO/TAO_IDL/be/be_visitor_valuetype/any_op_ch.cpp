@@ -42,7 +42,7 @@ be_visitor_valuetype_any_op_ch::visit_valuetype (be_valuetype *node)
   *os << be_nl_2 << "// TAO_IDL - Generated from" << be_nl
       << "// " << __FILE__ << ":" << __LINE__ << be_nl_2;
 
-  be_module *module = 0;
+  be_module *module = nullptr;
 
   if (node->is_nested () &&
       node->defined_in ()->scope_node_type () == AST_Decl::NT_module)

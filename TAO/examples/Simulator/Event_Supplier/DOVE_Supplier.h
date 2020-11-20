@@ -41,10 +41,10 @@ public:
   int init (void);
 
   /// Connect to the event service.
-  int connect (const char * MIB_name = 0,
-               const char* es_name = 0,
-               const char * ss_name = 0,
-               ACE_Scheduler_Factory::POD_RT_Info * pod_rt_info = 0);
+  int connect (const char * MIB_name = nullptr,
+               const char* es_name = nullptr,
+               const char * ss_name = nullptr,
+               ACE_Scheduler_Factory::POD_RT_Info * pod_rt_info = nullptr);
 
   /// Perform all post-connection-establishment processing.
   void connected ();

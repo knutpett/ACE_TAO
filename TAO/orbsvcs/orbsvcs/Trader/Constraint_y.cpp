@@ -454,41 +454,41 @@ static YYSTACKDATA yystack;
 #if YYBTYACC
 
 /* Current parser state */
-static YYParseState *yyps = 0;
+static YYParseState *yyps = nullptr;
 
 /* yypath != 0: do the full parse, starting at *yypath parser state. */
-static YYParseState *yypath = 0;
+static YYParseState *yypath = nullptr;
 
 /* Base of the lexical value queue */
-static YYSTYPE *yylvals = 0;
+static YYSTYPE *yylvals = nullptr;
 
 /* Current position at lexical value queue */
-static YYSTYPE *yylvp = 0;
+static YYSTYPE *yylvp = nullptr;
 
 /* End position of lexical value queue */
-static YYSTYPE *yylve = 0;
+static YYSTYPE *yylve = nullptr;
 
 /* The last allocated position at the lexical value queue */
-static YYSTYPE *yylvlim = 0;
+static YYSTYPE *yylvlim = nullptr;
 
 #if defined(YYLTYPE) || defined(YYLTYPE_IS_DECLARED)
 /* Base of the lexical position queue */
-static YYLTYPE *yylpsns = 0;
+static YYLTYPE *yylpsns = nullptr;
 
 /* Current position at lexical position queue */
-static YYLTYPE *yylpp = 0;
+static YYLTYPE *yylpp = nullptr;
 
 /* End position of lexical position queue */
-static YYLTYPE *yylpe = 0;
+static YYLTYPE *yylpe = nullptr;
 
 /* The last allocated position at the lexical position queue */
-static YYLTYPE *yylplim = 0;
+static YYLTYPE *yylplim = nullptr;
 #endif
 
 /* Current position at lexical token queue */
-static YYINT  *yylexp = 0;
+static YYINT  *yylexp = nullptr;
 
-static YYINT  *yylexemes = 0;
+static YYINT  *yylexemes = nullptr;
 #endif /* YYBTYACC */
 
 //extern int yydebug = 1;
@@ -627,7 +627,7 @@ YYPARSE_DECL()
     int yym, yyn, yystate, yyresult;
 #if YYBTYACC
     int yynewerrflag;
-    YYParseState *yyerrctx = 0;
+    YYParseState *yyerrctx = nullptr;
 #endif /* YYBTYACC */
 #if defined(YYLTYPE) || defined(YYLTYPE_IS_DECLARED)
     YYLTYPE  yyerror_loc_range[3]; /* position of error start/end (0 unused) */

@@ -13,7 +13,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
   try
     {
-      ServerInitializer *temp_initializer = 0;
+      ServerInitializer *temp_initializer = nullptr;
       temp_initializer = new ServerInitializer;
 
       PortableInterceptor::ORBInitializer_var orb_initializer =

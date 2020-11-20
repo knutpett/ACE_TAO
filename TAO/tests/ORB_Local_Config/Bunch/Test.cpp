@@ -26,7 +26,7 @@ testCompatibility (int , ACE_TCHAR *[])
      (ace_svc_desc_TAO_CORBALOC_Parser))
     ACE_ERROR_RETURN ((LM_DEBUG, ACE_TEXT("Failed to process %s\n"), ace_svc_desc_TAO_CORBALOC_Parser), -1);
 
-  const ACE_TCHAR * svcname = 0;
+  const ACE_TCHAR * svcname = nullptr;
 
   {
     // This uses the same default ACE_Service_Repository

@@ -39,8 +39,8 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
 
     const ACE_TCHAR* ecname = ACE_TEXT ("EventService");
-    const ACE_TCHAR* remote_ecname = 0;
-    const ACE_TCHAR* iorfile = 0;
+    const ACE_TCHAR* remote_ecname = nullptr;
+    const ACE_TCHAR* iorfile = nullptr;
     for (int i = 0; argv[i] != 0; i++) {
       if (ACE_OS::strcmp(argv[i], ACE_TEXT("-ecname")) == 0) {
         if (argv[i+1] != 0) {

@@ -101,7 +101,7 @@ namespace TAO
         CORBA::Object_var &effective_target,
         Profile_Transport_Resolver &r,
         ACE_Time_Value *&max_wait_time,
-        Invocation_Retry_State *retry_state = 0);
+        Invocation_Retry_State *retry_state = nullptr);
 
     virtual Invocation_Status invoke_collocated_i (
         TAO_Stub *stub,
@@ -152,7 +152,7 @@ namespace TAO
         CORBA::Object_var &effective_target,
         Profile_Transport_Resolver &r,
         ACE_Time_Value *&max_wait_time,
-        Invocation_Retry_State *retry_state = 0);
+        Invocation_Retry_State *retry_state = nullptr);
 
     virtual Invocation_Status invoke_collocated_i (
         TAO_Stub *stub,

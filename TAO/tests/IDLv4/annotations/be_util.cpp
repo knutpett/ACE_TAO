@@ -23,7 +23,7 @@ be_util::usage ()
 AST_Generator *
 be_util::generator_init ()
 {
-  AST_Generator *gen = 0;
+  AST_Generator *gen = nullptr;
   ACE_NEW_RETURN(gen, AST_Generator, 0);
   return gen;
 }

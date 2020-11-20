@@ -67,7 +67,7 @@ CORBA::Request::Request (CORBA::Object_ptr obj,
 {
   if (this->exceptions_.in () == 0)
     {
-      CORBA::ExceptionList *tmp = 0;
+      CORBA::ExceptionList *tmp = nullptr;
       ACE_NEW (tmp,
                CORBA::ExceptionList);
 
@@ -90,7 +90,7 @@ CORBA::Request::Request (CORBA::Object_ptr obj,
     response_received_ (false),
     byte_order_ (TAO_ENCAP_BYTE_ORDER)
 {
-  CORBA::ExceptionList *tmp = 0;
+  CORBA::ExceptionList *tmp = nullptr;
   ACE_NEW (tmp,
            CORBA::ExceptionList);
 

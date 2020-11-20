@@ -68,7 +68,7 @@ JAWS_TPR_Concurrency::getq (JAWS_Protocol_Handler *&ph)
       return -1;
     }
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   int result = task->getq (mb);
 
   if (result != -1)

@@ -55,7 +55,7 @@ ServerServant::CreateExtra (CORBA::ULong len,
        cnt < len ;
        cnt ++)
     {
-      ServerServant *servant = 0;
+      ServerServant *servant = nullptr;
 
       ACE_NEW_THROW_EX (servant,
                         ServerServant (this->root_poa_.in (),
@@ -81,7 +81,7 @@ ServerServant::DeleteExtra (const ServerSequence &seq)
               "(%P|%t) Deleting %d sequences\n", seq.length ()));
 
   PortableServer::ObjectId_var oid;
-  PortableServer::ServantBase *servant = 0;
+  PortableServer::ServantBase *servant = nullptr;
 
   for (CORBA::ULong cnt = 0;
        cnt < seq.length ();
@@ -163,7 +163,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         root_poa->the_POAManager ();
 
       // Instantiate the server
-      ServerServant *servant = 0;
+      ServerServant *servant = nullptr;
 
       ACE_NEW_RETURN (servant,
                       ServerServant (root_poa.in (),

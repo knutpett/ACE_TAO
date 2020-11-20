@@ -79,7 +79,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Server *server_impl = 0;
+      Server *server_impl = nullptr;
       ACE_NEW_RETURN (server_impl,
                       Server (orb.in ()),
                       1);

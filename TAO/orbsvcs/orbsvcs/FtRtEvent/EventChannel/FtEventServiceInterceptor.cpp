@@ -12,7 +12,7 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 bool
 CachedRequestTable::is_new_request(const ACE_CString& client_id, CORBA::Long retention_id)
 {
-  TableImpl::ENTRY* entry = 0;
+  TableImpl::ENTRY* entry = nullptr;
   return table_.find(client_id, entry) !=0 || entry->int_id_.retention_id != retention_id;
 }
 
@@ -37,7 +37,7 @@ CachedRequestTable::update(const ACE_CString& client_id,
 CORBA::Any
 CachedRequestTable::get_result(const ACE_CString& client_id)
 {
-  TableImpl::ENTRY* entry = 0;
+  TableImpl::ENTRY* entry = nullptr;
   if (table_.find(client_id, entry)) {
     return entry->int_id_.result;
   }

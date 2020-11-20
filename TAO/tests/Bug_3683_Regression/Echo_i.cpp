@@ -28,7 +28,7 @@ Echo_i::echo_list (const char *)
   Echo::List_var list;
 
   {
-    Echo::List *tmp = 0;
+    Echo::List *tmp = nullptr;
     ACE_NEW_RETURN (tmp,
                     Echo::List (3),
                     0);

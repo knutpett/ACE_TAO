@@ -70,7 +70,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      PingObject_i *server_impl = 0;
+      PingObject_i *server_impl = nullptr;
       ACE_NEW_RETURN (server_impl,
                       PingObject_i (orb.in (),
                                     persistent_poa.in ()),

@@ -30,14 +30,14 @@ AnySeq *Test_impl::RunTest(const AnySeq &params)
   ACE_DEBUG ((LM_DEBUG, "RunTest: params.length == %d\n", params.length()));
   for (CORBA::ULong count = 0; count < params.length(); ++count)
   {
-    const Container* container = 0;
+    const Container* container = nullptr;
     if (!(params[count] >>= container))
     {
       ACE_ERROR ((LM_ERROR, "ERROR, failed extract\n"));
     }
     else
     {
-      const Inner* inner = 0;
+      const Inner* inner = nullptr;
       if (!(container->contents >>= inner))
       {
         ACE_ERROR ((LM_ERROR, "ERROR, failed extract\n"));
@@ -74,7 +74,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                               policy_list);
       lifespan->destroy ();
 
-      Test_impl *test_servant = 0;
+      Test_impl *test_servant = nullptr;
       ACE_NEW_RETURN (test_servant,
                       Test_impl (orb.in ()),
                       1);

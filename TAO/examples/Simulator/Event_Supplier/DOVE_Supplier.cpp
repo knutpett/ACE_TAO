@@ -135,7 +135,7 @@ DOVE_Supplier::connect (const char* MIB_name,
   MIB_name_ = (MIB_name == 0) ? "MIB_unknown" : MIB_name;
 
   // Create a new connection parameters structure.
-  Connection_Params * cp_temp = 0;
+  Connection_Params * cp_temp = nullptr;
   ACE_NEW_RETURN (cp_temp, Connection_Params, -1);
 
   // Populate the known fields of the new connection params struct.

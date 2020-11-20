@@ -161,7 +161,7 @@ Test_DynSequence::run_test (void)
       };
 
       CORBA::ULong length = 3;
-      DynamicAny::DynAnySeq *elem_ptr = 0;
+      DynamicAny::DynAnySeq *elem_ptr = nullptr;
       ACE_NEW_RETURN (elem_ptr,
                       DynamicAny::DynAnySeq (length),
                       -1);
@@ -307,7 +307,7 @@ Test_DynSequence::run_test (void)
       CORBA::Any_var out_any1 =
         ftc1->to_any ();
 
-      const DynAnyTests::test_seq *ts_out = 0;
+      const DynAnyTests::test_seq *ts_out = nullptr;
       out_any1.in () >>= ts_out;
 
       if (!ACE_OS::strcmp ((*ts_out)[0U], data.m_string1))

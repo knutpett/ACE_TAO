@@ -104,7 +104,7 @@ ACE_TMAIN (int /* argc */, ACE_TCHAR * /* argv */ [])
        !i.done ();
        i.advance ())
     {
-      ACE_CString *item = 0;
+      ACE_CString *item = nullptr;
       i.next (item);
 
       cout << item->c_str () << endl;

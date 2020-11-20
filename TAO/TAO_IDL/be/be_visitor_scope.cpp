@@ -134,7 +134,7 @@ be_visitor_scope::next_elem (be_decl *elem,
                              be_decl *&successor)
 {
   be_decl *ctx_scope = this->ctx_->scope ()->decl ();
-  be_scope *node = 0;
+  be_scope *node = nullptr;
 
   if (ctx_scope != 0)
     {
@@ -200,7 +200,7 @@ be_visitor_scope::next_elem (be_decl *elem,
 bool
 be_visitor_scope::last_node (be_decl *bd)
 {
-  be_decl *next = 0;
+  be_decl *next = nullptr;
   (void) this->next_elem (bd,
                           next);
 
@@ -211,7 +211,7 @@ bool
 be_visitor_scope::last_inout_or_out_node (be_decl *)
 {
   // Return true if we are the last inout or out argument.
-  be_decl *next = 0;
+  be_decl *next = nullptr;
   (void) this->next_elem (this->ctx_->node (),
                           next);
 
@@ -226,7 +226,7 @@ be_visitor_scope::last_inout_or_out_node (be_decl *)
           return false;
         }
 
-      be_decl *next_next = 0;
+      be_decl *next_next = nullptr;
       this->next_elem (next,
                        next_next);
 

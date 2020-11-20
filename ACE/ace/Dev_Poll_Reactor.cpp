@@ -515,7 +515,7 @@ ACE_Dev_Poll_Reactor::Handler_Repository::find (ACE_HANDLE handle)
 {
   ACE_TRACE ("ACE_Dev_Poll_Reactor::Handler_Repository::find");
 
-  Event_Tuple *tuple = 0;
+  Event_Tuple *tuple = nullptr;
 
   // Only bother to search for the <handle> if it's in range.
   if (!this->handle_in_range (handle))
@@ -1175,9 +1175,9 @@ ACE_Dev_Poll_Reactor::dispatch_io_event (Token_Guard &guard)
 
       // Going to access handler repo, so lock it. If the lock is
       // unobtainable, something is very wrong so bail out.
-      Event_Tuple *info = 0;
+      Event_Tuple *info = nullptr;
       ACE_Reactor_Mask disp_mask = 0;
-      ACE_Event_Handler *eh = 0;
+      ACE_Event_Handler *eh = nullptr;
       int (ACE_Event_Handler::*callback)(ACE_HANDLE) = 0;
       bool reactor_resumes_eh = false;
       {

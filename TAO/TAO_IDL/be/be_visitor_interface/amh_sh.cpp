@@ -78,7 +78,7 @@ be_visitor_amh_interface_sh::visit_interface (be_interface *node)
           ACE_CString amh_name ("POA_");
 
           // @@ The following code is *NOT* exception-safe.
-          char *buf = 0;
+          char *buf = nullptr;
           be_interface *base =
             dynamic_cast<be_interface*> (node->inherits ()[i]);
           base->compute_full_name ("AMH_", "", buf);
@@ -226,8 +226,8 @@ be_visitor_amh_interface_sh::add_amh_operation (be_operation *node,
       return 0;
     }
 
-  Identifier *id = 0;
-  UTL_ScopedName *sn = 0;
+  Identifier *id = nullptr;
+  UTL_ScopedName *sn = nullptr;
 
   ACE_NEW_RETURN (id,
                   Identifier ("void"),
@@ -239,7 +239,7 @@ be_visitor_amh_interface_sh::add_amh_operation (be_operation *node,
                   -1);
 
   // Create the return type, which is "void"
-  be_predefined_type *rt = 0;
+  be_predefined_type *rt = nullptr;
   ACE_NEW_RETURN (rt,
                   be_predefined_type (AST_PredefinedType::PT_void,
                                       sn),
@@ -264,7 +264,7 @@ be_visitor_amh_interface_sh::add_amh_operation (be_operation *node,
   op_name->nconc (sn);
 
   // Create the operation
-  be_operation *operation = 0;
+  be_operation *operation = nullptr;
   ACE_NEW_RETURN (operation,
                   be_operation (rt, //node->return_type (),
                                 AST_Operation::OP_noflags,
@@ -307,7 +307,7 @@ be_visitor_amh_interface_sh::add_amh_operation (be_operation *node,
               original_arg->direction () == AST_Argument::dir_IN)
             {
               // Create the argument.
-              be_argument *arg = 0;
+              be_argument *arg = nullptr;
               ACE_NEW_RETURN (arg,
                               be_argument (original_arg->direction (),
                                            original_arg->field_type (),
@@ -335,18 +335,18 @@ be_visitor_amh_interface_sh::add_amh_operation (be_operation *node,
 be_interface *
 be_visitor_amh_interface_sh::create_amh_class (ACE_CString name)
 {
-  Identifier *id = 0;
+  Identifier *id = nullptr;
   ACE_NEW_RETURN (id,
                   Identifier (name.c_str ()),
                   0);
 
-  UTL_ScopedName *amh_class_name = 0;
+  UTL_ScopedName *amh_class_name = nullptr;
   ACE_NEW_RETURN (amh_class_name,
                   UTL_ScopedName (id,
                                   0),
                   0);
 
-  be_interface *amh_class = 0;
+  be_interface *amh_class = nullptr;
   ACE_NEW_RETURN (amh_class,
                   be_interface (amh_class_name, // name
                                 0,              // list of inherited

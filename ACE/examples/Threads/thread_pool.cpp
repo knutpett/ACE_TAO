@@ -43,7 +43,7 @@ public:
   // for all other threads to complete this iteration.
 
   virtual int put (ACE_Message_Block *mb,
-                   ACE_Time_Value *tv = 0);
+                   ACE_Time_Value *tv = nullptr);
   // This allows the producer to pass messages to the <Thread_Pool>.
 
 private:
@@ -102,7 +102,7 @@ Thread_Pool::svc (void)
 
   for (;; count++)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       ACE_DEBUG ((LM_DEBUG,
                   "(%t) in iteration %d before getq ()\n",
@@ -156,7 +156,7 @@ producer (Thread_Pool &thread_pool)
   for (int n; ;)
     {
       // Allocate a new message.
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       ACE_NEW (mb,
                ACE_Message_Block (BUFSIZ));
 
@@ -215,7 +215,7 @@ producer (Thread_Pool &thread_pool)
 
               // Enqueue a NULL message to flag each consumer to
               // shutdown.
-              ACE_Message_Block *mb = 0;
+              ACE_Message_Block *mb = nullptr;
               ACE_NEW (mb,
                        ACE_Message_Block);
               if (thread_pool.put (mb) == -1)

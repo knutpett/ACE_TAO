@@ -383,7 +383,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                 ACE_hrtime_t now = ACE_OS::gethrtime ();
                 history.sample (now - start);
 
-                const Param_Test::Fixed_Struct *o = 0;
+                const Param_Test::Fixed_Struct *o = nullptr;
 
                 result = any >>= o;
               }
@@ -391,7 +391,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
               {
                 any <<= i;
 
-                const Param_Test::Fixed_Struct *o = 0;
+                const Param_Test::Fixed_Struct *o = nullptr;
 
                 ACE_hrtime_t start = ACE_OS::gethrtime ();
 
@@ -440,7 +440,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         for (j = 0; j != n; ++j)
           {
             CORBA::Any any;
-            Param_Test::Fixed_Struct *i = 0;
+            Param_Test::Fixed_Struct *i = nullptr;
             ACE_NEW_RETURN (i,
                             Param_Test::Fixed_Struct,
                             -1);
@@ -461,7 +461,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                 ACE_hrtime_t now = ACE_OS::gethrtime ();
                 history.sample (now - start);
 
-                const Param_Test::Fixed_Struct *o = 0;
+                const Param_Test::Fixed_Struct *o = nullptr;
 
                 result = any >>= o;
               }
@@ -469,7 +469,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
               {
                 any <<= i;
 
-                const Param_Test::Fixed_Struct *o = 0;
+                const Param_Test::Fixed_Struct *o = nullptr;
 
                 ACE_hrtime_t start = ACE_OS::gethrtime ();
 
@@ -538,7 +538,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                 ACE_hrtime_t now = ACE_OS::gethrtime ();
                 history.sample (now - start);
 
-                const Param_Test::Long_Seq *o = 0;
+                const Param_Test::Long_Seq *o = nullptr;
 
                 result = any >>= o;
               }
@@ -546,7 +546,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
               {
                 any <<= i;
 
-                const Param_Test::Long_Seq *o = 0;
+                const Param_Test::Long_Seq *o = nullptr;
 
                 ACE_hrtime_t start = ACE_OS::gethrtime ();
 
@@ -596,7 +596,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         for (j = 0; j != n; ++j)
           {
             CORBA::Any any;
-            Param_Test::Long_Seq *i = 0;
+            Param_Test::Long_Seq *i = nullptr;
             ACE_NEW_RETURN (i,
                             Param_Test::Long_Seq (len),
                             -1);
@@ -616,7 +616,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                 ACE_hrtime_t now = ACE_OS::gethrtime ();
                 history.sample (now - start);
 
-                const Param_Test::Long_Seq *o = 0;
+                const Param_Test::Long_Seq *o = nullptr;
 
                 result = any >>= o;
               }
@@ -624,7 +624,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
               {
                 any <<= i;
 
-                const Param_Test::Long_Seq *o = 0;
+                const Param_Test::Long_Seq *o = nullptr;
 
                 ACE_hrtime_t start = ACE_OS::gethrtime ();
 
@@ -749,7 +749,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         for (j = 0; j != n; ++j)
           {
             CORBA::Any any;
-            CORBA::Any *i = 0;
+            CORBA::Any *i = nullptr;
             ACE_NEW_RETURN (i,
                             CORBA::Any,
                             -1);

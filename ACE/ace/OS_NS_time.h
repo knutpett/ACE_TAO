@@ -274,7 +274,7 @@ namespace ACE_OS
 
   ACE_NAMESPACE_INLINE_FUNCTION
   int nanosleep (const struct timespec *requested,
-                 struct timespec *remaining = 0);
+                 struct timespec *remaining = nullptr);
 
   ACE_NAMESPACE_INLINE_FUNCTION
   size_t strftime (char *s,
@@ -304,7 +304,7 @@ namespace ACE_OS
 # endif /* ACE_LACKS_STRPTIME  */
 
   ACE_NAMESPACE_INLINE_FUNCTION
-  time_t time (time_t *tloc = 0);
+  time_t time (time_t *tloc = nullptr);
 
   ACE_NAMESPACE_INLINE_FUNCTION
   long timezone (void);

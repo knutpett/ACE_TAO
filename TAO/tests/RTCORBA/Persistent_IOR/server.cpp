@@ -167,7 +167,7 @@ create_poa_and_servant_with_persistent_policy (CORBA::ORB_ptr orb,
                           poa_manager,
                           policies);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (orb,
                             poa.in ()),
@@ -219,7 +219,7 @@ create_poa_and_servant_with_tp_policy (CORBA::ORB_ptr orb,
                           poa_manager,
                           policies);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (orb,
                             poa.in ()),
@@ -278,7 +278,7 @@ create_poa_with_tp_and_persistent_policy (CORBA::ORB_ptr orb,
                           poa_manager,
                           policies);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (orb,
                             poa.in ()),

@@ -48,7 +48,7 @@ public:
 protected:
   // = ACE_Task hooks.
 
-  virtual int open (void *a = 0);
+  virtual int open (void *a = nullptr);
   // Called by the Stream to initialize the router.
 
   virtual int close (u_long flags = 0);

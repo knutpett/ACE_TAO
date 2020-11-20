@@ -136,7 +136,7 @@ DatabaseImpl::Agent::create_entry (const char *key,
       || initial_attributes.length () != 2)
     throw Database::Unknown_Type ();
 
-  const char *name = 0;
+  const char *name = nullptr;
   CORBA::Long id = 0;
 
   const Database::NamedValue &first =
@@ -193,7 +193,7 @@ DatabaseImpl::Agent::find_entry (const char *key,
                       "Employee") != 0)
     throw Database::Unknown_Type ();
 
-  void *temp = 0;
+  void *temp = nullptr;
   Database::Entry_var entry;
   if (DATABASE::instance ()->find (key, temp) == 0)
     {
@@ -237,7 +237,7 @@ DatabaseImpl::Agent::destroy_entry (const char *key,
   if (ACE_OS::strcmp (entry_type, "Employee") != 0)
     throw Database::Unknown_Type ();
 
-  void *temp = 0;
+  void *temp = nullptr;
   if (DATABASE::instance ()->unbind (key, temp) == 0)
     {
       Employee *employee =

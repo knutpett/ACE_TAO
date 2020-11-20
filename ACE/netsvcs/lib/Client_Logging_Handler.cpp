@@ -103,8 +103,8 @@ ACE_Client_Logging_Handler::handle_input (ACE_HANDLE handle)
   // don't support framing natively.  Allocate a message block for the
   // payload; initially at least large enough to hold the header, but
   // needs some room for alignment.
-  ACE_Message_Block *payload_p = 0;
-  ACE_Message_Block *header_p = 0;
+  ACE_Message_Block *payload_p = nullptr;
+  ACE_Message_Block *header_p = nullptr;
   ACE_NEW_RETURN (header_p,
                   ACE_Message_Block (ACE_DEFAULT_CDR_BUFSIZE),
                   -1);

@@ -112,7 +112,7 @@ be_visitor_union_branch_public_reset_cs::visit_array (be_array *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   if (this->ctx_->alias ())
     {
@@ -459,7 +459,7 @@ be_visitor_union_branch_public_reset_cs::visit_structure (
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   if (this->ctx_->alias ())
     {

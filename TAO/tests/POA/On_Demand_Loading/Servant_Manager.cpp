@@ -38,7 +38,7 @@ ServantManager_i::obtain_servant (const ACE_TCHAR *str,
   this->parse_string (str);
 
   // Create the DLL object.
-  ACE_DLL *dll = 0;
+  ACE_DLL *dll = nullptr;
 
   ACE_NEW_RETURN (dll,
                   ACE_DLL,
@@ -161,7 +161,7 @@ ServantManager_i::destroy_servant (PortableServer::Servant servant,
   // Since the servant is no more the DLL object associated with it
   // has to be destroyed too.
 
-  ACE_DLL *dll = 0;
+  ACE_DLL *dll = nullptr;
 
   // Since the servant is no more the DLL object associated with it
   // has to be destroyed too.

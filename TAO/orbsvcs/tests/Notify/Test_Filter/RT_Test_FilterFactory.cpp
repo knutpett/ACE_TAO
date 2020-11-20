@@ -59,7 +59,7 @@ TAO_Notify_Tests_RT_Test_FilterFactory::create_filter (const char *constraint_gr
     throw CosNotifyFilter::InvalidGrammar ();
 
   // Create the RefCounted servant.
-  TAO_Notify_Tests_RT_Test_Filter* filter = 0;
+  TAO_Notify_Tests_RT_Test_Filter* filter = nullptr;
 
   ACE_NEW_THROW_EX (filter,
                     TAO_Notify_Tests_RT_Test_Filter (),

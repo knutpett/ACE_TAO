@@ -21,7 +21,7 @@
 // Data Section
 // ******************************************************************
 
-static TAO_Notify_Tests_SequencePushSupplier* supplier_1 = 0;
+static TAO_Notify_Tests_SequencePushSupplier* supplier_1 = nullptr;
 static int max_events = 100;  // 100 sets of 10
 static const CORBA::ULong amount = 10;
 static const ACE_TCHAR *ior_output_file = ACE_TEXT ("supplier.ior");

@@ -95,8 +95,8 @@ ACE_TMAIN(int, ACE_TCHAR *[])
 
   ACE_DEBUG ((LM_DEBUG, "Running test SEED = %d\n", seed));
 
-  TAO_Queued_Message *head = 0;
-  TAO_Queued_Message *tail = 0;
+  TAO_Queued_Message *head = nullptr;
+  TAO_Queued_Message *tail = nullptr;
 
   int add_count = 0;
   int del_count = 0;

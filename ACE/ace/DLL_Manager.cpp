@@ -117,7 +117,7 @@ ACE_DLL_Handle::open (const ACE_TCHAR *dll_name,
           this->get_dll_names (dll_name, dll_names);
 #endif
 
-          ACE_TString *name = 0;
+          ACE_TString *name = nullptr;
           for (ACE_Array_Iterator<ACE_TString> name_iter (dll_names);
                name_iter.next (name); name_iter.advance ())
             {
@@ -563,8 +563,8 @@ ACE_DLL_Manager::open_dll (const ACE_TCHAR *dll_name,
 {
   ACE_TRACE ("ACE_DLL_Manager::open_dll");
 
-  ACE_DLL_Handle *temp_handle = 0;
-  ACE_DLL_Handle *dll_handle = 0;
+  ACE_DLL_Handle *temp_handle = nullptr;
+  ACE_DLL_Handle *dll_handle = nullptr;
   {
     ACE_MT (ACE_GUARD_RETURN (ACE_Thread_Mutex, ace_mon, this->lock_, 0));
     dll_handle = this->find_dll (dll_name);
@@ -613,7 +613,7 @@ int
 ACE_DLL_Manager::close_dll (const ACE_TCHAR *dll_name)
 {
   ACE_TRACE ("ACE_DLL_Manager::close_dll");
-  ACE_DLL_Handle *handle = 0;
+  ACE_DLL_Handle *handle = nullptr;
 
   {
     ACE_MT (ACE_GUARD_RETURN (ACE_Thread_Mutex, ace_mon, this->lock_, 0));
@@ -668,7 +668,7 @@ ACE_DLL_Manager::open (int size)
 {
   ACE_TRACE ("ACE_DLL_Manager::open");
 
-  ACE_DLL_Handle **temp = 0;
+  ACE_DLL_Handle **temp = nullptr;
 
 #if defined (ACE_HAS_ALLOC_HOOKS)
   ACE_ALLOCATOR_RETURN (temp,

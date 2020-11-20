@@ -71,7 +71,7 @@ Basic::init_ORB  (int argc, ACE_TCHAR *argv [])
 void
 Basic::init_CosEC (void)
 {
-  CosEC_ServantBase *ec = 0;
+  CosEC_ServantBase *ec = nullptr;
 
   ACE_NEW_THROW_EX (ec,
                     CosEC_ServantBase (),

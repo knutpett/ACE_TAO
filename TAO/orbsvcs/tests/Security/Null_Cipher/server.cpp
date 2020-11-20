@@ -4,7 +4,7 @@
 #include "Foo_i.h"
 #include "ace/SString.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 const char *cert_file = "cacert.pem";
 
 int
@@ -58,7 +58,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Foo_i *server_impl = 0;
+      Foo_i *server_impl = nullptr;
 
       ACE_NEW_RETURN (server_impl,
                       Foo_i (orb.in ()),

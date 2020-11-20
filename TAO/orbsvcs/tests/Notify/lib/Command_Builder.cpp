@@ -23,7 +23,7 @@ TAO_Notify_Tests_Command_Builder::init (int argc, ACE_TCHAR *argv[])
   ACE_Arg_Shifter arg_shifter (argc, argv);
 
   ACE_CString current_arg;
-  TAO_Notify_Tests_Command_Factory* factory = 0;
+  TAO_Notify_Tests_Command_Factory* factory = nullptr;
 
   if (arg_shifter.is_anything_left ())
     {

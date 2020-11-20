@@ -117,7 +117,7 @@ Roundtrip::_dispatch (TAO_ServerRequest &request,
     }
 
   // Create DSI request object.
-  CORBA::ServerRequest *dsi_request = 0;
+  CORBA::ServerRequest *dsi_request = nullptr;
   ACE_NEW (dsi_request,
            CORBA::ServerRequest (request));
 

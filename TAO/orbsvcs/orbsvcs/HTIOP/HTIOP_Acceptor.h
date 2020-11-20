@@ -90,13 +90,13 @@ namespace TAO
                         int version_major,
                         int version_minor,
                         const char *address,
-                        const char *options = 0);
+                        const char *options = nullptr);
 
       virtual int open_default (TAO_ORB_Core *orb_core,
                                 ACE_Reactor *reactor,
                                 int version_major,
                                 int version_minor,
-                                const char *options = 0);
+                                const char *options = nullptr);
 
       virtual int close (void);
 
@@ -121,7 +121,7 @@ namespace TAO
       int hostname (TAO_ORB_Core *orb_core,
                     ACE_INET_Addr &addr,
                     char *&host,
-                    const char *specified_hostname = 0);
+                    const char *specified_hostname = nullptr);
 
       /**
        * Set the host name for the given address using the dotted decimal

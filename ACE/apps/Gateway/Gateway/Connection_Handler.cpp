@@ -227,7 +227,7 @@ Connection_Handler::local_addr (ACE_INET_Addr &la)
 Connection_Handler *
 Connection_Handler_Factory::make_connection_handler (const Connection_Config_Info &pci)
 {
-  Connection_Handler *connection_handler = 0;
+  Connection_Handler *connection_handler = nullptr;
 
   // The next few lines of code are dependent on whether we are making
   // a threaded/reactive Supplier_Handler/Consumer_Handler.

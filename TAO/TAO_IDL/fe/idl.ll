@@ -492,6 +492,7 @@ idl_parse_line_and_file (char *buf)
     }
 
   *r = 0;
+xxx
   UTL_String *tmp = 0;
 
   if (*h == '\0')

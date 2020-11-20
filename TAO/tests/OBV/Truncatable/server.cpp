@@ -86,7 +86,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       poa_manager->activate ();
 
-      OBV_TruncatableTest::BaseValue_init *base_factory = 0;
+      OBV_TruncatableTest::BaseValue_init *base_factory = nullptr;
       ACE_NEW_RETURN (base_factory,
                       OBV_TruncatableTest::BaseValue_init,
                       1);
@@ -95,7 +95,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                                    base_factory);
       base_factory->_remove_ref (); // release ownership
 
-      OBV_TruncatableTest::TValue1_init *value1_factory = 0;
+      OBV_TruncatableTest::TValue1_init *value1_factory = nullptr;
       ACE_NEW_RETURN (value1_factory,
                       OBV_TruncatableTest::TValue1_init,
                       1);
@@ -104,7 +104,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                                    value1_factory);
       value1_factory->_remove_ref ();
 
-      OBV_TruncatableTest::TValue4_init *value4_factory = 0;
+      OBV_TruncatableTest::TValue4_init *value4_factory = nullptr;
       ACE_NEW_RETURN (value4_factory,
                       OBV_TruncatableTest::TValue4_init,
                       1);
@@ -113,7 +113,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                                    value4_factory);
       value4_factory->_remove_ref ();
 
-      OBV_TruncatableTest::NestedValue_init *nested_value_factory = 0;
+      OBV_TruncatableTest::NestedValue_init *nested_value_factory = nullptr;
       ACE_NEW_RETURN (nested_value_factory,
                       OBV_TruncatableTest::NestedValue_init,
                       1);

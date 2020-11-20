@@ -39,7 +39,7 @@ class JAWS_Export JAWS_Protocol_Handler
 
 public:
 
-  JAWS_Protocol_Handler (JAWS_Protocol_State *state = 0, void *data = 0);
+  JAWS_Protocol_Handler (JAWS_Protocol_State *state = nullptr, void *data = nullptr);
 
   virtual int service (void);
 

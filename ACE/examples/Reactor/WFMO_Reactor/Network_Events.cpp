@@ -169,7 +169,7 @@ Network_Listener::handle_input (ACE_HANDLE handle)
   ACE_DEBUG ((LM_DEBUG, "Remote connection from: "));
   remote_address.dump ();
 
-  Network_Handler *handler = 0;
+  Network_Handler *handler = nullptr;
   ACE_NEW_RETURN (handler, Network_Handler (stream), -1);
 
   return 0;
@@ -191,7 +191,7 @@ Network_Listener::handle_close (ACE_HANDLE handle,
 int
 ACE_TMAIN (int, ACE_TCHAR *[])
 {
-  Network_Listener *listener = 0;
+  Network_Listener *listener = nullptr;
   listener = new Network_Listener;
   ACE_UNUSED_ARG (listener);
 

@@ -317,7 +317,7 @@ public:
   ACE_ALLOC_HOOK_DECLARE;
 
 private:
-  ACE_DNode (const T &i, ACE_DNode<T> *n = 0, ACE_DNode<T> *p = 0);
+  ACE_DNode (const T &i, ACE_DNode<T> *n = nullptr, ACE_DNode<T> *p = nullptr);
 
   /// Pointer to next element in the list of {ACE_DNode}s.
   ACE_DNode<T> *next_;
@@ -381,7 +381,7 @@ public:
    * Initialize an empty stack using the user specified allocation strategy
    * if provided.
    */
-  ACE_Unbounded_Stack (ACE_Allocator *the_allocator = 0);
+  ACE_Unbounded_Stack (ACE_Allocator *the_allocator = nullptr);
 
   /// The copy constructor (performs initialization).
   /**
@@ -826,7 +826,7 @@ public:
    * Initialize an empy list using the allocation strategy specified by the user.
    * If none is specified, then use default allocation strategy.
    */
-  ACE_Double_Linked_List (ACE_Allocator *the_allocator = 0);
+  ACE_Double_Linked_List (ACE_Allocator *the_allocator = nullptr);
 
   /// Copy constructor.
   /**
@@ -958,7 +958,7 @@ protected:
    */
   int insert_element (T *new_item,
                       int before = 0,
-                      T *old_item = 0);
+                      T *old_item = nullptr);
 
   ///Constant time delete an item from the list structure.
   /**
@@ -1088,7 +1088,7 @@ public:
    *                       objects that wrap T objects for inclusion in the
    *                       list. If 0, ACE_Allocator::instance() is used.
    */
-  ACE_DLList (ACE_Allocator *the_allocator = 0);
+  ACE_DLList (ACE_Allocator *the_allocator = nullptr);
 
   /// Delegates to ACE_Double_Linked_List.
   ACE_DLList (const ACE_DLList<T> &l);
@@ -1796,7 +1796,7 @@ public:
    * Initialize the set using the allocation strategy specified.  If none, use the
    * default strategy.
    */
-  ACE_Ordered_MultiSet (ACE_Allocator *the_allocator = 0);
+  ACE_Ordered_MultiSet (ACE_Allocator *the_allocator = nullptr);
 
   /// Copy constructor.
   /**
@@ -1967,7 +1967,7 @@ public:
    * allocation strategy.
    */
   ACE_Array (size_t size = 0,
-             ACE_Allocator* alloc = 0);
+             ACE_Allocator* alloc = nullptr);
 
   /// Dynamically initialize the entire array to the {default_value}.
   /**
@@ -1975,7 +1975,7 @@ public:
    */
   ACE_Array (size_t size,
              const T &default_value,
-             ACE_Allocator* alloc = 0);
+             ACE_Allocator* alloc = nullptr);
 
   ///Copy constructor.
   /**

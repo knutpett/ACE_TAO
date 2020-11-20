@@ -245,7 +245,7 @@ be_visitor_valuetype_cs::visit_valuetype (be_valuetype *node)
       *os << "::CORBA::ValueBase *" << be_nl
           << node->name () << "::_copy_value (void)" << be_nl
           << "{" << be_idt_nl
-          << "::CORBA::ValueBase *ret_val = 0;" << be_nl
+          << "::CORBA::ValueBase *ret_val = nullptr;" << be_nl
           << "ACE_NEW_THROW_EX (" << be_idt_nl
           << "ret_val," << be_nl
           << node->local_name () << " ()," << be_nl
@@ -323,7 +323,7 @@ be_visitor_valuetype_cs::visit_valuetype (be_valuetype *node)
       << node->local_name () << " *&new_object" << be_uidt_nl
       << ")" << be_uidt_nl
       << "{" << be_idt_nl
-      << "::CORBA::ValueBase *base = 0;" << be_nl
+      << "::CORBA::ValueBase *base = nullptr;" << be_nl
       << "::CORBA::Boolean is_indirected = false;" << be_nl
       << "::CORBA::Boolean is_null_object = false;" << be_nl
       << "::CORBA::Boolean const retval =" << be_idt_nl

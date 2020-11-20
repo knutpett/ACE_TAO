@@ -18,7 +18,7 @@ CE_ARGV::CE_ARGV(wchar_t* cmdLine)
 
     // formattedCmdLine will have dummyArgv and a separator at the beginning of cmdLine
     // and a separator at the end to generalize format and reduce the amount of code
-    wchar_t* formattedCmdLine = 0;
+    wchar_t* formattedCmdLine = nullptr;
     formattedCmdLine = new wchar_t[formattedCmdLineLength];
 
     wcscpy(formattedCmdLine, dummyArgv);
@@ -54,7 +54,7 @@ CE_ARGV::CE_ARGV(wchar_t* cmdLine)
     int formattedCmdLength = wcslen(formattedCmdLine);
 
     bool insideQuotation = false;
-    int* argv_strlen = 0;
+    int* argv_strlen = nullptr;
     int entry_size = 0;
     argv_strlen = new int[max_possible_argc];
 

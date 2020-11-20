@@ -28,7 +28,7 @@ template <class T, class C> int
 ACE_Unbounded_Set_Ex<T, C>::insert_tail (const T &item)
 {
   // ACE_TRACE ("ACE_Unbounded_Set_Ex<T, C>::insert_tail");
-  NODE *temp = 0;
+  NODE *temp = nullptr;
 
   // Insert <item> into the old dummy node location.
   this->head_->item_ = item;
@@ -67,7 +67,7 @@ ACE_Unbounded_Set_Ex<T, C>::dump (void) const
   ACELIB_DEBUG ((LM_DEBUG,  ACE_TEXT ("\nhead_->next_ = %u"), this->head_->next_));
   ACELIB_DEBUG ((LM_DEBUG,  ACE_TEXT ("\ncur_size_ = %d\n"), this->cur_size_));
 
-  T *item = 0;
+  T *item = nullptr;
 #if !defined (ACE_NLOGGING)
   size_t count = 1;
 #endif /* ! ACE_NLOGGING */
@@ -125,18 +125,18 @@ ACE_Unbounded_Set_Ex<T, C>::~ACE_Unbounded_Set_Ex (void)
                          this->allocator_->free,
                          ACE_Node,
                          T, C);
-  this->head_ = 0;
+  this->head_ = nullptr;
 }
 
 template <class T, class C>
 ACE_Unbounded_Set_Ex<T, C>::ACE_Unbounded_Set_Ex (ACE_Allocator *alloc)
-  : head_ (0),
+  : head_ (nullptr),
     cur_size_ (0),
     allocator_ (alloc)
 {
   // ACE_TRACE ("ACE_Unbounded_Set_Ex<T, C>::ACE_Unbounded_Set_Ex");
 
-  if (this->allocator_ == 0)
+  if (this->allocator_ == nullptr)
     this->allocator_ = ACE_Allocator::instance ();
 
   ACE_NEW_MALLOC (this->head_,
@@ -367,7 +367,7 @@ template <class T, class C> T&
 ACE_Unbounded_Set_Ex_Iterator<T, C>::operator* (void)
 {
   //ACE_TRACE ("ACE_Unbounded_Set_Ex_Iterator<T, C>::operator*");
-  T *retv = 0;
+  T *retv = nullptr;
 
   int result = this->next (retv);
   ACE_ASSERT (result != 0);
@@ -474,7 +474,7 @@ template <class T, class C> T&
 ACE_Unbounded_Set_Ex_Const_Iterator<T, C>::operator* (void)
 {
   //ACE_TRACE ("ACE_Unbounded_Set_Ex_Const_Iterator<T, C>::operator*");
-  T *retv = 0;
+  T *retv = nullptr;
 
   int const result = this->next (retv);
   ACE_ASSERT (result != 0);

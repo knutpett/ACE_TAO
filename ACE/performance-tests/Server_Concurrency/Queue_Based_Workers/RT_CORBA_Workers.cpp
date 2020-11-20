@@ -31,7 +31,7 @@ static ACE_High_Res_Timer test_timer;
 static DEBUGGING_RANGE debug = DEBUG_NONE;
 
 // Data block used by the message blocks
-ACE_Data_Block *data_block = 0;
+ACE_Data_Block *data_block = nullptr;
 
 /*******************************************************************/
 // Constructor for Synchronisers
@@ -156,7 +156,7 @@ Worker_Task::svc (void)
 
   for (;;)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       int result = this->getq (mb);
       if (result == -1)
         {
@@ -212,7 +212,7 @@ Worker_Task::svc (void)
         }
 
       // Make a message block for writing onto output queue
-      ACE_Message_Block *message_block = 0;
+      ACE_Message_Block *message_block = nullptr;
       ACE_NEW_RETURN (message_block,
                       ACE_Message_Block (data_block),
                       -1);
@@ -273,7 +273,7 @@ Input_Task::svc (void)
        ++i)
     {
       // Make a message block
-      ACE_Message_Block *message_block = 0;
+      ACE_Message_Block *message_block = nullptr;
       ACE_NEW_RETURN (message_block,
                       ACE_Message_Block (data_block),
                       -1);
@@ -309,7 +309,7 @@ Input_Task::svc (void)
        ++i)
     {
       // Make a message block
-      ACE_Message_Block *message_block = 0;
+      ACE_Message_Block *message_block = nullptr;
       ACE_NEW_RETURN (message_block,
                       ACE_Message_Block (data_block),
                       -1);
@@ -354,7 +354,7 @@ Output_Task::svc (void)
        ++i)
     {
       // Get the message block from queue
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       int result = this->getq (mb);
 
       // delete the message block
@@ -470,7 +470,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   Synchronisers synch;
 
   // Workers.
-  Worker_Task **workers = 0;
+  Worker_Task **workers = nullptr;
   ACE_NEW_RETURN (workers,
                   Worker_Task *[number_of_workers],
                   -1);

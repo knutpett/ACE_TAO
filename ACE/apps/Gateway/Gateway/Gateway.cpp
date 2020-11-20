@@ -307,7 +307,7 @@ Gateway::parse_consumer_config_file (void)
       // Add the Consumers to the Dispatch_Set.
       for (int i = 0; i < cci_entry.total_consumers_; i++)
         {
-          Connection_Handler *connection_handler = 0;
+          Connection_Handler *connection_handler = nullptr;
 
           // Lookup destination and add to Consumer_Dispatch_Set set
           // if found.

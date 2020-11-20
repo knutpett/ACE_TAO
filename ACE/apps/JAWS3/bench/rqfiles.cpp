@@ -73,7 +73,7 @@ public:
 
   HTTP_Make_Request_Event_Handler (const ACE_Time_Value &request_rate,
                                    int number_of_requests = -1,
-                                   const char *website = 0)
+                                   const char *website = nullptr)
     : number_of_requests_ (number_of_requests)
     , addr_ (website ? website : "localhost:5432")
   {
@@ -92,7 +92,7 @@ public:
 
     do
       {
-        HTTP_Sink_Svc_Handler *handler = 0;
+        HTTP_Sink_Svc_Handler *handler = nullptr;
         result = this->connector_.connect (handler, this->addr_,
                                            ACE_Synch_Options::asynch);
         tries++;
@@ -179,9 +179,9 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   // n -- number of requests to generate
   // w -- website in form of hostname:port (e.g., www.yahoo.com:80)
 
-  char *filelist_name = 0;
+  char *filelist_name = nullptr;
   double request_rate = 1.0;
-  char *website = 0;
+  char *website = nullptr;
   int number_of_requests = 0;
 
   int c;

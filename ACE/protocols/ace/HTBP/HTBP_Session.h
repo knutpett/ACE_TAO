@@ -79,10 +79,10 @@ namespace ACE
       Session (const Addr& peer,
                const Addr& local,
                ACE_UINT32 sid = 0,
-               ACE_INET_Addr *proxy = 0,
+               ACE_INET_Addr *proxy = nullptr,
                bool take_proxy = false);
       Session (const Session_Id_t &id,
-               ACE_INET_Addr *proxy = 0,
+               ACE_INET_Addr *proxy = nullptr,
                bool take_proxy = false);
 
       Session (const Session &other);

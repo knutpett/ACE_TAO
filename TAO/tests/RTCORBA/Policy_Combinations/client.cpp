@@ -5,7 +5,7 @@
 #include "tao/RTCORBA/RTCORBA.h"
 #include "../check_supported_priorities.cpp"
 
-static const ACE_TCHAR *ior = 0;
+static const ACE_TCHAR *ior = nullptr;
 static int iterations = 5;
 static int shutdown_server = 0;
 static RTCORBA::Priority default_thread_priority;

@@ -35,7 +35,7 @@ ACE_Name_Proxy::open (const ACE_INET_Addr &remote_addr,
                       ACE_Synch_Options& options)
 {
   ACE_TRACE ("ACE_Name_Proxy::open");
-  ACE_Time_Value *timeout = 0;
+  ACE_Time_Value *timeout = nullptr;
 
   if (options[ACE_Synch_Options::USE_TIMEOUT])
     timeout = const_cast<ACE_Time_Value *> (options.time_value ());

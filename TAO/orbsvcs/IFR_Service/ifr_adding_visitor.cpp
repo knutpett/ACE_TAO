@@ -75,7 +75,7 @@ ifr_adding_visitor::visit_scope (UTL_Scope *node)
       UTL_ScopeActiveIterator si (node,
                                   UTL_Scope::IK_decls);
 
-      AST_Decl *d = 0;
+      AST_Decl *d = nullptr;
 
       // Continue until each element is visited.
       while (!si.is_done ())
@@ -1785,7 +1785,7 @@ ifr_adding_visitor::visit_enum (AST_Enum *node)
           CORBA::EnumMemberSeq members (member_count);
           members.length (member_count);
 
-          UTL_ScopedName *member_name = 0;
+          UTL_ScopedName *member_name = nullptr;
 
           // Get a list of the member names.
           for (CORBA::ULong i = 0; i < member_count; ++i)
@@ -2658,7 +2658,7 @@ ifr_adding_visitor::load_any (AST_Expression::AST_ExprValue *ev,
       {
         char *str = ev->u.wstrval;
         size_t len = ACE_OS::strlen (str);
-        CORBA::WChar *wstr = 0;
+        CORBA::WChar *wstr = nullptr;
         ACE_NEW (wstr,
                  CORBA::WChar[len + 1]);
 
@@ -3712,7 +3712,7 @@ ifr_adding_visitor::fill_supported_interfaces (CORBA::InterfaceDefSeq &result,
 {
   result.length (0);
   CORBA::Long s_length = 0;
-  AST_Type **list = 0;
+  AST_Type **list = nullptr;
 
   switch (node->node_type ())
     {
@@ -3776,7 +3776,7 @@ ifr_adding_visitor::fill_initializers (CORBA::ExtInitializerSeq &result,
                                        AST_ValueType *node)
 {
   result.length (0);
-  AST_Decl *item = 0;
+  AST_Decl *item = nullptr;
   ACE_Vector<AST_Factory *> factories;
 
   for (UTL_ScopeActiveIterator v_iter (node,
@@ -3801,9 +3801,9 @@ ifr_adding_visitor::fill_initializers (CORBA::ExtInitializerSeq &result,
 
   result.length (n_factories);
   CORBA::ULong n_args = 0;
-  AST_Argument *arg = 0;
+  AST_Argument *arg = nullptr;
   CORBA::ULong index = 0;
-  AST_Exception *excp = 0;
+  AST_Exception *excp = nullptr;
   CORBA::Contained_var holder;
 
   for (CORBA::ULong i = 0; i < n_factories; ++i)
@@ -3918,7 +3918,7 @@ ifr_adding_visitor::fill_exceptions (CORBA::ExceptionDefSeq &result,
 
   result.length (static_cast<CORBA::ULong> (list->length ()));
   CORBA::ULong index = 0;
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
   CORBA::Contained_var holder;
 
   for (UTL_ExceptlistActiveIterator ei (list);
@@ -3943,7 +3943,7 @@ void
 ifr_adding_visitor::fill_params (CORBA::ParDescriptionSeq &result,
                                  UTL_Scope *node)
 {
-  AST_Argument *arg = 0;
+  AST_Argument *arg = nullptr;
   CORBA::ULong n_args = static_cast<CORBA::ULong> (node->nmembers ());
   result.length (n_args);
   CORBA::ULong index = 0;
@@ -4009,7 +4009,7 @@ void
 ifr_adding_visitor::visit_all_finders (AST_Home *node,
                                        CORBA::ComponentIR::HomeDef_ptr h)
 {
-  AST_Finder *f = 0;
+  AST_Finder *f = nullptr;
   CORBA::Contained_var contained;
   CORBA::ComponentIR::FinderDef_var new_def;
 

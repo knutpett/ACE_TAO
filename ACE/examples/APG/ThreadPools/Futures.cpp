@@ -20,7 +20,7 @@ class CompletionCallBack: public ACE_Future_Observer<ACE_CString*>
 public:
   virtual void update (const ACE_Future<ACE_CString*> & future)
   {
-    ACE_CString *result = 0;
+    ACE_CString *result = nullptr;
 
     // Block for the result.
     future.get (result);
@@ -207,7 +207,7 @@ private:
       while (this->workers_.is_empty ())
         workers_cond_.wait ();
 
-    Worker *worker = 0;
+    Worker *worker = nullptr;
     this->workers_.dequeue_head (worker);
     return worker;
   }
@@ -251,7 +251,7 @@ Manager::shut_down (void)
 {
   ACE_TRACE ("Manager::shut_down");
   ACE_Unbounded_Queue<Worker* >::ITERATOR iter = this->workers_.begin ();
-  Worker **worker_ptr = 0;
+  Worker **worker_ptr = nullptr;
   do
     {
       iter.next (worker_ptr);

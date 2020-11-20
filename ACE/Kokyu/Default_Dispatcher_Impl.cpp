@@ -144,7 +144,7 @@ Default_Dispatcher_Impl::shutdown_i ()
   for(i=0; i<ntasks_; ++i)
     {
       QoSDescriptor qos_info;
-      Shutdown_Task_Command* shutdown_cmd = 0;
+      Shutdown_Task_Command* shutdown_cmd = nullptr;
       ACE_NEW_RETURN (shutdown_cmd, Shutdown_Task_Command, -1);
       tasks_[i]->enqueue (shutdown_cmd, qos_info);
     }

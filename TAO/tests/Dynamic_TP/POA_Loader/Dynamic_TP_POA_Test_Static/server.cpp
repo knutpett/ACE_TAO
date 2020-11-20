@@ -58,7 +58,7 @@ parse_args (int argc, ACE_TCHAR *argv[])
 long
 next_parm (const ACE_TCHAR **pstart)
 {
-  ACE_TCHAR *sep = 0;
+  ACE_TCHAR *sep = nullptr;
   long rtn = ACE_OS::strtol (*pstart, &sep, 10);
   *pstart = sep + 1;
   if (!(**pstart == '-' || (**pstart >= '0' && **pstart <= '9')))

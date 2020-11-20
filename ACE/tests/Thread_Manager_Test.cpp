@@ -25,7 +25,7 @@
 // Each thread keeps track of whether it has been signalled by using a
 // global array.  It must be dynamically allocated to allow sizing at
 // runtime, based on the number of threads.
-static ACE_thread_t *signalled = 0;
+static ACE_thread_t *signalled = nullptr;
 static size_t n_threads = ACE_MAX_THREADS;
 
 // Helper function that looks for an existing entry in the signalled
@@ -60,7 +60,7 @@ been_signalled (const ACE_thread_t t_id,
 // Synchronize starts of threads, so that they all start before the
 // main thread cancels them.  To avoid creating a static object, it is
 // dynamically allocated, before spawning any threads.
-static ACE_Barrier *thread_start = 0;
+static ACE_Barrier *thread_start = nullptr;
 
 extern "C" void
 handler (int /* signum */)
@@ -277,13 +277,13 @@ run_main (int, ACE_TCHAR *[])
 
 #if 0
   // Assign thread (VxWorks task) names to test that feature.
-  ACE_hthread_t *thread_name = 0;
+  ACE_hthread_t *thread_name = nullptr;
   ACE_NEW_RETURN (thread_name,
                   ACE_hthread_t[n_threads],
                   -1);
 
   // And test the ability to specify stack size.
-  size_t *stack_size = 0;
+  size_t *stack_size = nullptr;
   ACE_NEW_RETURN (stack_size,
                   size_t[n_threads],
                   -1);

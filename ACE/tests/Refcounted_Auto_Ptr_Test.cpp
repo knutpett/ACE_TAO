@@ -75,7 +75,7 @@ public:
 
   //FUZZ: disable check_for_lack_ACE_OS
   /// Initializer.
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
 
   /// Terminator.
   virtual int close (u_long flags = 0);
@@ -479,7 +479,7 @@ run_main (int, ACE_TCHAR *[])
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%t) performing asynchronous test...\n")));
 
-  Scheduler *scheduler_ptr = 0;
+  Scheduler *scheduler_ptr = nullptr;
 
   // Create active objects..
   ACE_NEW_RETURN (scheduler_ptr,

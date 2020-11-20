@@ -51,7 +51,7 @@ test_i::method (CORBA::ULong work,
   RTCORBA::Priority current_priority =
     this->rt_current_->the_priority ();
 
-  const char *priority_string = 0;
+  const char *priority_string = nullptr;
   if (current_priority == this->low_priority_)
     priority_string = "low";
   else if (current_priority == this->high_priority_)

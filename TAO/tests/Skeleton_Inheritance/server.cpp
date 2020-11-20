@@ -55,7 +55,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      interface_3_i *if_3_impl = 0;
+      interface_3_i *if_3_impl = nullptr;
       ACE_NEW_RETURN (if_3_impl,
                       interface_3_i (orb.in ()),
                       1);

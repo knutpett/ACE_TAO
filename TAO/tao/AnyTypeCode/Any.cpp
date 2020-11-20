@@ -268,7 +268,7 @@ operator>> (TAO_InputCDR &cdr, CORBA::Any &any)
 
   try
     {
-      TAO::Unknown_IDL_Type *impl = 0;
+      TAO::Unknown_IDL_Type *impl = nullptr;
       ACE_NEW_RETURN (impl,
                       TAO::Unknown_IDL_Type (tc.in ()),
                       false);
@@ -744,7 +744,7 @@ operator>>= (const CORBA::Any &any, CORBA::TypeCode_ptr &tc)
 CORBA::Boolean
 operator >>= (const CORBA::Any &any, std::string &str)
 {
-  const char *buf = 0;
+  const char *buf = nullptr;
   CORBA::Boolean flag = any >>= buf;
 
   if (buf != 0)
@@ -759,7 +759,7 @@ operator >>= (const CORBA::Any &any, std::string &str)
 CORBA::Boolean
 operator >>= (const CORBA::Any &any, std::wstring &str)
 {
-  const wchar_t *buf = 0;
+  const wchar_t *buf = nullptr;
   CORBA::Boolean flag = any >>= buf;
 
   if (buf != 0)

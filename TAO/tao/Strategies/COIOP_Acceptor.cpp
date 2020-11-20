@@ -56,7 +56,7 @@ TAO_COIOP_Acceptor::create_new_profile (const TAO::ObjectKey &object_key,
   if (mprofile.grow (1) == -1)
     return -1;
 
-  TAO_COIOP_Profile *pfile = 0;
+  TAO_COIOP_Profile *pfile = nullptr;
   ACE_NEW_RETURN (pfile,
                   TAO_COIOP_Profile (uuid_,
                                       object_key,
@@ -93,8 +93,8 @@ TAO_COIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
                                            TAO_MProfile &mprofile,
                                            CORBA::Short priority)
 {
-  TAO_Profile *pfile = 0;
-  TAO_COIOP_Profile *coiop_profile = 0;
+  TAO_Profile *pfile = nullptr;
+  TAO_COIOP_Profile *coiop_profile = nullptr;
 
   // First see if <mprofile> already contains a COIOP profile.
   for (TAO_PHandle i = 0; i != mprofile.profile_count (); ++i)
@@ -136,7 +136,7 @@ TAO_COIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
         }
     }
 
-  TAO_COIOP_Endpoint *endpoint = 0;
+  TAO_COIOP_Endpoint *endpoint = nullptr;
   ACE_NEW_RETURN (endpoint,
                   TAO_COIOP_Endpoint (uuid_),
                   -1);

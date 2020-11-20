@@ -35,7 +35,7 @@ TAO_Table_Adapter::~TAO_Table_Adapter (void)
 ACE_Lock *
 TAO_Table_Adapter::create_lock (TAO_SYNCH_MUTEX &thread_lock)
 {
-  ACE_Lock *the_lock = 0;
+  ACE_Lock *the_lock = nullptr;
   ACE_NEW_RETURN (the_lock,
                   ACE_Lock_Adapter<TAO_SYNCH_MUTEX> (thread_lock),
                   0);
@@ -46,7 +46,7 @@ void
 TAO_Table_Adapter::open (void)
 {
   ACE_GUARD (ACE_Lock, ace_mon, *this->lock_);
-  TAO_IOR_Table_Impl *impl = 0;
+  TAO_IOR_Table_Impl *impl = nullptr;
   ACE_NEW_THROW_EX (impl,
                     TAO_IOR_Table_Impl (),
                     CORBA::NO_MEMORY ());
@@ -197,7 +197,7 @@ TAO_Table_Adapter_Factory::TAO_Table_Adapter_Factory (void)
 TAO_Adapter*
 TAO_Table_Adapter_Factory::create (TAO_ORB_Core *oc)
 {
-  TAO_Adapter* ptr = 0;
+  TAO_Adapter* ptr = nullptr;
   ACE_NEW_RETURN (ptr,
                  TAO_Table_Adapter (*oc),
                  0);

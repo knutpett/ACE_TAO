@@ -37,8 +37,8 @@ const size_t Test3_Send_Size = 4*1024;
 const size_t Test3_Loops = 10;
 const size_t Test3_Total_Size = Test3_Send_Size * Test3_Loops;
 
-const ACE_TCHAR * remote_host = 0;
-const ACE_TCHAR * config_file = 0;
+const ACE_TCHAR * remote_host = nullptr;
+const ACE_TCHAR * config_file = nullptr;
 unsigned remote_port = 8088;
 
 int

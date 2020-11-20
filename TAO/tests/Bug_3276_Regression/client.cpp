@@ -4,8 +4,8 @@
 #include "testC.h"
 #include "tao/ORB_Constants.h"
 
-const ACE_TCHAR *proxy_ior = 0;
-const ACE_TCHAR *control_ior = 0;
+const ACE_TCHAR *proxy_ior = nullptr;
+const ACE_TCHAR *control_ior = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

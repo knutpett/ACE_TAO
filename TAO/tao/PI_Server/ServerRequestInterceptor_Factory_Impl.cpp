@@ -22,7 +22,7 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 TAO::ServerRequestInterceptor_Adapter*
 TAO_ServerRequestInterceptor_Adapter_Factory_Impl::create (void)
 {
-  TAO::ServerRequestInterceptor_Adapter_Impl* obj = 0;
+  TAO::ServerRequestInterceptor_Adapter_Impl* obj = nullptr;
   ACE_NEW_RETURN (obj,
                   TAO::ServerRequestInterceptor_Adapter_Impl ,
                   0);

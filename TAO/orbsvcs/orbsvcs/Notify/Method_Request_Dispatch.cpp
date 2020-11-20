@@ -108,7 +108,7 @@ TAO_Notify_Method_Request_Dispatch::unmarshal (
     TAO_InputCDR & cdr)
 {
   bool ok = true;
-  TAO_Notify_Method_Request_Dispatch_Queueable * result = 0;
+  TAO_Notify_Method_Request_Dispatch_Queueable * result = nullptr;
   ACE_CString textpath;
   CORBA::ULong count;
   if (cdr.read_ulong (count))
@@ -239,7 +239,7 @@ TAO_Notify_Method_Request_Dispatch_No_Copy::execute (void)
 TAO_Notify_Method_Request_Queueable*
 TAO_Notify_Method_Request_Dispatch_No_Copy::copy (void)
 {
-  TAO_Notify_Method_Request_Queueable* request = 0;
+  TAO_Notify_Method_Request_Queueable* request = nullptr;
 
   TAO_Notify_Event::Ptr event_var (
     this->event_->queueable_copy () );

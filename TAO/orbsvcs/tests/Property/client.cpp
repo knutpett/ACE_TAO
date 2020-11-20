@@ -172,7 +172,7 @@ Client::test_get_all_property_names (void)
   // The extra ptr's and out's required to avoind SunnCC's warning
   // when foo.out () is passed to a function.
   CosPropertyService::PropertyNames_var names_var;
-  CosPropertyService::PropertyNames     *names_ptr = 0;
+  CosPropertyService::PropertyNames     *names_ptr = nullptr;
   CosPropertyService::PropertyNames_out names_out (names_ptr);
 
   CosPropertyService::PropertyNamesIterator_var iterator_var;
@@ -255,7 +255,7 @@ Client::test_get_properties (void)
   //names [2] = CORBA::string_dup ("no_property");
 
 
-  CosPropertyService::Properties *properties_ptr = 0;
+  CosPropertyService::Properties *properties_ptr = nullptr;
   CosPropertyService::Properties_out properties_out (properties_ptr);
 
   // Get the properties.
@@ -441,7 +441,7 @@ Client::test_get_all_properties (void)
   CORBA::ULong how_many = 1;
 
   // Helper variables to avoid SunCC warnings.
-  CosPropertyService::Properties *properties_ptr = 0;
+  CosPropertyService::Properties *properties_ptr = nullptr;
   CosPropertyService::Properties_out properties_out (properties_ptr);
   CosPropertyService::PropertiesIterator_ptr iterator_ptr = 0;
   CosPropertyService::PropertiesIterator_out iterator_out (iterator_ptr);
@@ -499,7 +499,7 @@ Client::test_get_all_properties (void)
       if (iterator.ptr () != 0)
         {
           // Helper variables to avoid warnings with .out () in SunCC.
-          CosPropertyService::Property* property_ptr = 0;
+          CosPropertyService::Property* property_ptr = nullptr;
           CosPropertyService::Property_out property_out (property_ptr);
 
           // Call the function.

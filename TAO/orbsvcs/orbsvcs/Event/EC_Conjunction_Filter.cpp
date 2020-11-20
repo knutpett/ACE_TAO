@@ -32,7 +32,7 @@ TAO_EC_Conjunction_Filter::~TAO_EC_Conjunction_Filter (void)
        ++i)
     {
       delete *i;
-      *i = 0;
+      *i = nullptr;
     }
   delete[] this->children_;
   this->children_ = 0;
@@ -149,7 +149,7 @@ TAO_EC_Conjunction_Filter::clear (void)
        j != this->bitvec_ + this->nwords_ - 1;
        ++j)
     {
-      *j = 0;
+      *j = nullptr;
     }
   int b = static_cast<int> (this->n_ % bits_per_word);
   Word last = ~0 << b;

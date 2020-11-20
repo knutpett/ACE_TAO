@@ -365,7 +365,7 @@ TAO_FT_Naming_Manager::set_properties_dynamically (
     const PortableGroup::Properties & overrides)
 {
 
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     group->set_properties_dynamically (overrides);
@@ -383,7 +383,7 @@ TAO_FT_Naming_Manager::get_properties (
   PortableGroup::Properties_var result;
   ACE_NEW_THROW_EX (result, PortableGroup::Properties(), CORBA::NO_MEMORY ());
 
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     group->get_properties (result);
@@ -403,7 +403,7 @@ TAO_FT_Naming_Manager::create_member (
     const PortableGroup::Criteria & the_criteria)
 {
   PortableGroup::ObjectGroup_var result = PortableGroup::ObjectGroup::_nil();
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     group->create_member (the_location, type_id, the_criteria);
@@ -447,7 +447,7 @@ TAO_FT_Naming_Manager::add_member (
   PortableGroup::ObjectGroup_var result = PortableGroup::ObjectGroup::_nil ();
 
   // Find the object group corresponding to this IOGR
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     try {
@@ -502,7 +502,7 @@ TAO_FT_Naming_Manager::remove_member (
   PortableGroup::ObjectGroup_var result = PortableGroup::ObjectGroup::_nil ();
 
   // Find the object group corresponding to this IOGR
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     group->remove_member (the_location);
@@ -537,7 +537,7 @@ TAO_FT_Naming_Manager::locations_of_members (
   PortableGroup::Locations_var result = 0;
 
   // Find the object group corresponding to this IOGR
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     result = group->locations_of_members ();
@@ -577,7 +577,7 @@ TAO_FT_Naming_Manager::get_object_group_id (
     }
 
   PortableGroup::ObjectGroupId result = 0;
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     group->get_object_group_id ();
@@ -612,7 +612,7 @@ TAO_FT_Naming_Manager::get_object_group_ref (
   PortableGroup::ObjectGroup_var result = PortableGroup::ObjectGroup::_nil ();
 
   // Find the object group corresponding to this IOGR
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     result = group->reference ();
@@ -637,7 +637,7 @@ PortableGroup::ObjectGroup_ptr TAO_FT_Naming_Manager::get_object_group_ref_from_
   PortableGroup::ObjectGroup_var result = PortableGroup::ObjectGroup::_nil ();
 
   // Find the object group corresponding to this IOGR
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (group_id, group))
   {
     result = group->reference ();
@@ -673,7 +673,7 @@ TAO_FT_Naming_Manager::get_member_ref (
   CORBA::Object_var result = CORBA::Object::_nil();
 
   // Find the object group corresponding to this IOGR
-  TAO::PG_Object_Group * group = 0;
+  TAO::PG_Object_Group * group = nullptr;
   if (this->group_factory_.find_group (object_group, group))
   {
     result = group->get_member_reference (the_location);

@@ -78,7 +78,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
         ACE_DEBUG ((LM_DEBUG, "We got %d iors\n", ior_strs.size ()));
         IOR_QUEUE::ITERATOR ior_go = ior_strs.begin ();
-        ACE_SString *pior = 0;
+        ACE_SString *pior = nullptr;
          while (ior_go.next (pior) != 0)
            {
              ACE_DEBUG ((LM_DEBUG, "IOR: %s\n", pior->c_str ()));
@@ -88,7 +88,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
         IOR_QUEUE::ITERATOR ior_iter = ior_strs.begin ();
 
-        ACE_SString *ior = 0;
+        ACE_SString *ior = nullptr;
         ior_iter.next (ior);
 
         CORBA::Object_var object_primary;
@@ -162,7 +162,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       }
       else
       {
-        ACE_SString *ior = 0;
+        ACE_SString *ior = nullptr;
         if (ior_strs.get (ior) != 0)
           ACE_ERROR_RETURN ((LM_ERROR,
                              "Unable to extract the only IOR string\n"),

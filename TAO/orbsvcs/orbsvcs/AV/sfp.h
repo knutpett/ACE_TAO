@@ -161,7 +161,7 @@ public:
 
   static int send_message (TAO_AV_Transport *transport,
                            TAO_OutputCDR &stream,
-                           ACE_Message_Block *mb = 0);
+                           ACE_Message_Block *mb = nullptr);
   static int peek_message_type (TAO_AV_Transport *transport,
                                 flowProtocol::MsgType &type);
   static int read_start_message (TAO_AV_Transport *transport,
@@ -222,11 +222,11 @@ public:
 
   virtual int handle_input (void) = 0;
   virtual int send_frame (ACE_Message_Block *frame,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const iovec *iov,
                           int iovcnt,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const char*buf,
                           size_t len);

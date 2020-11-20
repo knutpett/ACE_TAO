@@ -37,7 +37,7 @@ parse_args (int argc, ACE_TCHAR *argv[])
   ACE_Get_Opt get_opts (argc, argv, ACE_TEXT("vo:k:s:t:"));
   int c;
   ACE_TCHAR const *sname = ACE_TEXT("NONE");
-  ACE_TCHAR const *stimeout = 0;
+  ACE_TCHAR const *stimeout = nullptr;
 
   while ((c = get_opts ()) != -1)
     switch (c)

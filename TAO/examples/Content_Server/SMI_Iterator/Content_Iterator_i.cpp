@@ -25,7 +25,7 @@ Content_Iterator_i::next_chunk (CORBA::ULongLong offset,
                                 Web_Server::Chunk_Type_out chunk)
 {
   // Initialize/allocate the Chunk_Type sequence
-  Web_Server::Chunk_Type *tmp = 0;
+  Web_Server::Chunk_Type *tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     Web_Server::Chunk_Type,
                     CORBA::NO_MEMORY ());

@@ -7,7 +7,7 @@
 #include "ace/OS_NS_stdio.h"
 #include "CrashPoint.h"
 
-const ACE_TCHAR *ior_file = 0;
+const ACE_TCHAR *ior_file = nullptr;
 int number = 0;
 int server_number = 0;
 
@@ -51,7 +51,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   try
     {
 #if TAO_HAS_INTERCEPTORS == 1
-      Server_ORBInitializer *temp_initializer = 0;
+      Server_ORBInitializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       Server_ORBInitializer,
                       -1);  // No exceptions yet!

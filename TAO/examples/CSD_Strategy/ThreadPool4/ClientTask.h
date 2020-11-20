@@ -24,7 +24,7 @@ class ClientTask : public ACE_Task_Base
 
     virtual ~ClientTask();
 
-    virtual int open(void* x = 0);
+    virtual int open(void* x = nullptr);
     virtual int svc();
     virtual int close(u_long);
 

@@ -102,10 +102,10 @@ public:
    */
   ACE_Message_Queue (size_t hwm = ACE_Message_Queue_Base::DEFAULT_HWM,
                      size_t lwm = ACE_Message_Queue_Base::DEFAULT_LWM,
-                     ACE_Notification_Strategy *ns = 0);
+                     ACE_Notification_Strategy *ns = nullptr);
   virtual int open (size_t hwm = ACE_Message_Queue_Base::DEFAULT_HWM,
                     size_t lwm = ACE_Message_Queue_Base::DEFAULT_LWM,
-                    ACE_Notification_Strategy *ns = 0);
+                    ACE_Notification_Strategy *ns = nullptr);
   //@}
 
   /// Releases all resources from the message queue and marks it deactivated.
@@ -178,7 +178,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int peek_dequeue_head (ACE_Message_Block *&first_item,
-                                 ACE_Time_Value *timeout = 0);
+                                 ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue an ACE_Message_Block into the queue in accordance with
@@ -199,7 +199,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_prio (ACE_Message_Block *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue an ACE_Message_Block into the queue in accordance with the
@@ -220,7 +220,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_deadline (ACE_Message_Block *new_item,
-                                ACE_Time_Value *timeout = 0);
+                                ACE_Time_Value *timeout = nullptr);
 
   /**
    * @deprecated This is an alias for enqueue_prio().  It's only here for
@@ -228,7 +228,7 @@ public:
    * Please use enqueue_prio() instead.
    */
   virtual int enqueue (ACE_Message_Block *new_item,
-                       ACE_Time_Value *timeout = 0);
+                       ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue one or more ACE_Message_Block objects at the tail of the queue.
@@ -251,7 +251,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_tail (ACE_Message_Block *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue one or more ACE_Message_Block objects at the head of the queue.
@@ -274,11 +274,11 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_head (ACE_Message_Block *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /// This method is an alias for the dequeue_head() method.
   virtual int dequeue (ACE_Message_Block *&first_item,
-                       ACE_Time_Value *timeout = 0);
+                       ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the ACE_Message_Block at the head of the queue and return
@@ -295,7 +295,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_head (ACE_Message_Block *&first_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the ACE_Message_Block that has the lowest priority (preserves
@@ -313,7 +313,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_prio (ACE_Message_Block *&first_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the ACE_Message_Block at the tail of the queue and return
@@ -330,7 +330,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_tail (ACE_Message_Block *&dequeued,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the ACE_Message_Block with the earliest deadline time and return
@@ -347,7 +347,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_deadline (ACE_Message_Block *&dequeued,
-                                ACE_Time_Value *timeout = 0);
+                                ACE_Time_Value *timeout = nullptr);
   //@}
 
   /** @name Queue statistics methods
@@ -814,7 +814,7 @@ public:
    * the queue.
    */
   virtual int dequeue_head (ACE_Message_Block *&first_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /// Dump the state of the queue.
   virtual void dump (void) const;
@@ -826,7 +826,7 @@ public:
    * enqueue or dequeue operation.
    */
   virtual int enqueue_tail (ACE_Message_Block *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Just call priority enqueue method: head enqueue semantics for dynamic
@@ -835,7 +835,7 @@ public:
    * enqueue or dequeue operation.
    */
   virtual int enqueue_head (ACE_Message_Block *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
 
   /// Declare the dynamic allocation hooks.
@@ -912,7 +912,7 @@ private:
 
   /// Private method to hide public base class method: just calls base class method
   virtual int peek_dequeue_head (ACE_Message_Block *&first_item,
-                                 ACE_Time_Value *timeout = 0);
+                                 ACE_Time_Value *timeout = nullptr);
 
 };
 
@@ -966,7 +966,7 @@ public:
   /// Factory method for a wrapped VxWorks message queue
   static ACE_Message_Queue_Vx *
     create_Vx_message_queue (size_t max_messages, size_t max_message_length,
-                             ACE_Notification_Strategy *ns = 0);
+                             ACE_Notification_Strategy *ns = nullptr);
 
 #endif /* defined (ACE_VXWORKS) */
 
@@ -1045,7 +1045,7 @@ public:
    */
   ACE_Message_Queue_Ex (size_t high_water_mark = ACE_Message_Queue_Base::DEFAULT_HWM,
                         size_t low_water_mark = ACE_Message_Queue_Base::DEFAULT_LWM,
-                        ACE_Notification_Strategy * ns = 0);
+                        ACE_Notification_Strategy * ns = nullptr);
   virtual int open (size_t hwm = ACE_Message_Queue_Base::DEFAULT_HWM,
                     size_t lwm = ACE_Message_Queue_Base::DEFAULT_LWM,
                     ACE_Notification_Strategy * = 0);
@@ -1121,7 +1121,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int peek_dequeue_head (ACE_MESSAGE_TYPE *&first_item,
-                                 ACE_Time_Value *timeout = 0);
+                                 ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue an ACE_MESSAGE TYPE into the queue in accordance with
@@ -1141,7 +1141,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_prio (ACE_MESSAGE_TYPE *new_item,
-                            ACE_Time_Value *timeout = 0,
+                            ACE_Time_Value *timeout = nullptr,
                             unsigned long priority = DEFAULT_PRIORITY);
 
   /**
@@ -1149,7 +1149,7 @@ public:
    * time associated with items.
    */
   virtual int enqueue_deadline (ACE_MESSAGE_TYPE *new_item,
-                                ACE_Time_Value *timeout = 0);
+                                ACE_Time_Value *timeout = nullptr);
 
   /**
    * @deprecated This is an alias for enqueue_prio().  It's only here for
@@ -1157,7 +1157,7 @@ public:
    * Please use enqueue_prio() instead.
    */
   virtual int enqueue (ACE_MESSAGE_TYPE *new_item,
-                       ACE_Time_Value *timeout = 0);
+                       ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue an item at the tail of the queue.
@@ -1173,7 +1173,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_tail (ACE_MESSAGE_TYPE *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Enqueue an item at the head of the queue.
@@ -1189,11 +1189,11 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int enqueue_head (ACE_MESSAGE_TYPE *new_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /// This method is an alias for the following <dequeue_head> method.
   virtual int dequeue (ACE_MESSAGE_TYPE *&first_item,
-                       ACE_Time_Value *timeout = 0);
+                       ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the item at the head of the queue and return a pointer to it.
@@ -1209,7 +1209,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_head (ACE_MESSAGE_TYPE *&first_item,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the item that has the lowest priority (preserves
@@ -1227,7 +1227,7 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_prio (ACE_MESSAGE_TYPE *&dequeued,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Dequeue the item at the tail of the queue and return a pointer to it.
@@ -1243,14 +1243,14 @@ public:
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
   virtual int dequeue_tail (ACE_MESSAGE_TYPE *&dequeued,
-                            ACE_Time_Value *timeout = 0);
+                            ACE_Time_Value *timeout = nullptr);
 
   /**
    * Because there's deadline associated with enqueue_deadline(), this
    * method will behave just as dequeue_head().
    */
   virtual int dequeue_deadline (ACE_MESSAGE_TYPE *&dequeued,
-                                ACE_Time_Value *timeout = 0);
+                                ACE_Time_Value *timeout = nullptr);
   //@}
 
   /** @name Queue statistics methods
@@ -1511,7 +1511,7 @@ public:
    */
   ACE_Message_Queue_Ex_N (size_t high_water_mark = ACE_Message_Queue_Base::DEFAULT_HWM,
                           size_t low_water_mark = ACE_Message_Queue_Base::DEFAULT_LWM,
-                          ACE_Notification_Strategy * ns = 0);
+                          ACE_Notification_Strategy * ns = nullptr);
 
   /// Close down the message queue and release all resources.
   virtual ~ACE_Message_Queue_Ex_N (void);
@@ -1536,7 +1536,7 @@ public:
    *            - EWOULDBLOCK: the timeout elapsed
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
-  virtual int enqueue_head (ACE_MESSAGE_TYPE *new_item, ACE_Time_Value *tv = 0);
+  virtual int enqueue_head (ACE_MESSAGE_TYPE *new_item, ACE_Time_Value *tv = nullptr);
 
   /**
    * Enqueue one or more @c ACE_MESSAGE_TYPE objects at the tail of the queue.
@@ -1558,7 +1558,7 @@ public:
    *            - EWOULDBLOCK: the timeout elapsed
    *            - ESHUTDOWN: the queue was deactivated or pulsed
    */
-  virtual int enqueue_tail (ACE_MESSAGE_TYPE *new_item, ACE_Time_Value *tv = 0);
+  virtual int enqueue_tail (ACE_MESSAGE_TYPE *new_item, ACE_Time_Value *tv = nullptr);
 
   /// Declare the dynamic allocation hooks.
   ACE_ALLOC_HOOK_DECLARE;

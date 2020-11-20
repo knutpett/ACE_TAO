@@ -309,8 +309,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * Initiate an asynchronous read operation.
@@ -338,7 +338,7 @@ public:
    */
   int read (ACE_Message_Block &message_block,
             size_t num_bytes_to_read,
-            const void *act = 0,
+            const void *act = nullptr,
             int priority = 0,
             int signal_number = ACE_SIGRTMIN);
 
@@ -349,7 +349,7 @@ public:
   */
   int readv (ACE_Message_Block &message_block,
              size_t num_bytes_to_read,
-             const void *act = 0,
+             const void *act = nullptr,
              int priority = 0,
              int signal_number = ACE_SIGRTMIN);
 #endif /* defined (ACE_HAS_WIN32_OVERLAPPED_IO) */
@@ -457,8 +457,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * Initiates an asynchronous write on a socket. If the operation completes
@@ -492,7 +492,7 @@ public:
    */
   int write (ACE_Message_Block &message_block,
              size_t bytes_to_write,
-             const void *act = 0,
+             const void *act = nullptr,
              int priority = 0,
              int signal_number = ACE_SIGRTMIN);
 
@@ -503,7 +503,7 @@ public:
   */
   int writev (ACE_Message_Block &message_block,
               size_t bytes_to_write,
-              const void *act = 0,
+              const void *act = nullptr,
               int priority = 0,
               int signal_number = ACE_SIGRTMIN);
 #endif /* defined (ACE_HAS_WIN32_OVERLAPPED_IO) */
@@ -615,8 +615,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous read.  Upto {bytes_to_read} will
@@ -635,7 +635,7 @@ public:
             size_t bytes_to_read,
             unsigned long offset = 0,
             unsigned long offset_high = 0,
-            const void *act = 0,
+            const void *act = nullptr,
             int priority = 0,
             int signal_number = ACE_SIGRTMIN);
 
@@ -650,7 +650,7 @@ public:
              size_t bytes_to_read,
              unsigned long offset = 0,
              unsigned long offset_high = 0,
-             const void *act = 0,
+             const void *act = nullptr,
              int priority = 0,
              int signal_number = ACE_SIGRTMIN);
 #endif /* (defined (ACE_WIN32) && !defined (ACE_HAS_WINCE)) */
@@ -749,8 +749,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous write.  Upto {bytes_to_write}
@@ -770,7 +770,7 @@ public:
              size_t bytes_to_write,
              unsigned long offset = 0,
              unsigned long offset_high = 0,
-             const void *act = 0,
+             const void *act = nullptr,
              int priority = 0,
              int signal_number = ACE_SIGRTMIN);
 
@@ -785,7 +785,7 @@ public:
               size_t bytes_to_write,
               unsigned long offset = 0,
               unsigned long offset_high = 0,
-              const void *act = 0,
+              const void *act = nullptr,
               int priority = 0,
               int signal_number = ACE_SIGRTMIN);
 #endif /* (defined (ACE_WIN32) && !defined (ACE_HAS_WINCE)) */
@@ -881,8 +881,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous accept.  The asynchronous accept
@@ -921,7 +921,7 @@ public:
   int accept (ACE_Message_Block &message_block,
               size_t bytes_to_read,
               ACE_HANDLE accept_handle = ACE_INVALID_HANDLE,
-              const void *act = 0,
+              const void *act = nullptr,
               int priority = 0,
               int signal_number = ACE_SIGRTMIN,
               int addr_family = AF_INET);
@@ -1016,8 +1016,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous Connect.
@@ -1026,7 +1026,7 @@ public:
                const ACE_Addr & remote_sap,
                const ACE_Addr & local_sap,
                int  reuse_addr,
-               const void *act=0,
+               const void *act = nullptr,
                int priority = 0,
                int signal_number = ACE_SIGRTMIN);
 
@@ -1122,8 +1122,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous transmit file.  The {file} is a
@@ -1145,13 +1145,13 @@ public:
    * ACE_SIGRTMAX. This argument is a no-op on non-POSIX4 systems.
    */
   int transmit_file (ACE_HANDLE file,
-                     Header_And_Trailer *header_and_trailer = 0,
+                     Header_And_Trailer *header_and_trailer = nullptr,
                      size_t bytes_to_write = 0,
                      unsigned long offset = 0,
                      unsigned long offset_high = 0,
                      size_t bytes_per_send = 0,
                      unsigned long flags = 0,
-                     const void *act = 0,
+                     const void *act = nullptr,
                      int priority = 0,
                      int signal_number = ACE_SIGRTMIN);
 
@@ -1229,18 +1229,18 @@ public:
   {
   public:
     /// Constructor.
-    Header_And_Trailer (ACE_Message_Block *header = 0,
+    Header_And_Trailer (ACE_Message_Block *header = nullptr,
                         size_t header_bytes = 0,
-                        ACE_Message_Block *trailer = 0,
+                        ACE_Message_Block *trailer = nullptr,
                         size_t trailer_bytes = 0);
 
     /// Destructor
     virtual ~Header_And_Trailer (void);
 
     /// This method allows all the member to be set in one fell swoop.
-    void header_and_trailer (ACE_Message_Block *header = 0,
+    void header_and_trailer (ACE_Message_Block *header = nullptr,
                              size_t header_bytes = 0,
-                             ACE_Message_Block *trailer = 0,
+                             ACE_Message_Block *trailer = nullptr,
                              size_t trailer_bytes = 0);
 
     /// Get header which goes before the file data.
@@ -1327,8 +1327,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /** This starts off an asynchronous read.  Upto
    * {message_block->total_size()} will be read and stored in the
@@ -1360,7 +1360,7 @@ public:
                 size_t &number_of_bytes_recvd,
                 int flags,
                 int protocol_family = PF_INET,
-                const void *act = 0,
+                const void *act = nullptr,
                 int priority = 0,
                 int signal_number = ACE_SIGRTMIN);
 
@@ -1460,8 +1460,8 @@ public:
    */
   int open (ACE_Handler &handler,
             ACE_HANDLE handle = ACE_INVALID_HANDLE,
-            const void *completion_key = 0,
-            ACE_Proactor *proactor = 0);
+            const void *completion_key = nullptr,
+            ACE_Proactor *proactor = nullptr);
 
   /** This starts off an asynchronous send.  Upto
    * {message_block->total_length()} will be sent.  {message_block}'s
@@ -1493,7 +1493,7 @@ public:
                 size_t &number_of_bytes_sent,
                 int flags,
                 const ACE_Addr& remote_addr,
-                const void *act = 0,
+                const void *act = nullptr,
                 int priority = 0,
                 int signal_number = ACE_SIGRTMIN);
 
@@ -1614,7 +1614,7 @@ public:
   /// Called when timer expires.  {tv} was the requested time value and
   /// {act} is the ACT passed when scheduling the timer.
   virtual void handle_time_out (const ACE_Time_Value &tv,
-                                const void *act = 0);
+                                const void *act = nullptr);
 
   /**
    * This is method works with the {run_event_loop} of the
@@ -1652,7 +1652,7 @@ public:
   {
   public:
     Proxy (ACE_Handler *handler) : handler_ (handler) {};
-    void reset (void) { this->handler_ = 0; };
+    void reset (void) { this->handler_ = nullptr; };
     ACE_Handler *handler (void) { return this->handler_; };
   private:
     ACE_Handler *handler_;

@@ -36,7 +36,7 @@ public:
   virtual int handle_input (ACE_HANDLE);
   // Receive input from a peer.
 
-  virtual int put (ACE_Message_Block *, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *, ACE_Time_Value *tv = nullptr);
   // Send output to a peer.  Note that this implementation "blocks" if
   // flow control occurs.  This is undesirable for "real"
   // applications.  The best way around this is to make the

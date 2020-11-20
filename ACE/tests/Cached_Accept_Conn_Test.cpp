@@ -209,7 +209,7 @@ cached_connect (STRATEGY_CONNECTOR &con,
 
   // Perform a blocking connect to the server using the Strategy
   // Connector with a connection caching strategy.
-  Client_Svc_Handler *svc_handler = 0;
+  Client_Svc_Handler *svc_handler = nullptr;
   int result = con.connect (svc_handler,
                             remote_addr);
   if (result == -1)
@@ -337,7 +337,7 @@ test_connection_management (CACHING_STRATEGY &caching_strategy)
 void
 test_caching_strategy_type (void)
 {
-  CACHING_STRATEGY *caching_strategy = 0;
+  CACHING_STRATEGY *caching_strategy = nullptr;
 
   switch (caching_strategy_type)
     {

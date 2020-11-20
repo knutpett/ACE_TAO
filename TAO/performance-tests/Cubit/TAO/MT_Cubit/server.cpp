@@ -139,7 +139,7 @@ Server::write_iors (void)
     this->cubits_[j] =
       ACE_OS::strdup (this->low_priority_tasks_[j-1]->get_servant_ior (0));
 
-  FILE *ior_f = 0;
+  FILE *ior_f = nullptr;
 
   if (GLOBALS::instance ()->ior_file != 0)
     ior_f = ACE_OS::fopen (GLOBALS::instance ()->ior_file,

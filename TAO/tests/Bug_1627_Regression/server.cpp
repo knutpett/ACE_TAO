@@ -4,7 +4,7 @@
 
 #include "tao/IORTable/IORTable.h"
 
-const ACE_TCHAR *object_key = 0;
+const ACE_TCHAR *object_key = nullptr;
 const ACE_TCHAR *ior_output_file = ACE_TEXT("server.ior");
 
 int

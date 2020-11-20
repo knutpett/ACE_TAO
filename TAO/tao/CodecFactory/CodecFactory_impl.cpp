@@ -18,8 +18,8 @@ TAO_CodecFactory::TAO_CodecFactory (TAO_ORB_Core * orb_core)
 IOP::Codec_ptr
 TAO_CodecFactory::create_codec_with_codesets (const IOP::Encoding_1_2 & enc)
 {
-  TAO_Codeset_Translator_Base *char_trans = 0;
-  TAO_Codeset_Translator_Base *wchar_trans = 0;
+  TAO_Codeset_Translator_Base *char_trans = nullptr;
+  TAO_Codeset_Translator_Base *wchar_trans = nullptr;
   CONV_FRAME::CodeSetId ncsc;
   CONV_FRAME::CodeSetId ncsw;
 

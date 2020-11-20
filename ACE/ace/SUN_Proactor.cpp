@@ -64,7 +64,7 @@ int
 ACE_SUN_Proactor::handle_events_i (ACE_Time_Value *delta)
 {
   int retval = 0;
-  aio_result_t *result = 0;
+  aio_result_t *result = nullptr;
 
   if (0 == delta)
     {

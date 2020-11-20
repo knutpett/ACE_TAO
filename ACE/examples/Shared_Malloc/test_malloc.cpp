@@ -128,7 +128,7 @@ spawn (void)
           ACE_OS::sprintf (msg_size, "%lu",
                            (unsigned long)
                              Options::instance ()->max_msg_size ());
-          const char *cp = 0;
+          const char *cp = nullptr;
 
           if (Options::instance ()->debug ())
             cp = "-d";

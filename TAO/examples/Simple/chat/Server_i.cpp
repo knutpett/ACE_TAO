@@ -17,7 +17,7 @@
 Server_i::Server_i ()
   : ior_file_name_ (ACE_TEXT ("chat.ior"))
 {
-  Broadcaster_i *tmp = 0;
+  Broadcaster_i *tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     Broadcaster_i (),
                     CORBA::NO_MEMORY ());

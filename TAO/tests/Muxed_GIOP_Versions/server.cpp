@@ -2,7 +2,7 @@
 #include "ace/Get_Opt.h"
 #include "ace/Task.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 const ACE_TCHAR *corbaloc_arg = ACE_TEXT("corbaloc:iiop:1.0@localhost:12000/ObjectName");
 int niterations = 5;
 
@@ -137,7 +137,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Simple_Server_i *server_impl = 0;
+      Simple_Server_i *server_impl = nullptr;
       ACE_NEW_RETURN (server_impl,
                       Simple_Server_i (orb.in ()),
                       -1);

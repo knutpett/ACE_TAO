@@ -60,7 +60,7 @@ public:
   virtual int cancel_timer (ACE_Event_Handler *handler,
                             int dont_call_handle_close = 1);
   virtual int cancel_timer (long timer_id,
-                            const void **arg = 0,
+                            const void **arg = nullptr,
                             int dont_call_handle_close = 1);
 
 protected:

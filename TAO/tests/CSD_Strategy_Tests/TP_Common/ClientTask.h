@@ -27,7 +27,7 @@ class CSD_TP_Test_Export ClientTask : public ACE_Task_Base
 
     void add_engine(ClientEngine* engine);
 
-    virtual int open(void* arg = 0);
+    virtual int open(void* arg = nullptr);
     virtual int svc();
     virtual int close(u_long);
 

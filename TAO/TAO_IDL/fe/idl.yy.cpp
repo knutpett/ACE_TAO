@@ -506,7 +506,7 @@ struct yy_buffer_state
 /* Stack of input buffers. */
 static size_t yy_buffer_stack_top = 0; /**< index of top of stack. */
 static size_t yy_buffer_stack_max = 0; /**< capacity of stack. */
-static YY_BUFFER_STATE * yy_buffer_stack = 0; /**< Stack as an array. */
+static YY_BUFFER_STATE * yy_buffer_stack = nullptr; /**< Stack as an array. */
 
 /* We provide macros for accessing buffer states in case in the
  * future we want to put the buffer states in a more general
@@ -528,7 +528,7 @@ static int yy_n_chars;        /* number of characters read into yy_ch_buf */
 int yyleng;
 
 /* Points to current character in buffer. */
-static char *yy_c_buf_p = 0;
+static char *yy_c_buf_p = nullptr;
 static int yy_init = 0;        /* whether we need to initialize */
 static int yy_start = 0;    /* start state number */
 
@@ -582,7 +582,7 @@ void yyfree ( void *  );
 /* Begin user sect3 */
 typedef flex_uint8_t YY_CHAR;
 
-FILE *yyin = 0, *yyout = 0;
+FILE *yyin = nullptr, *yyout = nullptr;
 
 typedef int yy_state_type;
 
@@ -1965,7 +1965,7 @@ YY_RULE_SETUP
   // regular expression is to handle EBCDIC, as well as ASCII.
 
   TAO_IDL_CPP_Keyword_Table cpp_key_tbl;
-  const TAO_IDL_CPP_Keyword_Entry *entry = 0;
+  const TAO_IDL_CPP_Keyword_Entry *entry = nullptr;
   if (!idl_global->preserve_cpp_keywords())
     {
       // This check will ensure that escaped C++ keywords will be
@@ -3340,8 +3340,8 @@ static void
 idl_parse_line_and_file (char *buf)
 {
   char *r = buf;
-  char *h = 0;
-  UTL_String *nm = 0;
+  char *h = nullptr;
+  UTL_String *nm = nullptr;
 
   // Skip initial '#'.
   if (*r != '#')
@@ -3394,7 +3394,7 @@ idl_parse_line_and_file (char *buf)
     }
 
   *r = 0;
-  UTL_String *tmp = 0;
+  UTL_String *tmp = nullptr;
 
   if (*h == '\0')
     {
@@ -3562,7 +3562,7 @@ idl_store_pragma (char *buf)
           // We replace the prefix only if there is a prefix already
           // associated with this file, otherwise we add the prefix.
           char *ext_id = idl_global->filename ()->get_string ();
-          ACE_Hash_Map_Entry<char *, char *> *entry = 0;
+          ACE_Hash_Map_Entry<char *, char *> *entry = nullptr;
           int const status =
             idl_global->file_prefixes ().find (ext_id, entry);
 
@@ -3570,7 +3570,7 @@ idl_store_pragma (char *buf)
             {
               if (ACE_OS::strcmp (entry->int_id_, "") != 0)
                 {
-                  char *trash = 0;
+                  char *trash = nullptr;
                   idl_global->pragma_prefixes ().pop (trash);
                   delete [] trash;
                 }
@@ -4175,7 +4175,7 @@ idl_get_pragma_string (char *pragma)
     }
 
   int len = static_cast<int> (end - start);
-  char *retval = 0;
+  char *retval = nullptr;
 
   ACE_NEW_RETURN (retval,
                   char[len + 1],
@@ -4247,7 +4247,7 @@ static AST_Decl *
 idl_find_node (const char *s)
 {
   UTL_ScopedName * node = FE_Utils::string_to_scoped_name (s);
-  AST_Decl * d = 0;
+  AST_Decl * d = nullptr;
 
   if (node != 0)
     {

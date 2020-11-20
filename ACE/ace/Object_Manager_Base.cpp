@@ -28,7 +28,7 @@ int ACE_SEH_Default_Exception_Handler (void *)
 #if defined (ACE_HAS_ALLOC_HOOKS)
 # define ACE_OS_PREALLOCATE_OBJECT(TYPE, ID)\
     {\
-      TYPE *obj_p = 0;\
+      TYPE *obj_p = nullptr;\
       ACE_ALLOCATOR_RETURN (obj_p, static_cast<TYPE *>(ACE_Allocator::instance()->malloc(sizeof(TYPE))), -1); \
       preallocated_object[ID] = (void *) obj_p;\
     }
@@ -38,7 +38,7 @@ int ACE_SEH_Default_Exception_Handler (void *)
 #else
 # define ACE_OS_PREALLOCATE_OBJECT(TYPE, ID)\
     {\
-      TYPE *obj_p = 0;\
+      TYPE *obj_p = nullptr;\
       ACE_NEW_RETURN (obj_p, TYPE, -1);\
       preallocated_object[ID] = (void *) obj_p;\
     }
@@ -189,7 +189,7 @@ ACE_OS_Object_Manager::instance (void)
 
   if (instance_ == 0)
     {
-      ACE_OS_Object_Manager *instance_pointer = 0;
+      ACE_OS_Object_Manager *instance_pointer = nullptr;
 
       ACE_NEW_RETURN (instance_pointer,
                       ACE_OS_Object_Manager,
@@ -461,7 +461,7 @@ ACE_OS_Object_Manager::print_error_message (unsigned int line_number,
   ACE_UNUSED_ARG (line_number);
   ACE_UNUSED_ARG (message);
 
-  ACE_TCHAR *lpMsgBuf = 0;
+  ACE_TCHAR *lpMsgBuf = nullptr;
   ::FormatMessage (FORMAT_MESSAGE_ALLOCATE_BUFFER |
                    FORMAT_MESSAGE_FROM_SYSTEM,
                    0,

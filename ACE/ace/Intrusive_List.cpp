@@ -15,8 +15,8 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 template <class T>
 ACE_Intrusive_List<T>::ACE_Intrusive_List (void)
-  : head_ (0)
-  , tail_ (0)
+  : head_ (nullptr)
+  , tail_ (nullptr)
 {
 }
 
@@ -28,18 +28,18 @@ ACE_Intrusive_List<T>::~ACE_Intrusive_List (void)
 template<class T> void
 ACE_Intrusive_List<T>::push_back (T *node)
 {
-  if (this->tail_ == 0)
+  if (this->tail_ == nullptr)
     {
       this->tail_ = node;
       this->head_ = node;
-      node->next (0);
-      node->prev (0);
+      node->next (nullptr);
+      node->prev (nullptr);
     }
   else
     {
       this->tail_->next (node);
       node->prev (this->tail_);
-      node->next (0);
+      node->next (nullptr);
       this->tail_ = node;
     }
 }
@@ -47,18 +47,18 @@ ACE_Intrusive_List<T>::push_back (T *node)
 template<class T> void
 ACE_Intrusive_List<T>::push_front (T *node)
 {
-  if (this->head_ == 0)
+  if (this->head_ == nullptr)
     {
       this->tail_ = node;
       this->head_ = node;
-      node->next (0);
-      node->prev (0);
+      node->next (nullptr);
+      node->prev (nullptr);
     }
   else
     {
       this->head_->prev (node);
       node->next (this->head_);
-      node->prev (0);
+      node->prev (nullptr);
       this->head_ = node;
     }
 }
@@ -67,7 +67,7 @@ template<class T> T *
 ACE_Intrusive_List<T>::pop_front (void)
 {
   T *node = this->head_;
-  if (node != 0)
+  if (node != nullptr)
     {
       this->unsafe_remove (node);
     }
@@ -78,7 +78,7 @@ template<class T> T *
 ACE_Intrusive_List<T>::pop_back (void)
 {
   T *node = this->tail_;
-  if (node != 0)
+  if (node != nullptr)
     {
       this->unsafe_remove (node);
     }
@@ -88,7 +88,7 @@ ACE_Intrusive_List<T>::pop_back (void)
 template<class T> void
 ACE_Intrusive_List<T>::remove (T *node)
 {
-  for (T *i = this->head_; i != 0; i = i->next ())
+  for (T *i = this->head_; i != nullptr; i = i->next ())
     {
       if (node == i)
         {
@@ -101,18 +101,18 @@ ACE_Intrusive_List<T>::remove (T *node)
 template<class T> void
 ACE_Intrusive_List<T>::unsafe_remove (T *node)
 {
-  if (node->prev () != 0)
+  if (node->prev () != nullptr)
     node->prev ()->next (node->next ());
   else
     this->head_ = node->next ();
 
-  if (node->next () != 0)
+  if (node->next () != nullptr)
     node->next ()->prev (node->prev ());
   else
     this->tail_ = node->prev ();
 
-  node->next (0);
-  node->prev (0);
+  node->next (nullptr);
+  node->prev (nullptr);
 }
 
 ACE_END_VERSIONED_NAMESPACE_DECL

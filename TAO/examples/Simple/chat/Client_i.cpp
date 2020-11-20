@@ -23,7 +23,7 @@ Client_i::Client_i ()
   , ior_file_name_ (ACE_TEXT ("chat.ior"))
   , nickname_ ("noname")
 {
-  Receiver_i *tmp = 0;
+  Receiver_i *tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     Receiver_i (),
                     CORBA::NO_MEMORY ());

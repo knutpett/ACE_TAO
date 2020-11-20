@@ -21,7 +21,7 @@ TAO_FT_Service_Activate::~TAO_FT_Service_Activate (void)
 TAO_Service_Callbacks *
 TAO_FT_Service_Activate::activate_services (TAO_ORB_Core *orb_core)
 {
-  TAO_FT_Service_Callbacks *ft_service_callback = 0;
+  TAO_FT_Service_Callbacks *ft_service_callback = nullptr;
 
   // Construct service callback object
   ACE_NEW_RETURN (ft_service_callback,

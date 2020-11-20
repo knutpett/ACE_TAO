@@ -184,7 +184,7 @@ be_visitor_sequence_any_op_cs::visit_sequence (be_sequence *node)
   // for the TypeCode to pass to the Any operator impls.
   be_typedef *td = this->ctx_->tdef ();
 
-  be_module *module = 0;
+  be_module *module = nullptr;
   if (node->is_nested ())
     {
       AST_Decl *d = node;

@@ -57,7 +57,7 @@ TAO_Dynamic_Hash_OpTable::~TAO_Dynamic_Hash_OpTable (void)
   // these are strings.
   OP_MAP_MANAGER::ITERATOR iterator (this->hash_);
 
-  for (OP_MAP_MANAGER::ENTRY *entry = 0;
+  for (OP_MAP_MANAGER::ENTRY *entry = nullptr;
        iterator.next (entry) != 0;
        iterator.advance ())
     {

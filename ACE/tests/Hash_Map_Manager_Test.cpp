@@ -195,7 +195,7 @@ run_test (void)
                          ACE_TEXT ("bind"),
                          string_table[i].key_), -1);
 
-  const ACE_TCHAR *entry = 0;
+  const ACE_TCHAR *entry = nullptr;
 
   // Check the <find> operation.
   for (i = 0; string_table[i].key_ != 0; i++)
@@ -227,7 +227,7 @@ run_test (void)
 
   // Let's test the iterator while we are at it.
   {
-    HASH_STRING_ENTRY *entry = 0;
+    HASH_STRING_ENTRY *entry = nullptr;
     size_t i = 0;
 
     for (HASH_STRING_ITER hash_iter (hash);
@@ -245,7 +245,7 @@ run_test (void)
 
   // And now test the const iterator
   {
-    HASH_STRING_ENTRY *entry = 0;
+    HASH_STRING_ENTRY *entry = nullptr;
     size_t i = 0;
 
     for (HASH_STRING_CONST_ITER hash_iter (hash);
@@ -279,7 +279,7 @@ run_test (void)
 
   // Let's test the iterator backwards.
   {
-    HASH_STRING_ENTRY *entry = 0;
+    HASH_STRING_ENTRY *entry = nullptr;
     size_t i = 0;
 
     for (HASH_STRING_REVERSE_ITER hash_iter (hash);

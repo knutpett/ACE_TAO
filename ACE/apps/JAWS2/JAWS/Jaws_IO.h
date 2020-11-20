@@ -57,7 +57,7 @@ public:
 
   /// accept a passive connection
   virtual void accept (JAWS_IO_Handler *ioh,
-                       ACE_Message_Block *mb = 0,
+                       ACE_Message_Block *mb = nullptr,
                        unsigned int size = 0) = 0;
 
   /// read from the handle size bytes into the message block.
@@ -118,7 +118,7 @@ public:
   virtual ~JAWS_Synch_IO (void);
 
   virtual void accept (JAWS_IO_Handler *ioh,
-                       ACE_Message_Block *mb = 0,
+                       ACE_Message_Block *mb = nullptr,
                        unsigned int size = 0);
 
   virtual void read (JAWS_IO_Handler *ioh,
@@ -178,7 +178,7 @@ public:
   virtual ~JAWS_Asynch_IO (void);
 
   virtual void accept (JAWS_IO_Handler *ioh,
-                       ACE_Message_Block *mb = 0,
+                       ACE_Message_Block *mb = nullptr,
                        unsigned int size = 0);
 
   virtual void read (JAWS_IO_Handler *ioh,
@@ -245,7 +245,7 @@ class JAWS_Export JAWS_Asynch2_IO : public JAWS_Asynch_IO
 public:
   /// does nothing
   virtual void accept (JAWS_IO_Handler *ioh,
-                       ACE_Message_Block *mb = 0,
+                       ACE_Message_Block *mb = nullptr,
                        unsigned int size = 0);
 
 };

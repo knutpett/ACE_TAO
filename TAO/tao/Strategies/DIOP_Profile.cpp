@@ -69,7 +69,7 @@ TAO_DIOP_Profile::~TAO_DIOP_Profile (void)
 {
   // Clean up the list of endpoints since we own it.
   // Skip the head, since it is not dynamically allocated.
-  TAO_Endpoint *tmp = 0;
+  TAO_Endpoint *tmp = nullptr;
 
   for (TAO_Endpoint *next = this->endpoint ()->next ();
        next != 0;
@@ -379,7 +379,7 @@ TAO_DIOP_Profile::to_string (void) const
        ACE_OS::strlen (::the_prefix) /* "diop" */ +
        1 /* colon separator */);
 
- const TAO_DIOP_Endpoint *endp = 0;
+ const TAO_DIOP_Endpoint *endp = nullptr;
  for (endp = &this->endpoint_; endp != 0; endp = endp->next_)
    {
       buflen += (
@@ -592,7 +592,7 @@ TAO_DIOP_Profile::decode_endpoints (void)
            i > 0;
            --i)
         {
-          TAO_DIOP_Endpoint *endpoint = 0;
+          TAO_DIOP_Endpoint *endpoint = nullptr;
           ACE_NEW_RETURN (endpoint,
                           TAO_DIOP_Endpoint (endpoints[i].host,
                                              endpoints[i].port,

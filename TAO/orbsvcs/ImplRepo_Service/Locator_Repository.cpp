@@ -305,7 +305,7 @@ Locator_Repository::unregister_if_address_reused (const ACE_CString& fqname,
       poa_name = si->active_info ()->poa_name;
     }
 
-  Locator_Repository::SIMap::ENTRY* sientry = 0;
+  Locator_Repository::SIMap::ENTRY* sientry = nullptr;
   Locator_Repository::SIMap::ITERATOR siit (servers ());
   for (; siit.next (sientry); siit.advance() )
   {
@@ -349,7 +349,7 @@ Locator_Repository::add_server
   (const ACE_CString& fqname,
    const ImplementationRepository::StartupOptions & options)
 {
-  Server_Info *si = 0;
+  Server_Info *si = nullptr;
   ACE_NEW_RETURN (si,
                   Server_Info (fqname,
                                options.activator.in (),
@@ -369,7 +369,7 @@ Locator_Repository::add_server
    const ACE_CString& ior,
    ImplementationRepository::ServerObject_ptr srvobj)
 {
-  Server_Info *si = 0;
+  Server_Info *si = nullptr;
   ACE_NEW_RETURN (si,
                   Server_Info (fqname, "", "",
                                ImplementationRepository::EnvironmentList (),
@@ -443,7 +443,7 @@ Locator_Repository::notify_remote_access (const char *,
 Server_Info_Ptr
 Locator_Repository::find_by_poa (const ACE_CString & name)
 {
-  Locator_Repository::SIMap::ENTRY* sientry = 0;
+  Locator_Repository::SIMap::ENTRY* sientry = nullptr;
   Locator_Repository::SIMap::ITERATOR siit (servers ());
   for (; siit.next (sientry); siit.advance() )
   {
@@ -579,7 +579,7 @@ Locator_Repository::link_peers (Server_Info_Ptr base,
   for (CORBA::ULong i = 0; i < p.length(); i++)
     {
       base->peers[len + i] =  p[i];
-      Server_Info *si = 0;
+      Server_Info *si = nullptr;
       ACE_CString peer(p[i]);
       ACE_NEW_RETURN (si,
                       Server_Info (base->server_id, peer, base->is_jacorb, base),
@@ -629,7 +629,7 @@ Locator_Repository::remove_activator (const ACE_CString& name)
       return ret;
     }
 
-  Locator_Repository::SIMap::ENTRY* sientry = 0;
+  Locator_Repository::SIMap::ENTRY* sientry = nullptr;
   Locator_Repository::SIMap::ITERATOR siit (servers ());
   for (; siit.next (sientry); siit.advance() )
   {

@@ -223,7 +223,7 @@ Task::svc (void)
                               poa_manager.in (),
                               policies);
 
-      test_i *servant = 0;
+      test_i *servant = nullptr;
       ACE_NEW_THROW_EX (servant,
                         test_i (this->orb_.in (),
                                 poa.in ()),

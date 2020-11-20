@@ -5,7 +5,7 @@
 #include "tao/ORBInitializer_Registry.h"
 #include "ace/OS_NS_stdio.h"
 
-const ACE_TCHAR *ior_file = 0;
+const ACE_TCHAR *ior_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -42,7 +42,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
   try
     {
-      Server_ORBInitializer *temp_initializer = 0;
+      Server_ORBInitializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       Server_ORBInitializer,
                       -1);  // No exceptions yet!

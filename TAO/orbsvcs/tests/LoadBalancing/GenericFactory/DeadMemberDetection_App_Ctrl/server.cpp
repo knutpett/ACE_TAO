@@ -76,7 +76,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       else if (lb_server.get_object_group () == -1)
         return 1;
 
-      const char ** location = 0;
+      const char ** location = nullptr;
 
       switch (server_id)
       {
@@ -119,7 +119,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       if (server_id == 2)
         {
-          Basic *direct_basic_servant = 0;
+          Basic *direct_basic_servant = nullptr;
 
           ACE_NEW_RETURN (direct_basic_servant,
                           Basic (server_id),

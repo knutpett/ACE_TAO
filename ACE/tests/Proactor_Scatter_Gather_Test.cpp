@@ -75,7 +75,7 @@ enum
 static int allocate_chunks_chain (ACE_Message_Block *&head_mb,
                                   size_t number_of_chunks)
 {
-  ACE_Message_Block *pre_mb = 0;
+  ACE_Message_Block *pre_mb = nullptr;
 
   for (size_t index = 0; index < number_of_chunks; ++index)
     {
@@ -201,7 +201,7 @@ add_to_chunks_chain (ACE_Message_Block *&chunks_chain,
     chunks_chain = additional_chunks_chain;
   else
     {
-      ACE_Message_Block *last = 0;
+      ACE_Message_Block *last = nullptr;
       last_chunk (chunks_chain, last);
       if (last)
         last->cont (additional_chunks_chain);
@@ -215,7 +215,7 @@ remove_empty_chunks (ACE_Message_Block *&chunks_chain)
     return;
 
   ACE_Message_Block *first_empty = chunks_chain;
-  ACE_Message_Block *pre_mb = 0;
+  ACE_Message_Block *pre_mb = nullptr;
 
   while (first_empty->length () > 0 &&
          0 != first_empty->cont ())
@@ -274,7 +274,7 @@ class Receiver : public ACE_Service_Handler
   friend class Writer;
 
 public:
-  Receiver  (Acceptor *acceptor = 0, int index = -1);
+  Receiver  (Acceptor *acceptor = nullptr, int index = -1);
   virtual ~Receiver (void);
 
   //FUZZ: disable check_for_lack_ACE_OS
@@ -444,7 +444,7 @@ Receiver::initiate_read_stream (void)
                                  : ACE_IOV_MAX / RECEIVERS);
 
   // allocate chunks chain
-  ACE_Message_Block *head_mb = 0;
+  ACE_Message_Block *head_mb = nullptr;
   if (-1 == allocate_chunks_chain (head_mb, number_of_new_chunks))
     {
       ACE_TEST_ASSERT (0);
@@ -731,7 +731,7 @@ int
 Writer::initiate_write_file (void)
 {
   // find out how much can we merge
-  ACE_Message_Block *dummy_last = 0;
+  ACE_Message_Block *dummy_last = nullptr;
   size_t odd_count  = last_chunk (this->odd_chain_, dummy_last);
   size_t even_count = last_chunk (this->even_chain_, dummy_last);
 
@@ -784,7 +784,7 @@ Writer::initiate_write_file (void)
 
   // locate the place for detachment in the chains
   ACE_Message_Block *pre_odd  = 0;
-  ACE_Message_Block *pre_even = 0;
+  ACE_Message_Block *pre_even = nullptr;
   for (size_t index = 0; index < merge_size; ++index)
     {
       pre_odd = new_odd_chain_head;
@@ -917,7 +917,7 @@ class Sender : public ACE_Service_Handler
   friend class Connector;
 public:
 
-  Sender  (Connector *connector = 0, int index = -1);
+  Sender  (Connector *connector = nullptr, int index = -1);
 
   virtual ~Sender (void);
 
@@ -1171,7 +1171,7 @@ Sender::initiate_read_file (void)
       return 0;
     }
 
-  ACE_Message_Block *head_mb = 0;
+  ACE_Message_Block *head_mb = nullptr;
   if (-1 == allocate_chunks_chain (head_mb, relevant_number_of_chunks))
     {
       ACE_TEST_ASSERT (0);

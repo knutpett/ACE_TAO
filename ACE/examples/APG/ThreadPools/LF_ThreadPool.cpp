@@ -100,7 +100,7 @@ LF_ThreadPool::svc (void)
     {
       become_leader ();  // Block until this thread is the leader.
 
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       ACE_Time_Value tv (LONG_TIME);
       tv += ACE_OS::gettimeofday ();
 
@@ -222,7 +222,7 @@ int ACE_TMAIN (int, ACE_TCHAR *[])
   ACE_OS::sleep (2);
   ACE_Time_Value tv (1L);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   for (int i = 0; i < 30; i++)
     {
       ACE_NEW_RETURN (mb, ACE_Message_Block (sizeof(int)), -1);

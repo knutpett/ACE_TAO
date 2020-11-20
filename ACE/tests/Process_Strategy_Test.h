@@ -75,7 +75,7 @@ public:
 
   // Constructor
   Process_Strategy (size_t n_processes = 1,
-                    ACE_Event_Handler *acceptor = 0,
+                    ACE_Event_Handler *acceptor = nullptr,
                     ACE_Reactor * = 0,
                     int flags = 0);
 
@@ -85,7 +85,7 @@ public:
   // Overwrite the process creation method to include connection
   // counting
   virtual int activate_svc_handler (Counting_Service *svc_handler,
-                                    void *arg = 0);
+                                    void *arg = nullptr);
 };
 
 /**

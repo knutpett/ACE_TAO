@@ -22,7 +22,7 @@
 static SM_Client *
 make_client (void)
 {
-  SM_Client *client = 0;
+  SM_Client *client = nullptr;
 
   if (Options::get_opt (Options::REMOTE_USAGE) == 0)
     ACE_NEW_RETURN (client,

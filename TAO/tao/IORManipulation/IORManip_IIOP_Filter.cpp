@@ -123,7 +123,7 @@ TAO_IORManip_IIOP_Filter::filter_and_add (TAO_Profile* profile,
               }
             else
               {
-                TAO_IIOP_Endpoint *endpoint = 0;
+                TAO_IIOP_Endpoint *endpoint = nullptr;
                 ACE_NEW_NORETURN (endpoint,
                                    TAO_IIOP_Endpoint (endpoints[i].host,
                                                       endpoints[i].port,
@@ -227,7 +227,7 @@ TAO_IIOP_Profile*
 TAO_IORManip_IIOP_Filter::create_profile (TAO_Profile* profile)
 {
   ACE_INET_Addr addr;
-  TAO_IIOP_Profile* new_profile = 0;
+  TAO_IIOP_Profile* new_profile = nullptr;
   ACE_NEW_THROW_EX (new_profile,
                    TAO_IIOP_Profile (addr,
                                      profile->object_key (),

@@ -360,7 +360,7 @@ int
 Counting_Service::handle_input (ACE_HANDLE)
 {
   char buf[BUFSIZ];
-  ACE_Time_Value* timeout = 0;
+  ACE_Time_Value* timeout = nullptr;
 #if defined (__hpux)
   // Even though we're in handle_input, there seems to be a
   // situation on HP-UX where there is nothing to recv just yet.
@@ -488,7 +488,7 @@ client (void *arg)
   ACE_SOCK_Connector connector;
 
   char buf[BUFSIZ];
-  const char *command = 0;
+  const char *command = nullptr;
   size_t command_len;
   size_t i;
 

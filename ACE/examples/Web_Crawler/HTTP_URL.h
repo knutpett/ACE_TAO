@@ -36,7 +36,7 @@ public:
    * print out more meaningful messages.
    */
   HTTP_URL (const ACE_URL_Addr &url_addr,
-            HTTP_URL *containing_page = 0);
+            HTTP_URL *containing_page = nullptr);
 
   /**
    * Accept the visitor, which will then perform a particular

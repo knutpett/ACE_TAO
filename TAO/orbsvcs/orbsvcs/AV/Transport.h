@@ -131,7 +131,7 @@ public:
   void callback (TAO_AV_Callback *callback);
 
   /// Handle timeout. called from reactor.
-  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg = 0);
+  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg = nullptr);
 
   /// set the remote address.
   virtual int set_remote_address (ACE_Addr *address);
@@ -173,33 +173,33 @@ public:
   virtual ACE_Addr *get_peer_addr (void) = 0;
   virtual ACE_Addr *get_local_addr (void);
   virtual ssize_t send (const ACE_Message_Block *mblk,
-                        ACE_Time_Value *s = 0) = 0;
+                        ACE_Time_Value *s = nullptr) = 0;
 
   /// Write the contents of the buffer of length len to the connection.
   virtual ssize_t send (const char *buf,
                         size_t len,
-                        ACE_Time_Value *s = 0) = 0;
+                        ACE_Time_Value *s = nullptr) = 0;
 
   /// Write the contents of iovcnt iovec's to the connection.
   virtual ssize_t send (const iovec *iov,
                         int iovcnt,
-                        ACE_Time_Value *s = 0) = 0;
+                        ACE_Time_Value *s = nullptr) = 0;
 
   /// Read len bytes from into buf.
   virtual ssize_t recv (char *buf,
                         size_t len,
-                        ACE_Time_Value *s = 0) = 0;
+                        ACE_Time_Value *s = nullptr) = 0;
 
   /// Read len bytes from into buf using flags.
   virtual ssize_t recv (char *buf,
                         size_t len,
                         int flags,
-                        ACE_Time_Value *s = 0) = 0;
+                        ACE_Time_Value *s = nullptr) = 0;
 
   ///  Read received data into the iovec buffers.
   virtual ssize_t recv (iovec *iov,
                         int iovcnt,
-                        ACE_Time_Value *s = 0) = 0;
+                        ACE_Time_Value *s = nullptr) = 0;
 
 };
 

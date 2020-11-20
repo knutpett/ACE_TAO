@@ -143,7 +143,7 @@ sigemptyset (sigset_t *s)
       errno = EFAULT;
       return -1;
     }
-  *s = 0 ;
+  *s = nullptr ;
   return 0;
 #else
   return ace_sigemptyset_helper (s);
@@ -197,7 +197,7 @@ ACE_INLINE ACE_SignalHandler
 signal (int signum, ACE_SignalHandler func)
 {
   if (signum == 0)
-    return 0;
+    return nullptr;
   else
 #if (defined ACE_WIN32 && !defined ACE_HAS_WINCE) || \
     (!defined ACE_LACKS_UNIX_SIGNALS && !defined ACE_LACKS_SIGNAL)
@@ -233,7 +233,7 @@ sigsuspend (const sigset_t *s)
 #if defined (ACE_HAS_SIGSUSPEND)
   sigset_t sigset;
 
-  if (s == 0)
+  if (s == nullptr)
     {
       ACE_OS::sigemptyset (&sigset);
       s = &sigset;

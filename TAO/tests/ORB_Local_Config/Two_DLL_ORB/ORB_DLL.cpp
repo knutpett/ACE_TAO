@@ -63,14 +63,14 @@ Service_Config_ORB_DLL::init (int argc, ACE_TCHAR *argv[])
     }
   temp_argv[argc] = 0;
 
-  ACE_ARGV* tmp = 0;
+  ACE_ARGV* tmp = nullptr;
   ACE_NEW_RETURN (tmp, ACE_ARGV (temp_argv), -1);
   this->argv_.reset (tmp);
   for (int i = 0; i < argc; i++)
     delete [] temp_argv[i];
   delete [] temp_argv;
 
-  Abstract_Worker* worker = 0;
+  Abstract_Worker* worker = nullptr;
   if (this->is_server_)
   {
     ACE_NEW_RETURN (worker, Server_Worker, -1);

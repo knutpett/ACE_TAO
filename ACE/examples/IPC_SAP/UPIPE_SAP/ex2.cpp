@@ -128,7 +128,7 @@ consumer (void *)
 
   int received_messages = 0;
 
-  for (ACE_Message_Block *mb = 0;
+  for (ACE_Message_Block *mb = nullptr;
        c_stream.recv (mb) != -1 && mb->size () != 0;
        mb->release ())
     received_messages++;

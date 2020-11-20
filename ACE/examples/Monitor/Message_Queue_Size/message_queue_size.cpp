@@ -75,7 +75,7 @@ ACE_TMAIN (int /* argc */, ACE_TCHAR * /* argv */ [])
 
   /// The message string is 11 bytes long so the message queue will
   /// grow and shrink in 11-byte increments.
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   const char *msg = "Hidely Ho!";
 
   /// Run the monitor checker in a separate thread.

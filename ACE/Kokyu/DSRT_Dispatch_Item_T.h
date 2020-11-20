@@ -77,7 +77,7 @@ namespace Kokyu
   public:
     explicit
     DSRT_Dispatch_Item_var (DSRT_Dispatch_Item<DSRT_Scheduler_Traits>
-                            *p = 0);
+                            *p = nullptr);
 
     DSRT_Dispatch_Item_var (
          const DSRT_Dispatch_Item_var<DSRT_Scheduler_Traits> &r);

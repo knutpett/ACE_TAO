@@ -171,7 +171,7 @@ namespace ACE
                                                          const PostData& post_data);
 
               virtual std::istream& handle_put_request (const URL& url,
-                                                        std::istream* put_data = 0);
+                                                        std::istream* put_data = nullptr);
 */
 
               class ACE_INET_Export HttpConnectionKey

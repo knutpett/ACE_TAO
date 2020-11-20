@@ -592,7 +592,7 @@ CORBA::ValueBase::_tao_unmarshal_value_indirection (TAO_InputCDR &strm,
           TAOLIB_DEBUG ((LM_DEBUG, ACE_TEXT ("TAO (%P|%t) ValueBase::_tao_unmarshal_value_indirection, %x=%x\n"), it->ext_id_, it->int_id_));
         }
     }
-  void * v = 0;
+  void * v = nullptr;
   if (strm.get_value_map()->get()->find (pos, v) != 0)
     {
       TAOLIB_DEBUG ((LM_DEBUG,
@@ -696,7 +696,7 @@ CORBA::ValueBase::_tao_write_special_value (TAO_OutputCDR &strm,
     // value indirection
 
     VERIFY_MAP (TAO_OutputCDR, value_map, Value_Map);
-    char* pos = 0;
+    char* pos = nullptr;
     if (strm.get_value_map ()->get()->find (
       reinterpret_cast<void*>(const_cast <CORBA::ValueBase *> (value)), pos) == 0)
     {
@@ -852,7 +852,7 @@ CORBA::ValueBase::_tao_write_repository_id (TAO_OutputCDR &strm,
 #ifdef TAO_HAS_VALUETYPE_OUT_INDIRECTION
 
   VERIFY_MAP (TAO_OutputCDR, repo_id_map, Repo_Id_Map);
-  char* pos = 0;
+  char* pos = nullptr;
   if (strm.get_repo_id_map ()->get()->find (id, pos) == 0)
   {
     if (!strm.write_long (TAO_OBV_GIOP_Flags::Indirection_tag))

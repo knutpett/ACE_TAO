@@ -49,7 +49,7 @@ ACE_OS::gettimeofday (void)
 # if defined (ACE_HAS_TIMEZONE_GETTIMEOFDAY) || \
   defined(ACE_HAS_VOIDPTR_GETTIMEOFDAY) || \
   (defined (ACE_HAS_SVR4_GETTIMEOFDAY) && !defined (SCO))
-  ACE_OSCALL (::gettimeofday (&tv, 0), int, -1, result);
+  ACE_OSCALL (::gettimeofday (&tv, nullptr), int, -1, result);
 # elif defined (ACE_VXWORKS)
   // Assumes that struct timespec is same size as struct timeval,
   // which assumes that time_t is a long: it currently (VxWorks

@@ -264,7 +264,7 @@ MQX_Filesystem::resolve_fs (const char *path, int *fs_name_len)
   else if (*fs_name_len)
     {
       fs = current_fs_;
-      *fs_name_len = 0;
+      *fs_name_len = nullptr;
     }
   else
     {

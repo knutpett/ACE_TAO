@@ -601,7 +601,7 @@ CORBA::Object_ptr FT_ReplicaFactory_i::create_object (
 
   // boolean, becomes true if a required parameter is missing
   int missingParameter = 0;
-  const char * missingParameterName = 0;
+  const char * missingParameterName = nullptr;
 
   CORBA::Long initialValue = 0;
   if (! ::TAO::find (decoder, criterion_initial_value, initialValue) )
@@ -661,7 +661,7 @@ FT_TestReplica_i * FT_ReplicaFactory_i::create_replica(const char * name)
   // assume mutex is locked
   CORBA::ULong factoryId = allocate_id();
 
-  FT_TestReplica_i * pFTReplica = 0;
+  FT_TestReplica_i * pFTReplica = nullptr;
 
   ACE_NEW_NORETURN(pFTReplica, FT_TestReplica_i(
     this,

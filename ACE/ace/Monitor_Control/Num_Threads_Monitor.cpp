@@ -47,15 +47,15 @@ namespace ACE
           return;
         }
 
-      char *item = 0;
-      char *arg = 0;
+      char *item = nullptr;
+      char *arg = nullptr;
 
       while ((ACE_OS::fgets (buf_, sizeof (buf_), file_ptr_)) != 0)
         {
           item = ACE_OS::strtok (this->buf_, " \t\n");
           arg = ACE_OS::strtok (0, "\n");
 
-          if (item == 0 || arg == 0)
+          if (item == 0 || arg == nullptr)
             {
               continue;
             }

@@ -24,21 +24,21 @@ public:
   virtual void schedule_timer ( long *timer_id
                               , const ACE_Time_Value &delta
                               , JAWS_Event_Completer *completer
-                              , void *act = 0
+                              , void *act = nullptr
                               ) = 0;
   // Schedule a timer to expire at now+delta.
 
   virtual void schedule_absolute_timer ( long *timer_id
                                        , const ACE_Time_Value &tv
                                        , JAWS_Event_Completer *completer
-                                       , void *act = 0
+                                       , void *act = nullptr
                                        ) = 0;
   // Schedule a timer to expire at tv.
 
   virtual void schedule_interval_timer ( long *timer_id
                                        , const ACE_Time_Value &interval
                                        , JAWS_Event_Completer *completer
-                                       , void *act = 0
+                                       , void *act = nullptr
                                        ) = 0;
   // Schedule a timer to expire at now+interval, and every interval following.
 
@@ -55,7 +55,7 @@ class JAWS_Export JAWS_Timer
 {
 public:
 
-  JAWS_Timer (JAWS_Timer_Impl *impl = 0);
+  JAWS_Timer (JAWS_Timer_Impl *impl = nullptr);
 
   static JAWS_Timer * instance (void)
   {
@@ -65,19 +65,19 @@ public:
   void schedule_timer ( long *timer_id
                       , const ACE_Time_Value &delta
                       , JAWS_Event_Completer *completer
-                      , void *act = 0
+                      , void *act = nullptr
                       );
 
   void schedule_absolute_timer ( long *timer_id
                                , const ACE_Time_Value &tv
                                , JAWS_Event_Completer *completer
-                               , void *act = 0
+                               , void *act = nullptr
                                );
 
   void schedule_interval_timer ( long *timer_id
                                , const ACE_Time_Value &interval
                                , JAWS_Event_Completer *completer
-                               , void *act = 0
+                               , void *act = nullptr
                                );
 
   void cancel_timer (long timer_id);

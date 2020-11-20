@@ -38,7 +38,7 @@ TeraSS_State_PARSE::transition ( const JAWS_Event_Result &result
   // In the PARSE state, we transition to WRITE on success,
   // and to READ on failure.
 
-  JAWS_Protocol_State *next_state = 0;
+  JAWS_Protocol_State *next_state = nullptr;
 
   switch (result.status ())
     {

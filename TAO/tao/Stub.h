@@ -431,7 +431,7 @@ protected:
 class TAO_Export TAO_Stub_Auto_Ptr
 {
 public:
-  explicit TAO_Stub_Auto_Ptr (TAO_Stub *p = 0);
+  explicit TAO_Stub_Auto_Ptr (TAO_Stub *p = nullptr);
   TAO_Stub_Auto_Ptr (TAO_Stub_Auto_Ptr &ap);
   TAO_Stub_Auto_Ptr &operator= (TAO_Stub_Auto_Ptr &rhs);
   ~TAO_Stub_Auto_Ptr (void);
@@ -440,7 +440,7 @@ public:
   TAO_Stub &operator *() const;
   TAO_Stub *get (void) const;
   TAO_Stub *release (void);
-  void reset (TAO_Stub *p = 0);
+  void reset (TAO_Stub *p = nullptr);
   TAO_Stub *operator-> () const;
 
 protected:

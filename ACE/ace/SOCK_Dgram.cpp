@@ -429,7 +429,7 @@ ACE_SOCK_Dgram::send (const iovec iov[],
 #endif
       length += iov[i].iov_len;
 
-  char *buf = 0;
+  char *buf = nullptr;
 
 #if defined (ACE_HAS_ALLOCA)
   buf = alloca (length);
@@ -490,7 +490,7 @@ ACE_SOCK_Dgram::recv (iovec iov[],
 #endif
       length += iov[i].iov_len;
 
-  char *buf = 0;
+  char *buf = nullptr;
 
 #if defined (ACE_HAS_ALLOCA)
   buf = alloca (length);
@@ -684,7 +684,7 @@ ACE_SOCK_Dgram::make_multicast_ifaddr (ip_mreq *ret_mreq,
             }
 
           // Get required output buffer and retrieve info for real.
-          char *buf = 0;
+          char *buf = nullptr;
           ACE_NEW_RETURN (buf, char[bufLen], -1);
           PIP_ADAPTER_ADDRESSES pAddrs = reinterpret_cast<PIP_ADAPTER_ADDRESSES> (buf);
           if (::GetAdaptersAddresses (AF_INET, 0, 0, pAddrs, &bufLen) != NO_ERROR)
@@ -789,7 +789,7 @@ ACE_SOCK_Dgram::make_multicast_ifaddr6 (ipv6_mreq *ret_mreq,
       IP_ADAPTER_ADDRESSES tmp_addrs;
       // Initial call to determine actual memory size needed
       ULONG bufLen = 0;
-      char *buf = 0;
+      char *buf = nullptr;
       if (::GetAdaptersAddresses (AF_INET6, 0, 0, &tmp_addrs, &bufLen)
           == ERROR_BUFFER_OVERFLOW)
         {

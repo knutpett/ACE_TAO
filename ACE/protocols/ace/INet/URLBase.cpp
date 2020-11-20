@@ -165,7 +165,7 @@ namespace ACE
         ACE_CString::size_type pos = url_string.find (':');
         if (pos >0 )
           {
-            Factory* url_factory = 0;
+            Factory* url_factory = nullptr;
             if (factories_->find (url_string.substr (0, pos), url_factory) == 0)
               {
                 return url_factory->create_from_string (url_string);

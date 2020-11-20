@@ -9,7 +9,7 @@ namespace TAO
 {
   FlResource_Loader::FlResource_Loader (void)
   {
-    FlResource_Factory *tmp = 0;
+    FlResource_Factory *tmp = nullptr;
 
     ACE_NEW (tmp,
              FlResource_Factory ());

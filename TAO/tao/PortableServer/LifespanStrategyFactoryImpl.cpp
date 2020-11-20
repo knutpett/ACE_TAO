@@ -12,8 +12,8 @@ namespace TAO
     LifespanStrategyFactoryImpl::create (
       ::PortableServer::LifespanPolicyValue value)
     {
-      LifespanStrategy *strategy = 0;
-      const char *strategy_name = 0;
+      LifespanStrategy *strategy = nullptr;
+      const char *strategy_name = nullptr;
 
       switch (value)
       {

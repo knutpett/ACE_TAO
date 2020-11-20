@@ -126,7 +126,7 @@ TAO::SSLIOP::CredentialsAcquirer::get_credentials (CORBA::Boolean on_list)
 {
   this->check_validity ();
 
-  const ::SSLIOP::AuthData *data = 0;
+  const ::SSLIOP::AuthData *data = nullptr;
 
   if (!(this->acquisition_arguments_ >>= data))
     throw CORBA::BAD_PARAM ();
@@ -152,7 +152,7 @@ TAO::SSLIOP::CredentialsAcquirer::get_credentials (CORBA::Boolean on_list)
       throw CORBA::BAD_PARAM ();
     }
 
-  TAO::SSLIOP::OwnCredentials * creds = 0;
+  TAO::SSLIOP::OwnCredentials * creds = nullptr;
   ACE_NEW_THROW_EX (creds,
                     TAO::SSLIOP::OwnCredentials (x509.in (), evp.in ()),
                     CORBA::NO_MEMORY ());
@@ -209,8 +209,8 @@ TAO::SSLIOP::CredentialsAcquirer::make_X509 (const ::SSLIOP::File &certificate)
   if (filename == 0)
     return 0;
 
-  FILE *fp = 0;
-  ::X509 *x = 0;
+  FILE *fp = nullptr;
+  ::X509 *x = nullptr;
 
   if (certificate.type == ::SSLIOP::ASN1)
     {
@@ -285,8 +285,8 @@ TAO::SSLIOP::CredentialsAcquirer::make_EVP_PKEY (const ::SSLIOP::File &key)
   if (filename == 0)
     return 0;
 
-  FILE *fp = 0;
-  ::EVP_PKEY *evp = 0;
+  FILE *fp = nullptr;
+  ::EVP_PKEY *evp = nullptr;
 
   if (key.type == ::SSLIOP::ASN1)
     {

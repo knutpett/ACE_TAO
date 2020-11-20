@@ -39,7 +39,7 @@ public:
 
   int handle_signal (int, siginfo_t * = 0, ucontext_t * = 0)
   {
-    char *cause_exception = 0;
+    char *cause_exception = nullptr;
     char a = *cause_exception;
     ACE_UNUSED_ARG(a);
     return 0;

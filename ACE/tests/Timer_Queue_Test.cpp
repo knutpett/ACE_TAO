@@ -47,7 +47,7 @@ static int max_iterations = ACE_DEFAULT_TIMERS * 100;
 static int TIMER_DISTANCE = 50;
 
 // Array of timer ids assigned to us that we need to keep track of.
-static long *timer_ids = 0;
+static long *timer_ids = nullptr;
 
 class Example_Handler : public ACE_Event_Handler
 {
@@ -142,7 +142,7 @@ test_functionality (ACE_Timer_Queue *tq)
   // Do a test on earliest_time.
   ACE_Time_Value earliest_time = tq->gettimeofday ();
 
-  const void *timer_act = 0;
+  const void *timer_act = nullptr;
   ACE_NEW (timer_act, int (1));
   timer_id = tq->schedule (&eh, timer_act, earliest_time);
 
@@ -201,14 +201,14 @@ test_functionality (ACE_Timer_Queue *tq)
                          tq->gettimeofday ());
   ACE_TEST_ASSERT (result != -1);
 
-  const void *timer_act1 = 0;
+  const void *timer_act1 = nullptr;
   ACE_NEW (timer_act1, int (42));
   result = tq->schedule (&eh,
                          timer_act1,
                          tq->gettimeofday () + ACE_Time_Value (100));
   ACE_TEST_ASSERT (result != -1);
 
-  const void *timer_act2 = 0;
+  const void *timer_act2 = nullptr;
   ACE_NEW (timer_act2, int (42));
   result = tq->schedule (&eh,
                          timer_act2,
@@ -309,14 +309,14 @@ test_performance (ACE_Timer_Queue *tq,
   Example_Handler eh;
   ACE_Profile_Timer timer;
   int i;
-  const void *timer_act = 0;
+  const void *timer_act = nullptr;
 
   ACE_TEST_ASSERT (tq->is_empty () != 0);
   ACE_TEST_ASSERT (ACE_Time_Value::zero == ACE_Time_Value (0));
 
   // Test the amount of time required to schedule all the timers.
 
-  ACE_Time_Value *times = 0;
+  ACE_Time_Value *times = nullptr;
   ACE_NEW (times, ACE_Time_Value[max_iterations]);
 
   // Set up a bunch of times TIMER_DISTANCE ms apart.
@@ -588,7 +588,7 @@ class Timer_Queue_Stack
 public:
   Timer_Queue_Stack (ACE_Timer_Queue *queue,
     const ACE_TCHAR *name,
-    Timer_Queue_Stack *next = 0)
+    Timer_Queue_Stack *next = nullptr)
     : queue_ (queue),
     name_ (name),
     next_ (next)
@@ -615,7 +615,7 @@ run_main (int argc, ACE_TCHAR *argv[])
 
   // = Perform initializations.
 
-  Timer_Queue_Stack *tq_stack = 0;
+  Timer_Queue_Stack *tq_stack = nullptr;
 
   // Add new Timer_Queue implementations here.  Note that these will
   // be executed in "reverse order".

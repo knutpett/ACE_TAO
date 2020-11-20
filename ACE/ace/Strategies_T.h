@@ -261,7 +261,7 @@ public:
    * SVC_HANDLER to define its own concurrency strategy).
    */
   virtual int activate_svc_handler (SVC_HANDLER *svc_handler,
-                                    void *arg = 0);
+                                    void *arg = nullptr);
 
   virtual ~ACE_Concurrency_Strategy (void);
 
@@ -317,7 +317,7 @@ public:
   /// Activate the @a svc_handler by registering it with the <Reactor>
   /// and then calling it's <open> hook.
   virtual int activate_svc_handler (SVC_HANDLER *svc_handler,
-                                    void *arg = 0);
+                                    void *arg = nullptr);
 
   /// Dump the state of an object.
   void dump (void) const;
@@ -382,7 +382,7 @@ public:
    * it into an active object.
    */
   virtual int activate_svc_handler (SVC_HANDLER *svc_handler,
-                                    void *arg = 0);
+                                    void *arg = nullptr);
 
   /// Dump the state of an object.
   void dump (void) const;
@@ -428,14 +428,14 @@ public:
   /// Initialize the strategy.  If @a avoid_zombies is non-0 then set a
   /// flag to ACE::fork() to avoid zombies.
   ACE_Process_Strategy (size_t n_processes = 1,
-                        ACE_Event_Handler *acceptor = 0,
+                        ACE_Event_Handler *acceptor = nullptr,
                         ACE_Reactor * = 0,
                         int avoid_zombies = 0);
 
   /// Initialize the strategy.  If @a avoid_zombies is non-0 then set a
   /// flag to ACE::fork() to avoid zombies.
   virtual int open (size_t n_processes = 1,
-                    ACE_Event_Handler *acceptor = 0,
+                    ACE_Event_Handler *acceptor = nullptr,
                     ACE_Reactor * = 0,
                     int avoid_zombies = 0);
 
@@ -449,7 +449,7 @@ public:
    * child.
    */
   virtual int activate_svc_handler (SVC_HANDLER *svc_handler,
-                                    void *arg = 0);
+                                    void *arg = nullptr);
 
   /// Dump the state of an object.
   void dump (void) const;
@@ -763,7 +763,7 @@ public:
   // = Factory method.
   /// This is a no-op.
   virtual int activate_svc_handler (SVC_HANDLER *svc_handler,
-                                    void *arg = 0);
+                                    void *arg = nullptr);
 };
 
 template <class T>
@@ -839,10 +839,10 @@ public:
   typedef ACE_Cached_Connect_Strategy<SVC_HANDLER, ACE_PEER_CONNECTOR_2, MUTEX> SELF;
 
   /// Constructor
-  ACE_Cached_Connect_Strategy (ACE_Creation_Strategy<SVC_HANDLER> *cre_s = 0,
-                               ACE_Concurrency_Strategy<SVC_HANDLER> *con_s = 0,
-                               ACE_Recycling_Strategy<SVC_HANDLER> *rec_s = 0,
-                               MUTEX *mutex = 0,
+  ACE_Cached_Connect_Strategy (ACE_Creation_Strategy<SVC_HANDLER> *cre_s = nullptr,
+                               ACE_Concurrency_Strategy<SVC_HANDLER> *con_s = nullptr,
+                               ACE_Recycling_Strategy<SVC_HANDLER> *rec_s = nullptr,
+                               MUTEX *mutex = nullptr,
                                bool delete_lock = false);
 
   /// Destructor
@@ -922,7 +922,7 @@ public:
 
   /// Cleanup hint and reset <*act_holder> to zero if <act_holder != 0>.
   virtual int cleanup_hint (const void *recycling_act,
-                            void **act_holder = 0);
+                            void **act_holder = nullptr);
 
   // = Traits for managing the map
   typedef ACE_Refcounted_Hash_Recyclable<ACE_PEER_CONNECTOR_ADDR>

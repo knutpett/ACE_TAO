@@ -514,7 +514,7 @@ TAO::ServerRequestInterceptor_Adapter_Impl::destroy_interceptors (void)
 TAO::PICurrent_Impl *
 TAO::ServerRequestInterceptor_Adapter_Impl::allocate_pi_current (void)
 {
-  TAO::PICurrent_Impl *pi = 0;
+  TAO::PICurrent_Impl *pi = nullptr;
   ACE_NEW_RETURN (pi,
                   TAO::PICurrent_Impl,
                   pi);

@@ -42,7 +42,7 @@ namespace
 #if defined(ACE_HAS_THREADS) && (OPENSSL_VERSION_NUMBER < 0x10100000L)
   /// Array of mutexes used internally by OpenSSL when the SSL
   /// application is multithreaded.
-  ACE_SSL_Context::lock_type * ssl_locks = 0;
+  ACE_SSL_Context::lock_type * ssl_locks = nullptr;
 
   // @@ This should also be managed by a singleton.
 #endif /* ACE_HAS_THREADS && OPENSSL_VERSION_NUMBER < 0x10100000L */
@@ -242,9 +242,9 @@ ACE_SSL_Context::set_mode (int mode)
     return -1;
 
 #if OPENSSL_VERSION_NUMBER >= 0x10000002
-  const SSL_METHOD *method = 0;
+  const SSL_METHOD *method = nullptr;
 #else
-  SSL_METHOD *method = 0;
+  SSL_METHOD *method = nullptr;
 #endif
 
   switch (mode)
@@ -377,7 +377,7 @@ ACE_SSL_Context::check_host (const ACE_INET_Addr &host, SSL *peerssl)
       return false;
     }
 
-  char *peer = 0;
+  char *peer = nullptr;
   char **peerarg = ACE::debug () ? &peer : 0;
   int flags = X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT;
   size_t len = ACE_OS::strlen (name);
@@ -453,7 +453,7 @@ ACE_SSL_Context::load_trusted_ca (const char* ca_file,
       // Note: The STACK_OF(X509_NAME) pointer is a copy of the pointer in
       // the CTX; any changes to it by way of these function calls will
       // change the CTX directly.
-      STACK_OF (X509_NAME) * cert_names = 0;
+      STACK_OF (X509_NAME) * cert_names = nullptr;
       cert_names = ::SSL_CTX_get_client_CA_list (this->context_);
 
       // Add CAs from both the file and dir, if specified. There should
@@ -713,7 +713,7 @@ ACE_SSL_Context::dh_params (const char *file_name,
   {
     // Swiped from Rescorla's examples and the OpenSSL s_server.c app
     DH * ret=0;
-    BIO * bio = 0;
+    BIO * bio = nullptr;
 
     if ((bio = ::BIO_new_file (this->dh_params_.file_name (), "r")) == 0)
       {

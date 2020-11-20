@@ -153,8 +153,8 @@ private:
   {
     // Extract space_craft_name and agent_name.
     //
-    Char const* space_craft_name = 0;
-    Char const* agent_name = 0;
+    Char const* space_craft_name = nullptr;
+    Char const* agent_name = nullptr;
 
     e.header.variable_header[0].value >>= space_craft_name;
     e.header.variable_header[1].value >>= agent_name;
@@ -258,7 +258,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
     // Find which space craft we are on.
     //
     ACE_INET_Addr addr;
-    const ACE_TCHAR *space_craft_name = 0;
+    const ACE_TCHAR *space_craft_name = nullptr;
 
     if (argc < 3)
       space_craft_name = ACE_TEXT("a");  // Default to spacecraft "a".

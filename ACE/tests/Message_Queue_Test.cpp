@@ -57,7 +57,7 @@ static const char test_message[] = "ACE_Message_Queue Test Message";
 static int max_messages = MAX_MESSAGES;
 
 // Dynamically allocate to avoid a static.
-static ACE_High_Res_Timer *timer = 0;
+static ACE_High_Res_Timer *timer = nullptr;
 
 #if defined (ACE_HAS_THREADS)
 typedef ACE_Message_Queue<ACE_MT_SYNCH> SYNCH_QUEUE;
@@ -135,7 +135,7 @@ Counting_Test_Producer::svc (void)
               seq,
               delay_ms));
 
-  ACE_Message_Block *first = 0, *prev = 0, *b = 0;
+  ACE_Message_Block *first = nullptr, *prev = nullptr, *b = nullptr;
   ACE_Time_Value delay (0, delay_ms);
   ACE_Time_Value timeout (10);
   while (produced < count)
@@ -221,7 +221,7 @@ Counting_Test_Consumer::svc (void)
               ACE_TEXT ("%d msec delay\n"),
               (size_t)count,
               delay_ms));
-  ACE_Message_Block *b = 0;
+  ACE_Message_Block *b = nullptr;
   ACE_Time_Value delay (0, delay_ms);
   ACE_Time_Value timeout (2);
   while (consumed < count)
@@ -331,7 +331,7 @@ iterator_test (void)
     {
       ACE_OS::snprintf (buffer[i], BUFSIZ, ACE_TEXT ("%d"), i + 1);
 
-      ACE_Message_Block *entry = 0;
+      ACE_Message_Block *entry = nullptr;
       ACE_NEW_RETURN (entry,
                       ACE_Message_Block ((char *) buffer[i],
                                          sizeof buffer[i]),
@@ -354,7 +354,7 @@ iterator_test (void)
   {
     ITERATOR iterator (queue);
 
-    for (ACE_Message_Block *entry = 0;
+    for (ACE_Message_Block *entry = nullptr;
          iterator.next (entry) != 0;
          iterator.advance ())
       ACE_DEBUG ((LM_DEBUG,
@@ -367,7 +367,7 @@ iterator_test (void)
   {
     REVERSE_ITERATOR iterator (queue);
 
-    for (ACE_Message_Block *entry = 0;
+    for (ACE_Message_Block *entry = nullptr;
          iterator.next (entry) != 0;
          iterator.advance ())
       ACE_DEBUG ((LM_DEBUG,
@@ -380,7 +380,7 @@ iterator_test (void)
   {
     QUEUE::ITERATOR iterator (queue);
 
-    for (ACE_Message_Block *entry = 0;
+    for (ACE_Message_Block *entry = nullptr;
          iterator.next (entry) != 0;
          iterator.advance ())
       ACE_DEBUG ((LM_DEBUG,
@@ -393,7 +393,7 @@ iterator_test (void)
   {
     QUEUE::REVERSE_ITERATOR iterator (queue);
 
-    for (ACE_Message_Block *entry = 0;
+    for (ACE_Message_Block *entry = nullptr;
          iterator.next (entry) != 0;
          iterator.advance ())
       ACE_DEBUG ((LM_DEBUG,
@@ -508,7 +508,7 @@ single_thread_performance_test (int queue_type = 0)
   int i = 0;
 
   // Create a message queue.
-  ACE_Message_Queue_Base *msgq = 0;
+  ACE_Message_Queue_Base *msgq = nullptr;
 
   if (queue_type == 0)
     ACE_NEW_RETURN (msgq,
@@ -535,7 +535,7 @@ single_thread_performance_test (int queue_type = 0)
 
   // Create the messages.  Allocate off the heap in case messages
   // is large relative to the amount of stack space available.
-  ACE_Message_Block **send_block = 0;
+  ACE_Message_Block **send_block = nullptr;
   ACE_NEW_RETURN (send_block,
                   ACE_Message_Block *[max_messages],
                   -1);
@@ -546,7 +546,7 @@ single_thread_performance_test (int queue_type = 0)
                                        MAX_MESSAGE_SIZE),
                     -1);
 
-  ACE_Message_Block **receive_block_p = 0;
+  ACE_Message_Block **receive_block_p = nullptr;
   ACE_NEW_RETURN (receive_block_p,
                   ACE_Message_Block *[max_messages],
                   -1);
@@ -555,7 +555,7 @@ single_thread_performance_test (int queue_type = 0)
   // Set up blocks to receive the messages.  Allocate these off the
   // heap in case messages is large relative to the amount of
   // stack space available.
-  ACE_Message_Block *receive_block = 0;
+  ACE_Message_Block *receive_block = nullptr;
   ACE_NEW_RETURN (receive_block,
                   ACE_Message_Block[max_messages],
                   -1);
@@ -620,7 +620,7 @@ receiver (void *arg)
     reinterpret_cast<Queue_Wrapper *> (arg);
   int i;
 
-  ACE_Message_Block **receive_block_p = 0;
+  ACE_Message_Block **receive_block_p = nullptr;
   ACE_NEW_RETURN (receive_block_p,
                   ACE_Message_Block *[max_messages],
                   (void *) -1);
@@ -693,7 +693,7 @@ performance_test (int queue_type = 0)
   // large relative to the amount of stack space available.  Allocate
   // it here instead of in the sender, so that we can delete it after
   // the _receiver_ is done.
-  ACE_Message_Block **send_block = 0;
+  ACE_Message_Block **send_block = nullptr;
   ACE_NEW_RETURN (send_block,
                   ACE_Message_Block *[max_messages],
                   -1);
@@ -828,8 +828,8 @@ prio_test (void)
   mq.enqueue_prio (&mb1);
   mq.enqueue_prio (&mb2);
 
-  ACE_Message_Block *mb1p = 0;
-  ACE_Message_Block *mb2p = 0;
+  ACE_Message_Block *mb1p = nullptr;
+  ACE_Message_Block *mb2p = nullptr;
 
   mq.dequeue_prio (mb1p);
   mq.dequeue_prio (mb2p);

@@ -59,7 +59,7 @@ class Dispatcher_Task : public ACE_Task<ACE_SYNCH>
 public:
   /// Constructor
   Dispatcher_Task (const ConfigInfo& config_info,
-                   ACE_Thread_Manager* thr_manager = 0);
+                   ACE_Thread_Manager* thr_manager = nullptr);
 
 
   ~Dispatcher_Task ();

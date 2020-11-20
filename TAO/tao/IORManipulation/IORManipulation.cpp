@@ -275,8 +275,8 @@ TAO_IOR_Manipulation_impl::is_in_ior (
     CORBA::Object_ptr ior2)
 {
   CORBA::ULong count = 0;
-  TAO_Profile *pfile1 = 0;
-  TAO_Profile *pfile2 = 0;
+  TAO_Profile *pfile1 = nullptr;
+  TAO_Profile *pfile2 = nullptr;
 #if defined (ACE_HAS_CPP11)
   std::unique_ptr<TAO_MProfile> tmp_pfiles1 (ior1->_stubobj ()->make_profiles ());
   std::unique_ptr<TAO_MProfile> tmp_pfiles2 (ior2->_stubobj ()->make_profiles ());

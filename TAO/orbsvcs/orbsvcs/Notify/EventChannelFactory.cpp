@@ -80,7 +80,7 @@ TAO_Notify_EventChannelFactory::init (PortableServer::POA_ptr poa)
   ACE_ASSERT (this->ec_container_.get() == 0);
 
   // Init ec_container_
-  TAO_Notify_EventChannel_Container* ecc = 0;
+  TAO_Notify_EventChannel_Container* ecc = nullptr;
   ACE_NEW_THROW_EX (ecc,
                     TAO_Notify_EventChannel_Container (),
                     CORBA::INTERNAL ());
@@ -88,7 +88,7 @@ TAO_Notify_EventChannelFactory::init (PortableServer::POA_ptr poa)
 
   this->ec_container().init ();
 
-  TAO_Notify_POA_Helper* object_poa = 0;
+  TAO_Notify_POA_Helper* object_poa = nullptr;
 
   // Bootstrap initial Object POA
   ACE_NEW_THROW_EX (object_poa,
@@ -117,7 +117,7 @@ TAO_Notify_EventChannelFactory::init (PortableServer::POA_ptr poa)
 
   if (TAO_Notify_PROPERTIES::instance()->validate_client() == true)
   {
-    TAO_Notify_validate_client_Task* validate_client_task = 0;
+    TAO_Notify_validate_client_Task* validate_client_task = nullptr;
     ACE_NEW_THROW_EX (validate_client_task,
       TAO_Notify_validate_client_Task (TAO_Notify_PROPERTIES::instance()->validate_client_delay (),
                                  TAO_Notify_PROPERTIES::instance()->validate_client_interval (),
@@ -448,7 +448,7 @@ TAO_Notify_EventChannelFactory::save_topology (void)
 TAO_Notify_ProxyConsumer *
 TAO_Notify_EventChannelFactory::find_proxy_consumer (TAO_Notify::IdVec & id_path, size_t position)
 {
-  TAO_Notify_ProxyConsumer * result = 0;
+  TAO_Notify_ProxyConsumer * result = nullptr;
   size_t path_size = id_path.size ();
 
   // EventChannelFactory only:  The first id is proably for the ECF itself
@@ -474,7 +474,7 @@ TAO_Notify_EventChannelFactory::find_proxy_consumer (TAO_Notify::IdVec & id_path
 TAO_Notify_ProxySupplier *
 TAO_Notify_EventChannelFactory::find_proxy_supplier (TAO_Notify::IdVec & id_path, size_t position)
 {
-  TAO_Notify_ProxySupplier * result = 0;
+  TAO_Notify_ProxySupplier * result = nullptr;
   size_t path_size = id_path.size ();
 
   // EventChannelFactory only:  The first id is proably for the ECF itself

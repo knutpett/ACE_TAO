@@ -5,7 +5,7 @@
 #include "Client_ORBInitializer.h"
 #include "tao/ORBInitializer_Registry.h"
 
-const ACE_TCHAR *ior1 = 0;
+const ACE_TCHAR *ior1 = nullptr;
 bool interceptor_invoked = false;
 
 int

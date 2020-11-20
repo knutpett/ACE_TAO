@@ -43,7 +43,7 @@ public:
                         size_t length = static_cast<size_t> (-1),
                         int prot = PROT_RDWR,
                         int share = ACE_MAP_PRIVATE,
-                        char *addr = 0,
+                        char *addr = nullptr,
                         ACE_OFF_T pos = 0);
 
   /// Constructor.
@@ -53,14 +53,14 @@ public:
                         int mode = ACE_DEFAULT_FILE_PERMS,
                         int prot = PROT_RDWR,
                         int share = ACE_MAP_SHARED,
-                        char *addr = 0, ACE_OFF_T pos = 0);
+                        char *addr = nullptr, ACE_OFF_T pos = 0);
 
   /// Open method.
   int open (ACE_HANDLE handle,
             size_t length = static_cast<size_t> (-1),
             int prot = PROT_RDWR,
             int share = ACE_MAP_PRIVATE,
-            char *addr = 0,
+            char *addr = nullptr,
             ACE_OFF_T pos = 0);
 
   /// Open method.
@@ -70,7 +70,7 @@ public:
             int mode = ACE_DEFAULT_FILE_PERMS,
             int prot = PROT_RDWR,
             int share = ACE_MAP_SHARED,
-            char *addr = 0,
+            char *addr = nullptr,
             ACE_OFF_T pos = 0);
 
   /// Return the name of file that is mapped (if any).

@@ -27,8 +27,8 @@ public:
   typedef JAWS_Cache_Hash<KEY, HASH_FUNC, EQ_FUNC> Cache_Hash;
   typedef JAWS_Cache_List<KEY, FACTORY, HASH_FUNC, EQ_FUNC> Cache_Heap;
 
-  JAWS_Cache_Manager (ACE_Allocator *alloc = 0,
-                     JAWS_Cache_Object_Factory *cof = 0,
+  JAWS_Cache_Manager (ACE_Allocator *alloc = nullptr,
+                     JAWS_Cache_Object_Factory *cof = nullptr,
 
                      size_t hashsize = 8192,   // number of hash buckets
                      size_t maxsize = 65535,   // max number of in memory
@@ -50,8 +50,8 @@ public:
                                                // counts
                      );
 
-  int open (ACE_Allocator *alloc = 0,
-            JAWS_Cache_Object_Factory *cof = 0,
+  int open (ACE_Allocator *alloc = nullptr,
+            JAWS_Cache_Object_Factory *cof = nullptr,
 
             size_t hashsize = 1024,   // number of hash buckets
             size_t maxsize = 4096,    // max number of in memory

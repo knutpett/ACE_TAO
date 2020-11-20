@@ -215,7 +215,7 @@ be_visitor_operation::gen_stub_operation_body (
       << "{" << be_idt_nl
       << "std::addressof(_tao_retval)";
 
-  AST_Argument *arg = 0;
+  AST_Argument *arg = nullptr;
 
   for (UTL_ScopeActiveIterator arg_list_iter (node, UTL_Scope::IK_decls);
        ! arg_list_iter.is_done ();
@@ -408,7 +408,7 @@ be_visitor_operation::gen_stub_body_arglist (be_operation *node,
                                              TAO_OutStream *os,
                                              bool ami)
 {
-  AST_Argument *arg = 0;
+  AST_Argument *arg = nullptr;
   UTL_ScopeActiveIterator arg_decl_iter (node, UTL_Scope::IK_decls);
 
   if (ami)
@@ -459,7 +459,7 @@ be_visitor_operation::gen_arg_template_param_name (AST_Decl *scope,
                                                    AST_Type *bt,
                                                    TAO_OutStream *os)
 {
-  AST_Typedef *alias = 0;
+  AST_Typedef *alias = nullptr;
 
   if (bt->node_type () == AST_Decl::NT_typedef)
     {

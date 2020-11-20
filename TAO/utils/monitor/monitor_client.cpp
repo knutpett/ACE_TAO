@@ -6,7 +6,7 @@
 #include "tao/Monitor/Monitor.h"
 
 const ACE_TCHAR *monitor_ior = ACE_TEXT ("file://monitor.ior");
-::Monitor::NameList* monitor_point = 0;
+::Monitor::NameList* monitor_point = nullptr;
 bool mp_clear = false;
 int n_iterations = 1;
 ACE_Time_Value sleep_time = ACE_Time_Value (1);

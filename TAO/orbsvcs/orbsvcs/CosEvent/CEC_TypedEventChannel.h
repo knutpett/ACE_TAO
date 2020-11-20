@@ -132,7 +132,7 @@ public:
    * the Factory, if not found it uses TAO_CEC_Default_Resource_Factory
    */
   TAO_CEC_TypedEventChannel (const TAO_CEC_TypedEventChannel_Attributes& attributes,
-                             TAO_CEC_Factory* factory = 0,
+                             TAO_CEC_Factory* factory = nullptr,
                              int own_factory = 0);
 
   /// Destructor

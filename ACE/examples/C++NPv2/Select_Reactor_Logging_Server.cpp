@@ -55,7 +55,7 @@ static ACE_THR_FUNC_RETURN event_loop (void *arg) {
 static ACE_THR_FUNC_RETURN controller (void *arg) {
   ACE_Reactor *reactor = static_cast<ACE_Reactor *> (arg);
 
-  Quit_Handler *quit_handler = 0;
+  Quit_Handler *quit_handler = nullptr;
   ACE_NEW_RETURN (quit_handler, Quit_Handler (reactor), 0);
 
 #if defined (ACE_WIN32) && (!defined (ACE_HAS_STANDARD_CPP_LIBRARY) || \

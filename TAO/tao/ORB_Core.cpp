@@ -441,7 +441,7 @@ TAO_ORB_Core::init (int &argc, char *argv[] )
 
   while (arg_shifter.is_anything_left ())
     {
-      const ACE_TCHAR *current_arg = 0;
+      const ACE_TCHAR *current_arg = nullptr;
 
       ////////////////////////////////////////////////////////////////
       // begin with the 'parameterless' flags                       //
@@ -834,7 +834,7 @@ TAO_ORB_Core::init (int &argc, char *argv[] )
 
 #else /* ! ACE_LACKS_IOSTREAM_TOTALLY */
 
-          ofstream* output_stream = 0;
+          ofstream* output_stream = nullptr;
 
           //
           // note: we are allocating dynamic memory here....but
@@ -2033,7 +2033,7 @@ TAO_ORB_Core::create_stub_object (TAO_MProfile &mprofile,
   // orbos\98-05-05.pdf Section 5.4)
   if (policy_list->length () != 0)
     {
-      TAO_Profile * profile = 0;
+      TAO_Profile * profile = nullptr;
 
       CORBA::ULong const count = mprofile.profile_count ();
       for (CORBA::ULong i = 0; i < count; ++i)
@@ -2198,7 +2198,7 @@ TAO_ORB_Core::is_collocation_enabled (TAO_ORB_Core *orb_core,
 {
   TAO_MProfile mp_temp;
 
-  TAO_Profile* profile = 0;
+  TAO_Profile* profile = nullptr;
   if (this->service_profile_selection(mp, profile) && profile)
   {
     if (mp_temp.add_profile(profile) == -1)
@@ -2933,7 +2933,7 @@ TAO_ORB_Core::list_initial_references (void)
     + this->init_ref_map_.size ()
     + this->object_ref_table_.current_size ();
 
-  CORBA::ORB::ObjectIdList *tmp = 0;
+  CORBA::ORB::ObjectIdList *tmp = nullptr;
 
   ACE_NEW_THROW_EX (tmp,
                     CORBA::ORB::ObjectIdList (
@@ -3025,15 +3025,15 @@ ACE_Data_Block*
 TAO_ORB_Core::create_input_cdr_data_block (size_t size)
 {
 
-  ACE_Allocator *dblock_allocator = 0;
-  ACE_Allocator *buffer_allocator = 0;
+  ACE_Allocator *dblock_allocator = nullptr;
+  ACE_Allocator *buffer_allocator = nullptr;
 
   dblock_allocator =
     this->input_cdr_dblock_allocator ();
   buffer_allocator =
     this->input_cdr_buffer_allocator ();
 
-  ACE_Lock* lock_strategy = 0;
+  ACE_Lock* lock_strategy = nullptr;
   if (this->resource_factory ()->use_locked_data_blocks ())
     {
       lock_strategy = &this->data_block_lock_;
@@ -3051,7 +3051,7 @@ TAO_ORB_Core::create_data_block_i (size_t size,
                                    ACE_Allocator *dblock_allocator,
                                    ACE_Lock *lock_strategy)
 {
-  ACE_Data_Block *nb = 0;
+  ACE_Data_Block *nb = nullptr;
 
   ACE_NEW_MALLOC_RETURN (
                          nb,

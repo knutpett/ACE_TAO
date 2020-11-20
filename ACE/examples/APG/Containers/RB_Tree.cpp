@@ -109,7 +109,7 @@ int Tree_Example::remove_all (void)
   // invalidated after deletions or insertions.
   for (int i = 0; i < 100; i++)
     {
-      DataElement * d = 0;
+      DataElement * d = nullptr;
       int result = tree_.unbind (i, d);
       if (result != 0)
         {

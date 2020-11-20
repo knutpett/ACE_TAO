@@ -154,7 +154,7 @@ TAO_Notify_Tests_Activation_Manager::activate_suppliers (void)
   this->barrier_ = new ACE_Barrier (this->supplier_count () + 1);
 
   // For each supplier : activate
-  TAO_Notify_Tests_Periodic_Supplier* supplier = 0;
+  TAO_Notify_Tests_Periodic_Supplier* supplier = nullptr;
 
   for (u_int index = 0; iter.done () == 0; iter.advance (), ++index)
     {
@@ -189,7 +189,7 @@ TAO_Notify_Tests_Activation_Manager::dump_stats (int dump_samples)
   TAO_Notify_Tests_PeriodicSupplier_Entry* sup_entry;
 
   // For each supplier
-  TAO_Notify_Tests_Periodic_Supplier* supplier = 0;
+  TAO_Notify_Tests_Periodic_Supplier* supplier = nullptr;
 
   u_int index = 0;
   for (; sup_iter.done () == 0; sup_iter.advance (), ++index)
@@ -206,7 +206,7 @@ TAO_Notify_Tests_Activation_Manager::dump_stats (int dump_samples)
 
   TAO_Notify_Tests_PeriodicConsumer_Entry* cons_entry;
 
-  TAO_Notify_Tests_Periodic_Consumer* consumer = 0;
+  TAO_Notify_Tests_Periodic_Consumer* consumer = nullptr;
   for (index = 0; cons_iter.done () == 0; cons_iter.advance (), ++index)
     {
       if (cons_iter.next (cons_entry) != 0)

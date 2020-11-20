@@ -83,7 +83,7 @@ be_type::compute_tc_name (void)
         }
       else
         {
-          UTL_ScopedName *conc_name = 0;
+          UTL_ScopedName *conc_name = nullptr;
           ACE_NEW (conc_name,
                    UTL_ScopedName (n->head ()->copy (),
                                    0));
@@ -98,7 +98,7 @@ be_type::compute_tc_name (void)
                    "_tc_%s",
                    n->last_component ()->get_string ());
 
-  Identifier *id = 0;
+  Identifier *id = nullptr;
   ACE_NEW (id,
            Identifier (namebuf));
 
@@ -111,7 +111,7 @@ be_type::compute_tc_name (void)
     }
   else
     {
-      UTL_ScopedName *conc_name = 0;
+      UTL_ScopedName *conc_name = nullptr;
       ACE_NEW (conc_name,
                UTL_ScopedName (id,
                                0));
@@ -145,7 +145,7 @@ be_type::nested_sp_type_name (be_decl *use_scope,
                               const char *prefix)
 {
   // Our defining scope.
-  be_decl *fu_scope = 0;
+  be_decl *fu_scope = nullptr;
 
   char fu_name [NAMEBUFSIZE];
   char fl_name [NAMEBUFSIZE];
@@ -188,8 +188,8 @@ void
 be_type::gen_fwd_helper_name (void)
 {
   AST_Decl *parent = ScopeAsDecl (this->defined_in ());
-  Identifier *segment = 0;
-  char *tmp = 0;
+  Identifier *segment = nullptr;
+  char *tmp = nullptr;
   this->fwd_helper_name_.clear (true);
 
   if (parent != 0 && parent->node_type () != AST_Decl::NT_root)

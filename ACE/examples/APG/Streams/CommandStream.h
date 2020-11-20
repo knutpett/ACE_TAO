@@ -27,8 +27,8 @@ public:
     : inherited (), peer_(peer) { }
 
   virtual int open (void *arg,
-                    ACE_Module<ACE_MT_SYNCH> *head = 0,
-                    ACE_Module<ACE_MT_SYNCH> *tail = 0);
+                    ACE_Module<ACE_MT_SYNCH> *head = nullptr,
+                    ACE_Module<ACE_MT_SYNCH> *tail = nullptr);
 
   Command *execute (Command *command);
 

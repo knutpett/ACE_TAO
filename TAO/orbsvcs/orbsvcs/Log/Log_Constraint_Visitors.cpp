@@ -176,7 +176,7 @@ TAO_Log_Constraint_Visitor::visit_union_pos (
                       TAO_OutputCDR cdr;
                       cdr.write_ulong ((CORBA::ULong) disc_val);
                       TAO_InputCDR in_cdr (cdr);
-                      TAO::Unknown_IDL_Type *unk = 0;
+                      TAO::Unknown_IDL_Type *unk = nullptr;
                       ACE_NEW_RETURN (unk,
                                       TAO::Unknown_IDL_Type (disc_tc.in (),
                                                              in_cdr),
@@ -217,7 +217,7 @@ TAO_Log_Constraint_Visitor::visit_union_pos (
                 CORBA::ULong count =
                   tc->member_count ();
 
-                const char *member_name = 0;
+                const char *member_name = nullptr;
                 CORBA::ULong i = 0;
 
                 for (i = 0; i < count; ++i)
@@ -383,7 +383,7 @@ TAO_Log_Constraint_Visitor::visit_component_assoc (
       return 0;
     }
 
-  CORBA::Any *any_ptr = 0;
+  CORBA::Any *any_ptr = nullptr;
   ACE_NEW_RETURN (any_ptr,
                   CORBA::Any (any),
                   -1);
@@ -555,7 +555,7 @@ TAO_Log_Constraint_Visitor::visit_component (
       TAO_ETCL_Literal_Constraint id;
       this->queue_.dequeue_head (id);
 
-      CORBA::Any *any_ptr = 0;
+      CORBA::Any *any_ptr = nullptr;
       ACE_NEW_RETURN (any_ptr,
                       CORBA::Any,
                       -1);
@@ -1180,7 +1180,7 @@ TAO_Log_Constraint_Visitor::any_does_contain (
     const CORBA::Any *any,
     TAO_ETCL_Literal_Constraint &item)
 {
-  const CORBA::Any *result = 0;
+  const CORBA::Any *result = nullptr;
 
   *any >>= result;
 

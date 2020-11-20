@@ -46,7 +46,7 @@ TAO::SSLIOP::Connector::open (TAO_ORB_Core *orb_core)
     return -1;
 
   // Our connect creation strategy
-  CONNECT_CREATION_STRATEGY *connect_creation_strategy = 0;
+  CONNECT_CREATION_STRATEGY *connect_creation_strategy = nullptr;
 
   ACE_NEW_RETURN (connect_creation_strategy,
                   CONNECT_CREATION_STRATEGY
@@ -55,7 +55,7 @@ TAO::SSLIOP::Connector::open (TAO_ORB_Core *orb_core)
                   -1);
 
   // Our activation strategy
-  CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = 0;
+  CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = nullptr;
 
   ACE_NEW_RETURN (concurrency_strategy,
                   CONNECT_CONCURRENCY_STRATEGY (orb_core),
@@ -199,7 +199,7 @@ TAO::SSLIOP::Connector::connect (TAO::Profile_Transport_Resolver *resolver,
 TAO_Profile *
 TAO::SSLIOP::Connector::create_profile (TAO_InputCDR& cdr)
 {
-  TAO_Profile *pfile = 0;
+  TAO_Profile *pfile = nullptr;
   ACE_NEW_RETURN (pfile,
                   TAO_SSLIOP_Profile (this->orb_core ()),
                   0);
@@ -221,7 +221,7 @@ TAO::SSLIOP::Connector::make_profile (void)
   // or:
   //    host:port/object_key
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO_SSLIOP_Profile (this->orb_core (),
                                           0), // SSL component
@@ -243,7 +243,7 @@ TAO::SSLIOP::Connector::make_secure_profile (void)
   // or:
   //    host:port/object_key
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO_SSLIOP_Profile (this->orb_core (),
                                           1), // SSL component
@@ -297,7 +297,7 @@ TAO::SSLIOP::Connector::corbaloc_scan (const char *endpoint, size_t &len)
    }
 
    //Create the corresponding profile
-   TAO_Profile *ptmp = 0;
+   TAO_Profile *ptmp = nullptr;
    if (ssl_only)
      {
        ptmp = this->make_secure_profile ();
@@ -444,8 +444,8 @@ TAO::SSLIOP::Connector::ssliop_connect (
     }
 
   int result = 0;
-  TAO::SSLIOP::Connection_Handler *svc_handler = 0;
-  TAO_Transport *transport = 0;
+  TAO::SSLIOP::Connection_Handler *svc_handler = nullptr;
+  TAO_Transport *transport = nullptr;
 
   // Before we can check the cache to find an existing connection, we
   // need to make sure the ssl_endpoint is fully initialized with the

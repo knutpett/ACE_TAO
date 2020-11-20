@@ -124,7 +124,7 @@ namespace Kokyu
     {
     public:
       Dispatch_Command(int dont_delete = 0,
-                       ACE_Allocator *allocator = 0);
+                       ACE_Allocator *allocator = nullptr);
       //dont_delete indicates whether this object needs to be deleted once processed.
       //allocator indicates the ACE_Allocator, if any, from which this object was created.
       //This same allocator has to be used for the deletion also

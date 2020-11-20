@@ -19,7 +19,7 @@
 #include "ace/os_include/os_netdb.h"
 
 unsigned port = 8088;
-const ACE_TCHAR *notifier_file = 0;
+const ACE_TCHAR *notifier_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -95,7 +95,7 @@ Accept_Handler::~Accept_Handler()
 int
 Accept_Handler::handle_input (ACE_HANDLE h)
 {
-  ACE::HTBP::Channel **ch = 0;
+  ACE::HTBP::Channel **ch = nullptr;
   if (h == acceptor_.get_handle())
     {
       ACE_SOCK_Stream *sock = new ACE_SOCK_Stream;
@@ -155,7 +155,7 @@ Accept_Handler::handle_input (ACE_HANDLE h)
                                    ACE_Event_Handler::READ_MASK);
         }
 
-      *ch = 0;
+      *ch = nullptr;
     }
   return 0;
 }

@@ -36,7 +36,7 @@ public:
   ~Token_Strategy_Test (void);
 
   //FUZZ: disable check_for_lack_ACE_OS
-  int open (void *a = 0);
+  int open (void *a = nullptr);
   //FUZZ: enable check_for_lack_ACE_OS
 
   int svc (void);

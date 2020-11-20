@@ -141,7 +141,7 @@ TAO_Transient_Naming_Context::make_new_context (PortableServer::POA_ptr poa,
 {
   // Put together a servant for the new Naming Context.
 
-  TAO_Transient_Naming_Context *context_impl = 0;
+  TAO_Transient_Naming_Context *context_impl = nullptr;
   ACE_NEW_THROW_EX (context_impl,
                     TAO_Transient_Naming_Context (poa,
                                                   poa_id,
@@ -152,7 +152,7 @@ TAO_Transient_Naming_Context::make_new_context (PortableServer::POA_ptr poa,
   // allocation fails.
   ACE_Auto_Basic_Ptr<TAO_Transient_Naming_Context> temp (context_impl);
 
-  TAO_Naming_Context *context = 0;
+  TAO_Naming_Context *context = nullptr;
   ACE_NEW_THROW_EX (context,
                     TAO_Naming_Context (context_impl),
                     CORBA::NO_MEMORY ());
@@ -222,7 +222,7 @@ TAO_Transient_Naming_Context::list (CORBA::ULong how_many,
     throw CORBA::OBJECT_NOT_EXIST ();
 
   // Dynamically allocate iterator for traversing the underlying hash map.
-  HASH_MAP::ITERATOR *hash_iter = 0;
+  HASH_MAP::ITERATOR *hash_iter = nullptr;
   ACE_NEW_THROW_EX (hash_iter,
                     HASH_MAP::ITERATOR (transient_context_->map ()),
                     CORBA::NO_MEMORY ());
@@ -241,7 +241,7 @@ TAO_Transient_Naming_Context::list (CORBA::ULong how_many,
     ITER_SERVANT;
 
   // A pointer to BindingIterator servant.
-  ITER_SERVANT *bind_iter = 0;
+  ITER_SERVANT *bind_iter = nullptr;
 
   // Number of bindings that will go into the BindingList <bl>.
   CORBA::ULong n = 0;
@@ -255,7 +255,7 @@ TAO_Transient_Naming_Context::list (CORBA::ULong how_many,
   // Use the hash map iterator to populate <bl> with bindings.
   bl->length (n);
 
-  ENTRY_DEF *hash_entry = 0;
+  ENTRY_DEF *hash_entry = nullptr;
 
   for (CORBA::ULong i = 0; i < n; i++)
     {

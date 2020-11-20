@@ -23,7 +23,7 @@ public:
   typedef JAWS_Cache_Manager<EXT_ID, FACT, H_FN, E_FN> Cache_Manager;
   typedef JAWS_Cache_Heap_Item<EXT_ID, FACT, H_FN, E_FN> Cache_Heap_Item;
 
-  JAWS_Cache_Heap (ACE_Allocator *alloc = 0, size_t maxsize = 8192);
+  JAWS_Cache_Heap (ACE_Allocator *alloc = nullptr, size_t maxsize = 8192);
   // maxsize is the total number of objects the in memory cache is
   // willing to manage
 

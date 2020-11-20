@@ -47,7 +47,7 @@ public:
   /// Read from a FILE *.
   ACE_Read_Buffer (FILE *fp,
                    bool close_on_delete = false,
-                   ACE_Allocator * = 0);
+                   ACE_Allocator * = nullptr);
 
 #if !defined (ACE_HAS_WINCE)
   // Note that ACE_HANDLE = FILE under CE.
@@ -55,7 +55,7 @@ public:
   /// Read from an open HANDLE.
   ACE_Read_Buffer (ACE_HANDLE handle,
                    bool close_on_delete = false,
-                   ACE_Allocator * = 0);
+                   ACE_Allocator * = nullptr);
 #endif  // ACE_HAS_WINCE
 
   /// Closes the FILE *.

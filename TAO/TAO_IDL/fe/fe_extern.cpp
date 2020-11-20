@@ -80,7 +80,7 @@ trademarks or registered trademarks of Sun Microsystems, Inc.
 extern int tao_yyparse (void);
 
 #ifdef USE_MCPP_BUFFER_LEXING
-char *tao_preproc_buffer = 0;
+char *tao_preproc_buffer = nullptr;
 int tao_preproc_buffer_length = 0;
 int tao_preproc_buffer_pos = 0;
 #else
@@ -132,7 +132,7 @@ FE_set_yyin (FILE * f)
 UTL_Error *
 FE_new_UTL_Error (void)
 {
-  UTL_Error *retval = 0;
+  UTL_Error *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   UTL_Error,
                   0);
@@ -143,7 +143,7 @@ FE_new_UTL_Error (void)
 UTL_Indenter *
 FE_new_UTL_Indenter (void)
 {
-  UTL_Indenter *retval = 0;
+  UTL_Indenter *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   UTL_Indenter,
                   0);

@@ -41,7 +41,7 @@ Task_Entry::~Task_Entry (void)
   rt_info_->volatile_token = 0;
 
   ACE_Unbounded_Set_Iterator <Task_Entry_Link *> iter(calls_);
-  Task_Entry_Link **link = 0;
+  Task_Entry_Link **link = nullptr;
 
   // Iterate through the "calls" set of Task Entry Links and free each one
 

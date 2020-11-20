@@ -45,7 +45,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       CORBA::Object_var obj = orb->string_to_object(ior);
 
-      const char* the_string = 0;
+      const char* the_string = nullptr;
 
       ACE_DEBUG ((LM_INFO, "(%P|%t) - #### Synchronous twoway DII\n"));
 

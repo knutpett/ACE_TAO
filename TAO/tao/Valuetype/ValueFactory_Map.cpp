@@ -17,7 +17,7 @@ TAO_ValueFactory_Map::~TAO_ValueFactory_Map (void)
   // _remove_ref () on the internal ids.
   FACTORY_MAP_MANAGER::ITERATOR iterator (this->map_);
 
-  for (FACTORY_MAP_MANAGER::ENTRY *entry = 0;
+  for (FACTORY_MAP_MANAGER::ENTRY *entry = nullptr;
        iterator.next (entry) != 0;
        iterator.advance ())
     {
@@ -36,7 +36,7 @@ TAO_ValueFactory_Map::rebind (const char *repo_id,
 {
   ACE_GUARD_RETURN(TAO_SYNCH_MUTEX, guard, this->mutex_, -1);
 
-  const char *prev_repo_id = 0;
+  const char *prev_repo_id = nullptr;
   CORBA::ValueFactory prev_factory = 0;
   int const ret = this->map_.rebind (CORBA::string_dup (repo_id),
                                      factory,
@@ -63,7 +63,7 @@ TAO_ValueFactory_Map::unbind (const char *repo_id,
 {
   ACE_GUARD_RETURN(TAO_SYNCH_MUTEX, guard, this->mutex_, -1);
 
-  FACTORY_MAP_MANAGER::ENTRY *prev_entry = 0;
+  FACTORY_MAP_MANAGER::ENTRY *prev_entry = nullptr;
   int ret = this->map_.find (repo_id, prev_entry);
 
   if (ret == 0)    // there was a matching factory

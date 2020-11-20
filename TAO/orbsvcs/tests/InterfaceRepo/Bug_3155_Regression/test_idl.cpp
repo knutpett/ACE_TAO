@@ -4,8 +4,8 @@
 
 namespace
 {
-  const ACE_TCHAR *ifr_ior_file = 0;
-  const ACE_TCHAR *idl_value = 0;
+  const ACE_TCHAR *ifr_ior_file = nullptr;
+  const ACE_TCHAR *idl_value = nullptr;
 }
 
 int

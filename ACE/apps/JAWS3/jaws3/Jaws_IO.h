@@ -27,21 +27,21 @@ public:
   virtual void send ( ACE_HANDLE handle
                     , ACE_Message_Block *mb
                     , JAWS_Event_Completer *completer
-                    , void *act = 0
+                    , void *act = nullptr
                     ) = 0;
 
   virtual void recv ( ACE_HANDLE handle
                     , ACE_Message_Block *mb
                     , JAWS_Event_Completer *completer
-                    , void *act = 0
+                    , void *act = nullptr
                     ) = 0;
 
   virtual void transmit ( ACE_HANDLE handle
                         , ACE_HANDLE source
                         , JAWS_Event_Completer *completer
-                        , void *act = 0
-                        , ACE_Message_Block *header = 0
-                        , ACE_Message_Block *trailer = 0
+                        , void *act = nullptr
+                        , ACE_Message_Block *header = nullptr
+                        , ACE_Message_Block *trailer = nullptr
                         ) = 0;
 
   // = Timed IO methods.
@@ -50,23 +50,23 @@ public:
                     , ACE_Message_Block *mb
                     , JAWS_Event_Completer *completer
                     , const ACE_Time_Value &tv
-                    , void *act = 0
+                    , void *act = nullptr
                     ) = 0;
 
   virtual void recv ( ACE_HANDLE handle
                     , ACE_Message_Block *mb
                     , JAWS_Event_Completer *completer
                     , const ACE_Time_Value &tv
-                    , void *act = 0
+                    , void *act = nullptr
                     ) = 0;
 
   virtual void transmit ( ACE_HANDLE handle
                         , ACE_HANDLE source
                         , JAWS_Event_Completer *completer
                         , const ACE_Time_Value &tv
-                        , void *act = 0
-                        , ACE_Message_Block *header = 0
-                        , ACE_Message_Block *trailer = 0
+                        , void *act = nullptr
+                        , ACE_Message_Block *header = nullptr
+                        , ACE_Message_Block *trailer = nullptr
                         ) = 0;
 
 };
@@ -76,7 +76,7 @@ class JAWS_Export JAWS_IO
 {
 public:
 
-  JAWS_IO (JAWS_IO_Impl *impl = 0);
+  JAWS_IO (JAWS_IO_Impl *impl = nullptr);
 
   ~JAWS_IO (void);
 
@@ -88,44 +88,44 @@ public:
   void send ( ACE_HANDLE handle
             , ACE_Message_Block *mb
             , JAWS_Event_Completer *completer
-            , void *act = 0
+            , void *act = nullptr
             );
 
   void recv ( ACE_HANDLE handle
             , ACE_Message_Block *mb
             , JAWS_Event_Completer *completer
-            , void *act = 0
+            , void *act = nullptr
             );
 
   void transmit ( ACE_HANDLE handle
                 , ACE_HANDLE source
                 , JAWS_Event_Completer *completer
-                , void *act = 0
-                , ACE_Message_Block *header = 0
-                , ACE_Message_Block *trailer = 0
+                , void *act = nullptr
+                , ACE_Message_Block *header = nullptr
+                , ACE_Message_Block *trailer = nullptr
                 );
 
   void send ( ACE_HANDLE handle
             , ACE_Message_Block *mb
             , JAWS_Event_Completer *completer
             , const ACE_Time_Value &tv
-            , void *act = 0
+            , void *act = nullptr
             );
 
   void recv ( ACE_HANDLE handle
             , ACE_Message_Block *mb
             , JAWS_Event_Completer *completer
             , const ACE_Time_Value &tv
-            , void *act = 0
+            , void *act = nullptr
             );
 
   void transmit ( ACE_HANDLE handle
                 , ACE_HANDLE source
                 , JAWS_Event_Completer *completer
                 , const ACE_Time_Value &tv
-                , void *act = 0
-                , ACE_Message_Block *header = 0
-                , ACE_Message_Block *trailer = 0
+                , void *act = nullptr
+                , ACE_Message_Block *header = nullptr
+                , ACE_Message_Block *trailer = nullptr
                 );
 
 

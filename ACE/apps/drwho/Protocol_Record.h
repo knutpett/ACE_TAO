@@ -26,7 +26,7 @@ public:
   Protocol_Record (void);
   Protocol_Record (int use_dummy);
   Protocol_Record (const char *key_name1,
-                   Protocol_Record *next = 0);
+                   Protocol_Record *next = nullptr);
   ~Protocol_Record (void);
   const char *get_host (void);
   const char *set_host (const char *str);

@@ -21,7 +21,7 @@ class Simple_Window : public Fl_Gl_Window
 public:
   /// Constructor
   Simple_Window (int x, int y, int w, int h,
-                 const char * l = 0);
+                 const char * l = nullptr);
 
   void set_x_angle (CORBA::Long x);
   void set_y_angle (CORBA::Long y);

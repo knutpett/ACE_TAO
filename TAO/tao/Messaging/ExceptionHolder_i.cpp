@@ -140,7 +140,7 @@ namespace TAO
   CORBA::ValueBase*
   ExceptionHolder::_copy_value (void)
   {
-    TAO::ExceptionHolder* ret_val = 0;
+    TAO::ExceptionHolder* ret_val = nullptr;
     ACE_NEW_THROW_EX (ret_val,
                       ExceptionHolder,
                       CORBA::NO_MEMORY ());
@@ -158,7 +158,7 @@ namespace TAO
   CORBA::ValueBase *
   ExceptionHolderFactory::create_for_unmarshal (void)
   {
-    TAO::ExceptionHolder* ret_val = 0;
+    TAO::ExceptionHolder* ret_val = nullptr;
     ACE_NEW_THROW_EX (ret_val,
                       ExceptionHolder,
                       CORBA::NO_MEMORY ());

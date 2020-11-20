@@ -20,7 +20,7 @@
 
 static const ACE_TCHAR *ior = ACE_TEXT ("file://supplier.ior");
 static unsigned int expect_fail = 0;
-static Notify_Push_Consumer* consumer_1 = 0;
+static Notify_Push_Consumer* consumer_1 = nullptr;
 
 // ******************************************************************
 // Subroutine Section

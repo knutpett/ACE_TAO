@@ -68,7 +68,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         }
       policy_current->set_policy_overrides (policies, CORBA::ADD_OVERRIDE);
 
-      Test::Hello_var *hello_array = 0;
+      Test::Hello_var *hello_array = nullptr;
       ACE_NEW_RETURN (hello_array, Test::Hello_var [cache_size], -1);
 
       int iter = 1;

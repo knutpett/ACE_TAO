@@ -50,7 +50,7 @@ TAO_UIOP_Endpoint::next (void)
 TAO_Endpoint *
 TAO_UIOP_Endpoint::duplicate (void)
 {
-  TAO_UIOP_Endpoint *endpoint = 0;
+  TAO_UIOP_Endpoint *endpoint = nullptr;
   ACE_NEW_RETURN (endpoint,
                   TAO_UIOP_Endpoint (this->object_addr_,
                                      this->priority ()),

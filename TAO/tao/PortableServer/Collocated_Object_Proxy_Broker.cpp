@@ -50,7 +50,7 @@ namespace TAO
   Collocated_Object_Proxy_Broker::_repository_id (CORBA::Object_ptr target)
   {
     TAO_Stub *stub = target->_stubobj ();
-    char * _tao_retval = 0;
+    char * _tao_retval = nullptr;
 
     try
       {

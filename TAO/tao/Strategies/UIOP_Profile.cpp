@@ -67,7 +67,7 @@ TAO_UIOP_Profile::~TAO_UIOP_Profile (void)
 {
   // Clean up the list of endpoints since we own it.
   // Skip the head, since it is not dynamically allocated.
-  TAO_Endpoint *tmp = 0;
+  TAO_Endpoint *tmp = nullptr;
 
   for (TAO_Endpoint *next = this->endpoint ()->next ();
        next != 0;
@@ -279,7 +279,7 @@ TAO_UIOP_Profile::prefix (void)
 int
 TAO_UIOP_Profile::decode_profile (TAO_InputCDR& cdr)
 {
-  char *rendezvous = 0;
+  char *rendezvous = nullptr;
 
   // Get rendezvous_point
   if (cdr.read_string (rendezvous) == 0)
@@ -413,7 +413,7 @@ TAO_UIOP_Profile::decode_endpoints (void)
            i > 0;
            --i)
         {
-          TAO_UIOP_Endpoint *endpoint = 0;
+          TAO_UIOP_Endpoint *endpoint = nullptr;
           ACE_NEW_RETURN (endpoint,
                           TAO_UIOP_Endpoint,
                           -1);

@@ -6,7 +6,7 @@
 #include "tao/Messaging/Messaging.h"
 #include "tao/BiDir_GIOP/BiDirGIOP.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 int iterations = 10;
 
 int

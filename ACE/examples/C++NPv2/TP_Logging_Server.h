@@ -23,7 +23,7 @@ public:
   { return activate (THR_NEW_LWP, MAX_THREADS); }
 
   virtual int put (ACE_Message_Block *mblk,
-                   ACE_Time_Value *timeout = 0)
+                   ACE_Time_Value *timeout = nullptr)
   { return putq (mblk, timeout); }
 
   virtual int svc (void);
@@ -74,7 +74,7 @@ public:
     : Logging_Acceptor (r) {}
 
   virtual int handle_input (ACE_HANDLE) {
-    TP_Logging_Handler *peer_handler = 0;
+    TP_Logging_Handler *peer_handler = nullptr;
     ACE_NEW_RETURN (peer_handler,
                     TP_Logging_Handler (reactor ()), -1);
     if (acceptor_.accept (peer_handler->peer ()) == -1) {
@@ -100,7 +100,7 @@ public:
 
   virtual int init (int argc, ACE_TCHAR *argv[]) {
     int i;
-    char **array = 0;
+    char **array = nullptr;
     ACE_NEW_RETURN (array, char*[argc], -1);
     ACE_Auto_Array_Ptr<char *> char_argv (array);
 

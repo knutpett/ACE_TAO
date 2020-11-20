@@ -1064,7 +1064,7 @@ Cubit_Client::cube_any_struct (int i)
   try
     {
       Cubit::Many arg_struct;
-      const Cubit::Many * ret_struct = 0;
+      const Cubit::Many * ret_struct = nullptr;
 
       this->call_count_++;
 

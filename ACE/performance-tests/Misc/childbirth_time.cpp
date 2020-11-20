@@ -334,7 +334,7 @@ ACE_TMAIN (int argc, ACE_TCHAR* argv[])
   int c;
   size_t iteration = 10;
   Profiler profiler = 0;
-  const char *profile_name = 0 ;
+  const char *profile_name = nullptr ;
 
   while ((c=get_opt ()) != -1)
     {

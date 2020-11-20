@@ -77,7 +77,7 @@ Task_Stats task_stats;
 int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-  MUF_Scheduler* scheduler = 0;
+  MUF_Scheduler* scheduler = nullptr;
   RTScheduling::Current_var current;
   long flags;
   int sched_policy = ACE_SCHED_RR;

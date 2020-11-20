@@ -40,7 +40,7 @@ TAO::HTIOP::Connection_Handler::Connection_Handler (TAO_ORB_Core *orb_core)
   : SVC_HANDLER (orb_core->thr_mgr (), 0, 0),
     TAO_Connection_Handler (orb_core)
 {
-  TAO::HTIOP::Transport* specific_transport = 0;
+  TAO::HTIOP::Transport* specific_transport = nullptr;
   ACE_NEW(specific_transport,
           TAO::HTIOP::Transport (this, orb_core));
 

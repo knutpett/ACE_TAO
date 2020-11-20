@@ -447,7 +447,7 @@ run_server (ACE_INET_Addr &addr)
 {
   if (use_reactor)
     {
-      ACE_Reactor *new_reactor = 0;
+      ACE_Reactor *new_reactor = nullptr;
 
       switch (use_reactor)
         {

@@ -555,7 +555,7 @@ IDL3_Client::home_test (void)
   CORBA::Contained::Description_var desc =
     home->describe ();
 
-  const CORBA::ComponentIR::HomeDescription *home_desc = 0;
+  const CORBA::ComponentIR::HomeDescription *home_desc = nullptr;
 
   if ((desc->value >>= home_desc) == 0)
     {
@@ -679,7 +679,7 @@ IDL3_Client::component_attribute_test (
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < ATTRS_LEN; ++i)
     {
@@ -825,7 +825,7 @@ IDL3_Client::component_port_test (
   CORBA::Contained::Description_var desc =
     comp_def->describe ();
 
-  const CORBA::ComponentIR::ComponentDescription *cd = 0;
+  const CORBA::ComponentIR::ComponentDescription *cd = nullptr;
 
   if ((desc->value >>= cd) == 0)
     {
@@ -904,7 +904,7 @@ IDL3_Client::provides_test (const CORBA::ComponentIR::ProvidesDescriptionSeq &pd
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < PROVIDES_LEN; ++i)
     {
@@ -957,7 +957,7 @@ IDL3_Client::uses_test (const CORBA::ComponentIR::UsesDescriptionSeq &uds)
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
   CORBA::Boolean mult = 0;
 
   for (CORBA::ULong i = 0; i < USES_LEN; ++i)
@@ -1031,7 +1031,7 @@ IDL3_Client::event_port_test (const CORBA::ComponentIR::EventPortDescriptionSeq 
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < seq_length; ++i)
     {
@@ -1163,7 +1163,7 @@ IDL3_Client::valuetype_attribute_test (
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < ATTRS_LEN; ++i)
     {
@@ -1255,7 +1255,7 @@ IDL3_Client::valuetype_operation_test (
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
   CORBA::ULong j = 0;
   CORBA::ULong length = 0;
 
@@ -1370,7 +1370,7 @@ IDL3_Client::valuetype_member_test (
       return -1;
     }
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < length; ++i)
     {
@@ -1429,7 +1429,7 @@ IDL3_Client::valuetype_factory_test (
     }
 
   CORBA::ULong inside_len = 0;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < FACTORY_LEN; ++i)
     {
@@ -1603,7 +1603,7 @@ IDL3_Client::home_factory_test (const CORBA::ComponentIR::HomeDescription *hd)
 
   CORBA::ULong inside_len = 0;
   CORBA::ULong j = 0;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < HOME_FACTORY_LEN; ++i)
     {
@@ -1700,7 +1700,7 @@ IDL3_Client::home_finder_test (const CORBA::ComponentIR::HomeDescription *hd)
 
   CORBA::ULong inside_len = 0;
   CORBA::ULong j = 0;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < HOME_FINDER_LEN; ++i)
     {

@@ -22,7 +22,7 @@ static const ACE_TCHAR *ior = ACE_TEXT ("file://supplier.ior");
 static TimeBase::TimeT blocking_timeout = 2 * 1000 * 1000 * 10; // 2 secs
 // Must match the number sent by supplier. (-1 if blocking_timeout less than 1)
 static unsigned int expected = 20;
-static Notify_Structured_Push_Consumer* consumer_1 = 0;
+static Notify_Structured_Push_Consumer* consumer_1 = nullptr;
 
 class Consumer_Client : public Notify_Test_Client
 {

@@ -121,14 +121,14 @@ be_visitor_component_ami_rh_exs::visit_operation (
 
   if (!vrt)
     {
-      Identifier *id = 0;
-      UTL_ScopedName *sn = 0;
+      Identifier *id = nullptr;
+      UTL_ScopedName *sn = nullptr;
 
       ACE_NEW_RETURN (id,
                       Identifier ("ami_return_val"),
                       -1);
 
-      UTL_ScopedName *tmp = 0;
+      UTL_ScopedName *tmp = nullptr;
 
       ACE_NEW_RETURN (tmp,
                       UTL_ScopedName (id,
@@ -139,7 +139,7 @@ be_visitor_component_ami_rh_exs::visit_operation (
       sn->nconc (tmp);
 
       // Create the argument.
-      be_argument *arg = 0;
+      be_argument *arg = nullptr;
       ACE_NEW_RETURN (arg,
                       be_argument (AST_Argument::dir_OUT,
                                   node->return_type (),

@@ -16,7 +16,7 @@ const ACE_TCHAR *ior = ACE_TEXT("file://messenger.ior");
 static NS_FilterType consumerFilter = None;
 static NS_FilterType supplierFilter = None;
 static int numEvents = 90; // Must be multiple of 9
-static Notify_Push_Consumer* consumer = 0;
+static Notify_Push_Consumer* consumer = nullptr;
 
 static const char* GRAMMAR = "TCL";
 

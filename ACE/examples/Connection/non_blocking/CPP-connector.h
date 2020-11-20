@@ -22,7 +22,7 @@ class Peer_Handler : public ACE_Svc_Handler<PEER_STREAM, ACE_SYNCH>
   //   This class uses a very clever state machine pattern to keep
   //   track of how it interacts with the user and the server.
 public:
-  Peer_Handler (ACE_Reactor *r = 0);
+  Peer_Handler (ACE_Reactor *r = nullptr);
 
   virtual int open (void * = 0);
   // Activate the handler when connection is established.

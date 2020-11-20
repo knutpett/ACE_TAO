@@ -42,7 +42,7 @@ public:
   /// helper that produces either a nested name for
   /// header files or full name for others.
   virtual const char *type_name (be_type *type,
-                                 const char *suffix = 0);
+                                 const char *suffix = nullptr);
 
   /// return the direction of the argument node
   virtual AST_Argument::Direction direction (void);

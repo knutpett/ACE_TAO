@@ -269,7 +269,7 @@ mutex_test_thread (void *args)
               *data->error_flag = 1;
             }
 
-          *shared_var = 0;
+          *shared_var = nullptr;
 
           mutex->unlock ();
 

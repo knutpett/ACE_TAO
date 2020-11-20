@@ -42,7 +42,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       life->destroy ();
       assign->destroy ();
 
-      Hello *hello_impl = 0;
+      Hello *hello_impl = nullptr;
       ACE_NEW_RETURN (hello_impl, Hello, 1);
       PortableServer::ServantBase_var owner_transfer (hello_impl);
 

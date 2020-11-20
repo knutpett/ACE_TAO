@@ -60,7 +60,7 @@ Vault_Server_Request_Interceptor::receive_request (
       Dynamic::ParameterList_var paramlist =
         ri->arguments ();
 
-      const Test_Interceptors::Secure_Vault::Record *record = 0;
+      const Test_Interceptors::Secure_Vault::Record *record = nullptr;
       CORBA::Long id;
       CORBA::ULong i = 0;  // index -- explicitly used to avoid
                            // overloaded operator ambiguity.
@@ -209,7 +209,7 @@ Vault_Server_Request_Dynamic_Interceptor::receive_request (
       Dynamic::ParameterList_var paramlist =
         ri->arguments ();
 
-      const Test_Interceptors::Secure_Vault::Record *record = 0;
+      const Test_Interceptors::Secure_Vault::Record *record = nullptr;
       CORBA::Long id;
       CORBA::ULong i = 0;  // index -- explicitly used to avoid
                            // overloaded operator ambiguity.

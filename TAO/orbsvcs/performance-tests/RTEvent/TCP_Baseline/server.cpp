@@ -58,7 +58,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 class Svc_Handler : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_SYNCH>
 {
 public:
-  Svc_Handler(ACE_Reactor * reactor = 0);
+  Svc_Handler(ACE_Reactor * reactor = nullptr);
 
   virtual int handle_input(ACE_HANDLE);
   virtual int handle_close (ACE_HANDLE, ACE_Reactor_Mask);

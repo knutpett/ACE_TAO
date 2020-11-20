@@ -89,7 +89,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       //
       // Create and activate the client.
       //
-      client_i *servant = 0;
+      client_i *servant = nullptr;
       ACE_NEW_RETURN (servant,
                       client_i (server_obj.in ()),
                       -1);

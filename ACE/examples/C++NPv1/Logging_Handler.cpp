@@ -99,7 +99,7 @@ Logging_Handler::write_log_record (ACE_Message_Block *mblk)
 
 int Logging_Handler::log_record ()
 {
-  ACE_Message_Block *mblk = 0;
+  ACE_Message_Block *mblk = nullptr;
   if (recv_log_record (mblk) == -1)
     return -1;
   else {

@@ -3,7 +3,7 @@
 #include "test_i.h"
 #include "ace/OS_NS_stdio.h"
 
-const ACE_TCHAR *ior_file = 0;
+const ACE_TCHAR *ior_file = nullptr;
 int number = 0;
 
 int

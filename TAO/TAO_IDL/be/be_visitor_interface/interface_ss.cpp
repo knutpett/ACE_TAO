@@ -261,7 +261,7 @@ be_visitor_interface_ss::gen_abstract_ops_helper (
       return 0;
     }
 
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
   be_visitor_context ctx;
   ctx.stream (os);
   ctx.state (TAO_CodeGen::TAO_ROOT_SS);
@@ -283,8 +283,8 @@ be_visitor_interface_ss::gen_abstract_ops_helper (
 
       AST_Decl::NodeType nt = d->node_type ();
 
-      UTL_ScopedName *item_new_name = 0;
-      UTL_ScopedName *new_name = 0;
+      UTL_ScopedName *item_new_name = nullptr;
+      UTL_ScopedName *new_name = nullptr;
 
       if (AST_Decl::NT_op == nt || AST_Decl::NT_attr == nt)
         {

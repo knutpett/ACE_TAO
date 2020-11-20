@@ -113,7 +113,7 @@ Driver::parse_args (int argc, ACE_TCHAR *argv[])
 
   ACE_Get_Opt get_opts (argc, argv, ACE_TEXT("t:d"));
   int c;
-  const ACE_TCHAR *test_str = 0;
+  const ACE_TCHAR *test_str = nullptr;
 
   while ((c = get_opts ()) != -1)
     switch (c)

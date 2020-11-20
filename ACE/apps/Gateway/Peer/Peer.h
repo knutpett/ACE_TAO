@@ -86,7 +86,7 @@ public:
 
   /// Send a event to a gateway (may be queued if necessary due to flow
   /// control).
-  virtual int put (ACE_Message_Block *, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *, ACE_Time_Value *tv = nullptr);
 
   /// Finish sending a event when flow control conditions abate.
   virtual int handle_output (ACE_HANDLE);

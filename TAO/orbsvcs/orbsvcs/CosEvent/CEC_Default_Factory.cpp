@@ -64,7 +64,7 @@ TAO_CEC_Default_Factory::parse_collection_arg (ACE_TCHAR* opt)
   int synch_type = 0;
   int iteration_type = 0;
 
-  ACE_TCHAR* aux = 0;
+  ACE_TCHAR* aux = nullptr;
   for (ACE_TCHAR* arg = ACE_OS::strtok_r (opt, ACE_TEXT(":"), &aux);
        arg != 0;
        arg = ACE_OS::strtok_r (0, ACE_TEXT(":"), &aux))
@@ -470,7 +470,7 @@ TAO_CEC_Default_Factory::create_pulling_strategy (TAO_CEC_EventChannel *ec)
   if (this->pulling_strategy_ == 0)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_);
 
@@ -547,7 +547,7 @@ TAO_CEC_Default_Factory::destroy_supplier_admin (TAO_CEC_TypedSupplierAdmin *x)
 TAO_CEC_ProxyPushSupplier*
 TAO_CEC_Default_Factory::create_proxy_push_supplier (TAO_CEC_EventChannel *ec)
 {
-  TAO_CEC_ProxyPushSupplier *created = 0;
+  TAO_CEC_ProxyPushSupplier *created = nullptr;
   ACE_Time_Value timeout = this->consumer_control_ ? this->consumer_timeout_
     : ACE_Time_Value::zero;
   ACE_NEW_RETURN (created, TAO_CEC_ProxyPushSupplier (ec, timeout), 0);
@@ -558,7 +558,7 @@ TAO_CEC_Default_Factory::create_proxy_push_supplier (TAO_CEC_EventChannel *ec)
 TAO_CEC_ProxyPushSupplier*
 TAO_CEC_Default_Factory::create_proxy_push_supplier (TAO_CEC_TypedEventChannel *ec)
 {
-  TAO_CEC_ProxyPushSupplier *created = 0;
+  TAO_CEC_ProxyPushSupplier *created = nullptr;
   ACE_Time_Value timeout = this->consumer_control_ ? this->consumer_timeout_
     : ACE_Time_Value::zero;
   ACE_NEW_RETURN (created, TAO_CEC_ProxyPushSupplier (ec, timeout), 0);
@@ -591,7 +591,7 @@ TAO_CEC_Default_Factory::destroy_proxy_pull_supplier (TAO_CEC_ProxyPullSupplier 
 TAO_CEC_ProxyPushConsumer*
 TAO_CEC_Default_Factory::create_proxy_push_consumer (TAO_CEC_EventChannel *ec)
 {
-  TAO_CEC_ProxyPushConsumer *created = 0;
+  TAO_CEC_ProxyPushConsumer *created = nullptr;
   ACE_Time_Value timeout = this->supplier_control_ ? this->supplier_timeout_
     : ACE_Time_Value::zero;
   ACE_NEW_RETURN (created, TAO_CEC_ProxyPushConsumer (ec, timeout), 0);
@@ -602,7 +602,7 @@ TAO_CEC_Default_Factory::create_proxy_push_consumer (TAO_CEC_EventChannel *ec)
 TAO_CEC_TypedProxyPushConsumer*
 TAO_CEC_Default_Factory::create_proxy_push_consumer (TAO_CEC_TypedEventChannel *ec)
 {
-  TAO_CEC_TypedProxyPushConsumer *created = 0;
+  TAO_CEC_TypedProxyPushConsumer *created = nullptr;
   ACE_Time_Value timeout = this->supplier_control_ ? this->supplier_timeout_
     : ACE_Time_Value::zero;
   ACE_NEW_RETURN (created, TAO_CEC_TypedProxyPushConsumer (ec, timeout), 0);
@@ -1276,7 +1276,7 @@ TAO_CEC_Default_Factory::create_consumer_control (TAO_CEC_EventChannel* ec)
   else if (this->consumer_control_ == 1)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_);
 
@@ -1298,7 +1298,7 @@ TAO_CEC_Default_Factory::create_consumer_control (TAO_CEC_TypedEventChannel* ec)
   else if (this->consumer_control_ == 1)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_);
 
@@ -1326,7 +1326,7 @@ TAO_CEC_Default_Factory::create_supplier_control (TAO_CEC_EventChannel* ec)
   else if (this->supplier_control_ == 1)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_);
 
@@ -1348,7 +1348,7 @@ TAO_CEC_Default_Factory::create_supplier_control (TAO_CEC_TypedEventChannel* ec)
   else if (this->supplier_control_ == 1)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_);
 
@@ -1373,7 +1373,7 @@ CORBA::Policy_ptr TAO_CEC_Default_Factory::create_roundtrip_timeout_policy
 {
   //get the existing orb
   int fake_argc = 0;
-  ACE_TCHAR **fake_argv = 0;
+  ACE_TCHAR **fake_argv = nullptr;
   CORBA::ORB_var orb = CORBA::ORB_init (fake_argc, fake_argv, this->orbid_);
 
   CORBA::Any value;

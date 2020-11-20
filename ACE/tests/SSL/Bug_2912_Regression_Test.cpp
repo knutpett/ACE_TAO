@@ -146,7 +146,7 @@ Server_Proactor_Task::svc (void)
 /**
  * This test depends on ADH since the error is related to a missing cert.pem
  */
-static DH* dh1024 = 0;
+static DH* dh1024 = nullptr;
 
 DH*
 get_dh1024 ()
@@ -454,7 +454,7 @@ Server_Service_Handler::read_data (void)
 {
   ACE_GUARD_RETURN (ACE_SYNCH_RECURSIVE_MUTEX, guard, this->mtx_, -1);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_NORETURN(mb, ACE_Message_Block (DATA_SIZE));
 
   int ret = this->read (*mb, DATA_SIZE);
@@ -474,7 +474,7 @@ Server_Service_Handler::write_data (void)
 {
   ACE_GUARD_RETURN (ACE_SYNCH_RECURSIVE_MUTEX, guard, this->mtx_, -1);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_NORETURN(mb, ACE_Message_Block (DATA_SIZE));
   ACE_OS::memcpy (mb->wr_ptr (), DATA, DATA_SIZE);
   mb->wr_ptr (DATA_SIZE);
@@ -555,7 +555,7 @@ public:
   virtual Server_Service_Handler *make_handler (void);
 
   //FUZZ: disable check_for_lack_ACE_OS
-  virtual int accept (size_t bytes_to_read = 0, const void *act = 0);
+  virtual int accept (size_t bytes_to_read = 0, const void *act = nullptr);
   //FUZZ: enable check_for_lack_ACE_OS
 
   virtual void handle_accept (const ACE_Asynch_Accept::Result &result);
@@ -764,7 +764,7 @@ Client_Service_Handler::open (ACE_HANDLE h, ACE_Message_Block&)
   }
   else
   {
-    ACE_Message_Block *mb = 0;
+    ACE_Message_Block *mb = nullptr;
     ACE_NEW_NORETURN(mb, ACE_Message_Block (DATA_SIZE));
 
     if (this->read_data () < 0 || this->write_data () < 0)
@@ -915,7 +915,7 @@ Client_Service_Handler::read_data (void)
 {
   ACE_GUARD_RETURN (ACE_SYNCH_RECURSIVE_MUTEX, guard, this->mtx_, -1);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_NORETURN(mb, ACE_Message_Block (DATA_SIZE));
 
   int ret = this->read (*mb, DATA_SIZE);
@@ -935,7 +935,7 @@ Client_Service_Handler::write_data (void)
 {
   ACE_GUARD_RETURN (ACE_SYNCH_RECURSIVE_MUTEX, guard, this->mtx_, -1);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_NORETURN (mb, ACE_Message_Block (DATA_SIZE));
   ACE_OS::memcpy (mb->wr_ptr (), DATA, DATA_SIZE);
   mb->wr_ptr (DATA_SIZE);
@@ -1032,7 +1032,7 @@ public:
     const ACE_INET_Addr &local_sap =
       (const ACE_INET_Addr &)ACE_Addr::sap_any,
     int reuse_addr = 1,
-    const void *act = 0);
+    const void *act = nullptr);
   //FUZZ: enable check_for_lack_ACE_OS
 
   virtual int validate_connection (

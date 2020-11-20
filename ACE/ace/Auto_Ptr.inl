@@ -112,7 +112,7 @@ ACE_Auto_Basic_Array_Ptr<X>::release (void)
 {
   ACE_TRACE ("ACE_Auto_Basic_Array_Ptr<X>::release");
   X *old = this->p_;
-  this->p_ = 0;
+  this->p_ = nullptr;
   return old;
 }
 

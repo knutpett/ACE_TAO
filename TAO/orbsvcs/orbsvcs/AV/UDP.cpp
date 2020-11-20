@@ -425,9 +425,9 @@ TAO_AV_UDP_Acceptor::open_i (ACE_INET_Addr *inet_addr,
                              int is_default_addr)
 {
   int result = -1;
-  ACE_INET_Addr *local_addr = 0;
+  ACE_INET_Addr *local_addr = nullptr;
 
-  TAO_AV_Flow_Handler *flow_handler = 0;
+  TAO_AV_Flow_Handler *flow_handler = nullptr;
 
   // if using a default address and this is the control flow component, the
   //  handler and local address are already set in the flow spec entry
@@ -479,8 +479,8 @@ TAO_AV_UDP_Acceptor::open_i (ACE_INET_Addr *inet_addr,
                     }
                   else
                     {
-                      ACE_INET_Addr *local_control_addr = 0;
-                      TAO_AV_Flow_Handler *control_flow_handler = 0;
+                      ACE_INET_Addr *local_control_addr = nullptr;
+                      TAO_AV_Flow_Handler *control_flow_handler = nullptr;
 
                       ACE_NEW_RETURN (this->control_inet_address_,
                                       ACE_INET_Addr ("0"),
@@ -598,8 +598,8 @@ TAO_AV_UDP_Connector::connect (TAO_FlowSpec_Entry *entry,
                                TAO_AV_Transport *&transport,
                                TAO_AV_Core::Flow_Component flow_component)
 {
-  ACE_INET_Addr *local_addr = 0;
-  ACE_INET_Addr *control_inet_addr = 0;
+  ACE_INET_Addr *local_addr = nullptr;
+  ACE_INET_Addr *control_inet_addr = nullptr;
 
   this->entry_ = entry;
   this->flow_component_ = flow_component;
@@ -618,7 +618,7 @@ TAO_AV_UDP_Connector::connect (TAO_FlowSpec_Entry *entry,
       control_inet_addr = dynamic_cast<ACE_INET_Addr*> (entry->control_address ());
     }
 
-  TAO_AV_Flow_Handler *flow_handler = 0;
+  TAO_AV_Flow_Handler *flow_handler = nullptr;
 
   // if this is the control flow component, the
   //  handler and local address are already set in the flow spec entry
@@ -670,8 +670,8 @@ TAO_AV_UDP_Connector::connect (TAO_FlowSpec_Entry *entry,
                 }
               else
                 {
-                  ACE_INET_Addr *local_control_addr = 0;
-                  TAO_AV_Flow_Handler *control_flow_handler = 0;
+                  ACE_INET_Addr *local_control_addr = nullptr;
+                  TAO_AV_Flow_Handler *control_flow_handler = nullptr;
 
                   if (entry->is_multicast ())
                     control_inet_addr =  dynamic_cast<ACE_INET_Addr*> (entry->control_address ()) ;
@@ -930,7 +930,7 @@ TAO_AV_Acceptor*
 TAO_AV_UDP_Factory::make_acceptor (void)
 {
   if (TAO_debug_level > 0) ORBSVCS_DEBUG ((LM_DEBUG,"TAO_AV_UDP_Factory::make_acceptor\n"));
-  TAO_AV_Acceptor *acceptor = 0;
+  TAO_AV_Acceptor *acceptor = nullptr;
   ACE_NEW_RETURN (acceptor,
                   TAO_AV_UDP_Acceptor,
                   0);
@@ -941,7 +941,7 @@ TAO_AV_Connector*
 TAO_AV_UDP_Factory::make_connector (void)
 {
   if (TAO_debug_level > 0) ORBSVCS_DEBUG ((LM_DEBUG,"TAO_AV_UDP_Factory::make_connector\n"));
-  TAO_AV_Connector *connector = 0;
+  TAO_AV_Connector *connector = nullptr;
   ACE_NEW_RETURN (connector,
                   TAO_AV_UDP_Connector,
                   0);
@@ -1059,12 +1059,12 @@ TAO_AV_UDP_Flow_Factory::make_protocol_object (TAO_FlowSpec_Entry *entry,
                                                TAO_AV_Flow_Handler *handler,
                                                TAO_AV_Transport *transport)
 {
-  TAO_AV_Callback *callback = 0;
+  TAO_AV_Callback *callback = nullptr;
   if( endpoint->get_callback (entry->flowname (), callback) ) {
     ORBSVCS_ERROR_RETURN ((LM_ERROR, "(%N,%l) Invalid callback\n"), 0);
   }
 
-  TAO_AV_UDP_Object *object = 0;
+  TAO_AV_UDP_Object *object = nullptr;
   ACE_NEW_RETURN (object,
                   TAO_AV_UDP_Object (callback,
                                      transport),

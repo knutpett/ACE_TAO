@@ -230,7 +230,7 @@ ACE_Thread_Descriptor::at_exit (void *object,
    }
   else
    {
-     ACE_At_Thread_Exit* cleanup = 0;
+     ACE_At_Thread_Exit* cleanup = nullptr;
      ACE_NEW_RETURN (cleanup,
                      ACE_At_Thread_Exit_Func (object,
                                               cleanup_hook,
@@ -593,7 +593,7 @@ ACE_Thread_Manager::spawn_i (ACE_THR_FUNC func,
   // Reset thread descriptor status
   new_thr_desc->reset (this);
 
-  ACE_Thread_Adapter *thread_args = 0;
+  ACE_Thread_Adapter *thread_args = nullptr;
 # if defined (ACE_HAS_WIN32_STRUCTURAL_EXCEPTIONS)
   ACE_NEW_RETURN (thread_args,
                   ACE_Thread_Adapter (func,
@@ -820,7 +820,7 @@ ACE_Thread_Manager::append_thr (ACE_thread_t t_id,
                                 ACE_Thread_Descriptor *td)
 {
   ACE_TRACE ("ACE_Thread_Manager::append_thr");
-  ACE_Thread_Descriptor *thr_desc = 0;
+  ACE_Thread_Descriptor *thr_desc = nullptr;
 
   if (td == 0)
     {
@@ -975,7 +975,7 @@ ACE_Thread_Manager::remove_thr (ACE_Thread_Descriptor *td,
 void
 ACE_Thread_Manager::remove_thr_all (void)
 {
-  ACE_Thread_Descriptor *td = 0;
+  ACE_Thread_Descriptor *td = nullptr;
 
   while ((td = this->thr_list_.delete_head ()) != 0)
     {
@@ -1135,7 +1135,7 @@ ACE_Thread_Manager::kill_thr (ACE_Thread_Descriptor *td, int signum)
   int const result = OP (ptr, ARG); \
   ACE_Errno_Guard error (errno); \
   while (! this->thr_to_be_removed_.is_empty ()) { \
-    ACE_Thread_Descriptor * td = 0; \
+    ACE_Thread_Descriptor * td = nullptr; \
     this->thr_to_be_removed_.dequeue_head (td); \
     this->remove_thr (td, 1); \
   } \
@@ -1559,7 +1559,7 @@ ACE_Thread_Manager::wait_grp (int grp_id)
   ACE_TRACE ("ACE_Thread_Manager::wait_grp");
 
   int copy_count = 0;
-  ACE_Thread_Descriptor_Base *copy_table = 0;
+  ACE_Thread_Descriptor_Base *copy_table = nullptr;
 
   // We have to make sure that while we wait for these threads to
   // exit, we do not have the lock.  Therefore we make a copy of all
@@ -1758,7 +1758,7 @@ ACE_Thread_Manager::wait (const ACE_Time_Value *timeout,
 
             if (! this->thr_to_be_removed_.is_empty ())
               {
-                ACE_Thread_Descriptor *td = 0;
+                ACE_Thread_Descriptor *td = nullptr;
                 while (this->thr_to_be_removed_.dequeue_head (td) != -1)
                   this->remove_thr (td, 1);
               }
@@ -1774,7 +1774,7 @@ ACE_Thread_Manager::wait (const ACE_Time_Value *timeout,
         this->remove_thr_all ();
 
 #if !defined (ACE_HAS_VXTHREADS)
-  ACE_Thread_Descriptor_Base* item = 0;
+  ACE_Thread_Descriptor_Base* item = nullptr;
   while ((item = this->terminated_thr_list_.delete_head ()) != 0)
     {
       term_thr_list_copy.insert_tail (item);
@@ -1786,7 +1786,7 @@ ACE_Thread_Manager::wait (const ACE_Time_Value *timeout,
 #if !defined (ACE_HAS_VXTHREADS)
     // @@ VxWorks doesn't support thr_join (yet.)  We are working
     // on our implementation.   Chorus'es thr_join seems broken.
-    ACE_Thread_Descriptor_Base *item = 0;
+    ACE_Thread_Descriptor_Base *item = nullptr;
 
     while ((item = term_thr_list_copy.delete_head ()) != 0)
       {
@@ -1834,7 +1834,7 @@ ACE_Thread_Manager::apply_task (ACE_Task_Base *task,
       // Save/restore errno.
       ACE_Errno_Guard error (errno);
 
-      for (ACE_Thread_Descriptor *td = 0;
+      for (ACE_Thread_Descriptor *td = nullptr;
            this->thr_to_be_removed_.dequeue_head (td) != -1;
            )
         this->remove_thr (td, 1);
@@ -1849,7 +1849,7 @@ int
 ACE_Thread_Manager::wait_task (ACE_Task_Base *task)
 {
   int copy_count = 0;
-  ACE_Thread_Descriptor_Base *copy_table = 0;
+  ACE_Thread_Descriptor_Base *copy_table = nullptr;
 
   // We have to make sure that while we wait for these threads to
   // exit, we do not have the lock.  Therefore we make a copy of all

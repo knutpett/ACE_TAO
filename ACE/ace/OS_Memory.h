@@ -181,32 +181,32 @@ ACE_END_VERSIONED_NAMESPACE_DECL
 #  if defined (ACE_HAS_NEW_NOTHROW)
 #    define ACE_NEW_RETURN(POINTER,CONSTRUCTOR,RET_VAL) \
    do { POINTER = new (ACE_nothrow) CONSTRUCTOR; \
-     if (POINTER == 0) { errno = ENOMEM; return RET_VAL; } \
+     if (POINTER == nullptr) { errno = ENOMEM; return RET_VAL; } \
    } while (0)
 #    define ACE_NEW(POINTER,CONSTRUCTOR) \
    do { POINTER = new(ACE_nothrow) CONSTRUCTOR; \
-     if (POINTER == 0) { errno = ENOMEM; return; } \
+     if (POINTER == nullptr) { errno = ENOMEM; return; } \
    } while (0)
 #    define ACE_NEW_NORETURN(POINTER,CONSTRUCTOR) \
    do { POINTER = new(ACE_nothrow) CONSTRUCTOR; \
-     if (POINTER == 0) { errno = ENOMEM; } \
+     if (POINTER == nullptr) { errno = ENOMEM; } \
    } while (0)
 
 #  else
 
 #    define ACE_NEW_RETURN(POINTER,CONSTRUCTOR,RET_VAL) \
    do { try { POINTER = new CONSTRUCTOR; } \
-     catch (ACE_bad_alloc) { ACE_del_bad_alloc errno = ENOMEM; POINTER = 0; return RET_VAL; } \
+     catch (ACE_bad_alloc) { ACE_del_bad_alloc errno = ENOMEM; POINTER = nullptr; return RET_VAL; } \
    } while (0)
 
 #    define ACE_NEW(POINTER,CONSTRUCTOR) \
    do { try { POINTER = new CONSTRUCTOR; } \
-     catch (ACE_bad_alloc) { ACE_del_bad_alloc errno = ENOMEM; POINTER = 0; return; } \
+     catch (ACE_bad_alloc) { ACE_del_bad_alloc errno = ENOMEM; POINTER = nullptr; return; } \
    } while (0)
 
 #    define ACE_NEW_NORETURN(POINTER,CONSTRUCTOR) \
    do { try { POINTER = new CONSTRUCTOR; } \
-     catch (ACE_bad_alloc) { ACE_del_bad_alloc errno = ENOMEM; POINTER = 0; } \
+     catch (ACE_bad_alloc) { ACE_del_bad_alloc errno = ENOMEM; POINTER = nullptr; } \
    } while (0)
 #  endif /* ACE_HAS_NEW_NOTHROW */
 
@@ -214,15 +214,15 @@ ACE_END_VERSIONED_NAMESPACE_DECL
 
 # define ACE_NEW_RETURN(POINTER,CONSTRUCTOR,RET_VAL) \
    do { POINTER = new CONSTRUCTOR; \
-     if (POINTER == 0) { errno = ENOMEM; return RET_VAL; } \
+     if (POINTER == nullptr) { errno = ENOMEM; return RET_VAL; } \
    } while (0)
 # define ACE_NEW(POINTER,CONSTRUCTOR) \
    do { POINTER = new CONSTRUCTOR; \
-     if (POINTER == 0) { errno = ENOMEM; return; } \
+     if (POINTER == nullptr) { errno = ENOMEM; return; } \
    } while (0)
 # define ACE_NEW_NORETURN(POINTER,CONSTRUCTOR) \
    do { POINTER = new CONSTRUCTOR; \
-     if (POINTER == 0) { errno = ENOMEM; } \
+     if (POINTER == nullptr) { errno = ENOMEM; } \
    } while (0)
 
 # if !defined (ACE_bad_alloc)

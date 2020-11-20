@@ -36,7 +36,7 @@ class ACE_Time_Value;
 class ACE_Export ACE_Null_Mutex
 {
 public:
-  ACE_Null_Mutex (const ACE_TCHAR * = 0)
+  ACE_Null_Mutex (const ACE_TCHAR * = nullptr)
     : lock_ (0) {}
   ~ACE_Null_Mutex (void) {}
   /// Return 0.
@@ -185,7 +185,7 @@ public:
   ACE_Null_Mutex * operator () (const ACE_TCHAR *name)
   {
     ACE_Null_Mutex *p;
-    ACE_NEW_RETURN (p, ACE_Null_Mutex (name), 0);
+    ACE_NEW_RETURN (p, ACE_Null_Mutex (name), nullptr);
     return p;
   }
 };

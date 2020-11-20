@@ -291,7 +291,7 @@ Connection_Manager::connect_to_receivers (AVStreams::MMDevice_ptr sender)
       ACE_CString flowname =
         (*iterator).ext_id_;
 
-      Endpoint_Addresses* addr = 0;
+      Endpoint_Addresses* addr = nullptr;
       ep_addr_.find (flowname,
                      addr);
 
@@ -338,7 +338,7 @@ Connection_Manager::connect_to_receivers (AVStreams::MMDevice_ptr sender)
                     sender_entry.entry_to_string ()));
 
       // Create the stream control for this stream.
-      TAO_StreamCtrl *streamctrl = 0;
+      TAO_StreamCtrl *streamctrl = nullptr;
       ACE_NEW (streamctrl,
                TAO_StreamCtrl);
 
@@ -474,7 +474,7 @@ Connection_Manager::connect_to_sender (void)
     "_" +
     this->receiver_name_;
 
-  Endpoint_Addresses* addr = 0;
+  Endpoint_Addresses* addr = nullptr;
   ep_addr_.find (flowname,
                  addr);
 
@@ -519,7 +519,7 @@ Connection_Manager::connect_to_sender (void)
                 sender_entry.entry_to_string ()));
 
   // Create the stream control for this stream
-  TAO_StreamCtrl* streamctrl = 0;
+  TAO_StreamCtrl* streamctrl = nullptr;
   ACE_NEW (streamctrl,
            TAO_StreamCtrl);
 

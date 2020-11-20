@@ -86,7 +86,7 @@ worker (void *c)
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) worker, iterations = %d\n"), count));
 
   ACE_thread_key_t key = ACE_OS::NULL_key;
-  int *ip = 0;
+  int *ip = nullptr;
 
   // Make one key that will be available when the thread exits so that
   // we'll have something to cleanup!

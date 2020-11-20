@@ -19,7 +19,7 @@ public:
   virtual void accept ( const ACE_Addr &local_sap
                       , ACE_SOCK_Dgram &new_dgram
                       , JAWS_Event_Completer *completer
-                      , void *act = 0
+                      , void *act = nullptr
                       ) = 0;
   // The address to new_dgram is passed back as the data member of
   // the JAWS_Event_Result that is returned to the completer.
@@ -27,7 +27,7 @@ public:
   virtual void connect ( const ACE_Addr &remote_sap
                        , ACE_SOCK_Dgram &new_dgram
                        , JAWS_Event_Completer *completer
-                       , void *act = 0
+                       , void *act = nullptr
                        ) = 0;
   // The address to new_dgram is passed back as the data member of
   // the JAWS_Event_Result that is returned to the completer.
@@ -37,7 +37,7 @@ public:
                        , ACE_SOCK_Dgram &new_dgram
                        , const ACE_Addr &local_sap
                        , JAWS_Event_Completer *completer
-                       , void *act = 0
+                       , void *act = nullptr
                        ) = 0;
   // The address to new_dgram is passed back as the data member of
   // the JAWS_Event_Result that is returned to the completer.
@@ -47,7 +47,7 @@ public:
                       , ACE_SOCK_Dgram &new_dgram
                       , JAWS_Event_Completer *completer
                       , const ACE_Time_Value &timeout
-                      , void *act = 0
+                      , void *act = nullptr
                       ) = 0;
   // The address to new_dgram is passed back as the data member of
   // the JAWS_Event_Result that is returned to the completer.
@@ -56,7 +56,7 @@ public:
                        , ACE_SOCK_Dgram &new_dgram
                        , JAWS_Event_Completer *completer
                        , const ACE_Time_Value &timeout
-                       , void *act = 0
+                       , void *act = nullptr
                        ) = 0;
   // The address to new_dgram is passed back as the data member of
   // the JAWS_Event_Result that is returned to the completer.
@@ -67,7 +67,7 @@ public:
                        , const ACE_Addr &local_sap
                        , JAWS_Event_Completer *completer
                        , const ACE_Time_Value &timeout
-                       , void *act = 0
+                       , void *act = nullptr
                        ) = 0;
   // The address to new_dgram is passed back as the data member of
   // the JAWS_Event_Result that is returned to the completer.
@@ -80,7 +80,7 @@ class JAWS_Export JAWS_Datagram
 {
 public:
 
-  JAWS_Datagram (JAWS_Datagram_Impl *impl = 0);
+  JAWS_Datagram (JAWS_Datagram_Impl *impl = nullptr);
 
   static JAWS_Datagram * instance (void)
   {
@@ -90,34 +90,34 @@ public:
   void accept ( const ACE_Addr &local_sap
               , ACE_SOCK_Dgram &new_dgram
               , JAWS_Event_Completer *completer
-              , void *act = 0
+              , void *act = nullptr
               );
 
   void connect ( const ACE_Addr &remote_sap
                , ACE_SOCK_Dgram &new_dgram
                , JAWS_Event_Completer *completer
-               , void *act = 0
+               , void *act = nullptr
                );
 
   void connect ( const ACE_Addr &remote_sap
                , ACE_SOCK_Dgram &new_dgram
                , const ACE_Addr &local_sap
                , JAWS_Event_Completer *completer
-               , void *act = 0
+               , void *act = nullptr
                );
 
   void accept ( const ACE_Addr &local_sap
               , ACE_SOCK_Dgram &new_dgram
               , JAWS_Event_Completer *completer
               , const ACE_Time_Value &timeout
-              , void *act = 0
+              , void *act = nullptr
               );
 
   void connect ( const ACE_Addr &remote_sap
                , ACE_SOCK_Dgram &new_dgram
                , JAWS_Event_Completer *completer
                , const ACE_Time_Value &timeout
-               , void *act = 0
+               , void *act = nullptr
                );
 
   void connect ( const ACE_Addr &remote_sap
@@ -125,7 +125,7 @@ public:
                , const ACE_Addr &local_sap
                , JAWS_Event_Completer *completer
                , const ACE_Time_Value &timeout
-               , void *act = 0
+               , void *act = nullptr
                );
 
 private:

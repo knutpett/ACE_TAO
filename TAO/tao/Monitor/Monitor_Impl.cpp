@@ -42,7 +42,7 @@ Monitor_Impl::get_statistic_names (const char * filter)
   Monitor_Control_Types::NameList mc_names =
     Monitor_Point_Registry::instance ()->names ();
 
-  ::Monitor::NameList *namelist = 0;
+  ::Monitor::NameList *namelist = nullptr;
   ACE_NEW_THROW_EX (namelist,
                     ::Monitor::NameList (static_cast<CORBA::ULong> (mc_names.size ())),
                     CORBA::NO_MEMORY ());
@@ -53,7 +53,7 @@ Monitor_Impl::get_statistic_names (const char * filter)
        !i.done ();
        i.advance (), ++index)
     {
-      ACE_CString *item = 0;
+      ACE_CString *item = nullptr;
       i.next (item);
 
       if (ACE::wild_match (item->c_str (), filter, false))
@@ -70,7 +70,7 @@ Monitor_Impl::get_statistic_names (const char * filter)
 ::Monitor::DataList *
 Monitor_Impl::get_statistics (const ::Monitor::NameList & names)
 {
-  ::Monitor::DataList *datalist = 0;
+  ::Monitor::DataList *datalist = nullptr;
   ACE_NEW_THROW_EX (datalist,
                     ::Monitor::DataList (names.length ()),
                     CORBA::NO_MEMORY ());
@@ -105,7 +105,7 @@ Monitor_Impl::get_statistics (const ::Monitor::NameList & names)
 ::Monitor::DataList *
 Monitor_Impl::get_and_clear_statistics (const ::Monitor::NameList & names)
 {
-  ::Monitor::DataList *datalist = 0;
+  ::Monitor::DataList *datalist = nullptr;
   ACE_NEW_THROW_EX (datalist,
                     ::Monitor::DataList (names.length ()),
                     CORBA::NO_MEMORY ());
@@ -208,7 +208,7 @@ TAO_Monitor::get_monitor_data (
 ::Monitor::NameList *
 Monitor_Impl::clear_statistics (const ::Monitor::NameList & names)
 {
-  ::Monitor::NameList *namelist = 0;
+  ::Monitor::NameList *namelist = nullptr;
   ACE_NEW_THROW_EX (namelist,
                     ::Monitor::NameList (names.length ()),
                     CORBA::NO_MEMORY ());
@@ -243,7 +243,7 @@ Monitor_Impl::register_constraint (
       const char * cs,
       ::Monitor::Subscriber_ptr sub)
 {
-  ::Monitor::ConstraintStructList *constraintlist = 0;
+  ::Monitor::ConstraintStructList *constraintlist = nullptr;
   ACE_NEW_THROW_EX (constraintlist,
                     ::Monitor::ConstraintStructList (names.length ()),
                     CORBA::NO_MEMORY ());

@@ -212,7 +212,7 @@ AST_Type *
 AST_Type::unaliased_type (void)
 {
   AST_Type *t = this;
-  AST_Typedef *td = 0;
+  AST_Typedef *td = nullptr;
   AST_Decl::NodeType nt = this->node_type ();
 
   while (nt == AST_Decl::NT_typedef)
@@ -265,9 +265,9 @@ AST_Type::nested_name (const char* local_name,
 
   // These point to the prev, curr and next component in the scope.
   char *def_curr = def_name;
-  char *def_next = 0;
+  char *def_next = nullptr;
   char *use_curr = use_name;
-  char *use_next = 0;
+  char *use_next = nullptr;
 
   // How many chars to compare.
   int len_to_match = 0;
@@ -514,7 +514,7 @@ AST_Type::match_names (AST_Type *t, ACE_Unbounded_Queue<AST_Type *> &list)
        (void) iter.advance ())
     {
       // Queue element.
-      AST_Type **temp = 0;
+      AST_Type **temp = nullptr;
 
       (void) iter.next (temp);
 

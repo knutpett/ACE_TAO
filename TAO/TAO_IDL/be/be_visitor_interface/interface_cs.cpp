@@ -27,7 +27,7 @@ be_visitor_interface_cs::visit_interface (be_interface *node)
       return 0;
     }
 
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Set the right type.
   if (this->ctx_->alias ())
@@ -447,7 +447,7 @@ be_visitor_interface_cs::gen_xxx_narrow (const char *pre,
   else if (be_global->gen_smart_proxies () &&
            !node->is_abstract ())
     {
-      *os << node->full_name () << " *proxy = 0;"
+      *os << node->full_name () << " *proxy = nullptr;"
       << be_nl_2
           << "proxy = TAO::Narrow_Utils<"
           << node->local_name () << ">::" << pre << " (";
@@ -584,7 +584,7 @@ be_visitor_interface_cs::gen_abstract_ops_helper (be_interface *node,
       return 0;
     }
 
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
   be_visitor_context ctx;
   ctx.stream (os);
 

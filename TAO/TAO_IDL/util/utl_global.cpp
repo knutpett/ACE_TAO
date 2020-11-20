@@ -91,7 +91,7 @@ trademarks or registered trademarks of Sun Microsystems, Inc.
 #undef INCREMENT
 #define INCREMENT 64
 
-static long *pSeenOnce = 0;
+static long *pSeenOnce = nullptr;
 
 #if defined (ACE_OPENVMS)
 #include <unixlib.h>
@@ -590,7 +590,7 @@ long
 IDL_GlobalData::seen_include_file_before (char *n)
 {
   unsigned long i;
-  char *incl = 0;
+  char *incl = nullptr;
   char *tmp = n;
 
   for (i = 0; i < this->pd_n_include_file_names; ++i)
@@ -917,7 +917,7 @@ IDL_GlobalData::destroy (void)
     }
 
   size_t size = this->pragma_prefixes ().size  ();
-  char *trash = 0;
+  char *trash = nullptr;
 
   for (size_t i = 0; i < size; ++i)
     {
@@ -1015,7 +1015,7 @@ IDL_GlobalData::update_prefix (char *filename)
   ACE_CString tmp ("", 0, false);
   char *main_filename = this->pd_main_filename->get_string ();
 
-  char *prefix = 0;
+  char *prefix = nullptr;
   int status = this->file_prefixes_.find (filename, prefix);
 
   if (status == 0)
@@ -1055,7 +1055,7 @@ IDL_GlobalData::update_prefix (char *filename)
           // pop it.
           if (status == 0 && ACE_OS::strcmp (prefix, "") != 0)
             {
-              char *trash = 0;
+              char *trash = nullptr;
               this->pragma_prefixes_.pop (trash);
               delete [] trash;
             }
@@ -1448,7 +1448,7 @@ IDL_GlobalData::fini (void)
   delete [] this->pd_include_file_names;
   this->pd_include_file_names = 0;
 
-  Include_Path_Info *path_info = 0;
+  Include_Path_Info *path_info = nullptr;
 
   for (Unbounded_Paths_Queue_Iterator qiter (this->include_paths_);
        qiter.done () == 0;
@@ -1561,7 +1561,7 @@ IDL_GlobalData::fini (void)
     }
 
 
-  ACE_Hash_Map_Entry<char *, char *> *entry = 0;
+  ACE_Hash_Map_Entry<char *, char *> *entry = nullptr;
 
   for (ACE_Hash_Map_Iterator<char *, char *, ACE_Null_Mutex> hiter (
            this->file_prefixes_
@@ -1574,7 +1574,7 @@ IDL_GlobalData::fini (void)
       ACE::strdelete (entry->int_id_);
     }
 
-  DCPS_Type_Info_Map::ENTRY *dcps_entry = 0;
+  DCPS_Type_Info_Map::ENTRY *dcps_entry = nullptr;
 
   for (DCPS_Type_Info_Map::ITERATOR dcps_iter (
          this->dcps_type_info_map_);
@@ -1604,7 +1604,7 @@ IDL_GlobalData::primary_keys (void)
 void
 IDL_GlobalData::check_primary_keys (void)
 {
-  AST_ValueType *holder = 0;
+  AST_ValueType *holder = nullptr;
 
   while (!this->primary_keys_.is_empty ())
     {
@@ -1716,7 +1716,7 @@ IDL_GlobalData::set_dcps_sequence_type (const char* seq_type)
 bool
 IDL_GlobalData::dcps_sequence_type_defined (const char* seq_type)
 {
-  char **tmp = 0;
+  char **tmp = nullptr;
 
   for (ACE_Unbounded_Queue_Iterator<char *>riter (
          this->dcps_sequence_types_list_);
@@ -1776,7 +1776,7 @@ bool
 IDL_GlobalData::add_dcps_data_key (const char* id, const char* key)
 {
   // Search the map for the type.
-  DCPS_Data_Type_Info* newinfo = 0;
+  DCPS_Data_Type_Info* newinfo = nullptr;
 
   if (this->dcps_type_info_map_.find (id, newinfo) == 0)
     {

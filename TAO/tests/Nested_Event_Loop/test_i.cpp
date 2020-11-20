@@ -72,13 +72,13 @@ server_i::no_op (client_ptr remote_partner,
                  const act &act_for_iterations,
                  const act &act_for_flag)
 {
-  CORBA::ULong *pointer_to_iterations = 0;
+  CORBA::ULong *pointer_to_iterations = nullptr;
 
   ACE_OS::memcpy (&pointer_to_iterations,
                   act_for_iterations.get_buffer (),
                   act_for_iterations.length ());
 
-  CORBA::ULong *pointer_to_flag = 0;
+  CORBA::ULong *pointer_to_flag = nullptr;
 
   ACE_OS::memcpy (&pointer_to_flag,
                   act_for_flag.get_buffer (),

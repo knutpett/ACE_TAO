@@ -20,7 +20,7 @@
 #include "Session.h"
 #include "Log.h"
 
-ACE_TCHAR *outfile = 0;
+ACE_TCHAR *outfile = nullptr;
 
 void
 parse_filename (Session &session, char * buffer)

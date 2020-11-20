@@ -59,7 +59,7 @@ public:
                         int force_active = 0,
                         long priority = ACE_DEFAULT_THREAD_PRIORITY,
                         int grp_id = -1,
-                        ACE_Task_Base *task = 0,
+                        ACE_Task_Base *task = nullptr,
                         ACE_hthread_t thread_handles[] = 0,
                         void *stack[] = 0,
                         size_t stack_size[] = 0,

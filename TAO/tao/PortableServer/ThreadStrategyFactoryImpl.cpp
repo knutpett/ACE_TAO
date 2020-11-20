@@ -13,7 +13,7 @@ namespace TAO
     ThreadStrategyFactoryImpl::create (
       ::PortableServer::ThreadPolicyValue value)
     {
-      ThreadStrategy* strategy = 0;
+      ThreadStrategy* strategy = nullptr;
 
       switch (value)
       {

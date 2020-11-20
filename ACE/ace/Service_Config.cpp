@@ -61,7 +61,7 @@ ACE_Threading_Helper<ACE_Thread_Mutex>::set (void* p)
 void*
 ACE_Threading_Helper<ACE_Thread_Mutex>::get (void)
 {
-  void* temp = 0;
+  void* temp = nullptr;
   if (ACE_Thread::getspecific (key_, &temp) == -1)
     ACELIB_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("(%P|%t) Service Config failed to get thread key value: %p\n"),
@@ -381,7 +381,7 @@ ACE_Service_Config::ACE_Service_Config (bool ignore_static_svcs,
   // TODO: Need to find a more customizable way of instantiating the
   // gestalt but perhaps we should leave this out untill such
   // customizations are identified.
-  ACE_Service_Gestalt* tmp = 0;
+  ACE_Service_Gestalt* tmp = nullptr;
   ACE_NEW_NORETURN (tmp,
                     ACE_Service_Gestalt (size, false, ignore_static_svcs));
 
@@ -400,7 +400,7 @@ ACE_Service_Config::ACE_Service_Config (const ACE_TCHAR program_name[],
   // TODO: Need to find a more customizable way of instantiating the
   // gestalt but perhaps we should leave this out untill such
   // customizations are identified.
-  ACE_Service_Gestalt* tmp = 0;
+  ACE_Service_Gestalt* tmp = nullptr;
   ACE_NEW_NORETURN (tmp,
                     ACE_Service_Gestalt (ACE_Service_Repository::DEFAULT_SIZE, false));
 
@@ -462,7 +462,7 @@ ACE_Service_Config::create_service_type  (const ACE_TCHAR *n,
                                           ACE_DLL &dll,
                                           int active)
 {
-  ACE_Service_Type *sp = 0;
+  ACE_Service_Type *sp = nullptr;
   ACE_NEW_RETURN (sp,
                   ACE_Service_Type (n, o, dll, active),
                   0);
@@ -477,7 +477,7 @@ ACE_Service_Config::create_service_type_impl (const ACE_TCHAR *name,
                                               u_int flags,
                                               ACE_Service_Object_Exterminator gobbler)
 {
-  ACE_Service_Type_Impl *stp = 0;
+  ACE_Service_Type_Impl *stp = nullptr;
 
   // Note, the only place we need to put a case statement.  This is
   // also the place where we'd put the RTTI tests, if the compiler

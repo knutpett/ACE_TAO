@@ -5,7 +5,7 @@
 #include "Server_ORBInitializer.h"
 #include "tao/ORBInitializer_Registry.h"
 
-const ACE_TCHAR * ior_file = 0;
+const ACE_TCHAR * ior_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -37,7 +37,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
   try
     {
-      Server_ORBInitializer *temp_initializer = 0;
+      Server_ORBInitializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       Server_ORBInitializer,
                       -1);  // No exceptions yet!
@@ -79,7 +79,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                               poa_manager.in (),
                               policies);
 
-      ServantLocator* sl = 0;
+      ServantLocator* sl = nullptr;
       ACE_NEW_THROW_EX (sl,
                         ServantLocator (orb.in ()),
                         CORBA::NO_MEMORY ());

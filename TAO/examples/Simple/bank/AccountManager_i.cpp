@@ -49,7 +49,7 @@ AccountManager_i::open (const char *name,
                   name,
                   initial_balance));
 
-      Account_i *tmp = 0;
+      Account_i *tmp = nullptr;
       ACE_NEW_THROW_EX (tmp,
                         Account_i (name,
                                    initial_balance),

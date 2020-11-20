@@ -44,7 +44,7 @@ private:
   };
 
     virtual int handle_timeout (const ACE_Time_Value &current_time,
-                              const void *act = 0);
+                              const void *act = nullptr);
   CORBA::ORB_var orb_;
   CORBA::ULong seq_no_;
   ReactorTask reactor_task_;

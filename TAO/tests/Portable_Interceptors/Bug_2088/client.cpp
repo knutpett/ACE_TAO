@@ -5,8 +5,8 @@
 int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-  Client_ORBInitializer* initializer1 = 0;
-  Client_ORBInitializer* initializer2 = 0;
+  Client_ORBInitializer* initializer1 = nullptr;
+  Client_ORBInitializer* initializer2 = nullptr;
   bool caught_exception = false;
 
   ACE_NEW_RETURN (initializer1,

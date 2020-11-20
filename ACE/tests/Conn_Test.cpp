@@ -328,7 +328,7 @@ void
 cached_connect (STRAT_CONNECTOR &con,
                 const ACE_INET_Addr &server_addr)
 {
-  Svc_Handler *svc_handler = 0;
+  Svc_Handler *svc_handler = nullptr;
 
   for (int i = 0; i < n_client_iterations; i++)
     {
@@ -533,7 +533,7 @@ int
 spawn_processes (ACCEPTOR *acceptor,
                  ACE_INET_Addr *server_addr)
 {
-  pid_t *children_ptr = 0;
+  pid_t *children_ptr = nullptr;
   ACE_NEW_RETURN (children_ptr,
                   pid_t[n_servers],
                   -1);
@@ -609,13 +609,13 @@ spawn_threads (ACCEPTOR *acceptor,
 
 #if 0
   // Assign thread (VxWorks task) names to test that feature.
-  ACE_hthread_t *server_name = 0;
+  ACE_hthread_t *server_name = nullptr;
   ACE_NEW_RETURN (server_name,
                   ACE_hthread_t[n_servers],
                   -1);
 
   // And test ability to provide stacks.
-  size_t *stack_size = 0;
+  size_t *stack_size = nullptr;
   ACE_NEW_RETURN (stack_size,
                   size_t[n_servers],
                   -1);

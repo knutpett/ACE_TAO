@@ -44,7 +44,7 @@ TAO_IORInterceptor_Adapter_Impl::establish_components (TAO_Root_POA* poa)
   if (interceptor_count == 0)
     return;
 
-  TAO_IORInfo *tao_info = 0;
+  TAO_IORInfo *tao_info = nullptr;
   ACE_NEW_THROW_EX (tao_info,
                     TAO_IORInfo (poa),
                     CORBA::NO_MEMORY (

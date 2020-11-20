@@ -210,7 +210,7 @@ void sigpipe(int foo)
    printf("Caught signal %d\n", foo);
 }
 
-char *title = 0;
+char *title = nullptr;
 int new_line = 0;
 
 int

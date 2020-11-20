@@ -337,7 +337,7 @@ UTL_Scope::check_for_predef_seq (AST_Decl *d)
       return;
     }
 
-  AST_Type *bt = 0;
+  AST_Type *bt = nullptr;
   AST_Decl::NodeType nt = d->node_type ();
 
   // We are interested only in members, arguments and typedefs.
@@ -949,7 +949,7 @@ UTL_Scope::lookup_pseudo (Identifier *e)
       return 0;
     }
 
-  bool *seen = 0;
+  bool *seen = nullptr;
   char *name_string = e->get_string ();
   UTL_Scope *start_scope = idl_global->corba_module ();
 
@@ -1229,7 +1229,7 @@ UTL_Scope::lookup_by_name (UTL_ScopedName *e,
       work = idl_global->root ();
     }
 
-  AST_Decl *first_found_final_parent_decl = 0;
+  AST_Decl *first_found_final_parent_decl = nullptr;
   const bool searching_module_path = (e->length () != 1);
   AST_Decl *d = searching_module_path ?
     work->lookup_by_name_r (e, full_def_only, first_found_final_parent_decl) :
@@ -1437,7 +1437,7 @@ UTL_Scope::add_to_referenced (AST_Decl *e,
       long oreferenced_allocated = this->pd_referenced_allocated;
       this->pd_referenced_allocated += INCREMENT;
 
-      AST_Decl **tmp = 0;
+      AST_Decl **tmp = nullptr;
       ACE_NEW (tmp, AST_Decl *[this->pd_referenced_allocated]);
 
       for (long i = 0; i < oreferenced_allocated; ++i)
@@ -1495,7 +1495,7 @@ UTL_Scope::add_to_name_referenced (Identifier *id)
       long name_referenced_allocated = this->pd_name_referenced_allocated;
       this->pd_name_referenced_allocated += INCREMENT;
 
-      Identifier **name_tmp = 0;
+      Identifier **name_tmp = nullptr;
       ACE_NEW (name_tmp, Identifier *[this->pd_name_referenced_allocated]);
 
       for (long i = 0; i < name_referenced_allocated; ++i)
@@ -1694,7 +1694,7 @@ UTL_Scope::add_to_local_types (AST_Decl *e)
       long olocals_allocated = this->pd_locals_allocated;
       this->pd_locals_allocated += INCREMENT;
 
-      AST_Decl **tmp = 0;
+      AST_Decl **tmp = nullptr;
       ACE_NEW (tmp, AST_Decl *[this->pd_locals_allocated]);
       for (long i = 0; i < olocals_allocated; ++i)
         {
@@ -1814,7 +1814,7 @@ UTL_Scope::dump (ACE_OSTREAM_TYPE &o)
 {
   if (!idl_global->indent ())
     {
-      UTL_Indenter *idnt = 0;
+      UTL_Indenter *idnt = nullptr;
       ACE_NEW (idnt, UTL_Indenter);
       idl_global->set_indent (idnt);
     }
@@ -1890,7 +1890,7 @@ UTL_Scope::match_param (UTL_ScopedName *e)
     }
 
   const char *name = e->first_component ()->get_string ();
-  FE_Utils::T_Param_Info *param = 0;
+  FE_Utils::T_Param_Info *param = nullptr;
   unsigned long index = 0;
 
   UTL_StrList *alias_params =
@@ -1902,7 +1902,7 @@ UTL_Scope::match_param (UTL_ScopedName *e)
         const_cast<UTL_StrList *> (idl_global->alias_params ());
     }
 
-  UTL_String *alias_param = 0;
+  UTL_String *alias_param = nullptr;
 
   for (FE_Utils::T_PARAMLIST_INFO::CONST_ITERATOR i (*params);
        i.next (param);
@@ -2099,7 +2099,7 @@ UTL_Scope::iter_lookup_by_name_local (AST_Decl *d,
       return 0;
     }
 
-  AST_Decl *result = 0;
+  AST_Decl *result = nullptr;
   if (0 < sc->nmembers ())
     {
       // Look up the first component of the scoped name.
@@ -2242,7 +2242,7 @@ UTL_Scope::fe_add_annotation_member (AST_Annotation_Member * /*annotation_member
 AST_Decl *
 UTL_Scope::lookup_by_name (const char *name)
 {
-  AST_Decl *node = 0;
+  AST_Decl *node = nullptr;
   UTL_ScopedName *scoped_name = FE_Utils::string_to_scoped_name (name);
   node = lookup_by_name (scoped_name);
   scoped_name->destroy ();

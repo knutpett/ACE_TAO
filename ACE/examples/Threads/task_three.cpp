@@ -25,7 +25,7 @@
 
 #if defined (ACE_HAS_THREADS)
 
-static ACE_OSTREAM_TYPE *out_stream = 0;
+static ACE_OSTREAM_TYPE *out_stream = nullptr;
 static sig_atomic_t done = 0;
 static const size_t NUM_INVOCATIONS = 100;
 static const size_t TASK_COUNT = 130;
@@ -37,7 +37,7 @@ public:
   ~Test_Task (void);
 
   //FUZZ: disable check_for_lack_ACE_OS
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
   virtual int close (u_long flags = 0);
   //FUZZ: enable check_for_lack_ACE_OS
 

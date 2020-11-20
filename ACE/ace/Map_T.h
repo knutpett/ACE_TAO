@@ -283,7 +283,7 @@ public:
 
   /// Initialize a map with size @a length.
   virtual int open (size_t length = ACE_DEFAULT_MAP_SIZE,
-                    ACE_Allocator *alloc = 0) = 0;
+                    ACE_Allocator *alloc = nullptr) = 0;
 
   /// Close down a <Map> and release dynamically allocated resources.
   virtual int close (void) = 0;
@@ -555,19 +555,19 @@ public:
           implementation;
 
   /// Initialize with the ACE_DEFAULT_MAP_SIZE.
-  ACE_Map_Impl (ACE_Allocator *alloc = 0);
+  ACE_Map_Impl (ACE_Allocator *alloc = nullptr);
 
   /// Initialize with @a size entries.  The @a size parameter is ignored
   /// by maps for which an initialize size does not make sense.
   ACE_Map_Impl (size_t size,
-                ACE_Allocator *alloc = 0);
+                ACE_Allocator *alloc = nullptr);
 
   /// Close down and release dynamically allocated resources.
   virtual ~ACE_Map_Impl (void);
 
   /// Initialize a <Map> with size @a length.
   virtual int open (size_t length = ACE_DEFAULT_MAP_SIZE,
-                    ACE_Allocator *alloc = 0);
+                    ACE_Allocator *alloc = nullptr);
 
   /// Close down a <Map> and release dynamically allocated resources.
   virtual int close (void);
@@ -835,19 +835,19 @@ public:
           implementation;
 
   /// Initialize with the ACE_DEFAULT_MAP_SIZE.
-  ACE_Active_Map_Manager_Adapter (ACE_Allocator *alloc = 0);
+  ACE_Active_Map_Manager_Adapter (ACE_Allocator *alloc = nullptr);
 
   /// Initialize with @a size entries.  The @a size parameter is ignored
   /// by maps for which an initialize size does not make sense.
   ACE_Active_Map_Manager_Adapter (size_t size,
-                                  ACE_Allocator *alloc = 0);
+                                  ACE_Allocator *alloc = nullptr);
 
   /// Close down and release dynamically allocated resources.
   virtual ~ACE_Active_Map_Manager_Adapter (void);
 
   /// Initialize a Map with size @a length.
   virtual int open (size_t length = ACE_DEFAULT_MAP_SIZE,
-                    ACE_Allocator *alloc = 0);
+                    ACE_Allocator *alloc = nullptr);
 
   /// Close down a Map and release dynamically allocated resources.
   virtual int close (void);
@@ -1126,19 +1126,19 @@ public:
           implementation;
 
   /// Initialize with the ACE_DEFAULT_MAP_SIZE.
-  ACE_Hash_Map_Manager_Ex_Adapter (ACE_Allocator *alloc = 0);
+  ACE_Hash_Map_Manager_Ex_Adapter (ACE_Allocator *alloc = nullptr);
 
   /// Initialize with @a size entries.  The @a size parameter is ignored
   /// by maps for which an initialize size does not make sense.
   ACE_Hash_Map_Manager_Ex_Adapter (size_t size,
-                                   ACE_Allocator *alloc = 0);
+                                   ACE_Allocator *alloc = nullptr);
 
   /// Close down and release dynamically allocated resources.
   virtual ~ACE_Hash_Map_Manager_Ex_Adapter (void);
 
   /// Initialize a Map with size @a length.
   virtual int open (size_t length = ACE_DEFAULT_MAP_SIZE,
-                    ACE_Allocator *alloc = 0);
+                    ACE_Allocator *alloc = nullptr);
 
   /// Close down a Map and release dynamically allocated resources.
   virtual int close (void);
@@ -1410,19 +1410,19 @@ public:
           implementation;
 
   /// Initialize with the ACE_DEFAULT_MAP_SIZE.
-  ACE_Map_Manager_Adapter (ACE_Allocator *alloc = 0);
+  ACE_Map_Manager_Adapter (ACE_Allocator *alloc = nullptr);
 
   /// Initialize with @a size entries.  The @a size parameter is ignored
   /// by maps for which an initialize size does not make sense.
   ACE_Map_Manager_Adapter (size_t size,
-                           ACE_Allocator *alloc = 0);
+                           ACE_Allocator *alloc = nullptr);
 
   /// Close down and release dynamically allocated resources.
   virtual ~ACE_Map_Manager_Adapter (void);
 
   /// Initialize a <Map> with size @a length.
   virtual int open (size_t length = ACE_DEFAULT_MAP_SIZE,
-                    ACE_Allocator *alloc = 0);
+                    ACE_Allocator *alloc = nullptr);
 
   /// Close down a <Map> and release dynamically allocated resources.
   virtual int close (void);

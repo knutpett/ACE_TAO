@@ -37,7 +37,7 @@ test_functionality (ACE_Timer_Queue *tq)
 
   ACE_TEST_ASSERT (tq->is_empty ());
   ACE_TEST_ASSERT (ACE_Time_Value::zero == ACE_Time_Value (0));
-  const void *timer_act = 0;
+  const void *timer_act = nullptr;
 
   ACE_NEW (timer_act, int (1));
   long timer_id1 = tq->schedule (&eh, timer_act, ACE_OS::gettimeofday ());

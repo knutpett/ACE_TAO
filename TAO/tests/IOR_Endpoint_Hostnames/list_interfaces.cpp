@@ -29,7 +29,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 #endif /* ACE_HAS_IPV6 */
 
   // network interfaces.
-  ACE_INET_Addr *if_addrs = 0;
+  ACE_INET_Addr *if_addrs = nullptr;
   size_t if_cnt = 0;
 
   if (ACE::get_ip_interfaces (if_cnt,

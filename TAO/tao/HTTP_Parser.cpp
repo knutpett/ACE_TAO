@@ -42,9 +42,9 @@ TAO_HTTP_Parser::parse_string (const char *nior,
   const ACE_TCHAR *http_url =
     ior.c_str () + sizeof (::file_prefix) + 1;
 
-  ACE_TCHAR *hostname = 0;
-  ACE_TCHAR *filename = 0;
-  const ACE_TCHAR *ptr = 0;
+  ACE_TCHAR *hostname = nullptr;
+  ACE_TCHAR *filename = nullptr;
+  const ACE_TCHAR *ptr = nullptr;
   u_short port = 80;
 
   if (http_url[0] == '/')
@@ -80,7 +80,7 @@ TAO_HTTP_Parser::parse_string (const char *nior,
     }
   }
 
-  ACE_Message_Block* mb = 0;
+  ACE_Message_Block* mb = nullptr;
   ACE_NEW_THROW_EX (mb,
                     ACE_Message_Block (),
                     CORBA::INTERNAL ());

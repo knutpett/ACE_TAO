@@ -65,7 +65,7 @@ static int proactor_type = 0;
 static int max_aio_operations = 0;
 
 // Host that we're connecting to.
-static ACE_TCHAR *host = 0;
+static ACE_TCHAR *host = nullptr;
 
 // number of Senders instances
 static int senders = 1;
@@ -117,7 +117,7 @@ MyTask::create_proactor (void)
 
 #elif defined (ACE_HAS_AIO_CALLS)
 
-      ACE_POSIX_Proactor *proactor = 0;
+      ACE_POSIX_Proactor *proactor = nullptr;
 
       switch (proactor_type)
         {
@@ -282,7 +282,7 @@ Receiver::initiate_read_stream (void)
 {
   ACE_GUARD_RETURN (ACE_Recursive_Thread_Mutex, locker, mutex_, -1);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (BUFSIZ + 1),
                   -1);
@@ -563,7 +563,7 @@ Sender::initiate_read_stream (void)
   ACE_DEBUG ((LM_DEBUG,
               "initiate_read_stream called\n"));
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (BUFSIZ + 1),
                   -1);

@@ -25,8 +25,8 @@
 class JAWS_Export JAWS_Header_Data
 {
 public:
-  JAWS_Header_Data (const char *name, const char *value = 0, int type = 0);
-  JAWS_Header_Data (const char *name, int type, const char *value = 0);
+  JAWS_Header_Data (const char *name, const char *value = nullptr, int type = 0);
+  JAWS_Header_Data (const char *name, int type, const char *value = nullptr);
   ~JAWS_Header_Data (void);
 
   const char * header_name (void) const;

@@ -57,7 +57,7 @@ public:
      * Note that 'outputFile' is only for the internal use
      * and user must call this function without any parameter.
      */
-    void saveParameter(FILE* outputFile = 0);
+    void saveParameter(FILE* outputFile = nullptr);
 
     /**
      * Send out windows message to load/update parameters.

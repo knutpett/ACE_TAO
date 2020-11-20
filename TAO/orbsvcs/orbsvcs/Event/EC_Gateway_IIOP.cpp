@@ -34,7 +34,7 @@ TAO_EC_Gateway_IIOP::TAO_EC_Gateway_IIOP (void)
 
       if (this->factory_ == 0)
         {
-          TAO_EC_Gateway_IIOP_Factory *f = 0;
+          TAO_EC_Gateway_IIOP_Factory *f = nullptr;
           ACE_NEW (f,
                    TAO_EC_Gateway_IIOP_Factory);
           this->factory_ = f;

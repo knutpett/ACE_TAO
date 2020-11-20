@@ -8,7 +8,7 @@
 #include "ORB_Initializer.h"
 #include "tao/ORBInitializer_Registry.h"
 
-const ACE_TCHAR *ior_file = 0;
+const ACE_TCHAR *ior_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -44,7 +44,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
     {
       if (::parse_args (argc, argv) != 0) return -1;
 
-      ORB_Initializer *temp_initializer = 0;
+      ORB_Initializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       ORB_Initializer,
                       -1);  // No exceptions yet!

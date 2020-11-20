@@ -24,7 +24,7 @@ enum DEBUGGING_RANGE
 
 static DEBUGGING_RANGE debug = DEBUG_NONE;
 
-static ACE_Data_Block *data_block = 0;
+static ACE_Data_Block *data_block = nullptr;
 
 class Message_Block : public ACE_Message_Block
 {
@@ -74,7 +74,7 @@ Worker_Task::svc (void)
 {
   for (;;)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       int result = this->getq (mb);
       if (result == -1)
         {
@@ -181,7 +181,7 @@ IO_Task::svc (void)
                           messages_queued));
             }
 
-          Message_Block *message_block = 0;
+          Message_Block *message_block = nullptr;
           ACE_NEW_RETURN (message_block,
                           Message_Block (data_block,
                                          start_of_burst),
@@ -205,7 +205,7 @@ IO_Task::svc (void)
   // Terminate messages.
   for (i = 0; i < number_of_workers; ++i)
     {
-      ACE_Message_Block *message_block = 0;
+      ACE_Message_Block *message_block = nullptr;
       ACE_NEW_RETURN (message_block,
                       ACE_Message_Block ((size_t)0,
                                          (int)ACE_Message_Block::MB_STOP),
@@ -295,7 +295,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   ACE_Message_Queue<ACE_SYNCH> message_queue;
 
   // Workers.
-  Worker_Task **workers = 0;
+  Worker_Task **workers = nullptr;
   ACE_NEW_RETURN (workers,
                   Worker_Task *[number_of_workers],
                   -1);

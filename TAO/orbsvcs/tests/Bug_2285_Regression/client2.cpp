@@ -111,7 +111,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       iorm =
         TAO_IOP::TAO_IOR_Manipulation::_narrow (IORM.in());
 
-      Test::Hello_var *servers = 0;
+      Test::Hello_var *servers = nullptr;
       ACE_NEW_RETURN (servers,
                       Test::Hello_var [number_of_servers],
                       -1);

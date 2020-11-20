@@ -91,7 +91,7 @@ public:
                       const char *carrier_protocol,
                       ACE_Addr *fwd_address,
                       //ACE_Addr *peer_address,
-                      ACE_Addr *control_address = 0);
+                      ACE_Addr *control_address = nullptr);
 
   TAO_FlowSpec_Entry (const char *flowname,
                       const char *direction,
@@ -281,7 +281,7 @@ public:
                               const char *flow_protocol,
                               const char *carrier_protocol,
                               ACE_Addr *address,
-                              ACE_Addr *control_address = 0);
+                              ACE_Addr *control_address = nullptr);
 
   TAO_Forward_FlowSpec_Entry (const char *flowname,
                               const char *direction,
@@ -324,7 +324,7 @@ public:
                               const char *flow_protocol,
                               const char *carrier_protocol,
                               ACE_Addr *address,
-                              ACE_Addr *control_address = 0);
+                              ACE_Addr *control_address = nullptr);
 
   // Takes the address in protocol=endpoint form.
   TAO_Reverse_FlowSpec_Entry (const char *flowname,

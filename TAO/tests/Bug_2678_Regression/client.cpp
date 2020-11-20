@@ -67,14 +67,14 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       for (CORBA::ULong count = 0; count < params->length(); ++count)
       {
-        const Container* container = 0;
+        const Container* container = nullptr;
         if (!(params[count] >>= container))
         {
           ACE_ERROR ((LM_ERROR, "ERROR, failed extract\n"));
         }
         else
         {
-          const Inner* inner = 0;
+          const Inner* inner = nullptr;
           if (!(container->contents >>= inner))
           {
             ACE_ERROR ((LM_ERROR, "ERROR, failed extract\n"));

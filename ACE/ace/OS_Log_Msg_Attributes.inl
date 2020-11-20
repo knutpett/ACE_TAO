@@ -3,8 +3,8 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 ACE_INLINE
 ACE_OS_Log_Msg_Attributes::ACE_OS_Log_Msg_Attributes (void) :
-  ostream_ (0),
-  ostream_refcount_ (0),
+  ostream_ (nullptr),
+  ostream_refcount_ (nullptr),
   priority_mask_ (0),
   tracing_enabled_ (0),
   restart_ (true),

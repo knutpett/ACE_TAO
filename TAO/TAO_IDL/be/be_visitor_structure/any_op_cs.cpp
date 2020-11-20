@@ -77,7 +77,7 @@ be_visitor_structure_any_op_cs::visit_structure (be_structure *node)
     }
 
 
-  be_module *module = 0;
+  be_module *module = nullptr;
   if (node->is_nested ())
     {
       AST_Decl *d = node;

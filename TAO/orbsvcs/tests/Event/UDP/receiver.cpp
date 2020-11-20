@@ -56,7 +56,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       if (valuetype)
         {
-          Hello::ValueTypeData_init *vb_factory = 0;
+          Hello::ValueTypeData_init *vb_factory = nullptr;
           ACE_NEW_RETURN (vb_factory,
                           Hello::ValueTypeData_init,
                           1); // supplied by mapping

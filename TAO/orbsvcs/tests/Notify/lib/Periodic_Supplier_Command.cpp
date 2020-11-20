@@ -55,7 +55,7 @@ TAO_Notify_Tests_Periodic_Supplier_Command::init (ACE_Arg_Shifter& arg_shifter)
               arg_shifter.consume_arg ();
             }
 
-          TAO_Notify_Tests_Periodic_Supplier* supplier = 0;
+          TAO_Notify_Tests_Periodic_Supplier* supplier = nullptr;
 
           // create the supplier
           if (is_direct == 1)
@@ -65,7 +65,7 @@ TAO_Notify_Tests_Periodic_Supplier_Command::init (ACE_Arg_Shifter& arg_shifter)
 
           supplier->set_name (this->name_);
 
-         TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+         TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
          LOOKUP_MANAGER->resolve (act_mgr);
 
          {
@@ -132,11 +132,11 @@ TAO_Notify_Tests_Periodic_Supplier_Command::init (ACE_Arg_Shifter& arg_shifter)
 TAO_Notify_Tests_Periodic_Supplier*
 TAO_Notify_Tests_Periodic_Supplier_Command::supplier (void)
 {
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
   LOOKUP_MANAGER->resolve (act_mgr);
 
   // Locate the supplier
-  TAO_Notify_Tests_Periodic_Supplier* supplier = 0;
+  TAO_Notify_Tests_Periodic_Supplier* supplier = nullptr;
 
   act_mgr->resolve (supplier, this->name_.c_str ());
 

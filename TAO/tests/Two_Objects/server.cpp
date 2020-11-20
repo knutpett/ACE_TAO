@@ -78,7 +78,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                   ior_output_file, nthreads, msglen));
 
       // Create the factory servant
-      Object_Factory_i *factory_impl = 0;
+      Object_Factory_i *factory_impl = nullptr;
       ACE_NEW_THROW_EX (factory_impl,
                         Object_Factory_i (orb.in (), msglen),
                         CORBA::NO_MEMORY ());

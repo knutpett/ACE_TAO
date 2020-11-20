@@ -46,7 +46,7 @@ namespace ACE
 
         const INetConnectionKey& ikey = dynamic_cast<const INetConnectionKey&> (key);
 
-        SessionHolder* session_holder = 0;
+        SessionHolder* session_holder = nullptr;
         ACE_NEW_RETURN (session_holder,
                         SessionHolder (),
                         0);
@@ -207,7 +207,7 @@ namespace ACE
       {
         static const SessionFactory session_factory;
 
-        ACE::INet::ConnectionHolder* pch = 0;
+        ACE::INet::ConnectionHolder* pch = nullptr;
         if (this->connection_cache ().claim_connection (INetConnectionKey (host, port),
                                                         pch,
                                                         session_factory))
@@ -453,7 +453,7 @@ namespace ACE
                 connector_type connector;
 
                 // create connection object (stream handler)
-                SessionHolder::session_type::connection_type* data_connection = 0;
+                SessionHolder::session_type::connection_type* data_connection = nullptr;
                 ACE_NEW_NORETURN (data_connection,
                                 SessionHolder::session_type::connection_type(sync_opt));
                 if (data_connection == 0)
@@ -484,7 +484,7 @@ namespace ACE
                     ACE_Event_Handler::Reference_Counting_Policy::ENABLED);
 
                 // create io stream for connection
-                stream_type* data_stream = 0;
+                stream_type* data_stream = nullptr;
                 ACE_NEW_NORETURN (data_stream,
                                   stream_type (data_connection));
                 if (data_stream)
@@ -524,7 +524,7 @@ namespace ACE
                     this->process_command (cmd, arg) == Response::PRELIM_OK)
                   {
                     // create connection object (stream handler)
-                    SessionHolder::session_type::connection_type* data_connection = 0;
+                    SessionHolder::session_type::connection_type* data_connection = nullptr;
                     ACE_NEW_NORETURN (data_connection,
                                     SessionHolder::session_type::connection_type(sync_opt));
                     if (data_connection == 0)
@@ -556,7 +556,7 @@ namespace ACE
                         ACE_Event_Handler::Reference_Counting_Policy::ENABLED);
 
                     // create io stream for connection
-                    stream_type* data_stream = 0;
+                    stream_type* data_stream = nullptr;
                     ACE_NEW_NORETURN (data_stream,
                                       stream_type (data_connection));
                     if (data_stream)

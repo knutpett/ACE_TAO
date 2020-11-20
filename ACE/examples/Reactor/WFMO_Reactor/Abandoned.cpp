@@ -29,7 +29,7 @@ public:
                      ucontext_t * = 0);
 
   int handle_timeout (const ACE_Time_Value &tv,
-                      const void *arg = 0);
+                      const void *arg = nullptr);
 
   ACE_Auto_Event handle_;
   ACE_Process_Mutex *mutex_;

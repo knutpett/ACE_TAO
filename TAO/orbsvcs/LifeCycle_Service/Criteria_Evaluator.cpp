@@ -27,7 +27,7 @@ Criteria_Evaluator::~Criteria_Evaluator ()
 const LifeCycleService::Criteria_Evaluator::SeqNamedValuePair *
 Criteria_Evaluator::getInitialization (void)
 {
-  const LifeCycleService::Criteria_Evaluator::SeqNamedValuePair *sequence_ptr = 0;
+  const LifeCycleService::Criteria_Evaluator::SeqNamedValuePair *sequence_ptr = nullptr;
 
   CORBA::Any_ptr any_ptr =
     this->getCriteriaMember ("initialization");

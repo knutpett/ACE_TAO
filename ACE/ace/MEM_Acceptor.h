@@ -78,8 +78,8 @@ public:
 
   /// Accept a new data transfer connection.
   int accept (ACE_MEM_Stream &new_ipc_sap,
-              ACE_MEM_Addr *remote_addr = 0,
-              ACE_Time_Value *timeout = 0,
+              ACE_MEM_Addr *remote_addr = nullptr,
+              ACE_Time_Value *timeout = nullptr,
               bool restart = true,
               bool reset_new_handle = false);
 
@@ -146,16 +146,16 @@ protected:
             int protocol = 0);
 
   int accept (ACE_SOCK_Stream &new_stream,
-              ACE_Addr *remote_addr = 0,
-              ACE_Time_Value *timeout = 0,
+              ACE_Addr *remote_addr = nullptr,
+              ACE_Time_Value *timeout = nullptr,
               bool restart = true,
               bool reset_new_handle = false) const;
 
 #if !defined (ACE_HAS_WINCE)
   int accept (ACE_SOCK_Stream &new_stream,
               ACE_Accept_QoS_Params qos_params,
-              ACE_Addr *remote_addr = 0,
-              ACE_Time_Value *timeout = 0,
+              ACE_Addr *remote_addr = nullptr,
+              ACE_Time_Value *timeout = nullptr,
               bool restart = true,
               bool reset_new_handle = false) const;
 #endif  // ACE_HAS_WINCE

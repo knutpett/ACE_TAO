@@ -94,7 +94,7 @@ TAO_Profile::base_endpoint (void)
 TAO::ObjectKey *
 TAO_Profile::_key (void) const
 {
-  TAO::ObjectKey *key = 0;
+  TAO::ObjectKey *key = nullptr;
 
   if (this->ref_object_key_)
     {
@@ -336,7 +336,7 @@ TAO_Profile::policies (CORBA::PolicyList *policy_list)
   Messaging::PolicyValueSeq policy_value_seq;
 
   size_t length = 0;
-  CORBA::Octet *buf = 0;
+  CORBA::Octet *buf = nullptr;
 
   // This loop iterates through CORBA::PolicyList to convert
   // each CORBA::Policy into a CORBA::PolicyValue

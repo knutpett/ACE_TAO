@@ -75,7 +75,7 @@ ACEXML_Svcconf_Handler::endElement (const ACEXML_Char *,
 
       void *(*func) (ACE_Service_Object_Exterminator *) = 0;
       ACE_Service_Object_Exterminator gobbler = 0;
-      void *symbol = 0;
+      void *symbol = nullptr;
 
       long temp_ptr =
         reinterpret_cast<long> (svc_dll.symbol (active_info->init_func ()));

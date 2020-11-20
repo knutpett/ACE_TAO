@@ -25,7 +25,7 @@ namespace PortableServer
     ACE_OS::memcpy (buffer, string, buffer_size);
 
     // Create a new ID
-    PortableServer::ObjectId *id = 0;
+    PortableServer::ObjectId *id = nullptr;
     ACE_NEW_RETURN (id,
                     PortableServer::ObjectId (buffer_size,
                                               buffer_size,

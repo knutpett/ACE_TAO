@@ -27,7 +27,7 @@ void
 Server_ORBInitializer2::register_server_request_interceptors (
     PortableInterceptor::ORBInitInfo_ptr info)
 {
-  TAO249_ServerRequest_Interceptor2 *sri = 0;
+  TAO249_ServerRequest_Interceptor2 *sri = nullptr;
   ACE_NEW_THROW_EX (sri,
                     TAO249_ServerRequest_Interceptor2,
                     CORBA::NO_MEMORY ());

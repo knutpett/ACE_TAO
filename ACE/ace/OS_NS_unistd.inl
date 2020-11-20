@@ -439,13 +439,13 @@ ACE_OS::getcwd (wchar_t *buf, size_t size)
   return ::_wgetcwd (buf, static_cast<int> (size));
 #  else
   char *narrow_buf = new char[size];
-  char *result = 0;
+  char *result = nullptr;
   result = ACE_OS::getcwd (narrow_buf, size);
   ACE_Ascii_To_Wide wide_buf (result);
   delete [] narrow_buf;
-  if (result != 0)
+  if (result != nullptr)
     ACE_OS::strsncpy (buf, wide_buf.wchar_rep (), size);
-  return result == 0 ? 0 : buf;
+  return result == nullptr ? nullptr : buf;
 #  endif /* ACE_WIN32 */
 }
 #endif /* ACE_HAS_WCHAR */
@@ -613,7 +613,7 @@ ACE_OS::hostname (wchar_t name[], size_t maxnamelen)
                                           ace_result_), int, -1);
 #else /* ACE_WIN32 && !ACE_HAS_WINCE */
   // Emulate using the char version
-  char *char_name = 0;
+  char *char_name = nullptr;
 
   ACE_NEW_RETURN (char_name, char[maxnamelen], -1);
 
@@ -975,7 +975,7 @@ ACE_OS::sleep (u_int seconds)
   rqtp.tv_sec = seconds;
   rqtp.tv_nsec = 0L;
   //FUZZ: disable check_for_lack_ACE_OS
-  ACE_OSCALL_RETURN (::nanosleep (&rqtp, 0), int, -1);
+  ACE_OSCALL_RETURN (::nanosleep (&rqtp, nullptr), int, -1);
   //FUZZ: enable check_for_lack_ACE_OS
 #elif defined (ACE_LACKS_SLEEP)
   ACE_UNUSED_ARG (seconds);
@@ -1004,7 +1004,7 @@ ACE_OS::sleep (const ACE_Time_Value &tv)
 #elif defined (ACE_HAS_CLOCK_GETTIME)
   timespec_t rqtp = tv;
   //FUZZ: disable check_for_lack_ACE_OS
-  ACE_OSCALL_RETURN (::nanosleep (&rqtp, 0), int, -1);
+  ACE_OSCALL_RETURN (::nanosleep (&rqtp, nullptr), int, -1);
   //FUZZ: enable check_for_lack_ACE_OS
 #else
 # if defined (ACE_HAS_NONCONST_SELECT_TIMEVAL)

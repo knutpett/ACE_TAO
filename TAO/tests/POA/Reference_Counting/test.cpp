@@ -45,7 +45,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                            " (%P|%t) Panic: nil RootPOA\n"),
                           1);
 
-      Hello_impl * h = 0;
+      Hello_impl * h = nullptr;
       ACE_NEW_RETURN (h,Hello_impl, 1);
 
       CORBA::ULong before_act = h->_refcount_value ();

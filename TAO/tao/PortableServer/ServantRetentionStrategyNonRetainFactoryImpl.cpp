@@ -18,7 +18,7 @@ namespace TAO
     ServantRetentionStrategyNonRetainFactoryImpl::create (
       ::PortableServer::ServantRetentionPolicyValue value)
     {
-      ServantRetentionStrategy* strategy = 0;
+      ServantRetentionStrategy* strategy = nullptr;
 
       switch (value)
       {

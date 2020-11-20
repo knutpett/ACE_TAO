@@ -67,13 +67,13 @@ A_i::seq_method (::Test::A::FailOn where,
                  ::Test::seq_bd_str_out arg2,
                  ::Test::seq_bd_str & arg3)
 {
-  ::Test::seq_bd_str *arg2_val = 0;
+  ::Test::seq_bd_str *arg2_val = nullptr;
   ACE_NEW_THROW_EX (arg2_val,
                     ::Test::seq_bd_str,
                     CORBA::NO_MEMORY ());
   arg2 = arg2_val;
 
-  ::Test::seq_bd_str *res_val = 0;
+  ::Test::seq_bd_str *res_val = nullptr;
   ACE_NEW_THROW_EX (res_val,
                     ::Test::seq_bd_str,
                     CORBA::NO_MEMORY ());
@@ -106,13 +106,13 @@ A_i::seq_method_s (::Test::A::FailOn where,
                    ::Test::seq_bds_str_out arg2,
                    ::Test::seq_bds_str & arg3)
 {
-  ::Test::seq_bds_str *arg2_val = 0;
+  ::Test::seq_bds_str *arg2_val = nullptr;
   ACE_NEW_THROW_EX (arg2_val,
                     ::Test::seq_bds_str,
                     CORBA::NO_MEMORY ());
   arg2 = arg2_val;
 
-  ::Test::seq_bds_str *res_val = 0;
+  ::Test::seq_bds_str *res_val = nullptr;
   ACE_NEW_THROW_EX (res_val,
                     ::Test::seq_bds_str,
                     CORBA::NO_MEMORY ());
@@ -215,13 +215,13 @@ A_i::sct_method (::Test::A::FailOn where,
                  ::Test::sct_out arg2,
                  ::Test::sct & arg3)
 {
-  ::Test::sct *arg2_val = 0;
+  ::Test::sct *arg2_val = nullptr;
   ACE_NEW_THROW_EX (arg2_val,
                     ::Test::sct,
                     CORBA::NO_MEMORY ());
   arg2 = arg2_val;
 
-  ::Test::sct *res_val = 0;
+  ::Test::sct *res_val = nullptr;
   ACE_NEW_THROW_EX (res_val,
                     ::Test::sct,
                     CORBA::NO_MEMORY ());
@@ -254,13 +254,13 @@ A_i::unn_method (::Test::A::FailOn where,
                  ::Test::unn_out arg2,
                  ::Test::unn & arg3)
 {
-  ::Test::unn *arg2_val = 0;
+  ::Test::unn *arg2_val = nullptr;
   ACE_NEW_THROW_EX (arg2_val,
                     ::Test::unn,
                     CORBA::NO_MEMORY ());
   arg2 = arg2_val;
 
-  ::Test::unn *res_val = 0;
+  ::Test::unn *res_val = nullptr;
   ACE_NEW_THROW_EX (res_val,
                     ::Test::unn,
                     CORBA::NO_MEMORY ());
@@ -301,7 +301,7 @@ A_i::vbx_method (::Test::A::FailOn where,
       break;
     case ::Test::A::ARG2:
       {
-        ::Test::val_bd_str *arg2_val = 0;
+        ::Test::val_bd_str *arg2_val = nullptr;
         ACE_NEW_THROW_EX (arg2_val,
                           ::Test::val_bd_str,
                           CORBA::NO_MEMORY ());
@@ -312,7 +312,7 @@ A_i::vbx_method (::Test::A::FailOn where,
     case ::Test::A::ARG3:
       {
         ::Test::val_bd_str_var arg3_cleaner = arg3;
-        ::Test::val_bd_str *arg3_val = 0;
+        ::Test::val_bd_str *arg3_val = nullptr;
         ACE_NEW_THROW_EX (arg3_val,
                           ::Test::val_bd_str,
                           CORBA::NO_MEMORY ());
@@ -322,7 +322,7 @@ A_i::vbx_method (::Test::A::FailOn where,
       break;
     case ::Test::A::RETN:
       {
-        ::Test::val_bd_str *res_val = 0;
+        ::Test::val_bd_str *res_val = nullptr;
         ACE_NEW_THROW_EX (res_val,
                           ::Test::val_bd_str,
                           CORBA::NO_MEMORY ());
@@ -348,7 +348,7 @@ A_i::vbx_method_s (::Test::A::FailOn where,
       break;
     case ::Test::A::ARG2:
       {
-        ::Test::val_bds_str *arg2_val = 0;
+        ::Test::val_bds_str *arg2_val = nullptr;
         ACE_NEW_THROW_EX (arg2_val,
                           ::Test::val_bds_str,
                           CORBA::NO_MEMORY ());
@@ -359,7 +359,7 @@ A_i::vbx_method_s (::Test::A::FailOn where,
     case ::Test::A::ARG3:
       {
         ::Test::val_bds_str_var arg3_cleaner = arg3;
-        ::Test::val_bds_str *arg3_val = 0;
+        ::Test::val_bds_str *arg3_val = nullptr;
         ACE_NEW_THROW_EX (arg3_val,
                           ::Test::val_bds_str,
                           CORBA::NO_MEMORY ());
@@ -369,7 +369,7 @@ A_i::vbx_method_s (::Test::A::FailOn where,
       break;
     case ::Test::A::RETN:
       {
-        ::Test::val_bds_str *res_val = 0;
+        ::Test::val_bds_str *res_val = nullptr;
         ACE_NEW_THROW_EX (res_val,
                           ::Test::val_bds_str,
                           CORBA::NO_MEMORY ());
@@ -387,7 +387,7 @@ A_i::vtp_method (::Test::A::FailOn where,
                  ::Test::vtp_out arg2,
                  ::Test::vtp *& arg3)
 {
-  ::Test::vtp *res = 0;
+  ::Test::vtp *res = nullptr;
   switch (where)
     {
     case ::Test::A::ARG1:

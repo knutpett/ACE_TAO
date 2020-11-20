@@ -11,7 +11,7 @@ NodeFactory::register_new_factory (CORBA::ORB& orb) {
 CORBA::ValueBase*
 NodeFactory::create_for_unmarshal (void)
 {
-  ::CORBA::ValueBase *ret_val = 0;
+  ::CORBA::ValueBase *ret_val = nullptr;
   ACE_NEW_THROW_EX (
       ret_val,
       OBV_demo::value::idl::Node,
@@ -31,7 +31,7 @@ BoxedValueFactory::register_new_factory (CORBA::ORB& orb) {
 CORBA::ValueBase*
 BoxedValueFactory::create_for_unmarshal (void)
 {
-  ::CORBA::ValueBase *ret_val = 0;
+  ::CORBA::ValueBase *ret_val = nullptr;
   ACE_NEW_THROW_EX (
       ret_val,
       OBV_demo::value::idl::boxedValue,
@@ -51,7 +51,7 @@ BaseValueFactory::register_new_factory (CORBA::ORB& orb) {
 CORBA::ValueBase*
 BaseValueFactory::create_for_unmarshal (void)
 {
-  ::CORBA::ValueBase *ret_val = 0;
+  ::CORBA::ValueBase *ret_val = nullptr;
   ACE_NEW_THROW_EX (
       ret_val,
       OBV_demo::value::idl::BaseValue,
@@ -71,7 +71,7 @@ TValueFactory::register_new_factory (CORBA::ORB& orb) {
 CORBA::ValueBase*
 TValueFactory::create_for_unmarshal (void)
 {
-  ::CORBA::ValueBase *ret_val = 0;
+  ::CORBA::ValueBase *ret_val = nullptr;
   ACE_NEW_THROW_EX (
       ret_val,
       OBV_demo::value::idl::TValue,
@@ -91,7 +91,7 @@ ConfigValueFactory::register_new_factory (CORBA::ORB& orb) {
 CORBA::ValueBase*
 ConfigValueFactory::create_for_unmarshal (void)
 {
-  ::CORBA::ValueBase *ret_val = 0;
+  ::CORBA::ValueBase *ret_val = nullptr;
   ACE_NEW_THROW_EX (
       ret_val,
       OBV_demo::value::idl::ConfigValue,

@@ -42,7 +42,7 @@ be_visitor_interface_any_op_ch::visit_interface (be_interface *node)
 
   *os << be_nl_2;
 
-  be_module *module = 0;
+  be_module *module = nullptr;
 
   if (node->is_nested ())
     {

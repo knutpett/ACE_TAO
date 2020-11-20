@@ -274,7 +274,7 @@ ACE_Blob_Writer::send_request (void)
     + 32; // safety
 
   // Allocate a buffer to hold the header
-  char *mesg = 0;
+  char *mesg = nullptr;
   ACE_NEW_RETURN (mesg, char [mesglen], -1);
 
   // Create the header, store the actual length in mesglen.
@@ -317,7 +317,7 @@ ACE_Blob_Writer::receive_reply (void)
   buf [num_recvd] = 0;
 
   // Parse the header
-  char *lasts = 0;
+  char *lasts = nullptr;
 
   // First check if this was a valid header -- HTTP/1.0
   char *token = ACE_OS::strtok_r (buf, " \t", &lasts);

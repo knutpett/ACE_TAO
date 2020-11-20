@@ -29,8 +29,8 @@ class Client_Svc_Handler : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNC
 {
 public:
 
-  Client_Svc_Handler (ACE_Thread_Manager *t = 0);
-  int open (void *v = 0);
+  Client_Svc_Handler (ACE_Thread_Manager *t = nullptr);
+  int open (void *v = nullptr);
   int close (u_long flags = 0);
 };
 
@@ -38,8 +38,8 @@ class Server_Svc_Handler : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNC
 {
 public:
 
-  Server_Svc_Handler (ACE_Thread_Manager *t = 0);
-  int open (void *v = 0);
+  Server_Svc_Handler (ACE_Thread_Manager *t = nullptr);
+  int open (void *v = nullptr);
 };
 
 typedef size_t ATTRIBUTES;

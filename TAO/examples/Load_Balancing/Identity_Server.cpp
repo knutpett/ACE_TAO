@@ -147,7 +147,7 @@ Identity_Server::create_objects (size_t number_of_objects,
                        i);
 
       // Create and activate a servant.
-      Identity_i * identity_servant = 0;
+      Identity_i * identity_servant = nullptr;
       ACE_NEW_THROW_EX (identity_servant,
                         Identity_i (ACE_TEXT_ALWAYS_CHAR(id)),
                         CORBA::NO_MEMORY ());

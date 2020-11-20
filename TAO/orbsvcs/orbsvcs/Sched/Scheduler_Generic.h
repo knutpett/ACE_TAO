@@ -36,9 +36,9 @@ public:
   // = Initialize the scheduler.
   virtual void init (const int minimum_priority,
                      const int maximum_priority,
-                     const char *runtime_filename = 0,
-                     const char *rt_info_filename = 0,
-                     const char *timeline_filename = 0);
+                     const char *runtime_filename = nullptr,
+                     const char *rt_info_filename = nullptr,
+                     const char *timeline_filename = nullptr);
 
   // = Registers a task.
   virtual status_t register_task (RT_Info *[],

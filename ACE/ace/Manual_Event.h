@@ -41,15 +41,15 @@ public:
   /// Constructor which will create manual event
   ACE_Manual_Event_T (int initial_state = 0,
                       int type = USYNC_THREAD,
-                      const char *name = 0,
-                      void *arg = 0);
+                      const char *name = nullptr,
+                      void *arg = nullptr);
 
 #if defined (ACE_HAS_WCHAR)
   /// Constructor which will create manual event (wchar_t version)
   ACE_Manual_Event_T (int initial_state,
                       int type,
                       const wchar_t *name,
-                      void *arg = 0);
+                      void *arg = nullptr);
 #endif /* ACE_HAS_WCHAR */
 
   /// Default dtor.
@@ -69,8 +69,8 @@ public:
   /// Constructor which will create auto event
   ACE_Manual_Event (int initial_state = 0,
                     int type = USYNC_THREAD,
-                    const char *name = 0,
-                    void *arg = 0)
+                    const char *name = nullptr,
+                    void *arg = nullptr)
   : ACE_Manual_Event_T<ACE_System_Time_Policy> (initial_state, type, name, arg)
   {}
 
@@ -79,7 +79,7 @@ public:
   ACE_Manual_Event (int initial_state,
                     int type,
                     const wchar_t *name,
-                    void *arg = 0)
+                    void *arg = nullptr)
   : ACE_Manual_Event_T<ACE_System_Time_Policy> (initial_state, type, name, arg)
   {}
 #endif /* ACE_HAS_WCHAR */

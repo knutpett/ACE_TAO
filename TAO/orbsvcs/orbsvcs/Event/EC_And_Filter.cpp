@@ -24,7 +24,7 @@ TAO_EC_And_Filter::~TAO_EC_And_Filter (void)
        ++i)
     {
       delete *i;
-      *i = 0;
+      *i = nullptr;
     }
   delete[] this->children_;
   this->children_ = 0;

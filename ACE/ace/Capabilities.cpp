@@ -102,7 +102,7 @@ ACE_Capabilities::resetcaps (void)
        !iter.done ();
        iter.advance ())
     {
-      CAPABILITIES_MAP::ENTRY *entry = 0;
+      CAPABILITIES_MAP::ENTRY *entry = nullptr;
       iter.next (entry);
       delete entry->int_id_;
     }
@@ -245,7 +245,7 @@ ACE_Capabilities::getline (FILE *fp, ACE_TString &line)
 int
 ACE_Capabilities::getval (const ACE_TCHAR *keyname, ACE_TString &val)
 {
-  ACE_CapEntry* cap = 0;
+  ACE_CapEntry* cap = nullptr;
   if (this->caps_.find (keyname, cap) == -1)
     return -1;
 
@@ -261,7 +261,7 @@ ACE_Capabilities::getval (const ACE_TCHAR *keyname, ACE_TString &val)
 int
 ACE_Capabilities::getval (const ACE_TCHAR *keyname, int &val)
 {
-  ACE_CapEntry *cap = 0;
+  ACE_CapEntry *cap = nullptr;
   if (this->caps_.find (keyname, cap) == -1)
     return -1;
 

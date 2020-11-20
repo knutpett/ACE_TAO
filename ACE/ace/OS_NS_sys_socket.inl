@@ -1063,7 +1063,7 @@ ACE_OS::if_freenameindex (struct if_nameindex *ptr)
 #ifdef ACE_LACKS_IF_NAMEINDEX
   ACE_UNUSED_ARG (ptr);
 #else
-  if (ptr != 0)
+  if (ptr != nullptr)
     ::if_freenameindex (ptr);
 #endif /* ACE_LACKS_IF_NAMEINDEX */
 }

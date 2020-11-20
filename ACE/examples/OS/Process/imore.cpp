@@ -38,7 +38,7 @@ static const ACE_TCHAR *rendezvous_dir = ACE_TEXT("/tmp");
 static const ACE_TCHAR *rendezvous_pfx = ACE_TEXT("imore");
 #endif /* ACE_WIN32 */
 
-static ACE_TCHAR *fname = 0;   // File you want to view.
+static ACE_TCHAR *fname = nullptr;   // File you want to view.
 static int use_named_pipe = 0; // Do we want to use named pipe?
 
 static void

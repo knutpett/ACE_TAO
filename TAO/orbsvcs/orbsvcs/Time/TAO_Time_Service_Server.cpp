@@ -26,7 +26,7 @@ TAO_Time_Service_Server::~TAO_Time_Service_Server (void)
 CosTime::UTO_ptr
 TAO_Time_Service_Server::universal_time (void)
 {
-  TAO_UTO *uto = 0;
+  TAO_UTO *uto = nullptr;
 
   TimeBase::TimeT timestamp;
   ORBSVCS_Time::Absolute_Time_Value_to_TimeT(timestamp, ACE_OS::gettimeofday());
@@ -63,7 +63,7 @@ TAO_Time_Service_Server::new_universal_time (TimeBase::TimeT time,
                                              TimeBase::InaccuracyT inaccuracy,
                                              TimeBase::TdfT tdf)
 {
-  TAO_UTO *uto = 0;
+  TAO_UTO *uto = nullptr;
 
   ACE_NEW_THROW_EX (uto,
                     TAO_UTO (time,
@@ -80,7 +80,7 @@ TAO_Time_Service_Server::new_universal_time (TimeBase::TimeT time,
 CosTime::UTO_ptr
 TAO_Time_Service_Server::uto_from_utc (const TimeBase::UtcT &utc)
 {
-  TAO_UTO *uto = 0;
+  TAO_UTO *uto = nullptr;
 
   ACE_NEW_THROW_EX (uto,
                     TAO_UTO (utc.time,
@@ -98,7 +98,7 @@ CosTime::TIO_ptr
 TAO_Time_Service_Server::new_interval (TimeBase::TimeT lower,
                                        TimeBase::TimeT upper)
 {
-  TAO_TIO *tio = 0;
+  TAO_TIO *tio = nullptr;
 
   ACE_NEW_THROW_EX (tio,
                     TAO_TIO (lower,

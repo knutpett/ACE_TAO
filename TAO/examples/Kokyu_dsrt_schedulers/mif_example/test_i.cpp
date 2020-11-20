@@ -91,7 +91,7 @@ Simple_Server_i::test_method (CORBA::Long exec_duration)
               CORBA::Policy_var sched_param_policy =
                 current_->scheduling_parameter();
 
-              const char * name = 0;
+              const char * name = nullptr;
 
               CORBA::Policy_ptr implicit_sched_param = 0;
               current_->update_scheduling_segment (name,

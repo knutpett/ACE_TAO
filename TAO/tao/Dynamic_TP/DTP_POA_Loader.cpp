@@ -122,7 +122,7 @@ TAO_DTP_POA_Loader::load_poa_map (ACE_TCHAR *map,
 
   ACE_CString poa_name;
   ACE_CString config_name;
-  TAO_DTP_POA_Strategy * strategy_container = 0;
+  TAO_DTP_POA_Strategy * strategy_container = nullptr;
 
   ACE_TCHAR *sep = ACE_OS::strchr (map, ':');
 
@@ -140,7 +140,7 @@ TAO_DTP_POA_Loader::load_poa_map (ACE_TCHAR *map,
     }
 
   config_name = ACE_TEXT_ALWAYS_CHAR (sep + 1);
-  *sep = 0;
+  *sep = nullptr;
 
   // Now that we have a config name and a null strategy
   // implementation class we can allocate a new instance of a
@@ -153,7 +153,7 @@ TAO_DTP_POA_Loader::load_poa_map (ACE_TCHAR *map,
   sep = ACE_OS::strchr (map, ',');
   while (sep != 0)
     {
-      *sep = 0;
+      *sep = nullptr;
       poa_name = ACE_TEXT_ALWAYS_CHAR (map);
       repo->add_strategy (poa_name, strategy_container);
       map = sep + 1;

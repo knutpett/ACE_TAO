@@ -2,7 +2,7 @@
 #include "ace/Get_Opt.h"
 
 // File handle of the file into which received data is written.
-static FILE *output_file = 0;
+static FILE *output_file = nullptr;
 
 // Flag to tell us if we are done or not.
 static int done=0;

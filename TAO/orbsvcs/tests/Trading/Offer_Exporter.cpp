@@ -19,7 +19,7 @@ TAO_Offer_Exporter::~TAO_Offer_Exporter (void)
 {
   while (! this->clean_up_.is_empty ())
     {
-      TAO_Dynamic_Property* dp = 0;
+      TAO_Dynamic_Property* dp = nullptr;
       this->clean_up_.dequeue_head (dp);
       dp->destroy ();
     }

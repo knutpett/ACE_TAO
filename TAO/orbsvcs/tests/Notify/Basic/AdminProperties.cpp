@@ -143,7 +143,7 @@ AdminProperties::parse_args(int argc, ACE_TCHAR *argv[])
 {
   ACE_Arg_Shifter arg_shifter (argc, argv);
 
-  const ACE_TCHAR *current_arg = 0;
+  const ACE_TCHAR *current_arg = nullptr;
 
   while (arg_shifter.is_anything_left ())
     {
@@ -282,7 +282,7 @@ AdminProperties::test_max_queue_length (bool reject)
   consumer->connect (this->consumer_admin_.in ());
 
   // Create the supplier
-  TAO_Notify_Tests_StructuredPushSupplier *supplier = 0;
+  TAO_Notify_Tests_StructuredPushSupplier *supplier = nullptr;
   ACE_NEW (supplier, TAO_Notify_Tests_StructuredPushSupplier ());
   supplier->init (root_poa_.in ());
   supplier->connect (this->supplier_admin_.in ());

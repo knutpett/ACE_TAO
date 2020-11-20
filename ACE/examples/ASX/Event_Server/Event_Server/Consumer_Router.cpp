@@ -66,7 +66,7 @@ Consumer_Router::svc (void)
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%t) starting svc in Consumer_Router\n")));
 
-  for (ACE_Message_Block *mb = 0;
+  for (ACE_Message_Block *mb = nullptr;
        this->getq (mb) >= 0;
        )
     {

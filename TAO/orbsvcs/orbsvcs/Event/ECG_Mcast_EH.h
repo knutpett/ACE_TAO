@@ -64,7 +64,7 @@ public:
    * used for the \a recv argument.
    */
   TAO_ECG_Mcast_EH (TAO_ECG_Dgram_Handler *recv,
-                    const ACE_TCHAR *net_if = 0,
+                    const ACE_TCHAR *net_if = nullptr,
                     CORBA::ULong buf_sz = 0);
 
   /// Destructor.

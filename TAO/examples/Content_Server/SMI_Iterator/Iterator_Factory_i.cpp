@@ -23,7 +23,7 @@ Iterator_Factory_i::get_iterator (const char *pathname,
       // HTTP 1.1 "Internal Server Error"
     }
 
-  Content_Iterator_i *iterator_servant = 0;
+  Content_Iterator_i *iterator_servant = nullptr;
   ACE_NEW_THROW_EX (iterator_servant,
                     Content_Iterator_i (pathname,
                                         file_status.st_size),
@@ -48,7 +48,7 @@ Iterator_Factory_i::get_iterator (const char *pathname,
   Web_Server::Content_Iterator_var iterator =
     iterator_servant->_this ();
 
-  Web_Server::Metadata_Type *tmp = 0;
+  Web_Server::Metadata_Type *tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     Web_Server::Metadata_Type,
                     CORBA::NO_MEMORY ());
@@ -111,7 +111,7 @@ Iterator_Factory_i::content_type (const char *filename,
   // Search for extension
   // Handle the case where multiple periods exists in the filename,
   // e.g.:  foo.bar.ps
-  char * extension = 0;
+  char * extension = nullptr;
   for (char * tmp = const_cast<char *> (filename);
        tmp != 0 && tmp != tmp + len;
        )

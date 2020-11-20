@@ -42,7 +42,7 @@ ACE_Select_Reactor_Handler_Repository::find (ACE_HANDLE handle)
 {
   ACE_TRACE ("ACE_Select_Reactor_Handler_Repository::find");
 
-  ACE_Event_Handler * eh = 0;
+  ACE_Event_Handler * eh = nullptr;
 
   if (this->handle_in_range (handle))
     {
@@ -85,7 +85,7 @@ ACE_Select_Reactor_Handler_Repository_Iterator::done (void) const
 ACE_INLINE
 ACE_Event_Tuple::ACE_Event_Tuple (void)
   : handle_ (ACE_INVALID_HANDLE),
-    event_handler_ (0)
+    event_handler_ (nullptr)
 {
 }
 
@@ -116,9 +116,9 @@ ACE_Event_Tuple::operator!= (const ACE_Event_Tuple &rhs) const
 ACE_INLINE
 ACE_Select_Reactor_Impl::ACE_Select_Reactor_Impl (bool ms)
   : handler_rep_ (*this)
-  , timer_queue_ (0)
-  , signal_handler_ (0)
-  , notify_handler_ (0)
+  , timer_queue_ (nullptr)
+  , signal_handler_ (nullptr)
+  , notify_handler_ (nullptr)
   , delete_timer_queue_ (false)
   , delete_signal_handler_ (false)
   , delete_notify_handler_ (false)

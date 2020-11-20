@@ -19,7 +19,7 @@ namespace TAO
       ::PortableServer::RequestProcessingPolicyValue value,
       ::PortableServer::ServantRetentionPolicyValue srvalue)
     {
-      RequestProcessingStrategy* strategy = 0;
+      RequestProcessingStrategy* strategy = nullptr;
 
       switch (value)
       {

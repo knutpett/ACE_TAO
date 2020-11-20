@@ -3,7 +3,7 @@
 
 #include "orbsvcs/Notify/MonitorControl/NotificationServiceMCC.h"
 
-static const ACE_TCHAR* monitor_ior = 0;
+static const ACE_TCHAR* monitor_ior = nullptr;
 static const char* shutdown_cmd = "shutdown";
 static const char* rm_consumer = "remove_consumer";
 static const char* rm_supplier = "remove_supplier";
@@ -205,7 +205,7 @@ ACE_TMAIN (int argc, ACE_TCHAR* argv[])
                   ACE_DEBUG ((LM_DEBUG, "Statistic names\n"));
 
                   // It's much easier to read once it's sorted
-                  const char** narray = 0;
+                  const char** narray = nullptr;
                   ACE_NEW_THROW_EX (narray,
                                     const char* [length],
                                     CORBA::NO_MEMORY ());

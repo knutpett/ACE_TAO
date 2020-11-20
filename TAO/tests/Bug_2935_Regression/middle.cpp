@@ -1,8 +1,8 @@
 #include "middle_i.h"
 
-const ACE_TCHAR * ior_output_file = 0;
+const ACE_TCHAR * ior_output_file = nullptr;
 
-const ACE_TCHAR * ior_input_file = 0;
+const ACE_TCHAR * ior_input_file = nullptr;
 char input_ior[5000];
 
 

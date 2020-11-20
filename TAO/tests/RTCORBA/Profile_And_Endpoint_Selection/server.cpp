@@ -181,7 +181,7 @@ vanilla_poa (CORBA::ORB_ptr orb,
                           poa_manager,
                           policies);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (orb,
                             poa.in ()),
@@ -265,7 +265,7 @@ rt_poa (CORBA::ORB_ptr orb,
                           poa_manager,
                           policies);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (orb,
                             poa.in ()),

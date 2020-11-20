@@ -63,8 +63,8 @@ public:
 
   /// Constructor.
   ACE_Framework_Component (void *_this,
-                           const ACE_TCHAR *dll_name = 0,
-                           const ACE_TCHAR *name = 0);
+                           const ACE_TCHAR *dll_name = nullptr,
+                           const ACE_TCHAR *name = nullptr);
 
   /// Close the contained singleton.
   virtual void close_singleton (void) = 0;

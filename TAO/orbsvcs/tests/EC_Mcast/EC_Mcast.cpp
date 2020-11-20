@@ -268,7 +268,7 @@ ECM_Driver::open_receivers (RtecEventChannelAdmin::EventChannel_ptr ec)
   for (int i = 0; i < this->local_federations_count_; ++i)
     {
       TAO_ECG_Refcounted_Endpoint endpoint;
-      TAO_ECG_UDP_Out_Endpoint* clone = 0;
+      TAO_ECG_UDP_Out_Endpoint* clone = nullptr;
       ACE_NEW (clone,
                TAO_ECG_UDP_Out_Endpoint (this->endpoint_));
       endpoint.reset (clone);
@@ -373,7 +373,7 @@ ECM_Driver::parse_args (int argc, ACE_TCHAR *argv [])
 int
 ECM_Driver::parse_config_file (void)
 {
-  FILE* cfg = 0;
+  FILE* cfg = nullptr;
   if (this->config_filename_ != 0)
     cfg = ACE_OS::fopen (this->config_filename_, "r");
   else

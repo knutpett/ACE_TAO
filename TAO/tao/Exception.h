@@ -167,7 +167,7 @@ namespace CORBA
      * public:
      *   virtual CORBA::Exception *_tao_duplicate (void) const
      *   {
-     *     CORBA::Exception *result = 0;
+     *     CORBA::Exception *result = nullptr;
      *     ACE_NEW_RETURN (
      *         result,
      *         SomeException (*this),

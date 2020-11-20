@@ -132,7 +132,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
           CORBA::String_var ec_str = orb->object_to_string (ec.in ());
 
           int no_args = 0;
-          ACE_TCHAR **no_argv = 0;
+          ACE_TCHAR **no_argv = nullptr;
           s_orb = CORBA::ORB_init (no_args, no_argv,
                                    "Supplier_pure_client_ORB");
 
@@ -155,7 +155,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
           consumer->connect_push_supplier
             (CosEventComm::PushSupplier::_nil ());
 
-          SupplierTask *tmp = 0;
+          SupplierTask *tmp = nullptr;
           ACE_NEW_RETURN (tmp, SupplierTask (consumer.in (), s_orb.in ()), -1);
           pST.reset (tmp);
           pST->activate ();

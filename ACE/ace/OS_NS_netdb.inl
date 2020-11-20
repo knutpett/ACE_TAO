@@ -50,8 +50,8 @@ ACE_OS::gethostbyaddr (const char *addr, int length, int type)
   ACE_NOTSUP_RETURN (0);
 # else
 
-  if (0 == addr || '\0' == addr[0])
-      return 0;
+  if (nullptr == addr || '\0' == addr[0])
+      return nullptr;
 
 #   if defined (ACE_VXWORKS)
   // VxWorks 6.x has a gethostbyaddr() that is threadsafe and
@@ -101,8 +101,8 @@ ACE_OS::gethostbyaddr_r (const char *addr,
   ACE_NOTSUP_RETURN (0);
 # elif defined (ACE_HAS_REENTRANT_FUNCTIONS)
 
-  if (0 == addr || '\0' == addr[0])
-      return 0;
+  if (nullptr == addr || '\0' == addr[0])
+      return nullptr;
 
 #   if defined (AIX)
   ACE_OS::memset (buffer, 0, sizeof (ACE_HOSTENT_DATA));
@@ -235,8 +235,8 @@ ACE_OS::gethostbyname (const char *name)
   ACE_NOTSUP_RETURN (0);
 # else
 
-  if (0 == name || '\0' == name[0])
-      return 0;
+  if (nullptr == name || '\0' == name[0])
+      return nullptr;
 
 #   if defined (ACE_VXWORKS)
   // VxWorks 6.x has a gethostbyname() that is threadsafe and
@@ -278,8 +278,8 @@ ACE_OS::gethostbyname_r (const char *name,
   ACE_NOTSUP_RETURN (0);
 # elif defined (ACE_HAS_REENTRANT_FUNCTIONS)
 
-  if (0 == name || '\0' == name[0])
-      return (struct hostent *)0;
+  if (nullptr == name || '\0' == name[0])
+      return (struct hostent *)nullptr;
 
 # if (defined (ACE_AIX_MINOR_VERS) && (ACE_AIX_MINOR_VERS > 2))
   ACE_UNUSED_ARG (result);
@@ -398,7 +398,7 @@ ACE_OS::gethostbyname_r (const char *name,
   ACE_UNUSED_ARG (buffer);
 
   // FUZZ: disable check_for_lack_ACE_OS
-  struct hostent *result2 = 0;
+  struct hostent *result2 = nullptr;
   ACE_SOCKCALL (::gethostbyname (name),
                 struct hostent *,
                 0,
@@ -420,7 +420,7 @@ ACE_OS::getipnodebyaddr (const void *src, size_t len, int family)
   ACE_UNUSED_ARG (family);
   ACE_NOTSUP_RETURN (0);
 #  else
-  struct hostent *hptr = 0;
+  struct hostent *hptr = nullptr;
   int errnum;
   //FUZZ: disable check_for_lack_ACE_OS
   if ((hptr = ::getipnodebyaddr (src, len, family, &errnum)) == 0)
@@ -437,7 +437,7 @@ ACE_OS::getipnodebyaddr (const void *src, size_t len, int family)
                                   static_cast<int> (len),
                                   family);
 
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 # endif /* defined (ACE_HAS_IPV6) && !defined (ACE_WIN32) */
 }
 
@@ -457,7 +457,7 @@ ACE_OS::getipnodebyname (const char *name, int family, int flags)
                        struct hostent *, 0);
 #     endif /* ACE_HAS_NONCONST_GETBY */
 #   else
-  struct hostent *hptr = 0;
+  struct hostent *hptr = nullptr;
   int errnum;
   //FUZZ: disable check_for_lack_ACE_OS
   if ((hptr = ::getipnodebyname (name, family, flags, &errnum)) == 0)
@@ -473,7 +473,7 @@ ACE_OS::getipnodebyname (const char *name, int family, int flags)
   if (family == AF_INET)
     return ACE_OS::gethostbyname (name);
 
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 # endif /* defined (ACE_HAS_IPV6) && !ACE_LACKS_GETIPNODEBYNAME_IPV6 */
 }
 
@@ -527,7 +527,7 @@ ACE_OS::getprotobyname_r (const char *name,
   //FUZZ: enable check_for_lack_ACE_OS
     return result;
   else
-    return 0;
+    return nullptr;
 # else
 #   if defined(ACE_LACKS_NETDB_REENTRANT_FUNCTIONS)
   ACE_UNUSED_ARG (result);
@@ -608,7 +608,7 @@ ACE_OS::getprotobynumber_r (int proto,
   //FUZZ: enable check_for_lack_ACE_OS
     return result;
   else
-    return 0;
+    return nullptr;
 # else
 #   if defined(ACE_LACKS_NETDB_REENTRANT_FUNCTIONS)
   ACE_UNUSED_ARG (result);

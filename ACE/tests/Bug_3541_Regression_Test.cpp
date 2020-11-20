@@ -31,7 +31,7 @@ run_main (int, ACE_TCHAR *[])
   ACE_Event event0(0,             // int manual_reset = 0
                    0,             // int initial_state = 0
                    USYNC_PROCESS, // int type = USYNC_THREAD
-                   eventName);    // const ACE_TCHAR *name = 0
+                   eventName);    // const ACE_TCHAR *name = nullptr
 
   lastError = ACE_OS::last_error();
 
@@ -51,7 +51,7 @@ run_main (int, ACE_TCHAR *[])
     ACE_Event event1(0,              // int manual_reset = 0
                      0,              // int initial_state = 0
                      USYNC_PROCESS,  // int type = USYNC_THREAD
-                     eventName);     // const ACE_TCHAR *name = 0
+                     eventName);     // const ACE_TCHAR *name = nullptr
 
     lastError = ACE_OS::last_error();
 
@@ -74,7 +74,7 @@ run_main (int, ACE_TCHAR *[])
 
   ACE_Semaphore semaphore0(1,               // int count = 1
                            USYNC_PROCESS,   // int type = USYNC_THREAD
-                           semaphoreName);  // const ACE_TCHAR *name = 0
+                           semaphoreName);  // const ACE_TCHAR *name = nullptr
 
   lastError = ACE_OS::last_error();
 
@@ -92,7 +92,7 @@ run_main (int, ACE_TCHAR *[])
   {
     ACE_Semaphore semaphore1(1,               // int count = 1
                              USYNC_PROCESS,   // int type = USYNC_THREAD
-                             semaphoreName);  // const ACE_TCHAR *name = 0
+                             semaphoreName);  // const ACE_TCHAR *name = nullptr
 
     lastError = ACE_OS::last_error();
 
@@ -114,7 +114,7 @@ run_main (int, ACE_TCHAR *[])
   const ACE_TCHAR *mutexName = ACE_TEXT ("Bug3541_Mutex");
 
   ACE_Mutex mutex0(USYNC_PROCESS,  // int type = USYNC_THREAD
-                   mutexName);     // const ACE_TCHAR *name = 0
+                   mutexName);     // const ACE_TCHAR *name = nullptr
 
   lastError = ACE_OS::last_error();
 
@@ -132,7 +132,7 @@ run_main (int, ACE_TCHAR *[])
   else
   {
     ACE_Mutex mutex1(USYNC_PROCESS,  // int type = USYNC_THREAD
-                     mutexName);     // const ACE_TCHAR *name = 0
+                     mutexName);     // const ACE_TCHAR *name = nullptr
 
     lastError = ACE_OS::last_error();
 

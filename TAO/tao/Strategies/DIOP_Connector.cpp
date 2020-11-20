@@ -119,7 +119,7 @@ TAO_DIOP_Connector::make_connection (TAO::Profile_Transport_Resolver *,
     }
 #endif /* ACE_HAS_IPV6 && ACE_HAS_IPV6_V6ONLY */
 
-  TAO_DIOP_Connection_Handler *svc_handler = 0;
+  TAO_DIOP_Connection_Handler *svc_handler = nullptr;
 
   ACE_NEW_RETURN (svc_handler,
                   TAO_DIOP_Connection_Handler (this->orb_core ()),
@@ -211,7 +211,7 @@ TAO_DIOP_Connector::make_connection (TAO::Profile_Transport_Resolver *,
 TAO_Profile *
 TAO_DIOP_Connector::create_profile (TAO_InputCDR& cdr)
 {
-  TAO_Profile *pfile = 0;
+  TAO_Profile *pfile = nullptr;
   ACE_NEW_RETURN (pfile,
                   TAO_DIOP_Profile (this->orb_core ()),
                   0);
@@ -233,7 +233,7 @@ TAO_DIOP_Connector::make_profile (void)
   // or:
   //    host:port/object_key
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO_DIOP_Profile (this->orb_core ()),
                     CORBA::NO_MEMORY (

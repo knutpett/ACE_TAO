@@ -332,12 +332,12 @@ Dump_Restore::populate (Dump_Restore::Operation_Type op)
            (temp = read_buffer.read ('\n')) != 0;
            )
         {
-          char *name = 0;
-          const char *actual_name = 0;
-          char *value = 0;
-          const char *actual_value = 0;
-          char *type = 0;
-          const char *actual_type = 0;
+          char *name = nullptr;
+          const char *actual_name = nullptr;
+          char *value = nullptr;
+          const char *actual_value = nullptr;
+          char *type = nullptr;
+          const char *actual_type = nullptr;
 
           switch (state)
             {

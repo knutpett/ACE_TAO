@@ -246,7 +246,7 @@ public:
   virtual int connect_n (size_t n,
                          SVC_HANDLER *svc_handlers[],
                          typename PEER_CONNECTOR::PEER_ADDR remote_addrs[],
-                         ACE_TCHAR *failed_svc_handlers = 0,
+                         ACE_TCHAR *failed_svc_handlers = nullptr,
                          const ACE_Synch_Options &synch_options =
                          ACE_Synch_Options::defaults);
 

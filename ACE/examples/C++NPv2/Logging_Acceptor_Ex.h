@@ -21,7 +21,7 @@ public:
     : Logging_Acceptor (r) {}
 
   int handle_input (ACE_HANDLE) {
-    Logging_Event_Handler_Ex *peer_handler = 0;
+    Logging_Event_Handler_Ex *peer_handler = nullptr;
     ACE_NEW_RETURN (peer_handler,
                     Logging_Event_Handler_Ex (reactor ()),
                     -1);

@@ -60,9 +60,9 @@ ACE_MEM_Acceptor::mmap_prefix (void) const
 ACE_INLINE void
 ACE_MEM_Acceptor::mmap_prefix (const ACE_TCHAR *prefix)
 {
-  if (prefix == 0)
+  if (prefix == nullptr)
     {
-      this->mmap_prefix_ = 0;
+      this->mmap_prefix_ = nullptr;
     }
   else
     {

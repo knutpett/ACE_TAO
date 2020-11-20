@@ -15,8 +15,8 @@ namespace TAO
     ServantRetentionStrategyFactoryImpl::create (
       ::PortableServer::ServantRetentionPolicyValue value)
     {
-      ServantRetentionStrategyFactory *strategy_factory = 0;
-      const char *strategy_factory_name = 0;
+      ServantRetentionStrategyFactory *strategy_factory = nullptr;
+      const char *strategy_factory_name = nullptr;
 
       switch (value)
       {
@@ -52,7 +52,7 @@ namespace TAO
     ServantRetentionStrategyFactoryImpl::destroy (
       ServantRetentionStrategy *strategy)
     {
-      const char *strategy_factory_name = 0;
+      const char *strategy_factory_name = nullptr;
 
       switch (strategy->type ())
       {

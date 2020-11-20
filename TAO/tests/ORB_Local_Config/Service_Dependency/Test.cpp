@@ -283,8 +283,8 @@ testServiceDependency (int , ACE_TCHAR *[])
   ACE_DEBUG ((LM_DEBUG, "sizeof (ACE_Dynamic_Service_Dependency) == %d\n",
               sizeof (ACE_Dynamic_Service_Dependency)));
 
-  TAO_Codeset_Manager *codeset_manager = 0;
-  ACE_Dynamic_Service_Dependency *pdep = 0;
+  TAO_Codeset_Manager *codeset_manager = nullptr;
+  ACE_Dynamic_Service_Dependency *pdep = nullptr;
 
   {
     // Start a block to limit the lifespan of a gestalt

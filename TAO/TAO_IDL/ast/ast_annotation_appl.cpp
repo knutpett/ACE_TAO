@@ -30,7 +30,7 @@ AST_Annotation_Appl::delete_params (AST_Annotation_Appl::Params* params)
       Params::ITERATOR iter (*params);
       while (!iter.done ())
         {
-          Param **i = 0;
+          Param **i = nullptr;
           iter.next (i);
           delete *i;
           iter.advance ();
@@ -71,7 +71,7 @@ void AST_Annotation_Appl::dump (ACE_OSTREAM_TYPE &o)
       Params::ITERATOR iter (*params_);
       while (!iter.done ())
         {
-          Param **i = 0;
+          Param **i = nullptr;
           iter.next (i);
           if ((*i)->id)
             {
@@ -151,7 +151,7 @@ AST_Annotation_Appl::apply_from (AST_Annotation_Decl *decl)
       for (Param::Iterator it (*params_);
           !it.done (); it.advance ())
         {
-          Param **param = 0;
+          Param **param = nullptr;
           it.next (param);
           if ((*param) && !(*param)->used)
             {
@@ -187,7 +187,7 @@ AST_Annotation_Appl::find_param (const char *name)
       // Check for single nameless parameter
       if (params_->size () == 1)
         {
-          Param *top = 0;
+          Param *top = nullptr;
           params_->top (top);
           if (top && !top->id && top->expr)
             {
@@ -198,7 +198,7 @@ AST_Annotation_Appl::find_param (const char *name)
       for (Param::Iterator it (*params_);
           !it.done (); it.advance ())
         {
-          Param **param = 0;
+          Param **param = nullptr;
           it.next (param);
           if ((*param) && (*param)->id && !ACE_OS::strcmp ((*param)->id->get_string (), name))
             {

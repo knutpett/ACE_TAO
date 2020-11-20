@@ -65,7 +65,7 @@ class ACE_Export ACE_Task_Base : public ACE_Service_Object
 {
 public:
   /// Constructor.
-  ACE_Task_Base (ACE_Thread_Manager * = 0);
+  ACE_Task_Base (ACE_Thread_Manager * = nullptr);
 
   /// Destructor.
   virtual ~ACE_Task_Base (void);
@@ -75,7 +75,7 @@ public:
 
   /// Hook called to initialize a task and prepare it for execution.
   /// @a args can be used to pass arbitrary information into <open>.
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
 
   /**
    * Hook called from ACE_Thread_Exit when during thread exit and from
@@ -107,7 +107,7 @@ public:
   /// A hook method that can be used to pass a message to a
   /// task, where it can be processed immediately or queued for subsequent
   /// processing in the svc() hook method.
-  virtual int put (ACE_Message_Block *, ACE_Time_Value * = 0);
+  virtual int put (ACE_Message_Block *, ACE_Time_Value * = nullptr);
 
   /// Run by a daemon thread to handle deferred processing.
   virtual int svc (void);
@@ -176,12 +176,12 @@ public:
                         int force_active = 0,
                         long priority = ACE_DEFAULT_THREAD_PRIORITY,
                         int grp_id = -1,
-                        ACE_Task_Base *task = 0,
-                        ACE_hthread_t thread_handles[] = 0,
-                        void *stack[] = 0,
-                        size_t stack_size[] = 0,
-                        ACE_thread_t thread_ids[] = 0,
-                        const char* thr_name[] = 0);
+                        ACE_Task_Base *task = nullptr,
+                        ACE_hthread_t thread_handles[] = nullptr,
+                        void *stack[] = nullptr,
+                        size_t stack_size[] = nullptr,
+                        ACE_thread_t thread_ids[] = nullptr,
+                        const char* thr_name[] = nullptr);
 
   /**
    * Block until there are no more threads running in this task.

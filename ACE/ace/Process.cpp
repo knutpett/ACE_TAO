@@ -82,7 +82,7 @@ ACE_Process::spawn (ACE_Process_Options &options)
   // Stash the passed/duped handle sets away in this object for later
   // closing if needed or requested. At the same time, figure out which
   // ones to include in command line options if that's needed below.
-  ACE_Handle_Set *set_p = 0;
+  ACE_Handle_Set *set_p = nullptr;
   if (options.dup_handles (this->dup_handles_))
     set_p = &this->dup_handles_;
   else if (options.passed_handles (this->handles_passed_))
@@ -166,7 +166,7 @@ ACE_Process::spawn (ACE_Process_Options &options)
   void* env_buf = options.env_buf ();
   DWORD flags = options.creation_flags ();
 # if defined (ACE_HAS_WCHAR) && !defined (ACE_USES_WCHAR)
-  wchar_t* wenv_buf = 0;
+  wchar_t* wenv_buf = nullptr;
   if (options.use_unicode_environment ())
     {
       wenv_buf = this->convert_env_buffer (options.env_buf ());
@@ -319,7 +319,7 @@ ACE_Process::spawn (ACE_Process_Options &options)
   for (i = 0; i < vcount; ++i)
     procargv[i] = ACE_Wide_To_Ascii::convert (wargv[i]);
 
-  char **procenv = 0;
+  char **procenv = nullptr;
   if (options.inherit_environment ())
     {
       wargv = options.env_argv ();
@@ -918,9 +918,9 @@ ACE_Process_Options::inherit_environment (void)
   environment_inherited_ = 1;
 
   // Get the existing environment.
-  ACE_TCHAR *existing_environment = 0;
+  ACE_TCHAR *existing_environment = nullptr;
 #if defined (ACE_HAS_WCHAR) && !defined (ACE_USES_WCHAR)
-  WCHAR *existing_wide_env = 0;
+  WCHAR *existing_wide_env = nullptr;
   ACE_Vector<char> temp_narrow_env;
   if (this->use_unicode_environment_)
     {
@@ -1037,7 +1037,7 @@ ACE_Process_Options::setenv (const ACE_TCHAR *variable_name,
   // To address the potential buffer overflow,
   // we now allocate the buffer on heap with a variable size.
   size_t const buflen = ACE_OS::strlen (variable_name) + ACE_OS::strlen (format) + 2;
-  ACE_TCHAR *newformat = 0;
+  ACE_TCHAR *newformat = nullptr;
   ACE_NEW_RETURN (newformat, ACE_TCHAR[buflen], -1);
   ACE_Auto_Basic_Array_Ptr<ACE_TCHAR> safe_newformat (newformat);
 
@@ -1059,7 +1059,7 @@ ACE_Process_Options::setenv (const ACE_TCHAR *variable_name,
     }
   int retval = 0;
 
-  ACE_TCHAR *stack_buf = 0;
+  ACE_TCHAR *stack_buf = nullptr;
   ACE_NEW_RETURN (stack_buf, ACE_TCHAR[tmp_buflen], -1);
   ACE_Auto_Basic_Array_Ptr<ACE_TCHAR> safe_stack_buf (stack_buf);
 
@@ -1344,7 +1344,7 @@ ACE_Process_Options::command_line (const ACE_TCHAR *format, ...)
 int
 ACE_Process_Options::command_line (const ACE_ANTI_TCHAR *format, ...)
 {
-  ACE_ANTI_TCHAR *anti_clb = 0;
+  ACE_ANTI_TCHAR *anti_clb = nullptr;
   ACE_NEW_RETURN (anti_clb,
                   ACE_ANTI_TCHAR[this->command_line_buf_len_],
                   -1);

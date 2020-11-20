@@ -5,7 +5,7 @@
 #include "Client_Request_Interceptor.h"
 #include "tao/ORBInitializer_Registry.h"
 
-const ACE_TCHAR *ior1 = 0;
+const ACE_TCHAR *ior1 = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -43,7 +43,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   try
     {
 #if TAO_HAS_INTERCEPTORS == 1
-      Client_ORBInitializer* temp_initializer = 0;
+      Client_ORBInitializer* temp_initializer = nullptr;
 
       ACE_NEW_RETURN (temp_initializer,
                       Client_ORBInitializer,

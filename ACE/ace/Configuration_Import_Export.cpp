@@ -29,7 +29,7 @@ ACE_Registry_ImpExp::~ACE_Registry_ImpExp (void)
 int
 ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
 {
-  if (0 == filename)
+  if (nullptr == filename)
     {
       errno = EINVAL;
       return -1;
@@ -40,7 +40,7 @@ ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
 
   u_int buffer_size = 4096;
   u_int read_pos = 0;
-  ACE_TCHAR *buffer = 0;
+  ACE_TCHAR *buffer = nullptr;
 #if defined (ACE_HAS_ALLOC_HOOKS)
   ACE_ALLOCATOR_NORETURN (buffer, static_cast<ACE_TCHAR*> (ACE_Allocator::instance()->malloc(sizeof(ACE_TCHAR) * buffer_size)));
 #else
@@ -53,7 +53,7 @@ ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
       return -1;
     }
   ACE_Configuration_Section_Key section;
-  ACE_TCHAR *end = 0;
+  ACE_TCHAR *end = nullptr;
 
   while (ACE_OS::fgets (buffer+read_pos, buffer_size - read_pos, in))
     {
@@ -162,7 +162,7 @@ ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
           else if (ACE_OS::strncmp (end, ACE_TEXT ("dword:"), 6) == 0)
             {
               // number type
-              ACE_TCHAR* endptr = 0;
+              ACE_TCHAR* endptr = nullptr;
               unsigned long value = ACE_OS::strtoul (end + 6, &endptr, 16);
               if (config_.set_integer_value (section, name,
                                              static_cast<u_int> (value)))
@@ -183,7 +183,7 @@ ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
               // divide by 3 to get the actual buffer length
               size_t length = string_length / 3;
               size_t remaining = length;
-              u_char* data = 0;
+              u_char* data = nullptr;
 #if defined (ACE_HAS_ALLOC_HOOKS)
               ACE_ALLOCATOR_RETURN (data,
                                     static_cast<u_char*> (ACE_Allocator::instance()->malloc(sizeof(u_char) * length)),
@@ -195,7 +195,7 @@ ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
 #endif /* ACE_HAS_ALLOC_HOOKS */
               u_char* out = data;
               ACE_TCHAR* inb = end + 4;
-              ACE_TCHAR* endptr = 0;
+              ACE_TCHAR* endptr = nullptr;
               while (remaining)
                 {
                   u_char charin = (u_char) ACE_OS::strtoul (inb, &endptr, 16);
@@ -275,7 +275,7 @@ ACE_Registry_ImpExp::import_config (const ACE_TCHAR* filename)
 int
 ACE_Registry_ImpExp::export_config (const ACE_TCHAR* filename)
 {
-  if (0 == filename)
+  if (nullptr == filename)
     {
       errno = EINVAL;
       return -1;
@@ -434,7 +434,7 @@ ACE_Registry_ImpExp::process_previous_line_format (ACE_TCHAR* buffer,
 {
   // Chop any cr/lf at the end of the line.
   ACE_TCHAR *endp = ACE_OS::strpbrk (buffer, ACE_TEXT ("\r\n"));
-  if (endp != 0)
+  if (endp != nullptr)
     *endp = '\0';
 
   // assume this is a value, read in the value name
@@ -476,7 +476,7 @@ ACE_Ini_ImpExp::~ACE_Ini_ImpExp (void)
 int
 ACE_Ini_ImpExp::import_config (const ACE_TCHAR* filename)
 {
-  if (0 == filename)
+  if (nullptr == filename)
     {
       errno = EINVAL;
       return -1;
@@ -522,7 +522,7 @@ ACE_Ini_ImpExp::import_config (const ACE_TCHAR* filename)
 
       // We have a line; name ends at equal sign.
       ACE_TCHAR *end = ACE_OS::strchr (line, ACE_TEXT ('='));
-      if (end == 0)                            // No '='
+      if (end == nullptr)                            // No '='
         {
           ACE_OS::fclose (in);
           return -3;
@@ -576,7 +576,7 @@ ACE_Ini_ImpExp::import_config (const ACE_TCHAR* filename)
 int
 ACE_Ini_ImpExp::export_config (const ACE_TCHAR* filename)
 {
-  if (0 == filename)
+  if (nullptr == filename)
     {
       errno = EINVAL;
       return -1;
@@ -724,10 +724,10 @@ ACE_Ini_ImpExp::export_section (const ACE_Configuration_Section_Key& section,
 ACE_TCHAR *
 ACE_Ini_ImpExp::squish (ACE_TCHAR *src)
 {
-  ACE_TCHAR *cp = 0;
+  ACE_TCHAR *cp = nullptr;
 
-  if (src == 0)
-    return 0;
+  if (src == nullptr)
+    return nullptr;
 
   // Start at the end and work backwards over all whitespace.
   for (cp = src + ACE_OS::strlen (src) - 1;

@@ -79,7 +79,7 @@ CORBA::ORB::InvalidName::_downcast (CORBA::Exception *exc)
 
 CORBA::Exception *CORBA::ORB::InvalidName::_alloc (void)
 {
-  CORBA::Exception *retval = 0;
+  CORBA::Exception *retval = nullptr;
   ACE_NEW_RETURN (retval, ::CORBA::ORB::InvalidName, 0);
   return retval;
 }
@@ -87,7 +87,7 @@ CORBA::Exception *CORBA::ORB::InvalidName::_alloc (void)
 CORBA::Exception *
 CORBA::ORB::InvalidName::_tao_duplicate (void) const
 {
-  CORBA::Exception *result = 0;
+  CORBA::Exception *result = nullptr;
   ACE_NEW_RETURN (
       result,
       ::CORBA::ORB::InvalidName (*this),
@@ -1134,7 +1134,7 @@ namespace TAO
       // big as the default repository
       if  (ACE_OS::strcasecmp (arg, ACE_TEXT("LOCAL")) == 0)
         {
-          ACE_Service_Gestalt* gestalt = 0;
+          ACE_Service_Gestalt* gestalt = nullptr;
           ACE_NEW_THROW_EX (gestalt,
                             ACE_Service_Gestalt
                             (ACE_Service_Gestalt::MAX_SERVICES / 4, true),
@@ -1288,7 +1288,7 @@ CORBA::ORB_init (int &argc, ACE_TCHAR *argv[], const char *orbid)
 
   // An ORB corresponding to the desired ORBid doesn't exist so create
   // a new one.
-  TAO_ORB_Core * tmp = 0;
+  TAO_ORB_Core * tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     TAO_ORB_Core (ACE_TEXT_ALWAYS_CHAR(orbid_string.c_str ()),
                       gestalt),
@@ -1448,7 +1448,7 @@ CORBA::ORB::object_to_string (CORBA::Object_ptr obj)
       // return that string.
       size_t const total_len = cdr.total_length ();
 
-      char *cp = 0;
+      char *cp = nullptr;
       ACE_ALLOCATOR_RETURN (cp,
                             CORBA::string_alloc (
                               sizeof ior_prefix

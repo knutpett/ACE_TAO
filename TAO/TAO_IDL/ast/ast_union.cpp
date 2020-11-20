@@ -109,7 +109,7 @@ AST_Union::AST_Union (AST_ConcreteType *dt,
 {
   this->default_value_.computed_ = -2;
 
-  AST_PredefinedType *pdt = 0;
+  AST_PredefinedType *pdt = nullptr;
 
   if (dt == 0)
     {
@@ -311,8 +311,8 @@ AST_Union::in_recursion (ACE_Unbounded_Queue<AST_Type *> &list)
 AST_UnionBranch *
 AST_Union::lookup_default (void)
 {
-  AST_UnionBranch *b = 0;
-  AST_Decl *d = 0;
+  AST_UnionBranch *b = nullptr;
+  AST_Decl *d = nullptr;
 
   for (UTL_ScopeActiveIterator i (this, UTL_Scope::IK_both);
        !i.is_done();
@@ -355,8 +355,8 @@ AST_Union::lookup_label (AST_UnionBranch *b)
       return b;
     }
 
-  AST_Decl *d = 0;
-  AST_UnionBranch *fb = 0;
+  AST_Decl *d = nullptr;
+  AST_UnionBranch *fb = nullptr;
 
   lv->set_ev (lv->coerce (this->pd_udisc_type));
 
@@ -405,8 +405,8 @@ AST_Union::lookup_enum (AST_UnionBranch *b)
   AST_UnionLabel *label = b->label();
   AST_Expression *lv = label->label_val ();
   AST_Enum *e = dynamic_cast<AST_Enum*> (this->pd_disc_type);
-  AST_Decl *d = 0;
-  AST_UnionBranch       *fb = 0;
+  AST_Decl *d = nullptr;
+  AST_UnionBranch       *fb = nullptr;
 
   if (e == 0)
     {
@@ -477,7 +477,7 @@ AST_Union::lookup_enum (AST_UnionBranch *b)
 AST_UnionBranch *
 AST_Union::lookup_branch (AST_UnionBranch *branch)
 {
-  AST_UnionLabel *label = 0;
+  AST_UnionLabel *label = nullptr;
 
   if (branch != 0)
     {
@@ -864,8 +864,8 @@ AST_Union::compute_default_value (void)
 int
 AST_Union::compute_default_index (void)
 {
-  AST_Decl *d = 0;
-  AST_UnionBranch *ub = 0;
+  AST_Decl *d = nullptr;
+  AST_UnionBranch *ub = nullptr;
   int i = 0;
 
   // If default case does not exist, it will have a value of -1 according to

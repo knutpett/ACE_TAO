@@ -160,7 +160,7 @@ ACE_Time_Value::to_absolute_time () const
 ACE_Time_Value *
 ACE_Time_Value::duplicate () const
 {
-  ACE_Time_Value * tmp = 0;
+  ACE_Time_Value * tmp = nullptr;
   ACE_NEW_RETURN (tmp, ACE_Time_Value (*this), 0);
   return tmp;
 }

@@ -119,7 +119,7 @@ public:
                            ACE_Thread_Manager &tm,
                            int &grp_id,
                            HTTP_Handler_Factory &factory);
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
   virtual int close (u_long);
   virtual int svc (void);
 

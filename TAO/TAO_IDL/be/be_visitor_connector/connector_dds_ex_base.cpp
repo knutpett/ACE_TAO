@@ -154,7 +154,7 @@ be_visitor_connector_dds_ex_base::process_template_args (
 
   /// We depend on the DDS datatype being the first template
   /// argument for now, this may change.
-  AST_Decl **datatype = 0;
+  AST_Decl **datatype = nullptr;
   int const status = this->t_args_.get (datatype, 0UL);
 
   if (status != 0)
@@ -197,12 +197,12 @@ be_visitor_connector_dds_ex_base::match_template_args (void)
            ! ci.done ();
            ci.advance (), ++slot)
         {
-          FE_Utils::T_Param_Info *t_param = 0;
+          FE_Utils::T_Param_Info *t_param = nullptr;
           ci.next (t_param);
 
           if (t_param->name_ == ref_name)
             {
-              AST_Decl **d = 0;
+              AST_Decl **d = nullptr;
               this->t_inst_->template_args ()->get (d, slot);
               this->t_args_.enqueue_tail (*d);
               break;

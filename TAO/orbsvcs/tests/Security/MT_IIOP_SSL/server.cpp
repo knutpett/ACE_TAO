@@ -2,7 +2,7 @@
 #include "test_i.h"
 #include "Server_Worker.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 int nthreads = 4;
 
 int

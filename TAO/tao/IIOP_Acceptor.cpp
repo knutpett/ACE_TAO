@@ -109,7 +109,7 @@ TAO_IIOP_Acceptor::create_new_profile (const TAO::ObjectKey &object_key,
           && ACE_OS::strcmp(this->hosts_[i], this->hosts_[0]) == 0)
         continue;
 
-      TAO_IIOP_Profile *pfile = 0;
+      TAO_IIOP_Profile *pfile = nullptr;
       ACE_NEW_RETURN (pfile,
                       TAO_IIOP_Profile (this->hosts_[i],
                                         this->addrs_[i].get_port_number (),
@@ -150,8 +150,8 @@ TAO_IIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
                                           CORBA::Short priority)
 {
   CORBA::ULong index = 0;
-  TAO_Profile *pfile = 0;
-  TAO_IIOP_Profile *iiop_profile = 0;
+  TAO_Profile *pfile = nullptr;
+  TAO_IIOP_Profile *iiop_profile = nullptr;
 
   // First see if @a mprofile already contains a IIOP profile.
   for (TAO_PHandle i = 0; i != mprofile.profile_count (); ++i)
@@ -211,7 +211,7 @@ TAO_IIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
           ACE_OS::strcmp(this->hosts_[index], this->hosts_[0]) == 0)
         continue;
 
-      TAO_IIOP_Endpoint *endpoint = 0;
+      TAO_IIOP_Endpoint *endpoint = nullptr;
       ACE_NEW_RETURN (endpoint,
                       TAO_IIOP_Endpoint (this->hosts_[index],
                                          this->addrs_[index].get_port_number (),
@@ -788,7 +788,7 @@ TAO_IIOP_Acceptor::dotted_decimal_address (const ACE_INET_Addr &addr,
                                            char *&host)
 {
   int result = 0;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   // If the IP address in the INET_Addr is the IN(6)ADDR_ANY address,
   // then force the actual IP address to be used by initializing a new
@@ -834,7 +834,7 @@ TAO_IIOP_Acceptor::probe_interfaces (TAO_ORB_Core *orb_core, int def_type)
   // it.  The hostnames will then be used when creating a
   // TAO_IIOP_Profile for each endpoint setup on the probed
   // network interfaces.
-  ACE_INET_Addr *if_addrs = 0;
+  ACE_INET_Addr *if_addrs = nullptr;
   size_t if_cnt = 0;
 
   if (ACE::get_ip_interfaces (if_cnt, if_addrs) != 0
@@ -1140,9 +1140,9 @@ TAO_IIOP_Acceptor::parse_options (const char *str)
   //    `option1=foo'
   //    `option2=bar'
 
-  ACE_CString *argv_base = 0;
+  ACE_CString *argv_base = nullptr;
   ACE_NEW_RETURN (argv_base, ACE_CString[argc],-1);
-  ACE_CString **argv = 0;
+  ACE_CString **argv = nullptr;
   ACE_NEW_RETURN (argv, ACE_CString*[argc],-1);
 
   ACE_CString::size_type begin = 0;

@@ -364,7 +364,7 @@ public:
                   Preemption_Priority priority,
                   OS_Priority os_priority,
                   Task_Entry &task_entry,
-                  Dispatch_Entry *original_dispatch = 0);
+                  Dispatch_Entry *original_dispatch = nullptr);
 
   // copy ctor
   Dispatch_Entry (const Dispatch_Entry &d);
@@ -573,8 +573,8 @@ public:
                   Time stop,
                   Time arrival,
                   Time deadline,
-                  TimeLine_Entry *next = 0,
-                  TimeLine_Entry *prev = 0);
+                  TimeLine_Entry *next = nullptr,
+                  TimeLine_Entry *prev = nullptr);
 
   // dispatch entry accessor
   Dispatch_Entry &dispatch_entry () const;

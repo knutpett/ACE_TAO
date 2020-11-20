@@ -228,7 +228,7 @@ public:
 
   // Runs a state machine. Controls adding/deleting of ip-address.
   int handle_timeout (ACE_Time_Value const & tv,
-                      void const * arg = 0);
+                      void const * arg = nullptr);
 
   // Sends to kernel a request to add secondary ip/mask to an
   // interface.
@@ -429,7 +429,7 @@ Secondary_Ipaddr_Handler::handle_input (ACE_HANDLE)
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT("(%P) Secondary_Ipaddr_Handler::handle_input -  entered\n")));
 
-  nlmsghdr *hdr = 0;
+  nlmsghdr *hdr = nullptr;
   iovec iov;
 
   iov.iov_base = this->recv_buff_;
@@ -650,7 +650,7 @@ Secondary_Ipaddr_Handler::fill_inet_prefix (
   char ip_buff[32];
   ACE_OS::strncpy (ip_buff, ip_slash_netmask, sizeof (ip_buff));
 
-  char* to_search = ip_buff, *dot = 0;
+  char* to_search = ip_buff, *dot = nullptr;
 
   for (int i = 0; i < 4; i++)
     {

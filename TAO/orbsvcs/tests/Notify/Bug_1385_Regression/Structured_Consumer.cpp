@@ -19,7 +19,7 @@
 
 static const ACE_TCHAR *ior = ACE_TEXT ("file://supplier.ior");
 static unsigned int expected = 10;
-static Notify_Structured_Push_Consumer* consumer_1 = 0;
+static Notify_Structured_Push_Consumer* consumer_1 = nullptr;
 
 class Consumer_Client : public Notify_Test_Client
 {

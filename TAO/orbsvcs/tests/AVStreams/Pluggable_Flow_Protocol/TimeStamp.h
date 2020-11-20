@@ -20,11 +20,11 @@ class TAO_TS_Export TimeStamp_Protocol_Object : public TAO_AV_Protocol_Object
 
   /// send a data frame.
   virtual int send_frame (ACE_Message_Block *frame,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (iovec const* iov,
                           int iovcnt,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const char*buf,
                           size_t len);

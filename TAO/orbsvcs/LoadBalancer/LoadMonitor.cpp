@@ -12,11 +12,11 @@
 #include "ace/OS_main.h"
 #include "ace/OS_NS_strings.h"
 
-static const ACE_TCHAR * location_id = 0;
-static const ACE_TCHAR * location_kind = 0;
+static const ACE_TCHAR * location_id = nullptr;
+static const ACE_TCHAR * location_kind = nullptr;
 static const ACE_TCHAR * mtype = ACE_TEXT("CPU");
 static const ACE_TCHAR * mstyle = ACE_TEXT("PUSH");
-static const ACE_TCHAR * custom_monitor_ior = 0;
+static const ACE_TCHAR * custom_monitor_ior = nullptr;
 
 // For the sake of consistency, make default push monitoring interval
 // the same as the pull monitoring interval.
@@ -47,7 +47,7 @@ parse_args (int argc, ACE_TCHAR *argv[])
   ACE_Get_Opt get_opts (argc, argv, ACE_TEXT ("l:k:t:s:i:m:h"));
 
   int c = 0;
-  const ACE_TCHAR * s = 0;
+  const ACE_TCHAR * s = nullptr;
 
   while ((c = get_opts ()) != -1)
     {
@@ -151,7 +151,7 @@ get_load_monitor (CORBA::ORB_ptr orb,
 
       if (ACE_OS::strcasecmp (::mtype, ACE_TEXT("CPU")) == 0)
         {
-          TAO_LB_CPU_Load_Average_Monitor * monitor = 0;
+          TAO_LB_CPU_Load_Average_Monitor * monitor = nullptr;
           ACE_NEW_THROW_EX (monitor,
                             TAO_LB_CPU_Load_Average_Monitor (::location_id,
                                                              ::location_kind),

@@ -80,15 +80,15 @@ public:
    * is called, so it must be allocated with global operator new.
    */
   static int spawn (ACE_THR_FUNC func,
-                    void *arg = 0,
+                    void *arg = nullptr,
                     long flags = THR_NEW_LWP | THR_JOINABLE,
-                    ACE_thread_t *t_id = 0,
-                    ACE_hthread_t *t_handle = 0,
+                    ACE_thread_t *t_id = nullptr,
+                    ACE_hthread_t *t_handle = nullptr,
                     long priority = ACE_DEFAULT_THREAD_PRIORITY,
-                    void *stack = 0,
+                    void *stack = nullptr,
                     size_t stack_size = ACE_DEFAULT_THREAD_STACKSIZE,
-                    ACE_Thread_Adapter *thread_adapter = 0,
-                    const char** thr_name = 0);
+                    ACE_Thread_Adapter *thread_adapter = nullptr,
+                    const char** thr_name = nullptr);
 
   /**
    * Spawn N new threads, which execute @a func with argument @a arg (if
@@ -106,13 +106,13 @@ public:
    */
   static size_t spawn_n (size_t n,
                          ACE_THR_FUNC func,
-                         void *arg = 0,
+                         void *arg = nullptr,
                          long flags = THR_NEW_LWP | THR_JOINABLE,
                          long priority = ACE_DEFAULT_THREAD_PRIORITY,
-                         void *stack[] = 0,
-                         size_t stack_size[] = 0,
-                         ACE_Thread_Adapter *thread_adapter = 0,
-                         const char* thr_name[] = 0);
+                         void *stack[] = nullptr,
+                         size_t stack_size[] = nullptr,
+                         ACE_Thread_Adapter *thread_adapter = nullptr,
+                         const char* thr_name[] = nullptr);
 
   /**
    * Spawn @a n new threads, which execute @a func with argument @a arg
@@ -138,11 +138,11 @@ public:
                          void *arg,
                          long flags,
                          long priority = ACE_DEFAULT_THREAD_PRIORITY,
-                         void *stack[] = 0,
-                         size_t stack_size[] = 0,
-                         ACE_hthread_t thread_handles[] = 0,
-                         ACE_Thread_Adapter *thread_adapter = 0,
-                         const char* thr_name[] = 0);
+                         void *stack[] = nullptr,
+                         size_t stack_size[] = nullptr,
+                         ACE_hthread_t thread_handles[] = nullptr,
+                         ACE_Thread_Adapter *thread_adapter = nullptr,
+                         const char* thr_name[] = nullptr);
 
   /**
    * Wait for one or more threads to exit and reap their exit status.
@@ -168,7 +168,7 @@ public:
 
   /// Wait for one thread to exit and reap its exit status.
   static int join (ACE_hthread_t,
-                   ACE_THR_FUNC_RETURN * = 0);
+                   ACE_THR_FUNC_RETURN * = nullptr);
 
   /// Continue the execution of a previously suspended thread.
   static int resume (ACE_hthread_t);
@@ -204,7 +204,7 @@ public:
 
   /// Exit the current thread and return "status".
   /// Should _not_ be called by main thread.
-  static void exit (ACE_THR_FUNC_RETURN status = 0);
+  static void exit (ACE_THR_FUNC_RETURN status = nullptr);
 
   /// Get the LWP concurrency level of the process.
   static int getconcurrency (void);
@@ -215,7 +215,7 @@ public:
   /// Change and/or examine calling thread's signal mask.
   static int sigsetmask (int how,
                          const sigset_t *sigset,
-                         sigset_t *osigset = 0);
+                         sigset_t *osigset = nullptr);
 
   /**
    * Allocates a @a keyp that is used to identify data that is specific

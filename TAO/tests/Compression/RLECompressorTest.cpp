@@ -11,7 +11,7 @@
 
 // Older versions of GCC do not support std::unique_ptr!
 struct ACE_Byte_Array_ptr : std::auto_ptr<ACE_Byte> {
-    explicit ACE_Byte_Array_ptr(ACE_Byte *_Ptr = 0)
+    explicit ACE_Byte_Array_ptr(ACE_Byte *_Ptr = nullptr)
         : std::auto_ptr<ACE_Byte>(_Ptr) {}
     ~ACE_Byte_Array_ptr(void) {
         delete [] (this->release());

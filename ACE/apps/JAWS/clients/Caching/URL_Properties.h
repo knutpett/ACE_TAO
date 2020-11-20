@@ -62,8 +62,8 @@ class ACE_Svc_Export ACE_URL_Property
 {
 public:
   /// Create a new property.
-  ACE_URL_Property (const char *name = 0,
-                    const char *value=0);
+  ACE_URL_Property (const char *name = nullptr,
+                    const char *value = nullptr);
 
   /// Create a new property using wchar strings.  This is mostly used
   /// to support DBCS or UNICODE.
@@ -140,7 +140,7 @@ class ACE_Svc_Export ACE_URL_Offer
 {
 public:
   /// Create an offer.
-  ACE_URL_Offer (const size_t size = 1, const char *url = 0);
+  ACE_URL_Offer (const size_t size = 1, const char *url = nullptr);
 
   /// Copy ctor.
   ACE_URL_Offer (const ACE_URL_Offer &o);

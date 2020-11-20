@@ -75,18 +75,18 @@ public:
 
   /// retrieve data from a peer agent for a given list of oid values
   /// default port 161
-  int get( Pdu &pdu, UdpTarget &target, Snmp_Result * cb = 0);
+  int get( Pdu &pdu, UdpTarget &target, Snmp_Result * cb = nullptr);
 
   /**
    * retrieve data lexically adjacent to the oids specified in the pdu
    * from the peer agent
    * default port 161
    */
-  int get_next( Pdu &pdu, UdpTarget &target, Snmp_Result * cb = 0);
+  int get_next( Pdu &pdu, UdpTarget &target, Snmp_Result * cb = nullptr);
 
   /// set data in the agent from the list of oids in the pdu
   /// default port 161
-  int set( Pdu &pdu, UdpTarget &target, Snmp_Result * cb = 0);
+  int set( Pdu &pdu, UdpTarget &target, Snmp_Result * cb = nullptr);
 
   /// send an SNMPv1 trap (unreliable) to a remote system (def port 162)
   int trap( Pdu &pdu, UdpTarget &target);

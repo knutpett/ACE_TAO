@@ -38,7 +38,7 @@ protected:
 
 protected:
   virtual int handle_connections ();
-  virtual int handle_data (ACE_SOCK_Stream *client = 0);
+  virtual int handle_data (ACE_SOCK_Stream *client = nullptr);
 
   int run_master (int argc, char *argv[]);
   int run_worker (int argc, char *argv[]);

@@ -92,7 +92,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                   "Priority Manager & mapping interfaces resolved.\n"));
 
       // Write the mapping to a file
-      FILE *output_file = 0;
+      FILE *output_file = nullptr;
       if (mapping_file1 != 0)
         {
           output_file = ACE_OS::fopen (mapping_file1, "w");

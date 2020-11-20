@@ -14,7 +14,7 @@
 
 static const ACE_TCHAR *ior = ACE_TEXT ("file://supplier.ior");
 static int numEvents = 90;
-static Notify_Push_Consumer* consumer = 0;
+static Notify_Push_Consumer* consumer = nullptr;
 static bool useFilter = false;
 
 static const char* GRAMMAR = "TCL";

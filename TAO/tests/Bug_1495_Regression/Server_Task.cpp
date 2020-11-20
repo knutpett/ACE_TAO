@@ -48,7 +48,7 @@ Server_Task::svc (void)
 
       poa_manager->activate ();
 
-      Bug1495_i *server_impl = 0;
+      Bug1495_i *server_impl = nullptr;
       ACE_NEW_RETURN (server_impl,
                       Bug1495_i (sorb_.in ()),
                       0);

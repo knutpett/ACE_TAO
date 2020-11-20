@@ -758,14 +758,14 @@ be_visitor_arg_traits::visit_string (be_string *node)
         }
 
       size_t bound_length = num_digits + 1;
-      char* bound_string = 0;
+      char* bound_string = nullptr;
       ACE_NEW_RETURN (bound_string, char[bound_length], -1) ;
       ACE_OS::sprintf (bound_string, ACE_UINT32_FORMAT_SPECIFIER_ASCII, bound);
 
       size_t cat_length = ACE_OS::strlen (alias->local_name ()->get_string ()) +
                           ACE_OS::strlen (bound_string) +
                           1;
-      char* cat_string = 0;
+      char* cat_string = nullptr;
       ACE_NEW_RETURN (cat_string, char[cat_length], -1) ;
       ACE_OS::strcpy (cat_string, alias->local_name ()->get_string ()) ;
       ACE_OS::strcat (cat_string, bound_string);

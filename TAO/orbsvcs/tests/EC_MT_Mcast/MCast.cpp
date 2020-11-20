@@ -158,7 +158,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       // We need a local socket to send the data, open it and check
       // that everything is OK:
-      TAO_ECG_UDP_Out_Endpoint* endpointptr = 0;
+      TAO_ECG_UDP_Out_Endpoint* endpointptr = nullptr;
 
       ACE_NEW_RETURN (endpointptr, TAO_ECG_UDP_Out_Endpoint, 0);
 

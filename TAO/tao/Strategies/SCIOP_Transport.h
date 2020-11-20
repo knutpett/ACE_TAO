@@ -71,11 +71,11 @@ protected:
 
   virtual ssize_t send (iovec *iov, int iovcnt,
                         size_t &bytes_transferred,
-                        const ACE_Time_Value *timeout = 0);
+                        const ACE_Time_Value *timeout = nullptr);
 
   virtual ssize_t recv (char *buf,
                         size_t len,
-                        const ACE_Time_Value *s = 0);
+                        const ACE_Time_Value *s = nullptr);
 
 
 public:
@@ -88,13 +88,13 @@ public:
                             ACE_Time_Value *max_wait_time);
 
   virtual int send_message (TAO_OutputCDR &association,
-                            TAO_Stub *stub = 0,
-                            TAO_ServerRequest *request = 0,
+                            TAO_Stub *stub = nullptr,
+                            TAO_ServerRequest *request = nullptr,
                             TAO_Message_Semantics message_semantics = TAO_Message_Semantics (),
-                            ACE_Time_Value *max_time_wait = 0);
+                            ACE_Time_Value *max_time_wait = nullptr);
 
   /*virtual int send_reply (TAO_OutputCDR &stream,
-                          TAO_Adapter *poa = 0);*/
+                          TAO_Adapter *poa = nullptr);*/
 
   virtual int tear_listen_point_list (TAO_InputCDR &cdr);
 

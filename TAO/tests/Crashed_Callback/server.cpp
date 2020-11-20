@@ -81,7 +81,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Service *service_impl = 0;
+      Service *service_impl = nullptr;
       ACE_NEW_RETURN (service_impl,
                       Service,
                       1);

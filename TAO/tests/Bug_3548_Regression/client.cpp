@@ -4,7 +4,7 @@
 
 //---------------------------------------------------------------------------
 
-MEMEATER::StringSeq* _message_buffer = 0;
+MEMEATER::StringSeq* _message_buffer = nullptr;
 #define MAX_MSG_BUF 100
 
 void eat_my_memory()

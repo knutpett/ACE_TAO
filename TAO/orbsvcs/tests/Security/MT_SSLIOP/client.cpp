@@ -3,7 +3,7 @@
 
 
 const ACE_TCHAR *ior = ACE_TEXT("file://test.ior");
-ACE_TCHAR *another_ior = 0;
+ACE_TCHAR *another_ior = nullptr;
 
 int niterations = 5;
 int do_shutdown = 0;

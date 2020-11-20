@@ -35,7 +35,7 @@ namespace Test
                    name.in ()));
 
     int tmpargc = 0;
-    ACE_TCHAR **argv = 0;
+    ACE_TCHAR **argv = nullptr;
     CORBA::ORB_var orb = CORBA::ORB_init (tmpargc,
                                           argv,
                                           this->orb_id_.in ());

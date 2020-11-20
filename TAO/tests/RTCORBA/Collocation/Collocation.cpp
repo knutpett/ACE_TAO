@@ -214,7 +214,7 @@ test_i::start (void)
   Tests::ITERATOR iterator (this->tests_);
   while (!iterator.done ())
     {
-      Test_Object_And_Servant *test = 0;
+      Test_Object_And_Servant *test = nullptr;
       iterator.next (test);
 
       setup_test_parameters (test,
@@ -443,7 +443,7 @@ Server::Server (CORBA::ORB_ptr orb)
 void
 Server::create_servant_in_root_poa (void)
 {
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (this->orb_.in (),
                             this->root_poa_.in (),
@@ -505,7 +505,7 @@ Server::create_poa_and_servant_with_tp_policy (const char *poa_name,
   RTPortableServer::POA_var rt_poa =
     RTPortableServer::POA::_narrow (poa.in ());
 
-  test_i *servant1 = 0;
+  test_i *servant1 = nullptr;
   ACE_NEW_THROW_EX (servant1,
                     test_i (this->orb_.in (),
                             poa.in (),
@@ -528,7 +528,7 @@ Server::create_poa_and_servant_with_tp_policy (const char *poa_name,
         }
       else
         {
-          test_i *servant2 = 0;
+          test_i *servant2 = nullptr;
 
           ACE_NEW_THROW_EX (servant2,
                             test_i (this->orb_.in (),
@@ -635,7 +635,7 @@ Server::create_poa_and_servant_with_tp_with_lanes_policy (const char *poa_name,
   RTPortableServer::POA_var rt_poa =
     RTPortableServer::POA::_narrow (poa.in ());
 
-  test_i *servant1 = 0;
+  test_i *servant1 = nullptr;
   ACE_NEW_THROW_EX (servant1,
                     test_i (this->orb_.in (),
                             poa.in (),
@@ -658,7 +658,7 @@ Server::create_poa_and_servant_with_tp_with_lanes_policy (const char *poa_name,
     }
   else
     {
-      test_i *servant2 = 0;
+      test_i *servant2 = nullptr;
 
       ACE_NEW_THROW_EX (servant2,
                         test_i (this->orb_.in (),
@@ -713,7 +713,7 @@ Server::start_testing (void)
   Tests::ITERATOR iterator (this->tests_);
   while (!iterator.done ())
     {
-      Test_Object_And_Servant *test = 0;
+      Test_Object_And_Servant *test = nullptr;
       iterator.next (test);
 
       setup_test_parameters (test,

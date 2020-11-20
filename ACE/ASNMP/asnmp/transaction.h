@@ -48,7 +48,7 @@ public:
 
   /// return pdu with result from agent after run() is completed rc = 0
   /// optionally get community str
-  int result(Pdu& pdu, char *comm_str = 0, ACE_INET_Addr *from_addr = 0);
+  int result(Pdu& pdu, char *comm_str = nullptr, ACE_INET_Addr *from_addr = nullptr);
 
   /// called by reactor when data is ready to be read in from OS memory
   /// used for resend in asynchronous run()

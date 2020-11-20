@@ -199,7 +199,7 @@ ACE_OutputCDR::grow_and_adjust (size_t size,
       size_t const newsize = ACE_CDR::next_size (minsize);
 
       this->good_bit_ = false;
-      ACE_Message_Block* tmp = 0;
+      ACE_Message_Block* tmp = nullptr;
       ACE_NEW_RETURN (tmp,
                       ACE_Message_Block (newsize,
                                          ACE_Message_Block::MB_DATA,
@@ -433,7 +433,7 @@ ACE_OutputCDR::write_octet_array_mb (const ACE_Message_Block* mb)
           continue;
         }
 
-      ACE_Message_Block* cont = 0;
+      ACE_Message_Block* cont = nullptr;
       this->good_bit_ = false;
       ACE_NEW_RETURN (cont,
                       ACE_Message_Block (i->data_block ()->duplicate ()),
@@ -460,7 +460,7 @@ ACE_OutputCDR::write_octet_array_mb (const ACE_Message_Block* mb)
 ACE_CDR::Boolean
 ACE_OutputCDR::write_1 (const ACE_CDR::Octet *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (1, buf) == 0)
     {
       *reinterpret_cast<ACE_CDR::Octet*> (buf) = *x;
@@ -473,7 +473,7 @@ ACE_OutputCDR::write_1 (const ACE_CDR::Octet *x)
 ACE_CDR::Boolean
 ACE_OutputCDR::write_2 (const ACE_CDR::UShort *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::SHORT_SIZE, buf) == 0)
     {
 #if !defined (ACE_ENABLE_SWAP_ON_WRITE)
@@ -499,7 +499,7 @@ ACE_OutputCDR::write_2 (const ACE_CDR::UShort *x)
 ACE_CDR::Boolean
 ACE_OutputCDR::write_4 (const ACE_CDR::ULong *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONG_SIZE, buf) == 0)
     {
 #if !defined (ACE_ENABLE_SWAP_ON_WRITE)
@@ -525,7 +525,7 @@ ACE_OutputCDR::write_4 (const ACE_CDR::ULong *x)
 ACE_CDR::Boolean
 ACE_OutputCDR::write_8 (const ACE_CDR::ULongLong *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
 
   if (this->adjust (ACE_CDR::LONGLONG_SIZE, buf) == 0)
     {
@@ -552,7 +552,7 @@ ACE_OutputCDR::write_8 (const ACE_CDR::ULongLong *x)
 ACE_CDR::Boolean
 ACE_OutputCDR::write_16 (const ACE_CDR::LongDouble *x)
 {
-  char* buf = 0;
+  char* buf = nullptr;
   if (this->adjust (ACE_CDR::LONGDOUBLE_SIZE,
                     ACE_CDR::LONGDOUBLE_ALIGN,
                     buf) == 0)
@@ -583,7 +583,7 @@ ACE_OutputCDR::write_wchar_array_i (const ACE_CDR::WChar *x,
 {
   if (length == 0)
     return true;
-  char* buf = 0;
+  char* buf = nullptr;
   size_t const align = (ACE_OutputCDR::wchar_maxbytes_ == 2) ?
     ACE_CDR::SHORT_ALIGN :
     ACE_CDR::OCTET_ALIGN;
@@ -625,7 +625,7 @@ ACE_OutputCDR::write_array (const void *x,
 {
   if (length == 0)
     return true;
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (size * length, align, buf) == 0)
     {
 #if !defined (ACE_ENABLE_SWAP_ON_WRITE)
@@ -689,7 +689,7 @@ ACE_OutputCDR::write_boolean_array (const ACE_CDR::Boolean* x,
 char *
 ACE_OutputCDR::write_long_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONG_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::ULong*> (buf) = 0;
   else
@@ -700,7 +700,7 @@ ACE_OutputCDR::write_long_placeholder (void)
 char *
 ACE_OutputCDR::write_short_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::SHORT_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::UShort*> (buf) = 0;
   else
@@ -711,7 +711,7 @@ ACE_OutputCDR::write_short_placeholder (void)
 char *
 ACE_OutputCDR::write_boolean_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::OCTET_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::Boolean*> (buf) = 0;
   else
@@ -722,7 +722,7 @@ ACE_OutputCDR::write_boolean_placeholder (void)
 char *
 ACE_OutputCDR::write_char_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::OCTET_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::Char*> (buf) = 0;
   else
@@ -733,7 +733,7 @@ ACE_OutputCDR::write_char_placeholder (void)
 char *
 ACE_OutputCDR::write_octet_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::OCTET_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::Octet*> (buf) = 0;
   else
@@ -744,7 +744,7 @@ ACE_OutputCDR::write_octet_placeholder (void)
 char *
 ACE_OutputCDR::write_longlong_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONGLONG_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::ULongLong*> (buf) = 0;
   else
@@ -755,7 +755,7 @@ ACE_OutputCDR::write_longlong_placeholder (void)
 char *
 ACE_OutputCDR::write_float_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONG_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::ULong*> (buf) = 0;
   else
@@ -766,7 +766,7 @@ ACE_OutputCDR::write_float_placeholder (void)
 char *
 ACE_OutputCDR::write_double_placeholder (void)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONGLONG_SIZE, buf) == 0)
     *reinterpret_cast<ACE_CDR::ULongLong*> (buf) = 0;
   else
@@ -1031,7 +1031,7 @@ ACE_OutputCDR::consolidate (void)
 ACE_Message_Block*
 ACE_OutputCDR::find (char* loc)
 {
-  ACE_Message_Block* mb = 0;
+  ACE_Message_Block* mb = nullptr;
   for (mb = &this->start_; mb != 0; mb = mb->cont ())
   {
     if (loc <= mb->wr_ptr () && loc >= mb->rd_ptr ())
@@ -1563,7 +1563,7 @@ ACE_InputCDR::read_string (ACE_CDR::Char *&x)
 ACE_CDR::Boolean
 ACE_InputCDR::read_string (ACE_CString &x)
 {
-  ACE_CDR::Char * data = 0;
+  ACE_CDR::Char * data = nullptr;
   if (this->read_string (data))
     {
       ACE_Auto_Basic_Array_Ptr<ACE_CDR::Char> safe_data (data);
@@ -1816,7 +1816,7 @@ ACE_InputCDR::read_array (void* x,
 {
   if (length == 0)
     return true;
-  char* buf = 0;
+  char* buf = nullptr;
 
   if (this->adjust (size * length, align, buf) == 0)
     {
@@ -1860,7 +1860,7 @@ ACE_InputCDR::read_wchar_array_i (ACE_CDR::WChar* x,
 {
   if (length == 0)
     return true;
-  char* buf = 0;
+  char* buf = nullptr;
   size_t const align = (ACE_OutputCDR::wchar_maxbytes_ == 2) ?
     ACE_CDR::SHORT_ALIGN :
     ACE_CDR::OCTET_ALIGN;
@@ -1935,7 +1935,7 @@ ACE_InputCDR::read_1 (ACE_CDR::Octet *x)
 ACE_CDR::Boolean
 ACE_InputCDR::read_2 (ACE_CDR::UShort *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::SHORT_SIZE, buf) == 0)
     {
 #if !defined (ACE_DISABLE_SWAP_ON_READ)
@@ -1955,7 +1955,7 @@ ACE_InputCDR::read_2 (ACE_CDR::UShort *x)
 ACE_CDR::Boolean
 ACE_InputCDR::read_4 (ACE_CDR::ULong *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONG_SIZE, buf) == 0)
     {
 #if !defined (ACE_DISABLE_SWAP_ON_READ)
@@ -1975,7 +1975,7 @@ ACE_InputCDR::read_4 (ACE_CDR::ULong *x)
 ACE_CDR::Boolean
 ACE_InputCDR::read_8 (ACE_CDR::ULongLong *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
 
   if (this->adjust (ACE_CDR::LONGLONG_SIZE, buf) == 0)
     {
@@ -1997,7 +1997,7 @@ ACE_InputCDR::read_8 (ACE_CDR::ULongLong *x)
 ACE_CDR::Boolean
 ACE_InputCDR::read_16 (ACE_CDR::LongDouble *x)
 {
-  char *buf = 0;
+  char *buf = nullptr;
   if (this->adjust (ACE_CDR::LONGDOUBLE_SIZE,
                     ACE_CDR::LONGDOUBLE_ALIGN,
                     buf) == 0)
@@ -2355,7 +2355,7 @@ ACE_CDR::Boolean
 ACE_Char_Codeset_Translator::read_string (ACE_InputCDR &cdr,
                                           std::string &x)
 {
-  ACE_CDR::Char *buf = 0;
+  ACE_CDR::Char *buf = nullptr;
   ACE_CDR::Boolean const marshal_flag = this->read_string (cdr, buf);
   x.assign (buf);
   ACE::strdelete (buf);
@@ -2373,7 +2373,7 @@ ACE_CDR::Boolean
 ACE_WChar_Codeset_Translator::read_wstring (ACE_InputCDR &cdr,
                                             std::wstring &x)
 {
-  ACE_CDR::WChar *buf = 0;
+  ACE_CDR::WChar *buf = nullptr;
   ACE_CDR::Boolean const marshal_flag = this->read_wstring (cdr, buf);
   x.assign (buf);
   ACE::strdelete (buf);

@@ -82,7 +82,7 @@ AST_Annotation_Appls::operator[] (size_t index)
 AST_Annotation_Appl *
 AST_Annotation_Appls::find (AST_Annotation_Decl *annotation)
 {
-  AST_Annotation_Appl *result = 0;
+  AST_Annotation_Appl *result = nullptr;
   for (iterator i = begin (); i != end (); ++i)
     {
       AST_Annotation_Appl *appl = i->get ();

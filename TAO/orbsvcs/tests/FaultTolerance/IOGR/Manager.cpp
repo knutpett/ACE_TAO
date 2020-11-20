@@ -14,9 +14,9 @@
 #include "ace/OS_NS_fcntl.h"
 
 // Files which have the IOR
-const ACE_TCHAR *first_ior = 0;
-const ACE_TCHAR *second_ior = 0;
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *first_ior = nullptr;
+const ACE_TCHAR *second_ior = nullptr;
+const ACE_TCHAR *ior_output_file = nullptr;
 
 // Reference to the IOR manipulator
 TAO_IOP::TAO_IOR_Manipulation_var iorm = 0;
@@ -263,7 +263,7 @@ Client_i::init (void)
 
 
   int argc = 0;
-  ACE_TCHAR **argv = 0;
+  ACE_TCHAR **argv = nullptr;
   this->orb_ = CORBA::ORB_init (argc, argv);
 
   CORBA::Object_var object =

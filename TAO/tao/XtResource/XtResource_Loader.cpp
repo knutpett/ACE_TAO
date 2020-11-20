@@ -9,7 +9,7 @@ namespace TAO
 
   XtResource_Loader::XtResource_Loader (XtAppContext context)
   {
-    XtResource_Factory *tmp = 0;
+    XtResource_Factory *tmp = nullptr;
 
     ACE_NEW (tmp,
              XtResource_Factory (context));

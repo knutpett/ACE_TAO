@@ -59,7 +59,7 @@ namespace Test
         if (parse_args (argc, argv) != 0)
           return 1;
 
-        test_i *test_impl = 0;
+        test_i *test_impl = nullptr;
         ACE_NEW_RETURN (test_impl,
                         test_i (),
                         1);

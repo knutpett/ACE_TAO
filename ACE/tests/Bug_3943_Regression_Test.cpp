@@ -960,7 +960,7 @@ client (void *arg)
                              ACE_DEFAULT_SERVER_HOST);
   CONNECTOR connector;
 
-  Svc_Handler *svc_handler = 0;
+  Svc_Handler *svc_handler = nullptr;
   // Run the blocking test.
   ACE_NEW_RETURN (svc_handler,
                   Svc_Handler,
@@ -992,7 +992,7 @@ server (void *arg)
   const ACE_Time_Value tv (ACE_DEFAULT_TIMEOUT);
   ACE_Synch_Options options (ACE_Synch_Options::USE_TIMEOUT, tv);
 
-  Svc_Handler *svc_handler = 0;
+  Svc_Handler *svc_handler = nullptr;
   ACE_NEW_RETURN (svc_handler,
                   Svc_Handler,
                   0);

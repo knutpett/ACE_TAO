@@ -255,7 +255,7 @@ namespace ACE_OS
   ssize_t read_n (ACE_HANDLE handle,
                   void *buf,
                   size_t len,
-                  size_t *bytes_transferred = 0);
+                  size_t *bytes_transferred = nullptr);
 
   ACE_NAMESPACE_INLINE_FUNCTION
   ssize_t readlink (const char *path,
@@ -355,7 +355,7 @@ namespace ACE_OS
   ssize_t write_n (ACE_HANDLE handle,
                    const void *buf,
                    size_t len,
-                   size_t *bytes_transferred = 0);
+                   size_t *bytes_transferred = nullptr);
 
 } /* namespace ACE_OS */
 

@@ -92,7 +92,7 @@ Object_Group_Factory_i::unbind_round_robin (const char * id)
       this->rr_groups_ = reinterpret_cast <HASH_MAP *> (tmp_rr);
     }
 
-  char *int_id = 0;
+  char *int_id = nullptr;
 
   // Throw an exception if not found in the HASH MAP
   if (this->rr_groups_->find (const_cast<char *> (id),
@@ -171,7 +171,7 @@ Object_Group_Factory_i::unbind_random (const char * id)
       this->random_groups_ = reinterpret_cast <HASH_MAP *> (tmp_random);
     }
 
-  char *int_id = 0;
+  char *int_id = nullptr;
 
   // Throw an exception if not found in the HASH MAP
   if (this->random_groups_->find (const_cast<char *> (id),
@@ -210,7 +210,7 @@ Object_Group_Factory_i::make_group (int random,
   Load_Balancer::Object_Group_var group;
 
   // Create an appropriate servant.
-  Object_Group_i *group_servant = 0;
+  Object_Group_i *group_servant = nullptr;
 
   // Check to make sure we don't already have a group with the same
   // <id>.
@@ -372,7 +372,7 @@ Object_Group_Factory_i::resolve (const char * id)
       this->update_objects ();
     }
 
-  char *ior = 0;
+  char *ior = nullptr;
 
   if (rr_groups_->find (const_cast<char *> (id),
                         ior,
@@ -435,7 +435,7 @@ Object_Group_Factory_i::list_groups (int random)
     group_iter = &rr_iter;
 
   // Iterate over groups and populate the list.
-  HASH_MAP::ENTRY *hash_entry = 0;
+  HASH_MAP::ENTRY *hash_entry = nullptr;
   for (CORBA::ULong i = 0; i < len; i++)
     {
       group_iter->next (hash_entry);
@@ -514,8 +514,8 @@ void
 Object_Group_Factory_i::update_objects (void)
 {
   // Create an appropriate servant.
-  Object_Group_i * group_servant = 0;
-  Object_Group_i *group_servant_rep = 0;
+  Object_Group_i * group_servant = nullptr;
+  Object_Group_i *group_servant_rep = nullptr;
 
   // Check the value of of flags_ & do the instantiation and
   // registration
@@ -786,7 +786,7 @@ Object_Group_i::resolve_with_id (const char * id)
 Load_Balancer::Member_ID_List *
 Object_Group_i::members (void)
 {
-  Load_Balancer::Member_ID_List * list = 0;
+  Load_Balancer::Member_ID_List * list = nullptr;
 
   this->read_from_memory ();
 
@@ -802,7 +802,7 @@ Object_Group_i::members (void)
   // Create an iterator for <member_id_list_> to populate the list.
   Object_Group_i::ITERATOR id_iter (*this->member_id_list_);
 
-  char **item = 0;
+  char **item = nullptr;
   // Iterate over groups and populate the list.
   for (CORBA::ULong i = 0; i < len; i++)
     {
@@ -896,14 +896,14 @@ Random_Object_Group::resolve (void)
   size_t member = ACE_OS::rand() % group_size;
 
   // Get the id of the member to return to the client.
-  char **id = 0;
+  char **id = nullptr;
   this->member_id_list_->get (id, member);
   ACE_DEBUG ((LM_DEBUG, "In Random Group resolved to: %s\n",
               *id));
 
   // Return the object reference corresponding to the found id to the
   // client.
-  char *objref = 0;
+  char *objref = nullptr;
   this->members_->find (*id,
                         objref,
                         this->allocator_);
@@ -921,7 +921,7 @@ RR_Object_Group::RR_Object_Group (const char *id,
 char *
 RR_Object_Group::resolve (void)
 {
-  char *objref = 0;
+  char *objref = nullptr;
 
   this->read_from_memory ();
 
@@ -930,7 +930,7 @@ RR_Object_Group::resolve (void)
     throw Load_Balancer::no_such_member ();
 
   // Get the id of the member to return to the client.
-  char **id = 0;
+  char **id = nullptr;
   this->member_id_list_->get (id, next_);
   ACE_DEBUG ((LM_DEBUG,
               "In RR Group resolved to: %s\n", *id));

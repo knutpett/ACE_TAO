@@ -53,7 +53,7 @@ int Tree_Example::run ()
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("Using find:\n")));
   for (int j = 0; j < 100; j++)
     {
-      DataElement* d = 0;
+      DataElement* d = nullptr;
       int result = tree_.find (j, d);
       if (result != 0)
         {
@@ -111,7 +111,7 @@ int Tree_Example::remove_all (void)
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("Removing elements\n")));
   for (int i = 0; i < 100; i++)
     {
-      DataElement * d = 0;
+      DataElement * d = nullptr;
       int result = tree_.unbind (i, d);
       if (result != 0)
         {

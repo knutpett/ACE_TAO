@@ -168,7 +168,7 @@ Echo_Client_Request_Interceptor::receive_reply (
                       "arguments\n"));
         }
 
-      const char *str = 0;
+      const char *str = nullptr;
 
       paramlist[second].argument >>= str;
 
@@ -210,7 +210,7 @@ Echo_Client_Request_Interceptor::receive_reply (
     {
       CORBA::Any_var a = ri->result ();
 
-      const Test_Interceptors::Visual::VarLenStruct * v = 0;
+      const Test_Interceptors::Visual::VarLenStruct * v = nullptr;
 
       (a.in ()) >>= v;
 

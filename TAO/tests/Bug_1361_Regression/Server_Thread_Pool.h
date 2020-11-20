@@ -22,7 +22,7 @@ public:
   virtual int put (Test::Echo_ptr echoptr);
 
   virtual int put (ACE_Message_Block *mb,
-                   ACE_Time_Value *tv = 0);
+                   ACE_Time_Value *tv = nullptr);
   // This allows the producer to pass messages to the <Thread_Pool>.
 
 private:

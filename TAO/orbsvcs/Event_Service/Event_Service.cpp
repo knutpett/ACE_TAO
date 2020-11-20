@@ -159,7 +159,7 @@ Event_Service::run (int argc, ACE_TCHAR* argv[])
           attr.scheduler = scheduler.in ();
         }
 
-      TAO_EC_Event_Channel* ec_impl = 0;
+      TAO_EC_Event_Channel* ec_impl = nullptr;
       ACE_NEW_RETURN (ec_impl,
                       TAO_EC_Event_Channel (attr),
                       1);

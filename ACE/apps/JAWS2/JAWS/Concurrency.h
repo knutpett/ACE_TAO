@@ -32,7 +32,7 @@ public:
   JAWS_Concurrency_Base (void);
   ~JAWS_Concurrency_Base (void);
 
-  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = nullptr);
   virtual int svc (void);
 
   virtual int svc_loop (JAWS_Data_Block *db);
@@ -105,7 +105,7 @@ public:
   virtual int make (long flags, int maxthreads);
   // Initiate the thread_per task
 
-  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = nullptr);
 
   virtual int svc_loop (JAWS_Data_Block *db);
   // a single iteration

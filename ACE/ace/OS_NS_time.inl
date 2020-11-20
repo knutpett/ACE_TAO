@@ -13,7 +13,7 @@ ACE_OS::asctime (const struct tm *t)
   ACE_OS_TRACE ("ACE_OS::asctime");
 #if defined (ACE_LACKS_ASCTIME)
   ACE_UNUSED_ARG (t);
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 #else
   ACE_OSCALL_RETURN (ACE_STD_NAMESPACE::asctime (t), char *, 0);
 #endif /* ACE_LACKS_ASCTIME */
@@ -25,7 +25,7 @@ ACE_OS::asctime_r (const struct tm *t, char *buf, int buflen)
   ACE_OS_TRACE ("ACE_OS::asctime_r");
 #if defined (ACE_HAS_REENTRANT_FUNCTIONS)
 # if defined (ACE_HAS_2_PARAM_ASCTIME_R_AND_CTIME_R)
-  char *result = 0;
+  char *result = nullptr;
   ace_asctime_r_helper (t, buf);
   ACE_OS::strsncpy (buf, result, buflen);
   return buf;
@@ -47,7 +47,7 @@ ACE_OS::asctime_r (const struct tm *t, char *buf, int buflen)
   ACE_UNUSED_ARG (buflen);
   ACE_NOTSUP_RETURN (0);
 #else
-  char *result = 0;
+  char *result = nullptr;
   ACE_OSCALL (ACE_STD_NAMESPACE::asctime (t), char *, 0, result);
   ACE_OS::strsncpy (buf, result, buflen);
   return buf;
@@ -110,7 +110,7 @@ ACE_OS::ctime (const time_t *t)
   // we've done this before, free the previous one. Yes, this leaves a
   // small memory leak (26 characters) but there's no way around this
   // that I know of. (Steve Huston, 12-Feb-2003).
-  static wchar_t *wide_time = 0;
+  static wchar_t *wide_time = nullptr;
   if (wide_time != 0)
     delete [] wide_time;
   wide_time = ACE_Ascii_To_Wide::convert (narrow_time);
@@ -129,7 +129,7 @@ ACE_OS::ctime_r (const time_t *t, ACE_TCHAR *buf, int buflen)
 
 #if defined (ACE_HAS_REENTRANT_FUNCTIONS)
 
-  char *bufp = 0;
+  char *bufp = nullptr;
 #   if defined (ACE_USES_WCHAR)
   char narrow_buf[ctime_buf_size];
   bufp = narrow_buf;
@@ -140,7 +140,7 @@ ACE_OS::ctime_r (const time_t *t, ACE_TCHAR *buf, int buflen)
   if (buflen < ctime_buf_size)
     {
       errno = ERANGE;
-      return 0;
+      return nullptr;
     }
 #   if defined (ACE_HAS_2_PARAM_ASCTIME_R_AND_CTIME_R)
   ACE_OSCALL (::ctime_r (t, bufp), char *, 0, bufp);
@@ -154,8 +154,8 @@ ACE_OS::ctime_r (const time_t *t, ACE_TCHAR *buf, int buflen)
 
 #   endif /* ACE_HAS_2_PARAM_ASCTIME_R_AND_CTIME_R */
 
-  if (bufp == 0)
-    return 0;
+  if (bufp == nullptr)
+    return nullptr;
 
 #   if defined (ACE_USES_WCHAR)
   ACE_Ascii_To_Wide wide_buf (bufp);
@@ -186,7 +186,7 @@ ACE_OS::ctime_r (const time_t *t, ACE_TCHAR *buf, int buflen)
       return 0;
     }
 
-  ACE_TCHAR *result = 0;
+  ACE_TCHAR *result = nullptr;
 #     if defined (ACE_USES_WCHAR)
   ACE_OSCALL (::_wctime (t), wchar_t *, 0, result);
 #     else /* ACE_USES_WCHAR */

@@ -73,7 +73,7 @@ TAO_UIOP_Acceptor::create_new_profile (const TAO::ObjectKey &object_key,
       && mprofile.grow (count + 1) == -1)
     return -1;
 
-  TAO_UIOP_Profile *pfile = 0;
+  TAO_UIOP_Profile *pfile = nullptr;
   ACE_NEW_RETURN (pfile,
                   TAO_UIOP_Profile (addr,
                                     object_key,
@@ -109,8 +109,8 @@ TAO_UIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
                                           TAO_MProfile &mprofile,
                                           CORBA::Short priority)
 {
-  TAO_Profile *pfile = 0;
-  TAO_UIOP_Profile *uiop_profile = 0;
+  TAO_Profile *pfile = nullptr;
+  TAO_UIOP_Profile *uiop_profile = nullptr;
 
   // First see if <mprofile> already contains a UIOP profile.
   for (TAO_PHandle i = 0; i != mprofile.profile_count (); ++i)
@@ -139,7 +139,7 @@ TAO_UIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
       if (this->base_acceptor_.acceptor ().get_local_addr (addr) == -1)
         return 0;
 
-      TAO_UIOP_Endpoint *endpoint = 0;
+      TAO_UIOP_Endpoint *endpoint = nullptr;
       ACE_NEW_RETURN (endpoint,
                       TAO_UIOP_Endpoint (addr),
                       -1);
@@ -370,7 +370,7 @@ TAO_UIOP_Acceptor::object_key (IOP::TaggedProfile &profile,
       return -1;
     }
 
-  char * rendezvous = 0;
+  char * rendezvous = nullptr;
 
   // Get rendezvous_point
   if (cdr.read_string (rendezvous) == 0)

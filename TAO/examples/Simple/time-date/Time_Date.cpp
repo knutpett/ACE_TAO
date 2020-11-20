@@ -181,7 +181,7 @@ Time_Date_Servant::init (int argc, ACE_TCHAR *argv[])
                            this->orb_.c_str ()),
                           -1);
 
-      Time_Date_i * servant = 0;
+      Time_Date_i * servant = nullptr;
       ACE_NEW_THROW_EX (servant,
                         Time_Date_i,
                         CORBA::NO_MEMORY ());

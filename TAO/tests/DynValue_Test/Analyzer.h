@@ -45,7 +45,7 @@ private:
   static void get_base_types (
     CORBA::TypeCode_ptr tc,
     BaseTypesList_t &base_types,
-    CORBA::ULong *total_member_count = 0);
+    CORBA::ULong *total_member_count = nullptr);
 
   /// Return the unaliased valuetype typecode that corresponds to
   /// index (0..total_members-1) from the given hiarchical list of

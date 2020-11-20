@@ -61,14 +61,14 @@ int ACE_TMAIN (int, ACE_TCHAR *[])
   else
     {
       ACEXML_STR_LIST::ITERATOR iter = prefixes.begin ();
-      const ACEXML_Char **prefix = 0;
+      const ACEXML_Char **prefix = nullptr;
 
       for (; iter.next (prefix);iter.advance ())
         ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("prefix: \"%s\"\n"), *prefix));
     }
 
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("\n*** Checking getPrefix\n")));
-  const ACEXML_Char *prefix = 0;
+  const ACEXML_Char *prefix = nullptr;
 
   if ((prefix = xmlns.getPrefix (ACE_TEXT ("http://www.purl.org/dc#"))) == 0)
     ACE_DEBUG ((LM_ERROR,
@@ -102,7 +102,7 @@ int ACE_TMAIN (int, ACE_TCHAR *[])
   else
     {
       ACEXML_STR_LIST::ITERATOR iter = prefixes.begin ();
-      const ACEXML_Char **prefix = 0;
+      const ACEXML_Char **prefix = nullptr;
 
       for (; iter.next (prefix);iter.advance ())
         ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("prefix: \"%s\"\n"), *prefix));
@@ -116,14 +116,14 @@ int ACE_TMAIN (int, ACE_TCHAR *[])
   else
     {
       ACEXML_STR_LIST::ITERATOR iter = prefixes.begin ();
-      const ACEXML_Char **prefix = 0;
+      const ACEXML_Char **prefix = nullptr;
 
       for (; iter.next (prefix);iter.advance ())
         ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("prefix: \"%s\"\n"), *prefix));
     }
 
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("\n*** Checking getURI\n")));
-  const ACEXML_Char *URI = 0;
+  const ACEXML_Char *URI = nullptr;
 
   if ((URI = xmlns.getURI (ACE_TEXT ("dc"))) == 0)
     ACE_DEBUG((LM_ERROR, ACE_TEXT ("Fail to get URI for \"dc\"\n")));

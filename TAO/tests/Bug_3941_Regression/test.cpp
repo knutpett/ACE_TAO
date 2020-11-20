@@ -8,13 +8,13 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv);
 
-      test::event0_init *ev0_fac = 0;
+      test::event0_init *ev0_fac = nullptr;
       ACE_NEW_RETURN (ev0_fac,
                       test::event0_init,
                       -1);
       CORBA::ValueFactoryBase_var ev0_fac_owner (ev0_fac);
 
-      test::event1_init *ev1_fac = 0;
+      test::event1_init *ev1_fac = nullptr;
       ACE_NEW_RETURN (ev1_fac,
                       test::event1_init,
                       -1);

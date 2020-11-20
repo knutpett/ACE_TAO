@@ -85,7 +85,7 @@ static const void *CHILD_BASE_ADDR =
 // <ACE_HAS_NONSTATIC_OBJECT_MANAGER>.
 
 static MALLOC *
-myallocator (const void *base_addr = 0)
+myallocator (const void *base_addr = nullptr)
 {
   static auto_ptr<MALLOC> static_allocator;
 
@@ -115,7 +115,7 @@ myallocator (const void *base_addr = 0)
 }
 
 static void
-init_test (const void *base_addr = 0)
+init_test (const void *base_addr = nullptr)
 {
   // Cleanup the MMAP file so we won't trip over the leftover mmap
   // file from the previous crash.
@@ -141,7 +141,7 @@ init_test (const void *base_addr = 0)
 static Test_Data *
 initialize (MALLOC *allocator)
 {
-  double *temp = 0;
+  double *temp = nullptr;
   ACE_ALLOCATOR_RETURN (temp,
                         (double *) allocator->malloc (sizeof (double)),
                         0);
@@ -149,7 +149,7 @@ initialize (MALLOC *allocator)
   *temp = 5.0;
   allocator->free (temp);
 
-  void *ptr = 0;
+  void *ptr = nullptr;
   ACE_ALLOCATOR_RETURN (ptr,
                         allocator->malloc (sizeof (Test_Data)),
                         0);
@@ -160,7 +160,7 @@ initialize (MALLOC *allocator)
   data1->i3_ = 333;
   data1->d1_ = 87.5;
 
-  void *gap = 0;
+  void *gap = nullptr;
   ACE_ALLOCATOR_RETURN (gap,
                         allocator->malloc (sizeof (256)),
                         0);
@@ -281,7 +281,7 @@ parent (Test_Data *data)
 static int
 child (void)
 {
-  void *bar = 0;
+  void *bar = nullptr;
   // Perform "busy waiting" here until the parent stores data under a
   // new name called "bar" in <ACE_Malloc>.  This isn't a good design
   // -- it's just to test that synchronization is working across
@@ -407,7 +407,7 @@ run_main (int argc, ACE_TCHAR *argv[])
       // In this case we're the child process.
       ACE_APPEND_LOG (ACE_TEXT ("Malloc_Test-child"));
 
-      void *data = 0;
+      void *data = nullptr;
       MALLOC *myalloc = myallocator (CHILD_BASE_ADDR);
       int result = myalloc->find ("foo", data);
       ACE_TEST_ASSERT (result != -1);

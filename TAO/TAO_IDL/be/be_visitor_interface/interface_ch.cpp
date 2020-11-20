@@ -228,8 +228,8 @@ be_visitor_interface_ch::visit_interface (be_interface *node)
           << node->local_name () << " (" << be_idt << be_idt_nl
           << "TAO_Stub *objref," << be_nl
           << "::CORBA::Boolean _tao_collocated = false," << be_nl
-          << "TAO_Abstract_ServantBase *servant = 0," <<  be_nl
-          << "TAO_ORB_Core *orb_core = 0);"
+          << "TAO_Abstract_ServantBase *servant = nullptr," <<  be_nl
+          << "TAO_ORB_Core *orb_core = nullptr);"
           << be_uidt << be_uidt;
     }
 
@@ -389,7 +389,7 @@ be_visitor_interface_ch::gen_abstract_ops_helper (be_interface *node,
       return 0;
     }
 
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
   be_visitor_context ctx;
   ctx.stream (os);
 

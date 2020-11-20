@@ -64,7 +64,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       // Create the server, get object reference,
       // and create "stringified" IOR.
       //
-      server_i *tmp = 0;
+      server_i *tmp = nullptr;
       ACE_NEW_RETURN (tmp,
                       server_i (orb.in ()),
                       -1);

@@ -200,13 +200,13 @@ public:
   typedef ACE_RB_Tree_Reverse_Iterator<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK> reverse_iterator;
 
   /// Constructor.
-  ACE_RB_Tree (ACE_Allocator *alloc = 0);
+  ACE_RB_Tree (ACE_Allocator *alloc = nullptr);
 
   /// Copy constructor.
   ACE_RB_Tree (const ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK> &rbt);
 
   /// Initialize an RB Tree.
-  int open (ACE_Allocator *alloc = 0);
+  int open (ACE_Allocator *alloc = nullptr);
 
   /// Close down an RB_Tree and release dynamically allocated
   /// resources.

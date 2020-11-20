@@ -87,8 +87,8 @@ ACE_SOCK_SEQPACK_Association::get_local_addrs (ACE_INET_Addr *addrs, size_t &siz
     it by calling sctp_freeladdrs().
   */
 
-  sockaddr_in *si = 0;
-  sockaddr *laddrs = 0;
+  sockaddr_in *si = nullptr;
+  sockaddr *laddrs = nullptr;
   int err = 0;
   size_t len = 0;
 
@@ -159,7 +159,7 @@ ACE_SOCK_SEQPACK_Association::get_local_addrs (ACE_INET_Addr *addrs, size_t &siz
   // bare sockaddr_in* --- because ACE_NEW_RETURN cannot act directory on
   // an ACE_Auto_Array_Ptr.)
   {
-    sockaddr_in *addr_structs_bootstrap = 0;
+    sockaddr_in *addr_structs_bootstrap = nullptr;
 #if defined(ACE_HAS_ALLOC_HOOKS)
     ACE_ALLOCATOR_RETURN (addr_structs_bootstrap, static_cast<sockaddr_in*>(ACE_Allocator::instance()->malloc(sizeof(sockaddr_in) * size)), -1);
 #else
@@ -229,8 +229,8 @@ ACE_SOCK_SEQPACK_Association::get_remote_addrs (ACE_INET_Addr *addrs, size_t &si
     it by calling sctp_freepaddrs().
   */
 
-  sockaddr_in *si = 0;
-  sockaddr *paddrs = 0;
+  sockaddr_in *si = nullptr;
+  sockaddr *paddrs = nullptr;
   int err = 0;
   size_t len = 0;
 
@@ -302,7 +302,7 @@ ACE_SOCK_SEQPACK_Association::get_remote_addrs (ACE_INET_Addr *addrs, size_t &si
   // bare sockaddr_in* --- because ACE_NEW_RETURN cannot act directory on
   // an ACE_Auto_Array_Ptr.)
   {
-    sockaddr_in *addr_structs_bootstrap = 0;
+    sockaddr_in *addr_structs_bootstrap = nullptr;
 #if defined (ACE_HAS_ALLOC_HOOKS)
     ACE_ALLOCATOR_RETURN (addr_structs_bootstrap, static_cast<sockaddr_in*>(ACE_Allocator::instance()->malloc(sizeof(sockaddr_in) * (size))), -1);
 #else

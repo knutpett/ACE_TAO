@@ -14,7 +14,7 @@ class CBindNewContext : public CDialog
 {
 // Construction
 public:
-  CBindNewContext(CWnd* pParent = 0);   // standard constructor
+  CBindNewContext(CWnd* pParent = nullptr);   // standard constructor
 
 // Dialog Data
   //{{AFX_DATA(CBindNewContext)

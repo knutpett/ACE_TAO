@@ -107,7 +107,7 @@ public:
    * if not returns -1 to initiate clean-up.
    */
   virtual int handle_timeout (ACE_Time_Value const & tv,
-                              void const * arg = 0);
+                              void const * arg = nullptr);
 
   /// Makes clean-up
   virtual int handle_close (ACE_HANDLE handle,
@@ -190,7 +190,7 @@ public:
                              ucontext_t * = 0);
 
   virtual int handle_timeout (ACE_Time_Value const & current_time,
-                              void const * act = 0);
+                              void const * act = nullptr);
 
   // Register handler with us for stopping.
   virtual int register_handler (ACE_Event_Handler * handler);
@@ -237,7 +237,7 @@ public:
 
   // dispatches a new echo-checks series
   virtual int handle_timeout (ACE_Time_Value const & current_time,
-                              void const * act = 0);
+                              void const * act = nullptr);
 
 private:
   // an instance of a handler

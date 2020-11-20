@@ -303,7 +303,7 @@ TAO_IIOP_Endpoint::next_filtered_i (TAO_IIOP_Endpoint *root,
 TAO_Endpoint *
 TAO_IIOP_Endpoint::duplicate (void)
 {
-  TAO_IIOP_Endpoint *endpoint = 0;
+  TAO_IIOP_Endpoint *endpoint = nullptr;
 
   // @@ NOTE: Not exception safe..
   ACE_NEW_RETURN (endpoint, TAO_IIOP_Endpoint (*this), 0);
@@ -401,7 +401,7 @@ TAO_IIOP_Endpoint::add_local_endpoint (TAO_IIOP_Endpoint *ep,
 static void
 TAO_IIOP_Endpoint_get_ip_interfaces (ACE_Vector<ACE_CString> &local_ips)
 {
-  ACE_INET_Addr* tmp = 0;
+  ACE_INET_Addr* tmp = nullptr;
   size_t cnt = 0u;
   int err = ACE::get_ip_interfaces (cnt, tmp);
   if (err != 0)

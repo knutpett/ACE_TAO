@@ -188,7 +188,7 @@ Peer_Router<PH, PK>::send_peers (ACE_Message_Block *mb)
   int bytes      = 0;
   int iterations = 0;
   ACE_Message_Block *data_block = mb->cont ();
-  for (ACE_Map_Entry<PK, PH *> *ss = 0;
+  for (ACE_Map_Entry<PK, PH *> *ss = nullptr;
        map_iter.next (ss) != 0;
        map_iter.advance ())
     {

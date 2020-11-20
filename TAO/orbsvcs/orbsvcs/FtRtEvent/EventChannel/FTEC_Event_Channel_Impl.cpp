@@ -253,17 +253,17 @@ TAO_FTEC_Event_Channel_Impl::connect_push_consumer (
   CORBA::Any_var any
     = Request_Context_Repository().get_cached_result();
 
-  const FtRtecEventChannelAdmin::ObjectId *oid = 0;
+  const FtRtecEventChannelAdmin::ObjectId *oid = nullptr;
 
   if (any.in() >>= oid) {
-    FtRtecEventChannelAdmin::ObjectId* result = 0;
+    FtRtecEventChannelAdmin::ObjectId* result = nullptr;
     ACE_NEW_THROW_EX(result,
                      FtRtecEventChannelAdmin::ObjectId(*oid),
                      CORBA::NO_MEMORY());
     return result;
   }
 
-  FtRtecEventChannelAdmin::ObjectId* retval = 0;
+  FtRtecEventChannelAdmin::ObjectId* retval = nullptr;
   ACE_NEW_THROW_EX(retval, FtRtecEventChannelAdmin::ObjectId, CORBA::NO_MEMORY());
 
   FtRtecEventChannelAdmin::ObjectId_var object_id = retval;
@@ -288,17 +288,17 @@ TAO_FTEC_Event_Channel_Impl::connect_push_supplier (
   CORBA::Any_var any
     = Request_Context_Repository().get_cached_result();
 
-  const FtRtecEventChannelAdmin::ObjectId *oid = 0;
+  const FtRtecEventChannelAdmin::ObjectId *oid = nullptr;
 
   if (any.in() >>= oid) {
-    FtRtecEventChannelAdmin::ObjectId* result = 0;
+    FtRtecEventChannelAdmin::ObjectId* result = nullptr;
     ACE_NEW_THROW_EX(result,
                      FtRtecEventChannelAdmin::ObjectId(*oid),
                      CORBA::NO_MEMORY());
     return result;
   }
 
-  FtRtecEventChannelAdmin::ObjectId* retval = 0;
+  FtRtecEventChannelAdmin::ObjectId* retval = nullptr;
   ACE_NEW_THROW_EX(retval, FtRtecEventChannelAdmin::ObjectId, CORBA::NO_MEMORY());
   FtRtecEventChannelAdmin::ObjectId_var object_id = retval;
 

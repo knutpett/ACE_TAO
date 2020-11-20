@@ -119,7 +119,7 @@ CosPropertyService::PropertySet_ptr
 TAO_PropertySetFactory::create_constrained_propertyset (const CosPropertyService::PropertyTypes &allowed_property_types,
                                                         const CosPropertyService::Properties &allowed_properties)
 {
-  TAO_PropertySet *new_set = 0;
+  TAO_PropertySet *new_set = nullptr;
   CosPropertyService::PropertySet_ptr propset_ptr = 0;
 
   try
@@ -163,7 +163,7 @@ TAO_PropertySetFactory::create_constrained_propertyset (const CosPropertyService
 CosPropertyService::PropertySet_ptr
 TAO_PropertySetFactory::create_initial_propertyset (const CosPropertyService::Properties &initial_properties)
 {
-  TAO_PropertySet *new_set = 0;
+  TAO_PropertySet *new_set = nullptr;
   CosPropertyService::PropertySet_ptr propset_ptr = 0;
 
   try
@@ -244,7 +244,7 @@ CosPropertyService::PropertySetDef_ptr
 TAO_PropertySetDefFactory::create_constrained_propertysetdef (const CosPropertyService::PropertyTypes &allowed_property_types,
                                                               const CosPropertyService::PropertyDefs &allowed_property_defs)
 {
-  TAO_PropertySetDef *new_set = 0;
+  TAO_PropertySetDef *new_set = nullptr;
   CosPropertyService::PropertySetDef_ptr propsetdef_ptr = 0;
 
   try
@@ -288,7 +288,7 @@ TAO_PropertySetDefFactory::create_constrained_propertysetdef (const CosPropertyS
 CosPropertyService::PropertySetDef_ptr
 TAO_PropertySetDefFactory::create_initial_propertysetdef (const CosPropertyService::PropertyDefs &initial_property_defs)
 {
-  TAO_PropertySetDef *new_set = 0;
+  TAO_PropertySetDef *new_set = nullptr;
   CosPropertyService::PropertySetDef_ptr propsetdef_ptr = 0;
 
   try
@@ -431,7 +431,7 @@ TAO_PropertySet::define_property (const char *property_name,
   CosProperty_Hash_Key hash_key (property_name);
   CosProperty_Hash_Value hash_value (property_value,
                                      CosPropertyService::normal);
-  COSPROPERTY_HASH_ENTRY *entry_ptr = 0;
+  COSPROPERTY_HASH_ENTRY *entry_ptr = nullptr;
 
   int ret = this->hash_table_.bind (hash_key,
                                     hash_value,
@@ -833,7 +833,7 @@ TAO_PropertySet::get_all_properties (CORBA::ULong how_many,
   // the values.
 
   COSPROPERTY_HASH_ITERATOR iterator (this->hash_table_);
-  COSPROPERTY_HASH_ENTRY *entry_ptr = 0;
+  COSPROPERTY_HASH_ENTRY *entry_ptr = nullptr;
 
   for (CORBA::ULong i = 0;
        i < sequence_length;
@@ -869,7 +869,7 @@ TAO_PropertySet::get_all_properties (CORBA::ULong how_many,
         }
 
       // Make the iterator out of the new TAO_Propset.
-      TAO_PropertiesIterator *iterator = 0;
+      TAO_PropertiesIterator *iterator = nullptr;
       ACE_NEW (iterator,
                TAO_PropertiesIterator (*prop_set));
 
@@ -902,7 +902,7 @@ TAO_PropertySet::delete_property (const char *property_name)
   // Get the entry from the Hash Table.
 
   CosProperty_Hash_Key hash_key (property_name);
-  COSPROPERTY_HASH_ENTRY *entry_ptr = 0;
+  COSPROPERTY_HASH_ENTRY *entry_ptr = nullptr;
 
   if (this->hash_table_.find (hash_key,
                               entry_ptr) == -1)
@@ -993,11 +993,11 @@ CORBA::Boolean
 TAO_PropertySet::delete_all_properties (void)
 {
   // Get all the property names in a names' sequence.
-  CosPropertyService::PropertyNames *names_ptr = 0;
+  CosPropertyService::PropertyNames *names_ptr = nullptr;
   CosPropertyService::PropertyNames_out names_out (names_ptr);
   CosPropertyService::PropertyNames_var names;
 
-  CosPropertyService::PropertyNamesIterator *iter_ptr = 0;
+  CosPropertyService::PropertyNamesIterator *iter_ptr = nullptr;
   CosPropertyService::PropertyNamesIterator_out iter_out (iter_ptr);
   CosPropertyService::PropertyNamesIterator_var iter;
 
@@ -1564,7 +1564,7 @@ TAO_PropertyNamesIterator::next_n (CORBA::ULong how_many,
                   CosPropertyService::PropertyNames,
                   0);
 
-  COSPROPERTY_HASH_ENTRY *entry_ptr = 0;
+  COSPROPERTY_HASH_ENTRY *entry_ptr = nullptr;
 
   if (this->iterator_.next (entry_ptr) == 0 || how_many == 0)
     return 0;
@@ -1648,7 +1648,7 @@ TAO_PropertiesIterator::next_n (CORBA::ULong how_many,
                   CosPropertyService::Properties,
                   0);
 
-  COSPROPERTY_HASH_ENTRY *entry_ptr = 0;
+  COSPROPERTY_HASH_ENTRY *entry_ptr = nullptr;
 
   if (this->iterator_.next (entry_ptr) == 0 || how_many == 0)
     return 0;

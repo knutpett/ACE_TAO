@@ -4,7 +4,7 @@
 
 #include "tao/Strategies/advanced_resource.h"
 
-static FILE *output_file = 0;
+static FILE *output_file = nullptr;
 /// File handle of the file into which received data is written.
 
 static int done = 0;

@@ -13,7 +13,7 @@ ACE_Sig_Set::ACE_Sig_Set (sigset_t *ss)
 {
   ACE_TRACE ("ACE_Sig_Set::ACE_Sig_Set");
 
-  if (ss == 0)
+  if (ss == nullptr)
     ACE_OS::sigfillset (&this->sigset_);
   else
     // Structure assignment.
@@ -38,7 +38,7 @@ ACE_Sig_Set::ACE_Sig_Set (ACE_Sig_Set *ss)
 {
   ACE_TRACE ("ACE_Sig_Set::ACE_Sig_Set");
 
-  if (ss == 0)
+  if (ss == nullptr)
     ACE_OS::sigfillset (&this->sigset_);
   else
     this->sigset_ = ss->sigset_;
@@ -118,7 +118,7 @@ ACE_INLINE void
 ACE_Sig_Action::mask (sigset_t *ss)
 {
   ACE_TRACE ("ACE_Sig_Action::mask");
-  if (ss != 0)
+  if (ss != nullptr)
     this->sa_.sa_mask = *ss; // Structure assignment
 }
 
@@ -172,7 +172,7 @@ ACE_INLINE int
 ACE_Sig_Action::register_action (int signum, ACE_Sig_Action *oaction)
 {
   ACE_TRACE ("ACE_Sig_Action::register_action");
-  struct sigaction *sa = oaction == 0 ? 0 : oaction->get ();
+  struct sigaction *sa = oaction == nullptr ? nullptr : oaction->get ();
 
   return ACE_OS::sigaction (signum, &this->sa_, sa);
 }
@@ -181,7 +181,7 @@ ACE_INLINE int
 ACE_Sig_Action::retrieve_action (int signum)
 {
   ACE_TRACE ("ACE_Sig_Action::retrieve_action");
-  return ACE_OS::sigaction (signum, 0, &this->sa_);
+  return ACE_OS::sigaction (signum, nullptr, &this->sa_);
 }
 
 ACE_INLINE int
@@ -189,7 +189,7 @@ ACE_Sig_Action::restore_action (int signum, ACE_Sig_Action &oaction)
 {
   ACE_TRACE ("ACE_Sig_Action::restore_action");
   this->sa_ = *oaction.get (); // Structure assignment
-  return ACE_OS::sigaction (signum, &this->sa_, 0);
+  return ACE_OS::sigaction (signum, &this->sa_, nullptr);
 }
 
 // Block out the signal MASK until the destructor is called.
@@ -208,7 +208,7 @@ ACE_Sig_Guard::ACE_Sig_Guard (ACE_Sig_Set *mask,
   ACE_UNUSED_ARG (mask);
 #else
   // If MASK is 0 then block all signals!
-  if (mask == 0)
+  if (mask == nullptr)
     {
 #  if defined (ACE_LACKS_PTHREAD_THR_SIGSETMASK)
       ACE_OS::sigprocmask (SIG_BLOCK,

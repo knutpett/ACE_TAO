@@ -52,7 +52,7 @@ TAO_Default_Server_Strategy_Factory::server_connection_thread_count (void)
 void
 TAO_Default_Server_Strategy_Factory::tokenize (ACE_TCHAR* flag_string)
 {
-  ACE_TCHAR* lasts = 0;
+  ACE_TCHAR* lasts = nullptr;
 
   for (ACE_TCHAR* flag = ACE_OS::strtok_r (flag_string,
                                       ACE_TEXT("|"),

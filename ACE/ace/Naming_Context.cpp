@@ -577,7 +577,7 @@ ACE_Name_Options::parse_args (int argc, ACE_TCHAR *argv[])
 {
   ACE_TRACE ("ACE_Name_Options::parse_args");
 
-  const ACE_TCHAR* program_name = 0;
+  const ACE_TCHAR* program_name = nullptr;
 
   // Argc can be 0 on some platforms like VxWorks.
   if (argc > 0)

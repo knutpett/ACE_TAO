@@ -588,7 +588,7 @@ Routing_Slip_Persistence_Manager::build_chain(
 
   while (remainder > 0)
   {
-    Overflow_Header* hdr = 0;
+    Overflow_Header* hdr = nullptr;
     ACE_NEW_RETURN(hdr, Overflow_Header, result);
 
     Persistent_Storage_Block* curblk = this->allocator_->allocate();
@@ -657,7 +657,7 @@ Routing_Slip_Persistence_Manager::reload_chain(
     size_t pos = 0;
     size_t nextptr = 0;
     ACE_Message_Block* mbptr = amb;
-    ACE_Message_Block* mbnew = 0;
+    ACE_Message_Block* mbnew = nullptr;
 
     pos = first_header.extract_header(*first_block);
     if (first_header.serial_number == expected_serial_number)

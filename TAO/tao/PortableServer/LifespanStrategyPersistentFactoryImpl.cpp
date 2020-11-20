@@ -13,7 +13,7 @@ namespace TAO
     LifespanStrategyPersistentFactoryImpl::create (
       ::PortableServer::LifespanPolicyValue value)
     {
-      LifespanStrategy* strategy = 0;
+      LifespanStrategy* strategy = nullptr;
 
       switch (value)
       {

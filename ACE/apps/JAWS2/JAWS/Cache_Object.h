@@ -116,10 +116,10 @@ class JAWS_Cache_Object_Factory
 {
 public:
 
-  JAWS_Cache_Object_Factory (ACE_Allocator *alloc = 0);
+  JAWS_Cache_Object_Factory (ACE_Allocator *alloc = nullptr);
   virtual ~JAWS_Cache_Object_Factory (void);
 
-  int open (ACE_Allocator *alloc = 0);
+  int open (ACE_Allocator *alloc = nullptr);
 
   virtual JAWS_Cache_Object * create (const void *, size_t) = 0;
   virtual void destroy (JAWS_Cache_Object *) = 0;
@@ -133,7 +133,7 @@ protected:
 class JAWS_Referenced_Cache_Object_Factory : public JAWS_Cache_Object_Factory
 {
 public:
-  JAWS_Referenced_Cache_Object_Factory (ACE_Allocator *alloc = 0);
+  JAWS_Referenced_Cache_Object_Factory (ACE_Allocator *alloc = nullptr);
   virtual ~JAWS_Referenced_Cache_Object_Factory (void);
 
   virtual JAWS_Cache_Object * create (const void *, size_t);
@@ -144,7 +144,7 @@ public:
 class JAWS_Counted_Cache_Object_Factory : public JAWS_Cache_Object_Factory
 {
 public:
-  JAWS_Counted_Cache_Object_Factory (ACE_Allocator *alloc = 0);
+  JAWS_Counted_Cache_Object_Factory (ACE_Allocator *alloc = nullptr);
   virtual ~JAWS_Counted_Cache_Object_Factory (void);
 
   virtual JAWS_Cache_Object * create (const void *, size_t);

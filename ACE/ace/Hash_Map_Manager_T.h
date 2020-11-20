@@ -37,8 +37,8 @@ public:
   /// Constructor.
   ACE_Hash_Map_Entry (const EXT_ID &ext_id,
                       const INT_ID &int_id,
-                      ACE_Hash_Map_Entry<EXT_ID, INT_ID> *next = 0,
-                      ACE_Hash_Map_Entry<EXT_ID, INT_ID> *prev = 0);
+                      ACE_Hash_Map_Entry<EXT_ID, INT_ID> *next = nullptr,
+                      ACE_Hash_Map_Entry<EXT_ID, INT_ID> *prev = nullptr);
 
   /// Constructor.
   ACE_Hash_Map_Entry (ACE_Hash_Map_Entry<EXT_ID, INT_ID> *next,
@@ -185,8 +185,8 @@ public:
    *        If @a entry_alloc is 0 it defaults to the same allocator as
    *        @a table_alloc.
    */
-  ACE_Hash_Map_Manager_Ex (ACE_Allocator *table_alloc = 0,
-                           ACE_Allocator *entry_alloc = 0);
+  ACE_Hash_Map_Manager_Ex (ACE_Allocator *table_alloc = nullptr,
+                           ACE_Allocator *entry_alloc = nullptr);
 
   /**
    * Initialize an ACE_Hash_Map_Manager_Ex with @a size elements.
@@ -201,8 +201,8 @@ public:
    *        @a table_alloc.
    */
   ACE_Hash_Map_Manager_Ex (size_t size,
-                           ACE_Allocator *table_alloc = 0,
-                           ACE_Allocator *entry_alloc = 0);
+                           ACE_Allocator *table_alloc = nullptr,
+                           ACE_Allocator *entry_alloc = nullptr);
 
   /**
    * Initialize an ACE_Hash_Map_Manager_Ex with @a size elements.
@@ -218,8 +218,8 @@ public:
    */
 
   int open (size_t size = ACE_DEFAULT_MAP_SIZE,
-            ACE_Allocator *table_alloc = 0,
-            ACE_Allocator *entry_alloc = 0);
+            ACE_Allocator *table_alloc = nullptr,
+            ACE_Allocator *entry_alloc = nullptr);
 
   /// Close down the ACE_Hash_Map_Manager_Ex and release dynamically allocated
   /// resources.
@@ -1131,8 +1131,8 @@ public:
    * If @c entry_alloc is 0 then it defaults to the same allocator as
    * @c table_alloc.
    */
-  ACE_Hash_Map_Manager (ACE_Allocator *table_alloc = 0,
-                        ACE_Allocator *entry_alloc = 0);
+  ACE_Hash_Map_Manager (ACE_Allocator *table_alloc = nullptr,
+                        ACE_Allocator *entry_alloc = nullptr);
 
   /**
    * Initialize a @c Hash_Map_Manager with @c size elements.
@@ -1146,8 +1146,8 @@ public:
    * @c table_alloc.
    */
   ACE_Hash_Map_Manager (size_t size,
-                        ACE_Allocator *table_alloc = 0,
-                        ACE_Allocator *entry_alloc = 0);
+                        ACE_Allocator *table_alloc = nullptr,
+                        ACE_Allocator *entry_alloc = nullptr);
 
   // = The following two are necessary for template specialization of
   // ACE_Hash_Map_Manager to work.

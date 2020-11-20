@@ -78,7 +78,7 @@ TAO_Notify_Event_Manager::init (void)
 {
   ACE_ASSERT (this->consumer_map_.get() == 0);
 
-  TAO_Notify_Consumer_Map* consumer_map = 0;
+  TAO_Notify_Consumer_Map* consumer_map = nullptr;
   ACE_NEW_THROW_EX (consumer_map,
                     TAO_Notify_Consumer_Map (),
                     CORBA::NO_MEMORY ());
@@ -86,7 +86,7 @@ TAO_Notify_Event_Manager::init (void)
 
   this->consumer_map().init ();
 
-  TAO_Notify_Supplier_Map* supplier_map = 0;
+  TAO_Notify_Supplier_Map* supplier_map = nullptr;
   ACE_NEW_THROW_EX (supplier_map,
                     TAO_Notify_Supplier_Map (),
                     CORBA::NO_MEMORY ());
@@ -187,7 +187,7 @@ TAO_Notify_Event_Manager::un_subscribe (TAO_Notify_ProxySupplier* proxy_supplier
 {
   TAO_Notify_EventTypeSeq::CONST_ITERATOR iter (seq);
 
-  TAO_Notify_EventType* event_type = 0;
+  TAO_Notify_EventType* event_type = nullptr;
 
   for (iter.first (); iter.next (event_type) != 0; iter.advance ())
     {
@@ -203,7 +203,7 @@ TAO_Notify_Event_Manager::publish (TAO_Notify_ProxyConsumer* proxy_consumer, con
 {
   TAO_Notify_EventTypeSeq::CONST_ITERATOR iter (seq);
 
-  TAO_Notify_EventType* event_type = 0;
+  TAO_Notify_EventType* event_type = nullptr;
 
   for (iter.first (); iter.next (event_type) != 0; iter.advance ())
     {
@@ -219,7 +219,7 @@ TAO_Notify_Event_Manager::un_publish (TAO_Notify_ProxyConsumer* proxy_consumer, 
 {
   TAO_Notify_EventTypeSeq::CONST_ITERATOR iter (seq);
 
-  TAO_Notify_EventType* event_type = 0;
+  TAO_Notify_EventType* event_type = nullptr;
 
   for (iter.first (); iter.next (event_type) != 0; iter.advance ())
     {

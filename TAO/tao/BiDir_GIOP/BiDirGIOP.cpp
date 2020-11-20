@@ -81,7 +81,7 @@ TAO_BiDirGIOP_Loader::load_policy_validators (TAO_Policy_Validator &val)
   if (TAO_DEF_GIOP_MINOR < 2)
     return;
 
-  TAO_BiDirPolicy_Validator *validator = 0;
+  TAO_BiDirPolicy_Validator *validator = nullptr;
   ACE_NEW_THROW_EX (validator,
                     TAO_BiDirPolicy_Validator (val.orb_core ()),
                     CORBA::NO_MEMORY (

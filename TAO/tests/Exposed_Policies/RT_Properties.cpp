@@ -21,7 +21,7 @@ RT_Properties::read_from (const ACE_TCHAR *file_name)
 {
   FILE *fp = ACE_OS::fopen (file_name, "r");
 
-  RT_Properties *rt_properties = 0;
+  RT_Properties *rt_properties = nullptr;
 
   ACE_NEW_THROW_EX (rt_properties,
                     RT_Properties,

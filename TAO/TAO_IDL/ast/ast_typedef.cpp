@@ -107,7 +107,7 @@ AST_Type *
 AST_Typedef::primitive_base_type (void) const
 {
   AST_Type *d = const_cast<AST_Typedef *> (this);
-  AST_Typedef *temp = 0;
+  AST_Typedef *temp = nullptr;
 
   while (d && d->node_type () == AST_Decl::NT_typedef)
     {

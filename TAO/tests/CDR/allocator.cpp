@@ -213,7 +213,7 @@ Application_Simulator::Application_Simulator (int max_fragments,
   for (char** i = this->buffers_;
        i != this->buffers_ + this->max_fragments_;
        ++i)
-    *i = 0;
+    *i = nullptr;
 }
 
 Application_Simulator::~Application_Simulator (void)
@@ -225,7 +225,7 @@ Application_Simulator::~Application_Simulator (void)
       if (*i != 0)
         {
           delete[] *i;
-          *i = 0;
+          *i = nullptr;
         }
     }
   delete[] this->buffers_;
@@ -244,7 +244,7 @@ Application_Simulator::upcall (unsigned int* seed)
           if (ACE_OS::rand_r (seed) % 10000 < 5000)
             {
               delete[] *i;
-              *i = 0;
+              *i = nullptr;
             }
         }
       else

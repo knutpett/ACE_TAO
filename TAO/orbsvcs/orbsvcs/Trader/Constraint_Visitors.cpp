@@ -16,7 +16,7 @@ TAO_Constraint_Evaluator::Operand_Queue::Operand_Queue (void)
 TAO_Literal_Constraint&
 TAO_Constraint_Evaluator::Operand_Queue::get_left_operand (void)
 {
-  TAO_Literal_Constraint* left_operand = 0;
+  TAO_Literal_Constraint* left_operand = nullptr;
   this->get (left_operand, 1);
   return *left_operand;
 }
@@ -24,7 +24,7 @@ TAO_Constraint_Evaluator::Operand_Queue::get_left_operand (void)
 TAO_Literal_Constraint&
 TAO_Constraint_Evaluator::Operand_Queue::get_right_operand (void)
 {
-  TAO_Literal_Constraint* right_operand = 0;
+  TAO_Literal_Constraint* right_operand = nullptr;
   this->get (right_operand);
   return *right_operand;
 }
@@ -32,7 +32,7 @@ TAO_Constraint_Evaluator::Operand_Queue::get_right_operand (void)
 TAO_Literal_Constraint&
 TAO_Constraint_Evaluator::Operand_Queue::get_operand (void)
 {
-  TAO_Literal_Constraint* operand = 0;
+  TAO_Literal_Constraint* operand = nullptr;
   this->get (operand);
   return *operand;
 }
@@ -1170,7 +1170,7 @@ CORBA::TypeCode*
 TAO_Constraint_Validator::extract_type (TAO_Constraint* expr,
                                         TAO_Expression_Type& type)
 {
-  CORBA::TypeCode* return_value = 0;
+  CORBA::TypeCode* return_value = nullptr;
 
   type = expr->expr_type ();
   if (type == TAO_IDENT)

@@ -35,7 +35,7 @@ public:
   virtual ~ExitHandler (void);
   virtual int handle_exit (ACE_Process *proc);
   virtual int handle_timeout (const ACE_Time_Value &tv,
-                              const void *arg = 0);
+                              const void *arg = nullptr);
   virtual int handle_close (ACE_HANDLE handle,
                             ACE_Reactor_Mask close_mask);
 private:
@@ -256,7 +256,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     }
 #endif /* ACE_WIN32 */
 
-  ExitHandler *main_thread_work = 0;
+  ExitHandler *main_thread_work = nullptr;
   ACE_NEW_RETURN (main_thread_work,
                   ExitHandler ("main thread worker"),
                   1);

@@ -1,8 +1,8 @@
 #include "test_i.h"
 #include "ace/Get_Opt.h"
 #include "ace/OS_NS_stdio.h"
-const ACE_TCHAR *ior_output_file = 0;
-const ACE_TCHAR *key = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
+const ACE_TCHAR *key = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

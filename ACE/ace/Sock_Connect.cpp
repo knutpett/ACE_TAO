@@ -366,7 +366,7 @@ ACE::get_fqdn (ACE_INET_Addr const & addr,
   hostent hentry;
   ACE_HOSTENT_DATA buf;
 
-  char * ip_addr = 0;
+  char * ip_addr = nullptr;
   int ip_addr_size = 0;
   if (addr.get_type () == AF_INET)
     {
@@ -476,7 +476,7 @@ get_ip_interfaces_win32 (size_t &count,
   PIP_ADAPTER_ADDRESSES AdapterAddresses = 0;
   ULONG OutBufferLength = 0;
   ULONG RetVal = 0;
-  unsigned char *octet_buffer = 0;
+  unsigned char *octet_buffer = nullptr;
 
   RetVal =
     GetAdaptersAddresses(AF_UNSPEC,
@@ -531,7 +531,7 @@ get_ip_interfaces_win32 (size_t &count,
       if (AdapterList->OperStatus != IfOperStatusUp)
         continue;
 
-      IP_ADAPTER_UNICAST_ADDRESS *uni = 0;
+      IP_ADAPTER_UNICAST_ADDRESS *uni = nullptr;
       if (AdapterList->IfIndex != 0)
         for (uni = AdapterList->FirstUnicastAddress;
              uni != 0;
@@ -581,7 +581,7 @@ get_ip_interfaces_win32 (size_t &count,
   // kernel says there are no more of that type.
   const size_t ACE_MAX_ETS_DEVICES = 64;  // Arbitrary, but should be enough.
   DEVHANDLE ip_dev[ACE_MAX_ETS_DEVICES];
-  EK_TCPIPCFG *devp = 0;
+  EK_TCPIPCFG *devp = nullptr;
   size_t i, j;
   ACE_TCHAR dev_name[16];
 
@@ -721,7 +721,7 @@ get_ip_interfaces_win32 (size_t &count,
   for (count = 0, i = 0; i < n_interfaces; ++i)
     {
       LPINTERFACE_INFO lpii;
-      struct sockaddr_in *addrp = 0;
+      struct sockaddr_in *addrp = nullptr;
 
       lpii = &info[i];
       if (!(lpii->iiFlags & IFF_UP))
@@ -777,8 +777,8 @@ get_ip_interfaces_getifaddrs (size_t &count,
 {
   // Take advantage of the BSD getifaddrs function that simplifies
   // access to connected interfaces.
-  struct ifaddrs *ifap = 0;
-  struct ifaddrs *p_if = 0;
+  struct ifaddrs *ifap = nullptr;
+  struct ifaddrs *p_if = nullptr;
 
   if (::getifaddrs (&ifap) != 0)
     return -1;
@@ -896,7 +896,7 @@ get_ip_interfaces_hpux (size_t &count,
 
   //HPUX requires two passes, First for IPv4, then for IPv6
 
-  struct ifreq *ifs = 0;
+  struct ifreq *ifs = nullptr;
   ACE_NEW_RETURN (ifs,
                   struct ifreq[num_ifs],
                   -1);
@@ -961,7 +961,7 @@ get_ip_interfaces_hpux (size_t &count,
 
   if (handle_ipv6 != ACE_INVALID_HANDLE)
     {
-      struct if_laddrreq *lifs = 0;
+      struct if_laddrreq *lifs = nullptr;
       ACE_NEW_RETURN (lifs,
                       struct if_laddrreq[num_ifs],
                       -1);
@@ -1144,7 +1144,7 @@ ACE::get_ip_interfaces (size_t &count, ACE_INET_Addr *&addrs)
   // what it returned, so increase the num_ifs by one.
   ++num_ifs;
 
-  struct IFREQ *ifs = 0;
+  struct IFREQ *ifs = nullptr;
   ACE_NEW_RETURN (ifs,
                   struct IFREQ[num_ifs],
                   -1);
@@ -1251,7 +1251,7 @@ ACE::get_ip_interfaces (size_t &count, ACE_INET_Addr *&addrs)
   // Retrieve IPv6 local interfaces by scanning /proc/net/if_inet6 if
   // it exists.  If we cannot open it then ignore possible IPv6
   // interfaces, we did our best;-)
-  FILE* fp = 0;
+  FILE* fp = nullptr;
   char addr_p[8][5];
   char s_ipaddr[64];
   int scopeid;
@@ -1419,7 +1419,7 @@ return 0;
 #endif /* ACE_HAS_ALLOC_HOOKS */
 
 # if defined (ACE_HAS_IPV6)
-  FILE* fp = 0;
+  FILE* fp = nullptr;
 
   if ((fp = ACE_OS::fopen (ACE_TEXT ("/proc/net/if_inet6"), ACE_TEXT ("r"))) != 0)
     {
@@ -1477,7 +1477,7 @@ ip_check (int &ipvn_enabled, int pf)
       // will still permit the creation of a PF_INET6 socket, thus rendering the socket
       // creation test inconsistent. The recommended solution is to get the list of
       // endpoint addresses and see if any match the desired family.
-      ACE_INET_Addr *if_addrs = 0;
+      ACE_INET_Addr *if_addrs = nullptr;
       size_t if_cnt = 0;
 
       ipvn_enabled = 1; // assume enabled to avoid recursion during interface lookup.

@@ -58,7 +58,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      BoundSequences *test_impl = 0;
+      BoundSequences *test_impl = nullptr;
       ACE_NEW_RETURN (test_impl,
                       BoundSequences (orb.in ()),
                       1);

@@ -47,7 +47,7 @@ char *
 CORBA::string_alloc (CORBA::ULong len)
 {
   // Allocate 1 + strlen to accomodate the null terminating character.
-  char *s = 0;
+  char *s = nullptr;
   ACE_NEW_RETURN (s,
                   char[size_t (len + 1)],
                   0);
@@ -95,7 +95,7 @@ CORBA::wstring_dup (const WChar *const str)
 CORBA::WChar*
 CORBA::wstring_alloc (CORBA::ULong len)
 {
-  CORBA::WChar *s = 0;
+  CORBA::WChar *s = nullptr;
   ACE_NEW_RETURN (s,
                   CORBA::WChar [(size_t) (len + 1)],
                   0);

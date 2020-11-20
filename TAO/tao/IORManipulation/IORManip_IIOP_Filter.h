@@ -62,7 +62,7 @@ protected:
   /// This is the bulk of the filtering code.
   virtual void filter_and_add (TAO_Profile* profile,
                                TAO_MProfile& profiles,
-                               TAO_Profile* guideline = 0);
+                               TAO_Profile* guideline = nullptr);
 
 private:
   /// Fill in the Profile_Info with information from the profile.

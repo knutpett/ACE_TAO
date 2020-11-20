@@ -62,7 +62,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       CORBA::ORB_var orb = CORBA::ORB_init (argc, argv);
 
       ACE_Get_Opt opts (argc, argv, ACE_TEXT ("s:c:"));
-      const ACE_TCHAR *server = 0, *client = 0;
+      const ACE_TCHAR *server = nullptr, *client = nullptr;
       for (int o; (o = opts ()) != -1;)
         {
           switch (o)

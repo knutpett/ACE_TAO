@@ -134,9 +134,9 @@ HTTP_Parse_URL::parse_host (char *&p)
       return;
     }
 
-  char *at = 0;
-  char *colon1 = 0;
-  char *colon2 = 0;
+  char *at = nullptr;
+  char *colon1 = nullptr;
+  char *colon2 = nullptr;
   char *q = p;
   while (*q != '\0')
     {

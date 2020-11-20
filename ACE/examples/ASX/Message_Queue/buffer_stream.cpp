@@ -58,7 +58,7 @@ public:
   Consumer (void) {}
 
   virtual int put (ACE_Message_Block *mb,
-                   ACE_Time_Value *tv = 0);
+                   ACE_Time_Value *tv = nullptr);
   // Enqueue the message on the ACE_Message_Queue for subsequent
   // handling in the svc() method.
 
@@ -79,7 +79,7 @@ public:
   Filter (void): count_ (1) {}
 
   virtual int put (ACE_Message_Block *mb,
-                   ACE_Time_Value *tv = 0);
+                   ACE_Time_Value *tv = nullptr);
   // Change the size of the message before passing it downstream.
 
 private:
@@ -130,7 +130,7 @@ Producer::svc (void)
       // Allocate a new message (add one to avoid nasty boundary
       // conditions).
 
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       ACE_NEW_RETURN (mb,
                       ACE_Message_Block (BUFSIZ + 1),
@@ -192,7 +192,7 @@ Consumer::svc (void)
 
   for (;;)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       // Wait for upto 4 seconds.
       this->timeout_.sec (ACE_OS::time (0) + 4);
@@ -262,9 +262,9 @@ ACE_TMAIN (int, ACE_TCHAR *argv[])
   // This Stream controls hierachically-related active objects.
   MT_Stream stream;
 
-  MT_Module *pm = 0;
-  MT_Module *fm = 0;
-  MT_Module *cm = 0;
+  MT_Module *pm = nullptr;
+  MT_Module *fm = nullptr;
+  MT_Module *cm = nullptr;
 
   ACE_NEW_RETURN (cm,
                   MT_Module (ACE_TEXT ("Consumer"),

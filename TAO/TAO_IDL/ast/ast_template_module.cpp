@@ -55,7 +55,7 @@ AST_Template_Module::match_arg_names (FE_Utils::T_ARGLIST *args)
        !i.done ();
        i.advance (), ++slot)
     {
-      AST_Decl **item = 0;
+      AST_Decl **item = nullptr;
       i.next (item);
       AST_Decl *d = *item;
 
@@ -66,9 +66,9 @@ AST_Template_Module::match_arg_names (FE_Utils::T_ARGLIST *args)
           d = td->primitive_base_type ();
         }
 
-      FE_Utils::T_Param_Info *param = 0;
+      FE_Utils::T_Param_Info *param = nullptr;
       (void) this->template_params_->get (param, slot);
-      const char *s = 0;
+      const char *s = nullptr;
 
       if (! this->match_one_param (param, d))
         {
@@ -99,7 +99,7 @@ AST_Template_Module::match_param_refs (UTL_StrList *refs,
                                        UTL_Scope *decl_scope)
 {
   UTL_Scope *s = decl_scope;
-  AST_Template_Module *enclosing = 0;
+  AST_Template_Module *enclosing = nullptr;
 
   while (enclosing == 0 && s != 0)
     {
@@ -217,7 +217,7 @@ AST_Template_Module::find_param (UTL_String *name)
        !i.done ();
        i.advance ())
     {
-      FE_Utils::T_Param_Info *param = 0;
+      FE_Utils::T_Param_Info *param = nullptr;
       i.next (param);
 
       if (param->name_ == name->get_string ())
@@ -238,7 +238,7 @@ AST_Template_Module::match_param_by_type (
        !i.done ();
        i.advance ())
     {
-      FE_Utils::T_Param_Info *my_param = 0;
+      FE_Utils::T_Param_Info *my_param = nullptr;
       i.next (my_param);
 
       if (param->type_ == my_param->type_)

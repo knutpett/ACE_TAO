@@ -30,7 +30,7 @@ int
 testCurrentLoader (int, char *[])
 {
 
-  ACE_Service_Object *factory = 0;
+  ACE_Service_Object *factory = nullptr;
 
   factory = ACE_Dynamic_Service<ACE_Service_Object>::instance
     (ACE_TEXT ("TAO_Transport_Current_Loader"));

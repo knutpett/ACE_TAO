@@ -392,7 +392,7 @@ ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::RB_rebalance (ACE_RB_Tree_N
 {
   ACE_TRACE ("ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::RB_rebalance");
 
-  ACE_RB_Tree_Node<EXT_ID, INT_ID> *y = 0;
+  ACE_RB_Tree_Node<EXT_ID, INT_ID> *y = nullptr;
 
   while (x &&
          x->parent ()
@@ -644,7 +644,7 @@ ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::insert_i (const EXT_ID &k, 
           else
             {
               // The right subtree is empty: insert new node there.
-              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = 0;
+              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = nullptr;
 
               ACE_NEW_MALLOC_RETURN
                 (tmp,
@@ -679,7 +679,7 @@ ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::insert_i (const EXT_ID &k, 
           else
             {
               // The left subtree is empty: insert new node there.
-              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = 0;
+              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = nullptr;
               ACE_NEW_MALLOC_RETURN
                 (tmp,
                  (reinterpret_cast<ACE_RB_Tree_Node<EXT_ID, INT_ID>*>
@@ -760,7 +760,7 @@ ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::insert_i (const EXT_ID &k,
           else
             {
               // The right subtree is empty: insert new node there.
-              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = 0;
+              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = nullptr;
               ACE_NEW_MALLOC_RETURN
                 (tmp,
                  (reinterpret_cast<ACE_RB_Tree_Node<EXT_ID, INT_ID>*>
@@ -794,7 +794,7 @@ ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::insert_i (const EXT_ID &k,
           else
             {
               // The left subtree is empty: insert new node there.
-              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = 0;
+              ACE_RB_Tree_Node<EXT_ID, INT_ID> *tmp = nullptr;
               ACE_NEW_MALLOC_RETURN
                 (tmp,
                  (reinterpret_cast<ACE_RB_Tree_Node<EXT_ID, INT_ID>*>
@@ -1127,7 +1127,7 @@ ACE_RB_Tree_Iterator_Base<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK>::ACE_RB_Tree_I
    : tree_ (&tree), node_ (0)
 {
   ACE_TRACE("ACE_RB_Tree_Iterator_Base (ACE_RB_Tree<EXT_ID, INT_ID, COMPARE_KEYS, ACE_LOCK> &tree, const EXT_ID& key)");
-  ACE_RB_Tree_Node<EXT_ID, INT_ID>* entry = 0;
+  ACE_RB_Tree_Node<EXT_ID, INT_ID>* entry = nullptr;
   tree.find_i(key, entry);
   node_ = entry;
 }

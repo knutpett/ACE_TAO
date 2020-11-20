@@ -55,7 +55,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
           TAO_RTScheduler_Manager_var manager = TAO_RTScheduler_Manager::_narrow (manager_obj.in ());
 
-          TAO_Scheduler* scheduler = 0;
+          TAO_Scheduler* scheduler = nullptr;
           ACE_NEW_RETURN (scheduler,
                           TAO_Scheduler (orb.in ()),
                           -1);
@@ -81,7 +81,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
           RTScheduling::Current_var current = RTScheduling::Current::_narrow (current_obj.in ());
 
-          const char * name = 0;
+          const char * name = nullptr;
           CORBA::Policy_ptr sched_param = 0;
           CORBA::Policy_ptr implicit_sched_param = 0;
 

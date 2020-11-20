@@ -41,7 +41,7 @@ namespace TAO
 
     if (entry != 0)
     {
-      HASH_MAP_ENTRY* cached_entry = 0;
+      HASH_MAP_ENTRY* cached_entry = nullptr;
       ACE_MT (ACE_GUARD_RETURN (ACE_Lock, guard, *this->cache_lock_, -1));
       if (entry != 0) // in case someone beat us to it (entry is reference to transport member)
       {

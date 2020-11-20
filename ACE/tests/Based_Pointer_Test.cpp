@@ -150,13 +150,13 @@ int singleton_test (void)
 int
 mmap_map_test(void)
 {
-    MMAP_Allocator* alloc = 0;
+    MMAP_Allocator* alloc = nullptr;
 
     ACE_OS::unlink("foo");
       {
         // The 'options' are only here to quiet MSVC 6. It can be removed
         // when MSVC 6 support is removed.
-        MMAP_Allocator::MEMORY_POOL_OPTIONS *options = 0;
+        MMAP_Allocator::MEMORY_POOL_OPTIONS *options = nullptr;
         ACE_NEW_RETURN
           (alloc,
            MMAP_Allocator (ACE_TEXT ("foo"), ACE_TEXT ("foo"), options),
@@ -174,7 +174,7 @@ mmap_map_test(void)
 
        // Check a base address mapping was added to the Repository
        // when the pool was created
-       void* ba = 0;
+       void* ba = nullptr;
        if(ACE_BASED_POINTER_REPOSITORY::instance()->find(addr, ba) == -1)
         {
            ACE_ERROR((LM_ERROR, ACE_TEXT ("Unable to access repository\n")));
@@ -218,11 +218,11 @@ mmap_map_test(void)
 int
 mmap_persistent_map_test(void)
 {
-    MMAP_Allocator* alloc = 0;
+    MMAP_Allocator* alloc = nullptr;
 
     // The 'options' are only here to quiet MSVC 6. It can be removed
     // when MSVC 6 support is removed.
-    MMAP_Allocator::MEMORY_POOL_OPTIONS *options = 0;
+    MMAP_Allocator::MEMORY_POOL_OPTIONS *options = nullptr;
     ACE_OS::unlink("foo");
       {
         ACE_NEW_RETURN
@@ -253,7 +253,7 @@ mmap_persistent_map_test(void)
         delete alloc;
         return -1;
       }
-    void* ba = 0;
+    void* ba = nullptr;
     if(ACE_BASED_POINTER_REPOSITORY::instance()->find(addr, ba) == -1)
       {
         ACE_ERROR ((LM_ERROR,

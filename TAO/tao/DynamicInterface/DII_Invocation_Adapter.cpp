@@ -181,7 +181,7 @@ namespace TAO
     // to prevent memory leaks. The invoke may encounter errors
     // before being able to handover the dispatcher to the invocation
     // using and managing it.
-    TAO_DII_Deferred_Reply_Dispatcher *new_rd = 0;
+    TAO_DII_Deferred_Reply_Dispatcher *new_rd = nullptr;
     ACE_NEW_THROW_EX (new_rd,
         TAO_DII_Deferred_Reply_Dispatcher (this->request_,
                                            this->orb_core_),

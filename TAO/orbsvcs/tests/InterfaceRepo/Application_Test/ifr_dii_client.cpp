@@ -301,13 +301,13 @@ IFR_DII_Client::invoke_and_display (void)
     {
       CORBA::NVList_ptr args = this->req_->arguments ();
 
-      const char *artist = 0;
+      const char *artist = nullptr;
 
       ACE_ASSERT ((*args->item (0)->value () >>= artist) == true);
 
       ACE_ASSERT (ACE_OS::strcmp (artist, "the Beatles") == 0);
 
-      const char *title = 0;
+      const char *title = nullptr;
 
       ACE_ASSERT ((*args->item (1)->value () >>= title) == true);
 

@@ -314,7 +314,7 @@ TAO_TypeCodeFactory_i::create_union_tc (
         }
 
       elem_type & element = cases[ci];
-      TAO::TypeCode::Case_Dynamic * the_case = 0;
+      TAO::TypeCode::Case_Dynamic * the_case = nullptr;
 
       if (index == raw_default_index)
         {
@@ -1830,7 +1830,7 @@ TAO_TypeCodeFactory_i::check_recursion (CORBA::TCKind kind,
         CORBA::TCKind const content_tc_kind =
           content_tc->kind ();
 
-        char const * content_tc_id = 0;
+        char const * content_tc_id = nullptr;
 
         if (content_tc_kind == CORBA::tk_struct
             || content_tc_kind == CORBA::tk_union

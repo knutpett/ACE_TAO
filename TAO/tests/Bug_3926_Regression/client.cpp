@@ -7,7 +7,7 @@
 #include "ace/Get_Opt.h"
 #include "ace/Argv_Type_Converter.h"
 
-const ACE_TCHAR *ior = 0;
+const ACE_TCHAR *ior = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

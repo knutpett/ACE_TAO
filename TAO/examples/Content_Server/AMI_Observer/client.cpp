@@ -159,7 +159,7 @@ void invoke_requests (int argc,
        i < argc - 1;  // Don't include the program name.
        ++i)
     {
-      Push_Iterator_Handler *handler = 0;
+      Push_Iterator_Handler *handler = nullptr;
       ACE_NEW_THROW_EX (handler,
                         Push_Iterator_Handler,
                         CORBA::NO_MEMORY ());

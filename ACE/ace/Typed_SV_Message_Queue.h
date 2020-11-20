@@ -59,7 +59,7 @@ public:
   int get_id (void) const;
 
   /// Control the underlying message queue.
-  int control (int option, void *arg = 0);
+  int control (int option, void *arg = nullptr);
 
   /// Dump the state of an object.
   void dump (void) const;

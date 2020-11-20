@@ -59,39 +59,39 @@ public:
   using ACE_WString::size_type;
 
   /// Default constructor.
-  ACE_NS_WString (ACE_Allocator *alloc = 0);
+  ACE_NS_WString (ACE_Allocator *alloc = nullptr);
 
   /// Constructor that copies @a s into dynamically allocated memory.
   ACE_NS_WString (const char *s,
-                  ACE_Allocator *alloc = 0);
+                  ACE_Allocator *alloc = nullptr);
 
   /// Constructor that copies @a s into dynamically allocated memory.
   ACE_NS_WString (const ACE_WSTRING_TYPE *s,
-                  ACE_Allocator *alloc = 0);
+                  ACE_Allocator *alloc = nullptr);
 
 #if defined (ACE_WSTRING_HAS_USHORT_SUPPORT)
   /// Constructor that takes in a ushort16 string (mainly used by the
   /// ACE Name_Space classes)
   ACE_NS_WString (const ACE_UINT16 *s,
                   size_type len,
-                  ACE_Allocator *alloc = 0);
+                  ACE_Allocator *alloc = nullptr);
 #endif /* ACE_WSTRING_HAS_USHORT_SUPPORT */
 
   /// Constructor that copies @a len ACE_WSTRING_TYPE's of @a s into dynamically
   /// allocated memory (will NUL terminate the result).
   ACE_NS_WString (const ACE_WSTRING_TYPE *s,
                   size_type len,
-                  ACE_Allocator *alloc = 0);
+                  ACE_Allocator *alloc = nullptr);
 
   /// Constructor that dynamically allocates memory for @a len + 1
   /// ACE_WSTRING_TYPE characters. The newly created memory is set memset to 0.
-  ACE_NS_WString (size_type len, ACE_Allocator *alloc = 0);
+  ACE_NS_WString (size_type len, ACE_Allocator *alloc = nullptr);
 
   /// Copy constructor.
   ACE_NS_WString (const ACE_NS_WString &s);
 
   /// Constructor that copies @a c into dynamically allocated memory.
-  ACE_NS_WString (ACE_WSTRING_TYPE c, ACE_Allocator *alloc = 0);
+  ACE_NS_WString (ACE_WSTRING_TYPE c, ACE_Allocator *alloc = nullptr);
 
   /// Transform into a copy of the ASCII character representation.
   /// (caller must delete)
@@ -136,20 +136,20 @@ public:
   static const size_type npos;
 
   /// Default constructor.
-  ACE_SString (ACE_Allocator *alloc = 0);
+  ACE_SString (ACE_Allocator *alloc = nullptr);
 
   /// Constructor that copies @a s into dynamically allocated memory.
-  ACE_SString (const char *s, ACE_Allocator *alloc = 0);
+  ACE_SString (const char *s, ACE_Allocator *alloc = nullptr);
 
   /// Constructor that copies @a len chars of @a s into dynamically
   /// allocated memory (will NUL terminate the result).
-  ACE_SString (const char *s, size_type len, ACE_Allocator *alloc = 0);
+  ACE_SString (const char *s, size_type len, ACE_Allocator *alloc = nullptr);
 
   /// Copy constructor.
   ACE_SString (const ACE_SString &);
 
   /// Constructor that copies @a c into dynamically allocated memory.
-  ACE_SString (char c, ACE_Allocator *alloc = 0);
+  ACE_SString (char c, ACE_Allocator *alloc = nullptr);
 
   /// Default destructor.
   ~ACE_SString (void);
@@ -274,7 +274,7 @@ typedef ACE_CString ACE_TString;
 class ACE_Export ACE_Auto_String_Free
 {
 public:
-  explicit ACE_Auto_String_Free (char* p = 0);
+  explicit ACE_Auto_String_Free (char* p = nullptr);
   ACE_Auto_String_Free (ACE_Auto_String_Free &rhs);
   ACE_Auto_String_Free& operator= (ACE_Auto_String_Free &rhs);
   ~ACE_Auto_String_Free (void);
@@ -283,7 +283,7 @@ public:
   char operator[] (size_t i) const;
   char* get (void) const;
   char* release (void);
-  void reset (char* p = 0);
+  void reset (char* p = nullptr);
 
 private:
   char* p_;

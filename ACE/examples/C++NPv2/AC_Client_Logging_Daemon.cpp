@@ -35,7 +35,7 @@ class AC_CLD_Acceptor
   : public ACE_Acceptor<AC_Input_Handler, ACE_SOCK_ACCEPTOR> {
 public:
   // Constructor.
-  AC_CLD_Acceptor (AC_Output_Handler *handler = 0)
+  AC_CLD_Acceptor (AC_Output_Handler *handler = nullptr)
     : output_handler_ (handler), input_handler_ (handler) {}
 
 protected:
@@ -63,7 +63,7 @@ public:
           PARENT;
 
   // Constructor.
-  AC_CLD_Connector (AC_Output_Handler *handler = 0)
+  AC_CLD_Connector (AC_Output_Handler *handler = nullptr)
     : handler_ (handler), ssl_ctx_ (0), ssl_ (0) {}
 
   // Destructor frees the SSL resources.
@@ -192,7 +192,7 @@ int AC_Output_Handler::svc () {
       timeout = ACE_OS::gettimeofday ();
       timeout += FLUSH_TIMEOUT;
     }
-    ACE_Message_Block *mblk = 0;
+    ACE_Message_Block *mblk = nullptr;
     if (getq (mblk, &timeout) == -1) {
       if (errno == ESHUTDOWN) {
         if (connector_->reconnect () == -1) break;
@@ -255,7 +255,7 @@ int AC_Input_Handler::open (void *) {
 }
 
 int AC_Input_Handler::close (u_long) {
-  ACE_Message_Block *shutdown_message = 0;
+  ACE_Message_Block *shutdown_message = nullptr;
   ACE_NEW_RETURN
     (shutdown_message,
      ACE_Message_Block (0, ACE_Message_Block::MB_STOP), -1);
@@ -267,7 +267,7 @@ int AC_Input_Handler::close (u_long) {
 }
 
 int AC_Input_Handler::handle_input (ACE_HANDLE handle) {
-  ACE_Message_Block *mblk = 0;
+  ACE_Message_Block *mblk = nullptr;
   Logging_Handler logging_handler (handle);
 
   if (logging_handler.recv_log_record (mblk) != -1)

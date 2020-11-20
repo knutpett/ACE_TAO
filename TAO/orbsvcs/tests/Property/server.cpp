@@ -42,7 +42,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         return 1;
 
       // Create PropertySetDef object and register.
-      TAO_PropertySetDef *propsetdef_impl = 0;
+      TAO_PropertySetDef *propsetdef_impl = nullptr;
       ACE_NEW_RETURN (propsetdef_impl,
                       TAO_PropertySetDef,
                       -1);

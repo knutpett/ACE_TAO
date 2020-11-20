@@ -66,7 +66,7 @@ TAO_Notify_EventChannel::init (TAO_Notify_EventChannelFactory* ecf
   this->ecf_.reset (ecf);
 
   // Init ca_container_
-  TAO_Notify_ConsumerAdmin_Container* ca_container = 0;
+  TAO_Notify_ConsumerAdmin_Container* ca_container = nullptr;
   ACE_NEW_THROW_EX (ca_container,
                     TAO_Notify_ConsumerAdmin_Container (),
                     CORBA::INTERNAL ());
@@ -75,7 +75,7 @@ TAO_Notify_EventChannel::init (TAO_Notify_EventChannelFactory* ecf
   this->ca_container().init ();
 
   // Init ca_container_
-  TAO_Notify_SupplierAdmin_Container* sa_container = 0;
+  TAO_Notify_SupplierAdmin_Container* sa_container = nullptr;
   ACE_NEW_THROW_EX (sa_container,
                     TAO_Notify_SupplierAdmin_Container (),
                     CORBA::INTERNAL ());
@@ -84,14 +84,14 @@ TAO_Notify_EventChannel::init (TAO_Notify_EventChannelFactory* ecf
   this->sa_container().init ();
 
   // Set the admin properties.
-  TAO_Notify_AdminProperties* admin_properties = 0;
+  TAO_Notify_AdminProperties* admin_properties = nullptr;
   ACE_NEW_THROW_EX (admin_properties,
                     TAO_Notify_AdminProperties (),
                     CORBA::NO_MEMORY ());
   this->set_admin_properties (admin_properties);
 
   // create the event manager. @@ use factory
-  TAO_Notify_Event_Manager* event_manager = 0;
+  TAO_Notify_Event_Manager* event_manager = nullptr;
   ACE_NEW_THROW_EX (event_manager,
                     TAO_Notify_Event_Manager (),
                     CORBA::INTERNAL ());
@@ -133,7 +133,7 @@ TAO_Notify_EventChannel::init (TAO_Notify::Topology_Parent* parent)
   ACE_ASSERT (this->ecf_.get() !=0);
 
   // Init ca_container_
-  TAO_Notify_ConsumerAdmin_Container* ca_container = 0;
+  TAO_Notify_ConsumerAdmin_Container* ca_container = nullptr;
   ACE_NEW_THROW_EX (ca_container,
                     TAO_Notify_ConsumerAdmin_Container (),
                     CORBA::INTERNAL ());
@@ -141,7 +141,7 @@ TAO_Notify_EventChannel::init (TAO_Notify::Topology_Parent* parent)
 
   this->ca_container().init ();
 
-  TAO_Notify_SupplierAdmin_Container* sa_container = 0;
+  TAO_Notify_SupplierAdmin_Container* sa_container = nullptr;
   // Init ca_container_
   ACE_NEW_THROW_EX (sa_container,
                     TAO_Notify_SupplierAdmin_Container (),
@@ -151,14 +151,14 @@ TAO_Notify_EventChannel::init (TAO_Notify::Topology_Parent* parent)
   this->sa_container().init ();
 
   // Set the admin properties.
-  TAO_Notify_AdminProperties* admin_properties = 0;
+  TAO_Notify_AdminProperties* admin_properties = nullptr;
   ACE_NEW_THROW_EX (admin_properties,
                     TAO_Notify_AdminProperties (),
                     CORBA::NO_MEMORY ());
   this->set_admin_properties (admin_properties);
 
   // create the event manager. @@ use factory
-  TAO_Notify_Event_Manager* event_manager = 0;
+  TAO_Notify_Event_Manager* event_manager = nullptr;
   ACE_NEW_THROW_EX (event_manager,
                     TAO_Notify_Event_Manager (),
                     CORBA::INTERNAL ());
@@ -557,7 +557,7 @@ TAO_Notify_EventChannel::load_child (const ACE_CString &type,
 TAO_Notify_ProxyConsumer *
 TAO_Notify_EventChannel::find_proxy_consumer (TAO_Notify::IdVec & id_path, size_t position)
 {
-  TAO_Notify_ProxyConsumer * result = 0;
+  TAO_Notify_ProxyConsumer * result = nullptr;
   size_t path_size = id_path.size ();
   if (position < path_size)
   {
@@ -575,7 +575,7 @@ TAO_Notify_EventChannel::find_proxy_consumer (TAO_Notify::IdVec & id_path, size_
 TAO_Notify_ProxySupplier *
 TAO_Notify_EventChannel::find_proxy_supplier (TAO_Notify::IdVec & id_path, size_t position)
 {
-  TAO_Notify_ProxySupplier * result = 0;
+  TAO_Notify_ProxySupplier * result = nullptr;
   size_t path_size = id_path.size ();
   if (position < path_size)
   {

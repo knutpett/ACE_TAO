@@ -174,7 +174,7 @@ Invoker_Task::svc (void)
 
   ACE_Thread_Manager *thr_mgr =
     ACE_Thread_Manager::instance ();
-  Worker_Task **worker_task = 0;
+  Worker_Task **worker_task = nullptr;
 
   ACE_NEW_RETURN (worker_task,
                   Worker_Task *[n_tasks_],

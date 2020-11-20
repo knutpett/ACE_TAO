@@ -290,7 +290,7 @@ TAO::SSLIOP::Transport::get_listen_point (
 #if defined (ACE_HAS_IPV6)
   // If this is an IPv6 decimal linklocal address containing a scopeid than
   // remove the scopeid from the information being sent.
-  const char *cp_scope = 0;
+  const char *cp_scope = nullptr;
   if (local_addr.get_type () == PF_INET6 &&
         (cp_scope = ACE_OS::strchr (local_interface.in (), '%')) != 0)
     {

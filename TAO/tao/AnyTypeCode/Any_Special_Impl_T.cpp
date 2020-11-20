@@ -121,7 +121,7 @@ TAO::Any_Special_Impl_T<T, from_T, to_T>::extract (const CORBA::Any & any,
           return true;
         }
 
-      TAO::Any_Special_Impl_T<T, from_T, to_T> *replacement = 0;
+      TAO::Any_Special_Impl_T<T, from_T, to_T> *replacement = nullptr;
       ACE_NEW_RETURN (replacement,
                       BOUNDED_TSTRING_ANY_IMPL (destructor,
                                                 tc,

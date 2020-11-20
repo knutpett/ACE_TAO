@@ -182,7 +182,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       poa_manager->activate ();
 
       // Let the client perform the test in a separate thread
-      Handler* handler = 0;
+      Handler* handler = nullptr;
       ACE_NEW_RETURN (handler,
                       Handler,
                       1);

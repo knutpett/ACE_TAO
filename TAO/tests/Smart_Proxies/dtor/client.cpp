@@ -44,7 +44,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
     // force a scope to see the destruction of the server object
     {
-      Test_Smart_Factory *test_factory = 0;
+      Test_Smart_Factory *test_factory = nullptr;
       ACE_NEW_RETURN (test_factory,
                       Test_Smart_Factory,
                       -1);

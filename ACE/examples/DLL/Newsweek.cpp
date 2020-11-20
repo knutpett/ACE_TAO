@@ -47,7 +47,7 @@ extern "C" ACE_Svc_Export Magazine *create_magazine (void);
 Magazine *
 create_magazine (void)
 {
-  Magazine *mag = 0;
+  Magazine *mag = nullptr;
   ACE_NEW_RETURN (mag, Newsweek, 0);
   return mag;
 }

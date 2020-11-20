@@ -56,7 +56,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Hello *hello_impl = 0;
+      Hello *hello_impl = nullptr;
       ACE_NEW_RETURN (hello_impl,
                       Hello (orb.in ()),
                       1);

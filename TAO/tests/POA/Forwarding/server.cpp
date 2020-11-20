@@ -16,8 +16,8 @@
 #include "Servant_Activator.h"
 #include "ace/OS_NS_stdio.h"
 
-static const ACE_TCHAR *ior_output_file = 0;
-static const ACE_TCHAR *forward_to_ior = 0;
+static const ACE_TCHAR *ior_output_file = nullptr;
+static const ACE_TCHAR *forward_to_ior = nullptr;
 
 static int
 parse_args (int argc, ACE_TCHAR **argv)
@@ -102,7 +102,7 @@ create_servant_manager (CORBA::ORB_ptr orb,
         orb->string_to_object (forward_to_ior);
     }
 
-  ServantActivator *activator = 0;
+  ServantActivator *activator = nullptr;
   ACE_NEW_RETURN (activator,
                   ServantActivator (orb,
                                     forward_to.in ()),
@@ -120,7 +120,7 @@ create_servant_manager (CORBA::ORB_ptr orb,
   // child_poa->set_servant_manager (servant_activator.in (),
   //);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_RETURN (servant,
                   test_i (orb,
                           child_poa,

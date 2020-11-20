@@ -80,13 +80,13 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       PortableServer::POAManager_var poamgr = rootpoa->the_POAManager();
 
-      Foo_Impl* foo = 0;
+      Foo_Impl* foo = nullptr;
       ACE_NEW_RETURN (foo, Foo_Impl, 1);
       PortableServer::ServantBase_var owner_transfer (foo);
       PortableServer::ObjectId_var id = rootpoa->activate_object (foo);
       o = rootpoa->id_to_reference (id.in());
 
-      Foo_Impl* foo2 = 0;
+      Foo_Impl* foo2 = nullptr;
       ACE_NEW_RETURN (foo2, Foo_Impl, 1);
       PortableServer::ServantBase_var foo_owner (foo2);
       foo_var f2 = foo2->_this (); // implicit activation

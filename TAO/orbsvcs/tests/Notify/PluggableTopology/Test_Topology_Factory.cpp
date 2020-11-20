@@ -8,7 +8,7 @@ Test_Topology_Factory::Test_Topology_Factory()
 TAO_Notify::Topology_Saver*
 Test_Topology_Factory::create_saver ()
 {
-  TAO_Notify::Topology_Saver *saver = 0;
+  TAO_Notify::Topology_Saver *saver = nullptr;
   ACE_NEW_RETURN (saver, Test_Saver, 0);
   return saver;
 }

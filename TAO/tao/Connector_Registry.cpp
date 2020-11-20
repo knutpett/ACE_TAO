@@ -200,7 +200,7 @@ TAO_Connector_Registry::create_profile (TAO_InputCDR &cdr)
             }
         }
 
-      TAO_Profile *pfile = 0;
+      TAO_Profile *pfile = nullptr;
       ACE_NEW_RETURN (pfile,
                       TAO_Unknown_Profile (tag,
                                            orb_core),

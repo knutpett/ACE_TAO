@@ -55,7 +55,7 @@ TAO_LB_LoadMinimum::name (void)
 CosLoadBalancing::Properties *
 TAO_LB_LoadMinimum::get_properties (void)
 {
-  CosLoadBalancing::Properties * props = 0;
+  CosLoadBalancing::Properties * props = nullptr;
   ACE_NEW_THROW_EX (props,
                     CosLoadBalancing::Properties (this->properties_),
                     CORBA::NO_MEMORY (
@@ -99,7 +99,7 @@ TAO_LB_LoadMinimum::push_loads (
     {
       ACE_GUARD (TAO_SYNCH_MUTEX, guard, *this->lock_);
 
-      TAO_LB_LoadMap::ENTRY * entry = 0;
+      TAO_LB_LoadMap::ENTRY * entry = nullptr;
       if (this->load_map_->find (the_location, entry) == 0)
         {
           CosLoadBalancing::Load & previous_load = entry->int_id_;

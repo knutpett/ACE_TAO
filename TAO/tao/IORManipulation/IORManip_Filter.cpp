@@ -30,7 +30,7 @@ TAO_IORManip_Filter::sanitize (CORBA::Object_ptr object,
 {
   TAO_MProfile profiles = object->_stubobj ()->base_profiles ();
   TAO_MProfile new_profiles (profiles.profile_count ());
-  TAO_Profile* profile = 0;
+  TAO_Profile* profile = nullptr;
 
   while ((profile = profiles.get_next ()) != 0)
     {

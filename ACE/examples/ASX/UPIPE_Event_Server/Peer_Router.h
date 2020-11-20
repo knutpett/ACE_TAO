@@ -51,7 +51,7 @@ public:
   virtual int handle_input (ACE_HANDLE);
   // Receive input from the peer..
 
-  virtual int put (ACE_Message_Block *, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *, ACE_Time_Value *tv = nullptr);
   // Send output to a peer.
 
 protected:

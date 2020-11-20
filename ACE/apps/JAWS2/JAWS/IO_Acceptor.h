@@ -44,13 +44,13 @@ public:
   // Initiate a passive mode socket.
 
   virtual int accept (ACE_SOCK_Stream &new_stream,
-                      ACE_Addr *remote_addr = 0,
-                      ACE_Time_Value *timeout = 0,
+                      ACE_Addr *remote_addr = nullptr,
+                      ACE_Time_Value *timeout = nullptr,
                       int restart = 1,
                       int reset_new_handle = 0) const;
   // Synchronously accept the connection
 
-  virtual int accept (size_t bytes_to_read = 0, const void *act = 0);
+  virtual int accept (size_t bytes_to_read = 0, const void *act = nullptr);
   // This initiates a new asynchronous accept through the AcceptEx call.
 
   virtual ACE_HANDLE get_handle (void);
@@ -76,8 +76,8 @@ public:
   // Initiate a passive mode socket.
 
   virtual int accept (ACE_SOCK_Stream &new_stream,
-                      ACE_Addr *remote_addr = 0,
-                      ACE_Time_Value *timeout = 0,
+                      ACE_Addr *remote_addr = nullptr,
+                      ACE_Time_Value *timeout = nullptr,
                       int restart = 1,
                       int reset_new_handle = 0) const;
   // Accept the connection
@@ -86,7 +86,7 @@ public:
   // Get the listener's handle
 
 private:
-  virtual int accept (size_t bytes_to_read = 0, const void *act = 0);
+  virtual int accept (size_t bytes_to_read = 0, const void *act = nullptr);
 
 private:
   JAWS_IO_SOCK_Acceptor acceptor_;
@@ -106,7 +106,7 @@ public:
   virtual int open (const ACE_HANDLE &socket);
   // Initiate an asynchronous passive connection
 
-  virtual int accept (size_t bytes_to_read = 0, const void *act = 0);
+  virtual int accept (size_t bytes_to_read = 0, const void *act = nullptr);
   // This initiates a new asynchronous accept through the AcceptEx call.
 
   virtual ACE_HANDLE get_handle (void);
@@ -117,8 +117,8 @@ public:
 private:
 
   virtual int accept (ACE_SOCK_Stream &new_stream,
-                      ACE_Addr *remote_addr = 0,
-                      ACE_Time_Value *timeout = 0,
+                      ACE_Addr *remote_addr = nullptr,
+                      ACE_Time_Value *timeout = nullptr,
                       int restart = 1,
                       int reset_new_handle = 0) const;
 

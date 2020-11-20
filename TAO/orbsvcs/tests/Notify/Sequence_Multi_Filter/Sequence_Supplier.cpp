@@ -24,7 +24,7 @@
 // Data Section
 // ******************************************************************
 const int PER_BATCH = 4;
-static TAO_Notify_Tests_SequencePushSupplier* supplier_1 = 0;
+static TAO_Notify_Tests_SequencePushSupplier* supplier_1 = nullptr;
 static int num_batches = 10;
 static const ACE_TCHAR *ior_output_file = ACE_TEXT ("supplier.ior");
 

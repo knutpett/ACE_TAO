@@ -997,7 +997,7 @@ strsignal_test (void)
 
   int test_status = 0;
 
-  const char* result = 0;
+  const char* result = nullptr;
 
   for (int i=-1; i < (ACE_NSIG + 1); ++i)
     {

@@ -43,7 +43,7 @@ class ACE_Timer_Queue_Upcall_Base
 {
 public:
   // Constructor
-  explicit ACE_Timer_Queue_Upcall_Base(FUNCTOR * upcall_functor = 0);
+  explicit ACE_Timer_Queue_Upcall_Base(FUNCTOR * upcall_functor = nullptr);
 
   /// Destructor
   virtual ~ACE_Timer_Queue_Upcall_Base (void);
@@ -82,8 +82,8 @@ public:
    * Queue will create a default FUNCTOR.  @a freelist the freelist of
    * timer nodes.  If 0, then a default freelist will be created.
    */
-  ACE_Timer_Queue_T (FUNCTOR *upcall_functor = 0,
-                    ACE_Free_List<ACE_Timer_Node_T <TYPE> > *freelist = 0,
+  ACE_Timer_Queue_T (FUNCTOR *upcall_functor = nullptr,
+                    ACE_Free_List<ACE_Timer_Node_T <TYPE> > *freelist = nullptr,
                     TIME_POLICY const & time_policy = TIME_POLICY());
 
   /// Destructor - make virtual for proper destruction of inherited

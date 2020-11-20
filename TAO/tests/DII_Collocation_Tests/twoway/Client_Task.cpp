@@ -114,7 +114,7 @@ Client_Task::svc (void)
             CORBA::NamedValue_ptr arg = req->arguments ()->item (count);
             if (ACE_OS::strcmp (arg->name (), "x") == 0)
             {
-              const char * ystring = 0;
+              const char * ystring = nullptr;
               if (*(arg->value()) >>= ystring)
                 {
                   if (ACE_OS::strcmp(ystring, TEST_STR) != 0)

@@ -188,7 +188,7 @@ public:
 
 protected:
   /// Default constructor, only derived classes can be created.
-  explicit TAO_ServantBase (TAO_Operation_Table* optable = 0);
+  explicit TAO_ServantBase (TAO_Operation_Table* optable = nullptr);
 
   /// Copy constructor, protected so no instances can be created.
   TAO_ServantBase (const TAO_ServantBase &);

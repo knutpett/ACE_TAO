@@ -120,7 +120,7 @@ UTL_StrList::last_component (void)
 UTL_List *
 UTL_StrList::copy (void)
 {
-  UTL_List *retval = 0;
+  UTL_List *retval = nullptr;
 
   if (this->tail () == 0)
     {
@@ -143,7 +143,7 @@ UTL_StrList::copy (void)
 void
 UTL_StrList::destroy (void)
 {
-  UTL_String *str = 0;
+  UTL_String *str = nullptr;
 
   for (UTL_StrlistActiveIterator i (this); !i.is_done (); i.next ())
     {
@@ -158,7 +158,7 @@ UTL_StrList::destroy (void)
 void
 UTL_StrList::dump (ACE_OSTREAM_TYPE &o)
 {
-  char *s = 0;
+  char *s = nullptr;
   bool first = true;
   bool second = false;
 

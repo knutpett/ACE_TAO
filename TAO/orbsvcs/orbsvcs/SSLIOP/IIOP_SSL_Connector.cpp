@@ -36,7 +36,7 @@ TAO::IIOP_SSL_Connector::open (TAO_ORB_Core *orb_core)
     return -1;
 
   // Our connect creation strategy
-  CONNECT_CREATION_STRATEGY *connect_creation_strategy = 0;
+  CONNECT_CREATION_STRATEGY *connect_creation_strategy = nullptr;
 
   ACE_NEW_RETURN (connect_creation_strategy,
                   CONNECT_CREATION_STRATEGY (orb_core->thr_mgr (),
@@ -44,7 +44,7 @@ TAO::IIOP_SSL_Connector::open (TAO_ORB_Core *orb_core)
                   -1);
 
   // Our activation strategy
-  CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = 0;
+  CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = nullptr;
 
   ACE_NEW_RETURN (concurrency_strategy,
                   CONNECT_CONCURRENCY_STRATEGY (orb_core),
@@ -137,7 +137,7 @@ TAO::IIOP_SSL_Connector::make_connection (
     }
 
 
-  IIOP_SSL_Connection_Handler *svc_handler = 0;
+  IIOP_SSL_Connection_Handler *svc_handler = nullptr;
 
   // Connect.
   int result =

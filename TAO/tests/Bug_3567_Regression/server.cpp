@@ -17,7 +17,7 @@
 #include "ace/Get_Opt.h"
 #include "ace/Task.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 int nthreads = 5;
 
 /**

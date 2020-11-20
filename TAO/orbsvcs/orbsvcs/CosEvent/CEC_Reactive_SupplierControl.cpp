@@ -124,7 +124,7 @@ TAO_CEC_Reactive_SupplierControl::need_to_disconnect (
   if (this->typed_event_channel_)
     {
       // Typed EC
-      TAO_CEC_TypedEventChannel::ServantRetryMap::ENTRY* entry = 0;
+      TAO_CEC_TypedEventChannel::ServantRetryMap::ENTRY* entry = nullptr;
       if (this->typed_event_channel_->
           get_servant_retry_map ().find (proxy, entry) == 0)
         {
@@ -140,7 +140,7 @@ TAO_CEC_Reactive_SupplierControl::need_to_disconnect (
 #endif /* TAO_HAS_TYPED_EVENT_CHANNEL */
 
   // Un-typed EC
-  TAO_CEC_EventChannel::ServantRetryMap::ENTRY* entry = 0;
+  TAO_CEC_EventChannel::ServantRetryMap::ENTRY* entry = nullptr;
   if (this->event_channel_->
       get_servant_retry_map ().find (proxy, entry) == 0)
     {
@@ -166,7 +166,7 @@ TAO_CEC_Reactive_SupplierControl::successful_transmission (
   if (this->typed_event_channel_)
     {
       // Typed EC
-      TAO_CEC_TypedEventChannel::ServantRetryMap::ENTRY* entry = 0;
+      TAO_CEC_TypedEventChannel::ServantRetryMap::ENTRY* entry = nullptr;
       if (this->typed_event_channel_->
           get_servant_retry_map ().find (proxy, entry) == 0)
         {
@@ -178,7 +178,7 @@ TAO_CEC_Reactive_SupplierControl::successful_transmission (
 #endif /* TAO_HAS_TYPED_EVENT_CHANNEL */
 
   // Un-typed EC
-  TAO_CEC_EventChannel::ServantRetryMap::ENTRY* entry = 0;
+  TAO_CEC_EventChannel::ServantRetryMap::ENTRY* entry = nullptr;
   if (this->event_channel_->
       get_servant_retry_map ().find (proxy, entry) == 0)
     {

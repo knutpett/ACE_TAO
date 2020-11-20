@@ -53,7 +53,7 @@ ACE_Reactive_MEM_IO::get_buf_len (const ACE_OFF_T off, ACE_MEM_SAP_Node *&buf)
   ACE_TRACE ("ACE_Reactive_MEM_IO::get_buf_len");
 #endif /* ACE_HAS_WIN32_STRUCTURAL_EXCEPTIONS */
 
-  if (this->shm_malloc_ == 0)
+  if (this->shm_malloc_ == nullptr)
     {
       return -1;
     }
@@ -77,8 +77,8 @@ ACE_Reactive_MEM_IO::get_buf_len (const ACE_OFF_T off, ACE_MEM_SAP_Node *&buf)
 // Send an n byte message to the connected socket.
 ACE_INLINE
 ACE_MEM_IO::ACE_MEM_IO (void)
-  : deliver_strategy_ (0),
-    recv_buffer_ (0),
+  : deliver_strategy_ (nullptr),
+    recv_buffer_ (nullptr),
     buf_size_ (0),
     cur_offset_ (0)
 {
@@ -90,14 +90,14 @@ ACE_MEM_IO::fetch_recv_buf (int flag, const ACE_Time_Value *timeout)
 {
   ACE_TRACE ("ACE_MEM_IO::fetch_recv_buf");
 
-  if (this->deliver_strategy_ == 0)
+  if (this->deliver_strategy_ == nullptr)
     return -1;
 
   // This method can only be called when <buf_size_> == <cur_offset_>.
   ACE_ASSERT (this->buf_size_ == this->cur_offset_);
 
   // We have done using the previous buffer, return it to malloc.
-  if (this->recv_buffer_ != 0)
+  if (this->recv_buffer_ != nullptr)
     this->deliver_strategy_->release_buffer (this->recv_buffer_);
 
   this->cur_offset_ = 0;
@@ -127,7 +127,7 @@ ACE_MEM_IO::send (const void *buf,
 {
   ACE_TRACE ("ACE_MEM_IO::send");
 
-  if (this->deliver_strategy_ == 0)
+  if (this->deliver_strategy_ == nullptr)
     {
       return 0;
     }
@@ -136,7 +136,7 @@ ACE_MEM_IO::send (const void *buf,
     this->deliver_strategy_->acquire_buffer (
       ACE_Utils::truncate_cast<ssize_t> (len));
 
-  if (sbuf == 0)
+  if (sbuf == nullptr)
     {
       return -1;                  // Memory buffer not initialized.
     }
@@ -192,7 +192,7 @@ ACE_INLINE ssize_t
 ACE_MEM_IO::send (const void *buf, size_t n, int flags)
 {
   ACE_TRACE ("ACE_MEM_IO::send");
-  return this->send (buf, n, flags, 0);
+  return this->send (buf, n, flags, nullptr);
 }
 
 // Recv an n byte message from the connected socket.
@@ -201,7 +201,7 @@ ACE_INLINE ssize_t
 ACE_MEM_IO::recv (void *buf, size_t n, int flags)
 {
   ACE_TRACE ("ACE_MEM_IO::recv");
-  return this->recv (buf, n, flags, 0);
+  return this->recv (buf, n, flags, nullptr);
 }
 
 // Send an n byte message to the connected socket.

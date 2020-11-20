@@ -109,7 +109,7 @@ TAO_UIPMC_Acceptor::open (
   ACE_INET_Addr addr;
 
   const char *port_separator_loc = ACE_OS::strchr (address, ':');
-  const char *specified_hostname = 0;
+  const char *specified_hostname = nullptr;
   char tmp_host[MAXHOSTNAMELEN + 1];
 
 #if defined (ACE_HAS_IPV6)
@@ -279,7 +279,7 @@ TAO_UIPMC_Acceptor::open_i (
     } // End loop replacing all preferred_interfaces tokens.
 
   // Create our connection handler and pass it our configurtion options.
-  TAO_UIPMC_Mcast_Connection_Handler *connection_handler = 0;
+  TAO_UIPMC_Mcast_Connection_Handler *connection_handler = nullptr;
   ACE_NEW_RETURN (connection_handler,
                   TAO_UIPMC_Mcast_Connection_Handler (this->orb_core_),
                   -1);

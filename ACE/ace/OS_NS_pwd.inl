@@ -51,7 +51,7 @@ ACE_OS::getpwnam_r (const char *name,
 #elif defined (ACE_HAS_LYNXOS4_GETPWNAM_R)
   if (::getpwnam_r (pwd, const_cast<char*>(name), buffer, bufsize) == -1)
     {
-      *result = 0;
+      *result = nullptr;
       return -1;
     }
   *result = pwd;
@@ -59,7 +59,7 @@ ACE_OS::getpwnam_r (const char *name,
 #elif defined (ACE_HAS_STHREADS)
   if (::getpwnam_r (name, pwd, buffer, bufsize) != 0)
     {
-      *result = 0;
+      *result = nullptr;
       return -1;
     }
   *result = pwd;

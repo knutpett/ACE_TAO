@@ -240,7 +240,7 @@ int walkapp::run()
          community_.to_string() << " ]"<< endl;
 
    MibIter iter(&snmp_, pdu_, &target_);
-   char *err_str = 0;
+   char *err_str = nullptr;
    Vb vb;
    unsigned ctr = 0;
    while (iter.next(vb, err_str))  {

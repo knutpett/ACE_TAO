@@ -101,7 +101,7 @@ Object_Activator::svc (void)
   return 0;
 }
 
-Object_Activator *global_object_activator = 0;
+Object_Activator *global_object_activator = nullptr;
 
 class Servant_Activator :
   public PortableServer::ServantActivator

@@ -17,8 +17,8 @@
 #include "ace/OS_NS_unistd.h"
 #include "ace/OS_NS_string.h"
 
-static char *IOR = 0;
-static const ACE_TCHAR *IOR_file = 0;
+static char *IOR = nullptr;
+static const ACE_TCHAR *IOR_file = nullptr;
 static int shutdown_server = 0;
 
 static int

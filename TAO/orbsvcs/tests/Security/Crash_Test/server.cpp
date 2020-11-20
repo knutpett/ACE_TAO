@@ -4,7 +4,7 @@
 #include "ace/SString.h"
 #include "test_i.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 const char *cert_file = "cacert.pem";
 
 int

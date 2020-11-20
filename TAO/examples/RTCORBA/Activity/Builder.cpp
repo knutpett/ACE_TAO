@@ -26,7 +26,7 @@ Builder::init (int argc, ACE_TCHAR *argv[])
 {
   ACE_Arg_Shifter arg_shifter (argc, argv);
 
-  const ACE_TCHAR* current_arg = 0;
+  const ACE_TCHAR* current_arg = nullptr;
 
   int task_count = 0;
   int poa_count = 0;
@@ -67,7 +67,7 @@ Builder::init (int argc, ACE_TCHAR *argv[])
             {
               arg_shifter.consume_arg ();
 
-              Periodic_Task *task = 0;
+              Periodic_Task *task = nullptr;
 
               ACE_NEW_RETURN (task, Thread_Task (), -1);
 
@@ -103,7 +103,7 @@ Builder::init (int argc, ACE_TCHAR *argv[])
             {
               arg_shifter.consume_arg ();
 
-              POA_Holder *poa_holder = 0;
+              POA_Holder *poa_holder = nullptr;
 
               ACE_NEW_RETURN (poa_holder, POA_Holder (), -1);
 

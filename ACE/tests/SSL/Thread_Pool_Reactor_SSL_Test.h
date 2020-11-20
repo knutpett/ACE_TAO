@@ -28,7 +28,7 @@ class Request_Handler : public ACE_Svc_Handler<ACE_SSL_SOCK_Stream,
 {
 public:
   /// The default constructor makes sure the right reactor is used.
-  Request_Handler (ACE_Thread_Manager *tm = 0);
+  Request_Handler (ACE_Thread_Manager *tm = nullptr);
 
 protected:
   virtual int handle_input (ACE_HANDLE fd = ACE_INVALID_HANDLE);

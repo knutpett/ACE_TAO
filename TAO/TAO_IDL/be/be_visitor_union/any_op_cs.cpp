@@ -70,14 +70,14 @@ be_visitor_union_any_op_cs::visit_union (be_union *node)
 
   *os << be_global->core_versioning_end () << be_nl;
 
-  be_module *module = 0;
+  be_module *module = nullptr;
 
   AST_Decl *decl = node;
   if (decl->is_nested ())
     {
       if (node->defined_in ()->scope_node_type () == AST_Decl::NT_interface)
         {
-          be_interface *intf = 0;
+          be_interface *intf = nullptr;
           intf = dynamic_cast<be_interface*> (node->defined_in ());
           decl = intf;
         }

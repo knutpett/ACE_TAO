@@ -207,7 +207,7 @@ protected:
 ACE_Reactor *
 create_reactor (void)
 {
-  ACE_Reactor_Impl *impl = 0;
+  ACE_Reactor_Impl *impl = nullptr;
 
   if (opt_wfmo_reactor)
     {
@@ -231,7 +231,7 @@ create_reactor (void)
       return singleton_reactor;
     }
 
-  ACE_Reactor *reactor = 0;
+  ACE_Reactor *reactor = nullptr;
   ACE_NEW_RETURN (reactor,
                   ACE_Reactor (impl,
                                1),

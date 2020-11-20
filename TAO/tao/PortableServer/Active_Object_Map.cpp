@@ -95,7 +95,7 @@ TAO_Active_Object_Map::TAO_Active_Object_Map (
 {
   TAO_Active_Object_Map::set_system_id_size (creation_parameters);
 
-  TAO_Id_Uniqueness_Strategy *id_uniqueness_strategy = 0;
+  TAO_Id_Uniqueness_Strategy *id_uniqueness_strategy = nullptr;
 
   if (unique_id_policy)
     {
@@ -122,7 +122,7 @@ TAO_Active_Object_Map::TAO_Active_Object_Map (
   auto_ptr<TAO_Id_Uniqueness_Strategy> new_id_uniqueness_strategy (id_uniqueness_strategy);
 #endif /* ACE_HAS_CPP11 */
 
-  TAO_Lifespan_Strategy *lifespan_strategy = 0;
+  TAO_Lifespan_Strategy *lifespan_strategy = nullptr;
 
   if (persistent_id_policy)
     {
@@ -150,7 +150,7 @@ TAO_Active_Object_Map::TAO_Active_Object_Map (
   auto_ptr<TAO_Lifespan_Strategy> new_lifespan_strategy (lifespan_strategy);
 #endif /* ACE_HAS_CPP11 */
 
-  TAO_Id_Assignment_Strategy *id_assignment_strategy = 0;
+  TAO_Id_Assignment_Strategy *id_assignment_strategy = nullptr;
 
   if (user_id_policy)
     {
@@ -189,7 +189,7 @@ TAO_Active_Object_Map::TAO_Active_Object_Map (
   auto_ptr<TAO_Id_Assignment_Strategy> new_id_assignment_strategy (id_assignment_strategy);
 #endif /* ACE_HAS_CPP11 */
 
-  TAO_Id_Hint_Strategy *id_hint_strategy = 0;
+  TAO_Id_Hint_Strategy *id_hint_strategy = nullptr;
   if ((user_id_policy
        || creation_parameters.allow_reactivation_of_system_ids_)
       && creation_parameters.use_active_hint_in_ids_)
@@ -215,7 +215,7 @@ TAO_Active_Object_Map::TAO_Active_Object_Map (
   auto_ptr<TAO_Id_Hint_Strategy> new_id_hint_strategy (id_hint_strategy);
 #endif /* ACE_HAS_CPP11 */
 
-  servant_map *sm = 0;
+  servant_map *sm = nullptr;
   if (unique_id_policy)
     {
       switch (creation_parameters.reverse_object_lookup_strategy_for_unique_id_policy_)
@@ -253,7 +253,7 @@ TAO_Active_Object_Map::TAO_Active_Object_Map (
   auto_ptr<servant_map> new_servant_map (sm);
 #endif /* ACE_HAS_CPP11 */
 
-  user_id_map *uim = 0;
+  user_id_map *uim = nullptr;
   if (user_id_policy
       || creation_parameters.allow_reactivation_of_system_ids_)
     {
@@ -381,7 +381,7 @@ TAO_Active_Object_Map::is_user_id_in_map (
   bool &priorities_match,
   bool &deactivated)
 {
-  TAO_Active_Object_Map_Entry *entry = 0;
+  TAO_Active_Object_Map_Entry *entry = nullptr;
   bool result = false;
   int const find_result = this->user_id_map_->find (user_id, entry);
 
@@ -425,7 +425,7 @@ int
 TAO_Unique_Id_Strategy::is_servant_in_map (PortableServer::Servant servant,
                                            bool &deactivated)
 {
-  TAO_Active_Object_Map_Entry *entry = 0;
+  TAO_Active_Object_Map_Entry *entry = nullptr;
   int result = this->active_object_map_->servant_map_->find (servant,
                                                              entry);
   if (result == 0)
@@ -553,7 +553,7 @@ int
 TAO_Unique_Id_Strategy::unbind_using_user_id (
   const PortableServer::ObjectId &user_id)
 {
-  TAO_Active_Object_Map_Entry *entry = 0;
+  TAO_Active_Object_Map_Entry *entry = nullptr;
   int result = this->active_object_map_->user_id_map_->unbind (user_id,
                                                                entry);
   if (result == 0)
@@ -602,7 +602,7 @@ TAO_Unique_Id_Strategy::find_user_id_using_servant (
   PortableServer::Servant servant,
   PortableServer::ObjectId_out user_id)
 {
-  TAO_Active_Object_Map_Entry *entry = 0;
+  TAO_Active_Object_Map_Entry *entry = nullptr;
   int result = this->active_object_map_->servant_map_->find (servant, entry);
 
   if (result == 0)
@@ -628,7 +628,7 @@ TAO_Unique_Id_Strategy::find_system_id_using_servant (
   PortableServer::ObjectId_out system_id,
   CORBA::Short &priority)
 {
-  TAO_Active_Object_Map_Entry *entry = 0;
+  TAO_Active_Object_Map_Entry *entry = nullptr;
   int result = this->active_object_map_->servant_map_->find (servant,
                                                              entry);
   if (result == 0)
@@ -750,7 +750,7 @@ int
 TAO_Multiple_Id_Strategy::unbind_using_user_id (
   const PortableServer::ObjectId &user_id)
 {
-  TAO_Active_Object_Map_Entry *entry = 0;
+  TAO_Active_Object_Map_Entry *entry = nullptr;
   int result = this->active_object_map_->user_id_map_->unbind (user_id,
                                                                entry);
   if (result == 0)

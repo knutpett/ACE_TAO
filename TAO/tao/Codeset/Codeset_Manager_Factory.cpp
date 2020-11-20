@@ -28,7 +28,7 @@ TAO_Codeset_Manager_Factory::is_default (void) const
 TAO_Codeset_Manager *
 TAO_Codeset_Manager_Factory::create (void)
 {
-  TAO_Codeset_Manager_i *csm = 0;
+  TAO_Codeset_Manager_i *csm = nullptr;
   ACE_NEW_RETURN (csm, TAO_Codeset_Manager_i, 0);
 
   return csm;

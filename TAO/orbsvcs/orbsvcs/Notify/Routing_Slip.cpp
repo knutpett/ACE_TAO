@@ -109,8 +109,8 @@ Routing_Slip::create (
   Routing_Slip_Persistence_Manager * rspm)
 {
   Routing_Slip_Ptr result;
-  ACE_Message_Block * event_mb = 0;
-  ACE_Message_Block * rs_mb = 0;
+  ACE_Message_Block * event_mb = nullptr;
+  ACE_Message_Block * rs_mb = nullptr;
   try
     {
       if (rspm->reload (event_mb, rs_mb))

@@ -56,7 +56,7 @@ namespace TAO
   PortableInterceptor::AdapterName *
   ObjectReferenceTemplate::adapter_name (void)
   {
-    PortableInterceptor::AdapterName *adapter_name = 0;
+    PortableInterceptor::AdapterName *adapter_name = nullptr;
 
     ACE_NEW_THROW_EX (adapter_name,
                       PortableInterceptor::AdapterName (

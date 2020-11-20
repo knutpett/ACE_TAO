@@ -34,7 +34,7 @@
 ACE_Timer_Queue *
 create_timer_queue (void)
 {
-  ACE_Timer_Queue * tmq = 0;
+  ACE_Timer_Queue * tmq = nullptr;
 
   typedef ACE_Timer_Heap_T<ACE_Event_Handler *,
                            ACE_Event_Handler_Handle_Timeout_Upcall,
@@ -85,7 +85,7 @@ MyTask::create_reactor (void)
 
   this->my_tq_ = create_timer_queue ();
 
-  ACE_TP_Reactor * pImpl = 0;
+  ACE_TP_Reactor * pImpl = nullptr;
   ACE_NEW_RETURN (pImpl,ACE_TP_Reactor (0, this->my_tq_), -1);
 
   ACE_NEW_RETURN (my_reactor_,

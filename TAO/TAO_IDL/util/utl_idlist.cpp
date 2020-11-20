@@ -92,7 +92,7 @@ UTL_IdList::UTL_IdList (Identifier *s,
 UTL_IdList *
 UTL_IdList::copy (void)
 {
-  UTL_IdList *retval = 0;
+  UTL_IdList *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   UTL_IdList (this->head ()->copy (),
                               0),
@@ -173,8 +173,8 @@ UTL_IdList::compare (UTL_IdList *other)
       return 1;
    }
 
-  Identifier *this_id = 0;
-  Identifier *other_id = 0;
+  Identifier *this_id = nullptr;
+  Identifier *other_id = nullptr;
 
   for (UTL_IdListActiveIterator this_iter (this), other_iter (other);
        !this_iter.is_done ();

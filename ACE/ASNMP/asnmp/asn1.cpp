@@ -1010,7 +1010,7 @@ void cmu_snmp::add_var(struct snmp_pdu *pdu,
 {
   ACE_TRACE("cmu_snmp::add_var");
 
-  struct variable_list *vars = 0;
+  struct variable_list *vars = nullptr;
 
   // if we don't have a vb list ,create one
   if (pdu->variables == 0)
@@ -1538,7 +1538,7 @@ int cmu_snmp::parse( struct snmp_pdu *pdu,
   int       len, four;
   u_char community[256];
   int community_length = 256;
-  struct variable_list *vp = 0;
+  struct variable_list *vp = nullptr;
   oid       objid[MAX_NAME_LEN], *op;
 
   // authenticates message and returns length if valid

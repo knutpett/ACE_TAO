@@ -16,17 +16,17 @@ ACE_OS::select (int width,
 #if defined (ACE_HAS_NONCONST_SELECT_TIMEVAL)
   // We must defend against non-conformity!
   timeval copy;
-  timeval *timep = 0;
+  timeval *timep = nullptr;
 
-  if (timeout != 0)
+  if (timeout != nullptr)
     {
       copy = *timeout;
       timep = &copy;
     }
   else
-    timep = 0;
+    timep = nullptr;
 #else
-  const timeval *timep = (timeout == 0 ? (const timeval *)0 : *timeout);
+  const timeval *timep = (timeout == nullptr ? (const timeval *)nullptr : *timeout);
 #endif /* ACE_HAS_NONCONST_SELECT_TIMEVAL */
 #if defined (ACE_LACKS_SELECT)
   ACE_UNUSED_ARG (width);

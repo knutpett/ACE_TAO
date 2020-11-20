@@ -28,7 +28,7 @@
 #include "ace/OS_NS_unistd.h"
 #include "ace/Numeric_Limits.h"
 
-TAO_CodeGen * tao_cg = 0;
+TAO_CodeGen * tao_cg = nullptr;
 
 TAO_CodeGen::TAO_CodeGen (void)
   : client_header_ (0),
@@ -296,7 +296,7 @@ TAO_CodeGen::start_client_header (const char *fname)
        !i.done ();
        i.advance ())
     {
-      char **tmp = 0;
+      char **tmp = nullptr;
       i.next (tmp);
 
       // Make a String out of it.
@@ -1053,7 +1053,7 @@ TAO_CodeGen::start_ciao_svnt_header (const char *fname)
      << be_nl;
 
 
-  char **path_tmp = 0;
+  char **path_tmp = nullptr;
 
   for (ACE_Unbounded_Queue_Iterator<char *>riter (
          idl_global->ciao_lem_file_names ());
@@ -2468,7 +2468,7 @@ TAO_CodeGen::gen_stub_hdr_includes (void)
         {
           ACE_Unbounded_Queue<char *> &ts_files =
             idl_global->ciao_oci_ts_file_names ();
-          char **tmp = 0;
+          char **tmp = nullptr;
 
           for (ACE_Unbounded_Queue_Iterator<char *> i (ts_files);
               !i.done ();
@@ -3562,7 +3562,7 @@ TAO_CodeGen::gen_exec_idl_includes (void)
         idl_global->stripped_filename ()->get_string ());
     }
 
-  char **path_tmp = 0;
+  char **path_tmp = nullptr;
 
   for (ACE_Unbounded_Queue_Iterator<char *>riter (
          idl_global->ciao_lem_file_names ());
@@ -3823,7 +3823,7 @@ TAO_CodeGen::gen_conn_ts_includes (
       *this->ciao_conn_header_ << be_nl;
     }
 
-  char **tmp = 0;
+  char **tmp = nullptr;
 
   for (ACE_Unbounded_Queue_Iterator<char *> i (ts_files);
        !i.done ();

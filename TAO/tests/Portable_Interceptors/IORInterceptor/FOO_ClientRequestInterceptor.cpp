@@ -59,7 +59,7 @@ FOO_ClientRequestInterceptor::send_request (
     this->codec_->decode_value (data,
                                 CORBA::_tc_string);
 
-  const char * name = 0;
+  const char * name = nullptr;
 
   if (!(decoded_data.in () >>= name))
     {

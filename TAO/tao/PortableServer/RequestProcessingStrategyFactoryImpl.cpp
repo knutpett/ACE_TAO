@@ -17,8 +17,8 @@ namespace TAO
         ::PortableServer::RequestProcessingPolicyValue value,
         ::PortableServer::ServantRetentionPolicyValue srvalue)
     {
-      RequestProcessingStrategy* strategy = 0;
-      RequestProcessingStrategyFactory *strategy_factory = 0;
+      RequestProcessingStrategy* strategy = nullptr;
+      RequestProcessingStrategyFactory *strategy_factory = nullptr;
 
       switch (value)
       {
@@ -76,7 +76,7 @@ namespace TAO
     RequestProcessingStrategyFactoryImpl::destroy (
       RequestProcessingStrategy *strategy)
     {
-      RequestProcessingStrategyFactory *strategy_factory = 0;
+      RequestProcessingStrategyFactory *strategy_factory = nullptr;
 
       switch (strategy->type ())
       {

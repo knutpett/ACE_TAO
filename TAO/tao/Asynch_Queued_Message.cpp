@@ -112,7 +112,7 @@ TAO_Asynch_Queued_Message::bytes_transferred (size_t &byte_count)
 TAO_Queued_Message *
 TAO_Asynch_Queued_Message::clone (ACE_Allocator *alloc)
 {
-  char *buf = 0;
+  char *buf = nullptr;
 
   // @todo: Need to use a memory pool. But certain things need to
   // change a bit in this class for that. Till then.
@@ -129,7 +129,7 @@ TAO_Asynch_Queued_Message::clone (ACE_Allocator *alloc)
                   this->buffer_ + this->offset_,
                   sz);
 
-  TAO_Asynch_Queued_Message *qm = 0;
+  TAO_Asynch_Queued_Message *qm = nullptr;
 
   if (alloc)
     {

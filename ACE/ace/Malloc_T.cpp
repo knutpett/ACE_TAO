@@ -626,16 +626,16 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc (size_t nbytes)
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc");
 #endif /* !ACE_HAS_WIN32_STRUCTURAL_EXCEPTIONS */
 
-  if (this->cb_ptr_ == 0)
-    return 0;
+  if (this->cb_ptr_ == nullptr)
+    return nullptr;
 
   // Round up request to a multiple of the MALLOC_HEADER size.
   size_t const nunits =
     (nbytes + sizeof (MALLOC_HEADER) - 1) / sizeof (MALLOC_HEADER)
     + 1; // Add one for the <MALLOC_HEADER> itself.
 
-  MALLOC_HEADER *prevp = 0;
-  MALLOC_HEADER *currp = 0;
+  MALLOC_HEADER *prevp = nullptr;
+  MALLOC_HEADER *currp = nullptr;
 
   ACE_SEH_TRY
     {
@@ -674,7 +674,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc (size_t nbytes)
                   currp->size_ -= nunits;
                   currp += currp->size_;
                   MALLOC_HEADER::init_ptr (&currp->next_block_,
-                                           0,
+                                           nullptr,
                                            this->cb_ptr_);
                   currp->size_ = nunits;
                 }
@@ -695,17 +695,17 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc (size_t nbytes)
                 this->memory_pool_.acquire (nunits * sizeof (MALLOC_HEADER),
                                             chunk_bytes);
               void *remap_addr = this->memory_pool_.base_addr ();
-              if (remap_addr != 0)
+              if (remap_addr != nullptr)
                 this->cb_ptr_ = (ACE_CB *) remap_addr;
 
-              if (currp != 0)
+              if (currp != nullptr)
                 {
                   ACE_MALLOC_STATS (++this->cb_ptr_->malloc_stats_.nblocks_);
                   ACE_MALLOC_STATS (++this->cb_ptr_->malloc_stats_.nchunks_);
                   ACE_MALLOC_STATS (++this->cb_ptr_->malloc_stats_.ninuse_);
 
                   MALLOC_HEADER::init_ptr (&currp->next_block_,
-                                           0,
+                                           nullptr,
                                            this->cb_ptr_);
                   // Compute the chunk size in MALLOC_HEADER units.
                   currp->size_ = chunk_bytes / sizeof (MALLOC_HEADER);
@@ -719,7 +719,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc (size_t nbytes)
                   currp = this->cb_ptr_->freep_;
                 }
               else
-                return 0;
+                return nullptr;
                 // Shouldn't do this here because of errors with the wchar ver
                 // This is because ACELIB_ERROR_RETURN converts the __FILE__ to
                 // wchar before printing out.  The compiler will complain
@@ -727,7 +727,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc (size_t nbytes)
                 //ACELIB_ERROR_RETURN ((LM_ERROR,
                 //                   ACE_TEXT ("(%P|%t) %p\n"),
                 //                   ACE_TEXT ("malloc")),
-                //                  0);
+                //                  nullptr);
             }
           prevp = currp;
           currp = currp->next_block_;
@@ -736,7 +736,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_malloc (size_t nbytes)
         {
         }
     }
-  ACE_NOTREACHED (return 0;)
+  ACE_NOTREACHED (return nullptr;)
 }
 
 // General-purpose memory allocator.
@@ -745,7 +745,7 @@ template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB> void *
 ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::malloc (size_t nbytes)
 {
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::malloc");
-  ACE_GUARD_RETURN (ACE_LOCK, ace_mon, *this->lock_, 0);
+  ACE_GUARD_RETURN (ACE_LOCK, ace_mon, *this->lock_, nullptr);
 
   return this->shared_malloc (nbytes);
 }
@@ -759,7 +759,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::calloc (size_t nbytes,
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::calloc");
   void *ptr = this->malloc (nbytes);
 
-  if (ptr != 0)
+  if (ptr != nullptr)
     ACE_OS::memset (ptr, initial_value, nbytes);
 
   return ptr;
@@ -784,7 +784,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_free (void *ap)
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_free");
 #endif /* ACE_HAS_WIN32_STRUCTURAL_EXCEPTIONS */
 
-  if (ap == 0 || this->cb_ptr_ == 0)
+  if (ap == nullptr || this->cb_ptr_ == nullptr)
     return;
 
   // Adjust AP to point to the block MALLOC_HEADER
@@ -845,13 +845,13 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_find (const char *name)
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_find");
 #endif /* !ACE_HAS_WIN32_STRUCTURAL_EXCEPTIONS */
 
-  if (this->cb_ptr_ == 0)
-    return 0;
+  if (this->cb_ptr_ == nullptr)
+    return nullptr;
 
   ACE_SEH_TRY
     {
       for (NAME_NODE *node = this->cb_ptr_->name_head_;
-           node != 0;
+           node != nullptr;
            node = node->next_)
         if (ACE_OS::strcmp (node->name (),
                             name) == 0)
@@ -860,18 +860,18 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_find (const char *name)
   ACE_SEH_EXCEPT (this->memory_pool_.seh_selector (GetExceptionInformation ()))
     {
     }
-  return 0;
+  return nullptr;
 }
 
 template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB> int
 ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::shared_bind (const char *name,
                                                              void *pointer)
 {
-  if (this->cb_ptr_ == 0)
+  if (this->cb_ptr_ == nullptr)
     return -1;
 
   // Combine the two allocations into one to avoid overhead...
-  NAME_NODE *new_node = 0;
+  NAME_NODE *new_node = nullptr;
 
   ACE_ALLOCATOR_RETURN (new_node,
                         (NAME_NODE *)
@@ -900,7 +900,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::trybind (const char *name,
 
   NAME_NODE *node = (NAME_NODE *) this->shared_find (name);
 
-  if (node == 0)
+  if (node == nullptr)
     // Didn't find it, so insert it.
     return this->shared_bind (name, pointer);
 
@@ -917,7 +917,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::bind (const char *name,
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::bind");
   ACE_WRITE_GUARD_RETURN (ACE_LOCK, ace_mon, *this->lock_, -1);
 
-  if (duplicates == 0 && this->shared_find (name) != 0)
+  if (duplicates == 0 && this->shared_find (name) != nullptr)
     // If we're not allowing duplicates, then if the name is already
     // present, return 1.
     return 1;
@@ -937,7 +937,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::find (const char *name,
 
   NAME_NODE *node = (NAME_NODE *) this->shared_find (name);
 
-  if (node == 0)
+  if (node == nullptr)
     return -1;
 
   pointer = (char *) node->pointer_;
@@ -985,7 +985,7 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::find (const char *name)
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::find");
   ACE_READ_GUARD_RETURN (ACE_LOCK, ace_mon, *this->lock_, -1);
 
-  return this->shared_find (name) == 0 ? -1 : 0;
+  return this->shared_find (name) == nullptr ? -1 : 0;
 }
 
 template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB> int
@@ -994,20 +994,20 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::unbind (const char *name, void *
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::unbind");
   ACE_WRITE_GUARD_RETURN (ACE_LOCK, ace_mon, *this->lock_, -1);
 
-  if (this->cb_ptr_ == 0)
+  if (this->cb_ptr_ == nullptr)
     return -1;
 
-  NAME_NODE *prev = 0;
+  NAME_NODE *prev = nullptr;
 
   for (NAME_NODE *curr = this->cb_ptr_->name_head_;
-       curr != 0;
+       curr != nullptr;
        curr = curr->next_)
     {
       if (ACE_OS::strcmp (curr->name (), name) == 0)
         {
           pointer = (char *) curr->pointer_;
 
-          if (prev == 0)
+          if (prev == nullptr)
             this->cb_ptr_->name_head_ = curr->next_;
           else
             prev->next_ = curr->next_;
@@ -1031,7 +1031,7 @@ template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB> int
 ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::unbind (const char *name)
 {
   ACE_TRACE ("ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::unbind");
-  void *temp = 0;
+  void *temp = nullptr;
   return this->unbind (name, temp);
 }
 
@@ -1040,13 +1040,13 @@ ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::unbind (const char *name)
 template <class ACE_LOCK> ACE_LOCK *
 ACE_Malloc_Lock_Adapter_T<ACE_LOCK>::operator () (const ACE_TCHAR *name)
 {
-  ACE_LOCK *p = 0;
-  if (name == 0)
-    ACE_NEW_RETURN (p, ACE_LOCK (name), 0);
+  ACE_LOCK *p = nullptr;
+  if (name == nullptr)
+    ACE_NEW_RETURN (p, ACE_LOCK (name), nullptr);
   else
     ACE_NEW_RETURN (p, ACE_LOCK (ACE::basename (name,
                                                 ACE_DIRECTORY_SEPARATOR_CHAR)),
-                    0);
+                    nullptr);
   return p;
 }
 
@@ -1246,7 +1246,7 @@ template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB> int
 ACE_Malloc_FIFO_Iterator_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>::start (void)
 {
   this->curr_ = this->curr_->next_;
-  NAME_NODE *prev = 0;
+  NAME_NODE *prev = nullptr;
 
   // Locate the element that was inserted first.
   // @@ We could optimize this by making the list a circular list or

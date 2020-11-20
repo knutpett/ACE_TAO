@@ -56,7 +56,7 @@ ACE_Based_Pointer_Basic<CONCRETE>::ACE_Based_Pointer_Basic (void)
     base_offset_ (0)
 {
   ACE_TRACE ("ACE_Based_Pointer_Basic<CONCRETE>::ACE_Based_Pointer_Basic");
-  void *base_addr = 0;
+  void *base_addr = nullptr;
 
   // Find the base address associated with our <this> pointer.  Note
   // that it's ok for <find> to return 0, which simply indicates that
@@ -82,12 +82,12 @@ ACE_Based_Pointer_Basic<CONCRETE>::ACE_Based_Pointer_Basic (CONCRETE *rhs)
 {
   ACE_TRACE ("ACE_Based_Pointer_Basic<CONCRETE>::ACE_Based_Pointer_Basic");
 
-  if (rhs == 0)
+  if (rhs == nullptr)
     // Store a value of <target_> that indicate "NULL" pointer.
     this->target_ = -1;
   else
     {
-      void *base_addr = 0;
+      void *base_addr = nullptr;
 
       // Find the base address associated with the <addr> pointer.
       // Note that it's ok for <find> to return 0, which simply

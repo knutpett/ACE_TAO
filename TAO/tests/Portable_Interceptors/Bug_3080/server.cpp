@@ -3,7 +3,7 @@
 #include "ace/OS_NS_stdio.h"
 #include "test_i.h"
 
-const ACE_TCHAR *ior_file = 0;
+const ACE_TCHAR *ior_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -53,7 +53,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (::parse_args (argc, argv) != 0)
         return -1;
 
-      test_i *test_impl = 0;
+      test_i *test_impl = nullptr;
       ACE_NEW_RETURN (test_impl, test_i (1, orb.in ()), 1);
       PortableServer::ServantBase_var owner_transfer (test_impl);
 

@@ -389,7 +389,7 @@ TAO_Thread_Lane_Resources::finalize (void)
 
   // Go through the handler set, closing the connections and removing
   // the references.
-  TAO_Connection_Handler **handler = 0;
+  TAO_Connection_Handler **handler = nullptr;
 
   for (TAO::Connection_Handler_Set::iterator iter (handlers);
        iter.next (handler);
@@ -527,7 +527,7 @@ TAO_Thread_Lane_Resources::close_all_transports (void)
 
   // Go through the handler set, closing the connections and removing
   // the references.
-  TAO_Connection_Handler **handler = 0;
+  TAO_Connection_Handler **handler = nullptr;
 
   for (TAO::Connection_Handler_Set::iterator iter (handlers);
        iter.next (handler);

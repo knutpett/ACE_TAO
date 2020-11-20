@@ -12,8 +12,8 @@
 #include "ace/HTBP/HTBP_ID_Requestor.h"
 #include "ace/HTBP/HTBP_Environment.h"
 
-const ACE_TCHAR * remote_host = 0;
-const ACE_TCHAR * config_file = 0;
+const ACE_TCHAR * remote_host = nullptr;
+const ACE_TCHAR * config_file = nullptr;
 unsigned remote_port = 8088;
 
 int

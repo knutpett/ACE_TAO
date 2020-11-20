@@ -128,7 +128,7 @@ HTTP_Request::parse_request_line (char *const request_line)
   *ptr = '\0';
   ptr += offset;
 
-  char *lasts = 0; // for strtok_r
+  char *lasts = nullptr; // for strtok_r
 
   // Get the request type.
   this->got_request_line_ = 1;
@@ -251,7 +251,7 @@ HTTP_Request::headers (void) const
 const char *
 HTTP_Request::header_strings (int index) const
 {
-  const char *hs = 0;
+  const char *hs = nullptr;
 
   if (0 <= index && index < NUM_HEADER_STRINGS)
     hs = this->header_strings_[index];
@@ -262,8 +262,8 @@ HTTP_Request::header_strings (int index) const
 const char *
 HTTP_Request::header_values (int index) const
 {
-  const char *hs = 0;
-  const char *hv = 0;
+  const char *hs = nullptr;
+  const char *hv = nullptr;
 
   if (0 <= index && index < NUM_HEADER_STRINGS)
     {
@@ -421,7 +421,7 @@ HTTP_Request::cgi (char *uri_string)
   // (1) the file has a CGI extension.
   // (2) the file resides in a CGI bin directory.
 
-  char *extra_path_info = 0;
+  char *extra_path_info = nullptr;
   if (this->cgi_in_path (uri_string, extra_path_info)
       || this->cgi_in_extension (uri_string, extra_path_info))
     {
@@ -455,7 +455,7 @@ HTTP_Request::cgi_in_path (char *uri_string, char *&extra_path_info)
   if (cgi_path == 0)
     return 0;
 
-  char *lasts = 0;
+  char *lasts = nullptr;
   char *cgi_path_next = ACE_OS::strtok_r (cgi_path, ":", &lasts);
 
   if (cgi_path_next)
@@ -546,7 +546,7 @@ HTTP_Request::cgi_in_extension (char *uri_string, char *&extra_path_info)
 void
 HTTP_Request::cgi_args_and_env (char *&extra_path_info)
 {
-  char *cgi_question = 0;
+  char *cgi_question = nullptr;
 
   if (extra_path_info)
     cgi_question = ACE_OS::strchr (extra_path_info, '?');

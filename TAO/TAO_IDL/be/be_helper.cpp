@@ -464,7 +464,7 @@ TAO_OutStream::print (UTL_IdList *idl)
 {
   bool first = true;
   bool second = false;
-  Identifier *id = 0;
+  Identifier *id = nullptr;
 
   for (UTL_IdListActiveIterator i (idl); !i.is_done (); i.next ())
     {

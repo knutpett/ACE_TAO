@@ -283,7 +283,7 @@ void TAO::PG_FactoryRegistry::register_factory (
 {
   METHOD_ENTRY(TAO::PG_FactoryRegistry::register_factory);
 
-  RoleInfo * role_info = 0;
+  RoleInfo * role_info = nullptr;
   auto_ptr<RoleInfo> safe_entry;
   if (this->registry_.find(role, role_info) != 0)
     {
@@ -350,7 +350,7 @@ void TAO::PG_FactoryRegistry::unregister_factory (
 {
   METHOD_ENTRY(TAO::PG_FactoryRegistry::unregister_factory);
 
-  RoleInfo * role_info = 0;
+  RoleInfo * role_info = nullptr;
   if (this->registry_.find(role, role_info) == 0)
   {
     PortableGroup::FactoryInfos & infos = role_info->infos_;
@@ -438,7 +438,7 @@ void TAO::PG_FactoryRegistry::unregister_factory_by_role (
 {
   METHOD_ENTRY(TAO::PG_FactoryRegistry::unregister_factory_by_role);
 
-  RoleInfo * role_info = 0;
+  RoleInfo * role_info = nullptr;
   if (this->registry_.unbind(role, role_info) == 0)
   {
     ORBSVCS_DEBUG(( LM_DEBUG,
@@ -600,7 +600,7 @@ void TAO::PG_FactoryRegistry::unregister_factory_by_location (
     CORBA::NO_MEMORY (TAO::VMCID, CORBA::COMPLETED_NO));
 
 
-  RoleInfo * role_info = 0;
+  RoleInfo * role_info = nullptr;
   if (this->registry_.find(role, role_info) == 0)
   {
     type_id =  CORBA::string_dup(role_info->type_id_.c_str());

@@ -89,7 +89,7 @@ csdb_generator::read_line()
   if (cpos == 0)
     cpos = source_line_ + ACE_OS::strlen(source_line_);
   while (cpos > source_line_ && ACE_OS::strchr(" \t",*(cpos - 1))) cpos--;
-  *cpos = 0;
+  *cpos = nullptr;
   if (cpos == source_line_)
     return 0;
   for (int i = 0; tags_[i]; i++)

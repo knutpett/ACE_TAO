@@ -458,7 +458,7 @@ CORBA::ContainedSeq *
 TAO_Container_i::contents_i (CORBA::DefinitionKind limit_type,
                              CORBA::Boolean exclude_inherited)
 {
-  CORBA::ContainedSeq *contents = 0;
+  CORBA::ContainedSeq *contents = nullptr;
   ACE_NEW_THROW_EX (contents,
                     CORBA::ContainedSeq,
                     CORBA::NO_MEMORY ());
@@ -706,7 +706,7 @@ TAO_Container_i::describe_contents_i (CORBA::DefinitionKind limit_type,
   ACE_Configuration_Section_Key contained_key;
   PortableServer::ObjectId_var oid;
   CORBA::String_var tmp;
-  TAO_Contained_i *impl = 0;
+  TAO_Contained_i *impl = nullptr;
 
   for (CORBA::ULong i = 0; i < ret_len; ++i)
     {
@@ -818,7 +818,7 @@ TAO_Container_i::create_constant_i (const char *id,
                                             type_path);
 
   // Store the value.
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   TAO::Any_Impl *impl = value.impl ();
 
   if (impl->encoded ())
@@ -921,7 +921,7 @@ TAO_Container_i::create_struct_i (const char *id,
   this->repo_->config ()->set_integer_value (refs_key,
                                              "count",
                                              count);
-  char *member_path = 0;
+  char *member_path = nullptr;
 
   // Create a section for each member. We just store the
   // member name and the path to its database entry.
@@ -1030,7 +1030,7 @@ TAO_Container_i::create_union_i (const char *id,
   this->repo_->config ()->set_integer_value (refs_key,
                                              "count",
                                              count);
-  char *member_path = 0;
+  char *member_path = nullptr;
 
   // Create a section for each member. We store the member
   // name, its label value, and the path to its database entry.
@@ -1255,7 +1255,7 @@ TAO_Container_i::create_interface_i (const char *id,
                                             "inherited",
                                             1,
                                             inherited_key);
-      char *inherited_path = 0;
+      char *inherited_path = nullptr;
 
       // Store the path to each base interface.
       for (CORBA::ULong i = 0; i < length; ++i)
@@ -1454,7 +1454,7 @@ TAO_Container_i::create_exception_i (const char *id,
   this->repo_->config ()->set_integer_value (refs_key,
                                              "count",
                                              count);
-  char *member_path = 0;
+  char *member_path = nullptr;
 
   // Create a section for each member. We just store the
   // member name and the path to its database entry.
@@ -1581,7 +1581,7 @@ TAO_Container_i::create_abstract_interface_i (
                                             "inherited",
                                             1,
                                             inherited_key);
-      char *inherited_path = 0;
+      char *inherited_path = nullptr;
 
       // Store the path to each base interface.
       for (CORBA::ULong i = 0; i < length; ++i)
@@ -1656,7 +1656,7 @@ TAO_Container_i::create_local_interface_i (
                                             "inherited",
                                             1,
                                             inherited_key);
-      char *inherited_path = 0;
+      char *inherited_path = nullptr;
 
       // Store the path to each base interface.
       for (CORBA::ULong i = 0; i < length; ++i)
@@ -1751,7 +1751,7 @@ TAO_Container_i::create_ext_value_i (
   if (length > 0)
     {
       ACE_Configuration_Section_Key initializers_key, initializer_key;
-      char *stringified = 0;
+      char *stringified = nullptr;
 
       this->repo_->config ()->open_section (new_key,
                                             "initializers",
@@ -2411,8 +2411,8 @@ TAO_Container_i::create_value_common (
                                                  length);
 
       ACE_TString base_id;
-      const char *base_path = 0;
-      char *stringified = 0;
+      const char *base_path = nullptr;
+      char *stringified = nullptr;
 
       for (CORBA::ULong i = 0; i < length; ++i)
         {
@@ -2460,7 +2460,7 @@ TAO_Container_i::create_value_common (
                                                  "count",
                                                  length);
       ACE_TString supported_id;
-      const char *supported_path = 0;
+      const char *supported_path = nullptr;
       CORBA::ULong kind = 0;
       CORBA::Boolean concrete_seen = 0;
       CORBA::DefinitionKind def_kind;

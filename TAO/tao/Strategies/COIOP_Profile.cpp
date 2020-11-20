@@ -50,7 +50,7 @@ TAO_COIOP_Profile::~TAO_COIOP_Profile (void)
 {
   // Clean up the list of endpoints since we own it.
   // Skip the head, since it is not dynamically allocated.
-  TAO_Endpoint *tmp = 0;
+  TAO_Endpoint *tmp = nullptr;
 
   for (TAO_Endpoint *next = this->endpoint ()->next ();
        next != 0;
@@ -370,7 +370,7 @@ TAO_COIOP_Profile::decode_endpoints (void)
            i > 0;
            --i)
         {
-          TAO_COIOP_Endpoint *endpoint = 0;
+          TAO_COIOP_Endpoint *endpoint = nullptr;
           CORBA::String_var strvar = CORBA::string_dup (endpoints[i].uuid);
           ACE_Utils::UUID uuid1 (strvar.in());
           ACE_NEW_RETURN (endpoint,

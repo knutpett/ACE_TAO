@@ -90,7 +90,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
   try
     {
-      Server_ORBInitializer *temp_initializer = 0;
+      Server_ORBInitializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       Server_ORBInitializer,
                       -1);  // No exceptions yet!
@@ -141,7 +141,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Hello *hello_impl = 0;
+      Hello *hello_impl = nullptr;
       ACE_NEW_RETURN (hello_impl,
                       Hello (orb.in (), Test::Hello::_nil ()),
                       1);

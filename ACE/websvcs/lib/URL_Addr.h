@@ -164,13 +164,13 @@ public:
   /// Construct an HTTP URL from the host, path, query and port.
   ACE_HTTP_Addr (const ACE_TCHAR *host_name,
                  const ACE_TCHAR *path,
-                 const ACE_TCHAR *query = 0,
+                 const ACE_TCHAR *query = nullptr,
                  u_short port = ACE_DEFAULT_HTTP_PORT);
 
   /// Essentially the constructor above.
   int set (const ACE_TCHAR *host_name,
            const ACE_TCHAR *path,
-           const ACE_TCHAR *query = 0,
+           const ACE_TCHAR *query = nullptr,
            u_short port = ACE_DEFAULT_HTTP_PORT);
 
   /// Copy constructor.
@@ -268,14 +268,14 @@ public:
   /// and the password.
   ACE_FTP_Addr (const ACE_TCHAR *host_name,
                 const ACE_TCHAR *path,
-                const ACE_TCHAR *user = 0,
-                const ACE_TCHAR *password = 0);
+                const ACE_TCHAR *user = nullptr,
+                const ACE_TCHAR *password = nullptr);
 
   /// Essentially the constructor above.
   int set (const ACE_TCHAR *host_name,
            const ACE_TCHAR *path,
-           const ACE_TCHAR *user = 0,
-           const ACE_TCHAR *password = 0);
+           const ACE_TCHAR *user = nullptr,
+           const ACE_TCHAR *password = nullptr);
 
   /// Copy constructor.
   ACE_FTP_Addr (const ACE_FTP_Addr &addr);
@@ -350,12 +350,12 @@ public:
   /// Construct an FTP URL from the host, path and headers.
   ACE_Mailto_Addr (const ACE_TCHAR *user,
                    const ACE_TCHAR *hostname,
-                   const ACE_TCHAR *headers = 0);
+                   const ACE_TCHAR *headers = nullptr);
 
   /// Essentially the constructor above.
   int set (const ACE_TCHAR *user,
            const ACE_TCHAR *hostname,
-           const ACE_TCHAR *headers = 0);
+           const ACE_TCHAR *headers = nullptr);
 
   /// Copy constructor.
   ACE_Mailto_Addr (const ACE_Mailto_Addr &addr);

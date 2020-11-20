@@ -352,8 +352,8 @@ ast_visitor_reifying::visit_array (AST_Array *node)
   bt = dynamic_cast<AST_Type*> (this->reified_node_);
 
   AST_Expression **dims = node->dims ();
-  AST_Expression *v = 0;
-  UTL_ExprList *v_list = 0;
+  AST_Expression *v = nullptr;
+  UTL_ExprList *v_list = nullptr;
 
   for (ACE_CDR::ULong i = 0; i < node->n_dims (); ++i)
     {
@@ -393,7 +393,7 @@ ast_visitor_reifying::visit_array (AST_Array *node)
                           -1);
         }
 
-      UTL_ExprList *el = 0;
+      UTL_ExprList *el = nullptr;
       ACE_NEW_RETURN (el,
                       UTL_ExprList (v, 0),
                       -1);
@@ -523,7 +523,7 @@ ast_visitor_reifying::visit_string (AST_String *node)
       return 0;
     }
 
-  AST_Expression *bound = 0;
+  AST_Expression *bound = nullptr;
   ACE_NEW_RETURN (bound,
                   AST_Expression (b,
                                   AST_Expression::EV_ulong),
@@ -563,7 +563,7 @@ ast_visitor_reifying::visit_param_holder (AST_Param_Holder *node)
        !iter.done ();
        iter.advance (), ++i)
     {
-      FE_Utils::T_Param_Info *item = 0;
+      FE_Utils::T_Param_Info *item = nullptr;
       iter.next (item);
 
       ACE_CString name (item->name_);
@@ -576,7 +576,7 @@ ast_visitor_reifying::visit_param_holder (AST_Param_Holder *node)
       /// name, which is what we want.
       if (name == node->local_name ()->get_string ())
         {
-          AST_Decl **ret_ptr = 0;
+          AST_Decl **ret_ptr = nullptr;
 
           if (t_args->get (ret_ptr, i) == 0)
             {

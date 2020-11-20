@@ -310,7 +310,7 @@ AST_Interface::fwd_redefinition_helper (AST_Interface *&i,
     }
 
   UTL_Scope *scope = i->defined_in ();
-  const char *prefix_holder = 0;
+  const char *prefix_holder = nullptr;
 
   // If our prefix is empty, we check to see if an ancestor has one.
   while (ACE_OS::strcmp (i->prefix (), "") == 0 && scope != 0)
@@ -519,7 +519,7 @@ AST_Interface::insert_non_dup (AST_Type *t,
        (void) q_iter.advance ())
     {
       // Queue element.
-      AST_Type **temp = 0;
+      AST_Type **temp = nullptr;
 
       (void) q_iter.next (temp);
 
@@ -539,7 +539,7 @@ AST_Interface::insert_non_dup (AST_Type *t,
        (void) del_q_iter.advance ())
     {
       // Queue element.
-      AST_Type **temp = 0;
+      AST_Type **temp = nullptr;
 
       (void) del_q_iter.next (temp);
 
@@ -653,10 +653,10 @@ AST_Interface::redef_clash (void)
   this->insert_queue.reset ();
   this->redef_clash_populate_r (this);
 
-  AST_Type **group1_member = 0;
-  AST_Type **group2_member = 0;
-  AST_Decl *group1_member_item = 0;
-  AST_Decl *group2_member_item = 0;
+  AST_Type **group1_member = nullptr;
+  AST_Type **group2_member = nullptr;
+  AST_Decl *group1_member_item = nullptr;
+  AST_Decl *group2_member_item = nullptr;
 
   int i = 1;
 
@@ -786,9 +786,9 @@ AST_Decl *
 AST_Interface::look_in_inherited (UTL_ScopedName *e,
                                   bool full_def_only)
 {
-  AST_Decl *d = 0;
-  AST_Decl *d_before = 0;
-  AST_Type **is = 0;
+  AST_Decl *d = nullptr;
+  AST_Decl *d_before = nullptr;
+  AST_Type **is = nullptr;
   long nis = -1;
 
   // Can't look in an interface which was not yet defined.
@@ -864,8 +864,8 @@ AST_Interface::look_in_inherited_local (Identifier *e,
       return 0;
     }
 
-  AST_Decl *d = 0;
-  AST_Type **is = 0;
+  AST_Decl *d = nullptr;
+  AST_Type **is = nullptr;
   long nis = -1;
 
   /// OK, loop through inherited interfaces.
@@ -900,10 +900,10 @@ AST_Interface::lookup_for_add (AST_Decl *d)
     }
 
   Identifier *id = d->local_name ();
-  AST_Decl *prev = 0;
+  AST_Decl *prev = nullptr;
   AST_Decl::NodeType nt = NT_root;
   long nis = -1;
-  AST_Interface **is = 0;
+  AST_Interface **is = nullptr;
 
   if (this->idl_keyword_clash (id) != 0)
     {
@@ -1089,7 +1089,7 @@ AST_Interface::destroy (void)
        !i.done ();
        (void) i.advance ())
     {
-      AST_Type **tt = 0;
+      AST_Type **tt = nullptr;
       i.next (tt);
       AST_Type *t = *tt;
       t->destroy ();

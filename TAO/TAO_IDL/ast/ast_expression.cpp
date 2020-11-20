@@ -464,7 +464,7 @@ AST_Expression::AST_Expression (UTL_String *sv)
   ACE_NEW (this->pd_ev,
            AST_ExprValue);
 
-  UTL_String *new_str = 0;
+  UTL_String *new_str = nullptr;
   ACE_NEW (new_str,
            UTL_String (sv, true));
 
@@ -1648,7 +1648,7 @@ static AST_Expression::AST_ExprValue *
 eval_kind (AST_Expression::AST_ExprValue *ev, AST_Expression::EvalKind ek)
 {
   // Make a copy to simplify the memory management logic.
-  AST_Expression::AST_ExprValue *newval = 0;
+  AST_Expression::AST_ExprValue *newval = nullptr;
   ACE_NEW_RETURN (newval,
                   AST_Expression::AST_ExprValue,
                   0);
@@ -1658,7 +1658,7 @@ eval_kind (AST_Expression::AST_ExprValue *ev, AST_Expression::EvalKind ek)
       *newval = *ev;
     }
 
-  AST_Expression::AST_ExprValue *retval = 0;
+  AST_Expression::AST_ExprValue *retval = nullptr;
 
   switch (ek)
   {
@@ -1728,7 +1728,7 @@ eval_kind (AST_Expression::AST_ExprValue *ev, AST_Expression::EvalKind ek)
 AST_Expression::AST_ExprValue *
 AST_Expression::eval_bin_op (AST_Expression::EvalKind ek)
 {
-  AST_ExprValue *retval = 0;
+  AST_ExprValue *retval = nullptr;
 
   if (this->pd_v1 == 0 || this->pd_v2 == 0)
     {
@@ -1904,7 +1904,7 @@ AST_Expression::eval_bin_op (AST_Expression::EvalKind ek)
 AST_Expression::AST_ExprValue *
 AST_Expression::eval_mod_op (AST_Expression::EvalKind ek)
 {
-  AST_ExprValue *retval = 0;
+  AST_ExprValue *retval = nullptr;
 
   if (this->pd_v1 == 0 || this->pd_v2 == 0)
     {
@@ -2004,7 +2004,7 @@ AST_Expression::eval_mod_op (AST_Expression::EvalKind ek)
 AST_Expression::AST_ExprValue *
 AST_Expression::eval_bit_op (AST_Expression::EvalKind ek)
 {
-  AST_Expression::AST_ExprValue *retval = 0;
+  AST_Expression::AST_ExprValue *retval = nullptr;
 
   if (this->pd_v1 == 0 || this->pd_v2 == 0)
     {
@@ -2337,7 +2337,7 @@ AST_Expression::eval_bit_op (AST_Expression::EvalKind ek)
 AST_Expression::AST_ExprValue *
 AST_Expression::eval_un_op (AST_Expression::EvalKind ek)
 {
-  AST_ExprValue *retval = 0;
+  AST_ExprValue *retval = nullptr;
 
   if (this->pd_ev != 0)
     {
@@ -2465,9 +2465,9 @@ AST_Expression::eval_un_op (AST_Expression::EvalKind ek)
 AST_Expression::AST_ExprValue *
 AST_Expression::eval_symbol (AST_Expression::EvalKind ek)
 {
-  UTL_Scope     *s = 0;
-  AST_Decl *d = 0;
-  AST_Constant *c = 0;
+  UTL_Scope     *s = nullptr;
+  AST_Decl *d = nullptr;
+  AST_Constant *c = nullptr;
 
   // Is there a symbol stored?
   if (this->pd_n == 0)
@@ -2607,7 +2607,7 @@ AST_Expression::check_and_coerce (AST_Expression::ExprType t,
 AST_Expression::AST_ExprValue *
 AST_Expression::coerce (AST_Expression::ExprType t)
 {
-  AST_ExprValue *tmp = 0;
+  AST_ExprValue *tmp = nullptr;
 
   // First, evaluate it, then try to coerce result type.
   // If already evaluated, return the result.
@@ -2656,7 +2656,7 @@ AST_Expression::coerce (AST_Expression::ExprType t)
     }
 
   // Create a copy to contain coercion result.
-  AST_ExprValue *copy = 0;
+  AST_ExprValue *copy = nullptr;
   ACE_NEW_RETURN (copy,
                   AST_ExprValue,
                   0);

@@ -73,7 +73,7 @@ TAO_ORBInitInfo::arguments (void)
   // In accordance with the C++ mapping for sequences, it is up to the
   // caller to deallocate storage for returned sequences.
 
-  CORBA::StringSeq *args = 0;
+  CORBA::StringSeq *args = nullptr;
   ACE_NEW_THROW_EX (args,
                     CORBA::StringSeq,
                     CORBA::NO_MEMORY (

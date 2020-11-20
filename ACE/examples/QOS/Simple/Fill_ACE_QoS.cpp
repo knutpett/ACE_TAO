@@ -28,7 +28,7 @@ int
 Fill_ACE_QoS::fill_simplex_receiver_qos (ACE_QoS &ace_qos,
                                          const ACE_CString &recv_flow_name)
 {
-  ACE_Flow_Spec *recv_flow_spec = 0;
+  ACE_Flow_Spec *recv_flow_spec = nullptr;
 
   if (this->map ().find (recv_flow_name, recv_flow_spec) != 0)
     ACE_ERROR_RETURN ((LM_DEBUG,
@@ -47,7 +47,7 @@ int
 Fill_ACE_QoS::fill_simplex_sender_qos (ACE_QoS &ace_qos,
                                        const ACE_CString &send_flow_name)
 {
-  ACE_Flow_Spec *send_flow_spec = 0;
+  ACE_Flow_Spec *send_flow_spec = nullptr;
 
   if (this->map ().find (send_flow_name, send_flow_spec) != 0)
     ACE_ERROR_RETURN ((LM_DEBUG,
@@ -67,8 +67,8 @@ Fill_ACE_QoS::fill_duplex_qos (ACE_QoS &ace_qos,
                                const ACE_CString &recv_flow_name,
                                const ACE_CString &send_flow_name)
 {
-  ACE_Flow_Spec *send_flow_spec = 0;
-  ACE_Flow_Spec *recv_flow_spec = 0;
+  ACE_Flow_Spec *send_flow_spec = nullptr;
+  ACE_Flow_Spec *recv_flow_spec = nullptr;
 
   if (this->map ().find (recv_flow_name, recv_flow_spec) != 0)
     ACE_ERROR_RETURN ((LM_DEBUG,

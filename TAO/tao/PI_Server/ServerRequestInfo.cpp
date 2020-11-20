@@ -292,7 +292,7 @@ TAO::ServerRequestInfo::sending_exception (void)
   // inserted then the UNKNOWN exception should be thrown with minor
   // code 1.
 
-  CORBA::Any * temp = 0;
+  CORBA::Any * temp = nullptr;
 
   ACE_NEW_THROW_EX (temp,
                     CORBA::Any,
@@ -353,7 +353,7 @@ TAO::ServerRequestInfo::object_id (void)
       const PortableServer::ObjectId &id =
         this->servant_upcall_->user_id ();
 
-      PortableInterceptor::ObjectId *tmp = 0;
+      PortableInterceptor::ObjectId *tmp = nullptr;
 
       ACE_NEW_THROW_EX (tmp,
                         PortableInterceptor::ObjectId,

@@ -68,7 +68,7 @@ public:
 
   /// Allows the producer to pass messages to the <Thread_Pool>.
   virtual int put (ACE_Message_Block *mb,
-                   ACE_Time_Value *tv = 0);
+                   ACE_Time_Value *tv = nullptr);
 
 private:
   //FUZZ: disable check_for_lack_ACE_OS
@@ -124,7 +124,7 @@ Thread_Pool::svc (void)
 
   for (int count = 1; ; count++)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       int result = this->getq (mb);
 
@@ -200,7 +200,7 @@ Thread_Pool::test_queue_deactivation_shutdown (void)
   if (this->open () == -1)
     return -1;
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   // Run the main loop that generates messages and enqueues them into
   // the pool of threads managed by <ACE_Task>.
@@ -292,7 +292,7 @@ Thread_Pool::test_empty_message_shutdown (void)
   if (this->open () == -1)
     return -1;
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   // Run the main loop that generates messages and enqueues them into
   // the pool of threads managed by <ACE_Task>.

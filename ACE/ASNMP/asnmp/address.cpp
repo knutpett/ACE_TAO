@@ -69,7 +69,7 @@ void Address::trim_white_space( char * ptr)
 
   // find end of string
   while ((*tmp!=' ') && (*tmp !=0)) tmp++;
-  if (*tmp!=0) *tmp=0;
+  if (*tmp!=0) *tmp = nullptr;
 }
 
 //TM: this is not used nor needed, remove?
@@ -898,11 +898,11 @@ int UdpAddress::parse_address( const char *inaddr)
   // like a normal IpAddress
   char *tmp;
   tmp = ACE_OS::strstr( buffer,":");
-  if (tmp==0)
+  if (tmp==nullptr)
     tmp = ACE_OS::strstr(buffer,"/");
 
   if ( tmp != 0) {
-    *tmp=0;   // null terminator
+    *tmp = nullptr;   // null terminator
     tmp++;
     port = ACE_OS::atoi( tmp);
   }
@@ -1371,7 +1371,7 @@ int IpxAddress::parse_address( const char *inaddr)
   str1 = ( unsigned char *) temp;
   while( *str1 != separator) str1++;
   str2 = str1 + 1;
-  *str1 = 0;
+  *str1 = nullptr;
   str1= ( unsigned char *) temp;
 
   // check len of the network portion
@@ -1705,7 +1705,7 @@ int IpxSockAddress::parse_address( const char *inaddr)
 
    if (tmp != 0)
    {
-     *tmp=0;   // null terminator
+     *tmp = nullptr;   // null terminator
      tmp++;
      socketid = ACE_OS::atoi( tmp);
    }

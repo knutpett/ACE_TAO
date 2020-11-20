@@ -61,7 +61,7 @@ public:
 
   /// Look for the documentation in Transport.h.
   virtual int handle_input (TAO_Resume_Handle &rh,
-                            ACE_Time_Value *max_wait_time = 0);
+                            ACE_Time_Value *max_wait_time = nullptr);
 protected:
   /** @name Overridden Template Methods
    *
@@ -80,7 +80,7 @@ protected:
   /// Read len bytes from into buf.
   virtual ssize_t recv (char *buf,
                         size_t len,
-                        const ACE_Time_Value *s = 0);
+                        const ACE_Time_Value *s = nullptr);
 
   virtual int register_handler (void);
 
@@ -95,10 +95,10 @@ public:
                             ACE_Time_Value *max_wait_time);
 
   virtual int send_message (TAO_OutputCDR &stream,
-                            TAO_Stub *stub = 0,
-                            TAO_ServerRequest *request = 0,
+                            TAO_Stub *stub = nullptr,
+                            TAO_ServerRequest *request = nullptr,
                             TAO_Message_Semantics message_semantics = TAO_Message_Semantics (),
-                            ACE_Time_Value *max_time_wait = 0);
+                            ACE_Time_Value *max_time_wait = nullptr);
 
 private:
 

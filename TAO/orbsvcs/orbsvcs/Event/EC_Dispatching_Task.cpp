@@ -99,7 +99,7 @@ TAO_EC_Dispatching_Task::svc (void)
     {
       try
         {
-          ACE_Message_Block *mb = 0;
+          ACE_Message_Block *mb = nullptr;
 
           if (this->getq (mb) == -1)
             {

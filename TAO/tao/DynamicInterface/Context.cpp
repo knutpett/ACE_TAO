@@ -96,7 +96,7 @@ CORBA::ContextList::~ContextList (void)
 {
   for (CORBA::ULong i = 0; i < this->count (); ++i)
     {
-      char **ctx = 0;
+      char **ctx = nullptr;
 
       if (this->ctx_list_.get (ctx, i) == -1)
         {
@@ -122,7 +122,7 @@ CORBA::ContextList::add_consume (char *ctx)
 char *
 CORBA::ContextList::item (CORBA::ULong slot)
 {
-  char **ctx = 0;
+  char **ctx = nullptr;
 
   if (this->ctx_list_.get (ctx, slot) == -1)
     {

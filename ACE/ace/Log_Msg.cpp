@@ -69,7 +69,7 @@ ACE_thread_key_t *log_msg_tss_key (void)
 
 # endif /* ACE_HAS_THREAD_SPECIFIC_STORAGE || ACE_HAS_TSS_EMULATION */
 #else
-static ACE_Cleanup_Adapter<ACE_Log_Msg>* log_msg_cleanup = 0;
+static ACE_Cleanup_Adapter<ACE_Log_Msg>* log_msg_cleanup = nullptr;
 class ACE_Msg_Log_Cleanup: public ACE_Cleanup_Adapter<ACE_Log_Msg>
 {
 public:
@@ -121,7 +121,7 @@ public:
 
   static u_long log_backend_flags_;
 
-  static int init_backend (const u_long *flags = 0);
+  static int init_backend (const u_long *flags = nullptr);
 
 #if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)
   //FUZZ: disable check_for_lack_ACE_OS
@@ -135,8 +135,8 @@ private:
 #endif /* ! ACE_MT_SAFE */
 };
 
-ACE_Log_Msg_Backend *ACE_Log_Msg_Manager::log_backend_ = 0;
-ACE_Log_Msg_Backend *ACE_Log_Msg_Manager::custom_backend_ = 0;
+ACE_Log_Msg_Backend *ACE_Log_Msg_Manager::log_backend_ = nullptr;
+ACE_Log_Msg_Backend *ACE_Log_Msg_Manager::custom_backend_ = nullptr;
 
 #ifndef ACE_DEFAULT_LOG_BACKEND_FLAGS
 #  ifdef ACE_ANDROID
@@ -157,7 +157,7 @@ int ACE_Log_Msg_Manager::init_backend (const u_long *flags)
     {
       // Sanity check for custom backend.
       if (ACE_BIT_ENABLED (*flags, ACE_Log_Msg::CUSTOM) &&
-          ACE_Log_Msg_Manager::custom_backend_ == 0)
+          ACE_Log_Msg_Manager::custom_backend_ == nullptr)
         {
           return -1;
         }
@@ -168,13 +168,13 @@ int ACE_Log_Msg_Manager::init_backend (const u_long *flags)
             && ACE_BIT_ENABLED (ACE_Log_Msg_Manager::log_backend_flags_, ACE_Log_Msg::SYSLOG)))
         {
           delete ACE_Log_Msg_Manager::log_backend_;
-          ACE_Log_Msg_Manager::log_backend_ = 0;
+          ACE_Log_Msg_Manager::log_backend_ = nullptr;
         }
 
       ACE_Log_Msg_Manager::log_backend_flags_ = *flags;
     }
 
-  if (ACE_Log_Msg_Manager::log_backend_ == 0)
+  if (ACE_Log_Msg_Manager::log_backend_ == nullptr)
     {
 #ifdef ACE_LOG_MSG_SYSLOG_BACKEND
       // Allocate the ACE_Log_Msg_Backend instance.
@@ -193,7 +193,7 @@ int ACE_Log_Msg_Manager::init_backend (const u_long *flags)
 }
 
 #if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)
-ACE_Recursive_Thread_Mutex *ACE_Log_Msg_Manager::lock_ = 0;
+ACE_Recursive_Thread_Mutex *ACE_Log_Msg_Manager::lock_ = nullptr;
 
 ACE_Recursive_Thread_Mutex *
 ACE_Log_Msg_Manager::get_lock (void)
@@ -201,15 +201,15 @@ ACE_Log_Msg_Manager::get_lock (void)
   // This function is called by the first thread to create an ACE_Log_Msg
   // instance.  It makes the call while holding a mutex, so we don't have
   // to grab another one here.
-  if (ACE_Log_Msg_Manager::lock_ == 0)
+  if (ACE_Log_Msg_Manager::lock_ == nullptr)
     {
       ACE_NEW_RETURN (ACE_Log_Msg_Manager::lock_,
                       ACE_Recursive_Thread_Mutex,
-                      0);
+                      nullptr);
     }
 
   if (init_backend () == -1)
-    return 0;
+    return nullptr;
 
   return ACE_Log_Msg_Manager::lock_;
 }
@@ -228,13 +228,13 @@ ACE_Log_Msg_Manager::close (void)
 
   // Ugly, ugly, but don't know a better way.
   delete ACE_Log_Msg_Manager::lock_;
-  ACE_Log_Msg_Manager::lock_ = 0;
+  ACE_Log_Msg_Manager::lock_ = nullptr;
 
   delete ACE_Log_Msg_Manager::log_backend_;
-  ACE_Log_Msg_Manager::log_backend_ = 0;
+  ACE_Log_Msg_Manager::log_backend_ = nullptr;
 
   // we are never responsible for custom backend
-  ACE_Log_Msg_Manager::custom_backend_ = 0;
+  ACE_Log_Msg_Manager::custom_backend_ = nullptr;
 }
 
 # if defined (ACE_HAS_THREAD_SPECIFIC_STORAGE) || \
@@ -249,11 +249,11 @@ LOCAL_EXTERN_PREFIX
 void
 ACE_TSS_CLEANUP_NAME (void *ptr)
 {
-  if (ptr != 0)
+  if (ptr != nullptr)
     {
       // Delegate to thr_desc if this not has terminated
       ACE_Log_Msg *log_msg = (ACE_Log_Msg *) ptr;
-      if (log_msg->thr_desc () != 0)
+      if (log_msg->thr_desc () != nullptr)
         log_msg->thr_desc ()->log_msg_cleanup (log_msg);
       else
         delete log_msg;
@@ -269,13 +269,13 @@ ACE_Log_Msg::exists (void)
 #if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)
 # if defined (ACE_HAS_THREAD_SPECIFIC_STORAGE) || \
      defined (ACE_HAS_TSS_EMULATION)
-  void *tss_log_msg = 0; // The actual type is ACE_Log_Msg*, but we need this
+  void *tss_log_msg = nullptr; // The actual type is ACE_Log_Msg*, but we need this
                          // void to keep G++ from complaining.
 
   // Get the tss_log_msg from thread-specific storage.
   return ACE_Log_Msg::key_created_
     && ACE_Thread::getspecific (*(log_msg_tss_key ()), &tss_log_msg) != -1
-    && tss_log_msg != 0;
+    && tss_log_msg != nullptr;
 # else
 #   error "Platform must support thread-specific storage if threads are used."
 # endif /* ACE_HAS_THREAD_SPECIFIC_STORAGE || ACE_HAS_TSS_EMULATION */
@@ -322,7 +322,7 @@ ACE_Log_Msg::instance (void)
                 ;
               else
                 ACE_OS::thread_mutex_unlock (lock);
-              return 0; // Major problems, this should *never* happen!
+              return nullptr; // Major problems, this should *never* happen!
             }
 
           ACE_Log_Msg::key_created_ = true;
@@ -337,17 +337,17 @@ ACE_Log_Msg::instance (void)
         ACE_OS::thread_mutex_unlock (lock);
     }
 
-  ACE_Log_Msg *tss_log_msg = 0;
-  void *temp = 0;
+  ACE_Log_Msg *tss_log_msg = nullptr;
+  void *temp = nullptr;
 
   // Get the tss_log_msg from thread-specific storage.
   if (ACE_Thread::getspecific (*(log_msg_tss_key ()), &temp) == -1)
-    return 0; // This should not happen!
+    return nullptr; // This should not happen!
 
   tss_log_msg = static_cast <ACE_Log_Msg *> (temp);
 
   // Check to see if this is the first time in for this thread.
-  if (tss_log_msg == 0)
+  if (tss_log_msg == nullptr)
     {
       // Allocate memory off the heap and store it in a pointer in
       // thread-specific storage (on the stack...).  The memory will
@@ -355,7 +355,7 @@ ACE_Log_Msg::instance (void)
       // callback set up when the key was created.
       ACE_NEW_RETURN (tss_log_msg,
                       ACE_Log_Msg,
-                      0);
+                      nullptr);
       // Store the dynamically allocated pointer in thread-specific
       // storage.  It gets deleted via the ACE_TSS_cleanup function
       // when the thread terminates.
@@ -363,7 +363,7 @@ ACE_Log_Msg::instance (void)
       if (ACE_Thread::setspecific (*(log_msg_tss_key()),
                                     reinterpret_cast<void *> (tss_log_msg))
           != 0)
-        return 0; // Major problems, this should *never* happen!
+        return nullptr; // Major problems, this should *never* happen!
     }
 
   return tss_log_msg;
@@ -429,10 +429,10 @@ ACE_Log_Msg::program_name (void)
 }
 
 /// Name of the local host.
-const ACE_TCHAR *ACE_Log_Msg::local_host_ = 0;
+const ACE_TCHAR *ACE_Log_Msg::local_host_ = nullptr;
 
 /// Records the program name.
-const ACE_TCHAR *ACE_Log_Msg::program_name_ = 0;
+const ACE_TCHAR *ACE_Log_Msg::program_name_ = nullptr;
 
 /// Default is to use stderr.
 u_long ACE_Log_Msg::flags_ = ACE_DEFAULT_LOG_FLAGS;
@@ -489,7 +489,7 @@ ACE_Log_Msg::close (void)
          // unload of libACE, by a program not linked with libACE,
          // ACE_TSS_cleanup will be invoked after libACE has been unloaded.
          // See Bugzilla 2980 for lots of details.
-         void *temp = 0;
+         void *temp = nullptr;
 
          // Get the tss_log_msg from thread-specific storage.
          if (ACE_Thread::getspecific (*(log_msg_tss_key ()), &temp) != -1
@@ -628,15 +628,15 @@ ACE_Log_Msg::ACE_Log_Msg (void)
   : status_ (0),
     errnum_ (0),
     linenum_ (0),
-    msg_ (0),
+    msg_ (nullptr),
     restart_ (1),  // Restart by default...
-    ostream_ (0),
-    ostream_refcount_ (0),
-    msg_callback_ (0),
+    ostream_ (nullptr),
+    ostream_refcount_ (nullptr),
+    msg_callback_ (nullptr),
     trace_depth_ (0),
     trace_active_ (false),
     tracing_enabled_ (true), // On by default?
-    thr_desc_ (0),
+    thr_desc_ (nullptr),
     priority_mask_ (default_priority_mask_),
     timestamp_ (0)
 {
@@ -656,7 +656,7 @@ ACE_Log_Msg::ACE_Log_Msg (void)
   this->conditional_values_.is_set_ = false;
 
   char *timestamp = ACE_OS::getenv ("ACE_LOG_TIMESTAMP");
-  if (timestamp != 0)
+  if (timestamp != nullptr)
     {
       // If variable is set or is set to date tag so we print date and time.
       if (ACE_OS::strcmp (timestamp, "TIME") == 0)
@@ -702,11 +702,11 @@ ACE_Log_Msg::~ACE_Log_Msg (void)
   if (instance_count == 0)
     {
       // Destroy the message queue instance.
-      if (ACE_Log_Msg_Manager::log_backend_ != 0)
+      if (ACE_Log_Msg_Manager::log_backend_ != nullptr)
         ACE_Log_Msg_Manager::log_backend_->close ();
 
       // Close down custom backend
-      if (ACE_Log_Msg_Manager::custom_backend_ != 0)
+      if (ACE_Log_Msg_Manager::custom_backend_ != nullptr)
         ACE_Log_Msg_Manager::custom_backend_->close ();
 
 #     if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)
@@ -722,7 +722,7 @@ ACE_Log_Msg::~ACE_Log_Msg (void)
 #else
           ACE_OS::free ((void *) ACE_Log_Msg::program_name_);
 #endif /* ACE_HAS_ALLOC_HOOKS */
-          ACE_Log_Msg::program_name_ = 0;
+          ACE_Log_Msg::program_name_ = nullptr;
         }
 
       if (ACE_Log_Msg::local_host_)
@@ -732,7 +732,7 @@ ACE_Log_Msg::~ACE_Log_Msg (void)
 #else
           ACE_OS::free ((void *) ACE_Log_Msg::local_host_);
 #endif /* ACE_HAS_ALLOC_HOOKS */
-          ACE_Log_Msg::local_host_ = 0;
+          ACE_Log_Msg::local_host_ = nullptr;
         }
     }
 
@@ -762,10 +762,10 @@ ACE_Log_Msg::cleanup_ostream ()
           ACE_OS::fclose (this->ostream_);
 #else
           delete this->ostream_;
-          this->ostream_ = 0;
+          this->ostream_ = nullptr;
 #endif
         }
-      this->ostream_refcount_ = 0;
+      this->ostream_refcount_ = nullptr;
     }
 }
 
@@ -791,7 +791,7 @@ ACE_Log_Msg::open (const ACE_TCHAR *prog_name,
                             ACE_OS::strdup (prog_name),
                             -1);
     }
-  else if (ACE_Log_Msg::program_name_ == 0)
+  else if (ACE_Log_Msg::program_name_ == nullptr)
     {
       ACE_ALLOCATOR_RETURN (ACE_Log_Msg::program_name_,
                             ACE_OS::strdup (ACE_TEXT ("<unknown>")),
@@ -804,10 +804,10 @@ ACE_Log_Msg::open (const ACE_TCHAR *prog_name,
   ACE_MT (ACE_Log_Msg_Manager::init_backend (&flags));
 
   // Always close the current handle before doing anything else.
-  if (ACE_Log_Msg_Manager::log_backend_ != 0)
+  if (ACE_Log_Msg_Manager::log_backend_ != nullptr)
     ACE_Log_Msg_Manager::log_backend_->reset ();
 
-  if (ACE_Log_Msg_Manager::custom_backend_ != 0)
+  if (ACE_Log_Msg_Manager::custom_backend_ != nullptr)
     ACE_Log_Msg_Manager::custom_backend_->reset ();
 
   // Note that if we fail to open the message queue the default action
@@ -820,7 +820,7 @@ ACE_Log_Msg::open (const ACE_TCHAR *prog_name,
       // The SYSLOG backends (both NT and UNIX) can get along fine
       // without the logger_key - they will default to prog_name if
       // logger key is 0.
-      if (logger_key == 0 && ACE_BIT_ENABLED (flags, ACE_Log_Msg::LOGGER))
+      if (logger_key == nullptr && ACE_BIT_ENABLED (flags, ACE_Log_Msg::LOGGER))
         status = -1;
       else
         status = ACE_Log_Msg_Manager::log_backend_->open (logger_key);
@@ -876,7 +876,7 @@ ACE_Log_Msg::open (const ACE_TCHAR *prog_name,
       ACE_SET_BITS (ACE_Log_Msg::flags_,
                     ACE_Log_Msg::OSTREAM);
       // Only set this to cerr if it hasn't already been set.
-      if (this->msg_ostream () == 0)
+      if (this->msg_ostream () == nullptr)
         this->msg_ostream (ACE_DEFAULT_LOG_STREAM);
     }
 
@@ -1060,7 +1060,7 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
   if (ACE_BIT_ENABLED (flags, ACE_Log_Msg::VERBOSE))
     {
       // Prepend the program name onto this message
-      if (ACE_Log_Msg::program_name_ != 0)
+      if (ACE_Log_Msg::program_name_ != nullptr)
         {
           for (const ACE_TCHAR *s = ACE_Log_Msg::program_name_;
                bspace > 1 && (*bp = *s) != '\0';
@@ -1075,7 +1075,7 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
   if (timestamp_ > 0)
     {
       ACE_TCHAR day_and_time[27];
-      const ACE_TCHAR *s = 0;
+      const ACE_TCHAR *s = nullptr;
       if (timestamp_ == 1)
         {
           // Print just the time
@@ -1133,7 +1133,7 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
           size_t fspace = 128;
           ACE_TCHAR format[128]; // Converted format string
           ACE_OS::memset (format, '\0', 128); // Set this string to known values.
-          ACE_TCHAR *fp = 0;         // Current format pointer
+          ACE_TCHAR *fp = nullptr;         // Current format pointer
           int       wp = 0;      // Width/precision extracted from args
           bool      done = false;
           bool      skip_nul_locate = false;
@@ -1334,7 +1334,7 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
                     else
                       {
                         errno = ACE::map_errno (this->errnum ());
-                        ACE_TCHAR *lpMsgBuf = 0;
+                        ACE_TCHAR *lpMsgBuf = nullptr;
 
      // PharLap can't do FormatMessage, so try for socket
      // error.
@@ -1554,7 +1554,7 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
                     else
                       {
                         errno = ACE::map_errno (this->errnum ());
-                        ACE_TCHAR *lpMsgBuf = 0;
+                        ACE_TCHAR *lpMsgBuf = nullptr;
 
      // PharLap can't do FormatMessage, so try for socket
      // error.
@@ -1947,15 +1947,15 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
                  case 'Z':              // ACE_OS::WChar character string
                   {
                     ACE_OS::WChar *wchar_str = va_arg (argp, ACE_OS::WChar*);
-                    if (wchar_str == 0)
+                    if (wchar_str == nullptr)
                       break;
 
-                    wchar_t *wchar_t_str = 0;
+                    wchar_t *wchar_t_str = nullptr;
                     if (sizeof (ACE_OS::WChar) != sizeof (wchar_t))
                       {
                         size_t len = ACE_OS::wslen (wchar_str) + 1;
                         ACE_NEW_NORETURN(wchar_t_str, wchar_t[len]);
-                        if (wchar_t_str == 0)
+                        if (wchar_t_str == nullptr)
                           break;
 
                         for (size_t i = 0; i < len; ++i)
@@ -1964,7 +1964,7 @@ ACE_Log_Msg::log (const ACE_TCHAR *format_str,
                           }
                       }
 
-                    if (wchar_t_str == 0)
+                    if (wchar_t_str == nullptr)
                       {
                         wchar_t_str = reinterpret_cast<wchar_t*> (wchar_str);
                       }
@@ -2847,7 +2847,7 @@ ACE_Log_Msg_Sig_Guard::~ACE_Log_Msg_Sig_Guard (void)
 # else
   ACE_OS::thr_sigsetmask (SIG_SETMASK,
                           &this->omask_,
-                          0);
+                          nullptr);
 # endif /* ACE_LACKS_PTHREAD_THR_SIGSETMASK */
 #endif /* ! ACE_LACKS_UNIX_SIGNALS */
 }
@@ -2881,7 +2881,7 @@ ACE_Log_Msg::log (ACE_Log_Record &log_record,
       // to avoid holding the lock during the callback so we don't
       // have deadlock if the callback uses the logger.
       if (ACE_BIT_ENABLED (flags, ACE_Log_Msg::MSG_CALLBACK)
-          && this->msg_callback () != 0)
+          && this->msg_callback () != nullptr)
         {
           this->msg_callback ()->log (log_record);
         }
@@ -2918,7 +2918,7 @@ ACE_Log_Msg::log (ACE_Log_Record &log_record,
         }
 
       if (ACE_BIT_ENABLED (flags, ACE_Log_Msg::CUSTOM) &&
-          ACE_Log_Msg_Manager::custom_backend_ != 0)
+          ACE_Log_Msg_Manager::custom_backend_ != nullptr)
         {
           result =
             ACE_Log_Msg_Manager::custom_backend_->log (log_record);
@@ -2928,7 +2928,7 @@ ACE_Log_Msg::log (ACE_Log_Record &log_record,
       // (see the <ACE_Log_Record::print> method for details).
       if (ACE_BIT_ENABLED (flags,
                            ACE_Log_Msg::OSTREAM)
-          && this->msg_ostream () != 0)
+          && this->msg_ostream () != nullptr)
         log_record.print (ACE_Log_Msg::local_host_,
                           flags,
 #if defined (ACE_LACKS_IOSTREAM_TOTALLY)
@@ -3105,7 +3105,7 @@ ACE_Log_Msg::thr_desc (ACE_Thread_Descriptor *td)
 {
   this->thr_desc_ = td;
 
-  if (td != 0)
+  if (td != nullptr)
     td->acquire_release ();
 }
 
@@ -3114,7 +3114,7 @@ ACE_Log_Msg::msg_backend (ACE_Log_Msg_Backend *b)
 {
   ACE_TRACE ("ACE_Log_Msg::msg_backend");
   ACE_MT (ACE_GUARD_RETURN (ACE_Recursive_Thread_Mutex, ace_mon,
-                            *ACE_Log_Msg_Manager::get_lock (), 0));
+                            *ACE_Log_Msg_Manager::get_lock (), nullptr));
 
   ACE_Log_Msg_Backend *tmp  = ACE_Log_Msg_Manager::custom_backend_;
   ACE_Log_Msg_Manager::custom_backend_ = b;
@@ -3126,7 +3126,7 @@ ACE_Log_Msg::msg_backend (void)
 {
   ACE_TRACE ("ACE_Log_Msg::msg_backend");
   ACE_MT (ACE_GUARD_RETURN (ACE_Recursive_Thread_Mutex, ace_mon,
-                            *ACE_Log_Msg_Manager::get_lock (), 0));
+                            *ACE_Log_Msg_Manager::get_lock (), nullptr));
 
   return ACE_Log_Msg_Manager::custom_backend_;
 }
@@ -3156,7 +3156,7 @@ ACE_Log_Msg::msg_ostream (ACE_OSTREAM_TYPE *m, bool delete_ostream)
               delete this->ostream_refcount_;
 #endif /* ACE_HAS_ALLOC_HOOKS */
             }
-          this->ostream_refcount_ = 0;
+          this->ostream_refcount_ = nullptr;
         }
       // The other two cases are no-ops, the user has requested the same
       // state that's already present.
@@ -3238,7 +3238,7 @@ ACE_Log_Msg::init_hook (ACE_OS_Log_Msg_Attributes &attributes
         }
       else
         {
-          attributes.ostream_refcount_ = 0;
+          attributes.ostream_refcount_ = nullptr;
         }
       attributes.priority_mask_ = inherit_log->priority_mask ();
       attributes.tracing_enabled_ = inherit_log->tracing_enabled ();
@@ -3280,7 +3280,7 @@ ACE_Log_Msg::inherit_hook (ACE_OS_Thread_Descriptor *thr_desc,
   // @@ Now the TSS Log_Msg has been created, cache my thread
   // descriptor in.
 
-  if (thr_desc != 0)
+  if (thr_desc != nullptr)
     // This downcast is safe.  We do it to avoid having to #include
     // ace/Thread_Manager.h.
     new_log->thr_desc (static_cast<ACE_Thread_Descriptor *> (thr_desc));

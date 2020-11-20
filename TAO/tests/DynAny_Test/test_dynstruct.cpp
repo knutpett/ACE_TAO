@@ -181,7 +181,7 @@ Test_DynStruct::run_test (void)
       CORBA::Any_var out_any1 =
         ftc1->to_any ();
 
-      const DynAnyTests::test_struct* ts_out = 0;
+      const DynAnyTests::test_struct* ts_out = nullptr;
       out_any1.in () >>= ts_out;
 
       if (ts_out->es.s == data.m_short1)
@@ -198,7 +198,7 @@ Test_DynStruct::run_test (void)
                   "testing: constructor(TypeCode alias)/from_any/to_any\n"));
 
 
-      const DynAnyTests::test_struct *ts_out2 = 0;
+      const DynAnyTests::test_struct *ts_out2 = nullptr;
       CORBA::Any_var out_any2 ;
       DynamicAny::DynStruct_var ftc2;
 

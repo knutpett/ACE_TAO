@@ -4,7 +4,7 @@
 #include "tao/AnyTypeCode/Any.h"
 #include "ace/OS_NS_stdio.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 int no_iterations = 10;
 
 int
@@ -89,7 +89,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Simple_Server_i *server_impl = 0;
+      Simple_Server_i *server_impl = nullptr;
 
       ACE_NEW_THROW_EX (server_impl,
                         Simple_Server_i (orb.in (),

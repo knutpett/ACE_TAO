@@ -110,7 +110,7 @@ UTL_ExceptList::destroy (void)
 UTL_ExceptList *
 UTL_ExceptList::copy (void)
 {
-  UTL_ExceptList *retval = 0;
+  UTL_ExceptList *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   UTL_ExceptList (this->pd_car_data,
                                   0),

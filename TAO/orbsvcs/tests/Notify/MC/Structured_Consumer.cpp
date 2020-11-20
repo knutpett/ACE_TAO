@@ -20,7 +20,7 @@ static const ACE_TCHAR *ready_output_file = ACE_TEXT ("ready.txt");
 static unsigned int expected = 2000;
 static unsigned int delay_period = 5;
 static unsigned int delay_count = 0;
-static Notify_Structured_Push_Consumer* consumer_1 = 0;
+static Notify_Structured_Push_Consumer* consumer_1 = nullptr;
 
 class Consumer_Client : public Notify_Test_Client
 {

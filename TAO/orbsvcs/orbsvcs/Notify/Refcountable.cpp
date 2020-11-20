@@ -38,7 +38,7 @@ public:
 
   Entry find( const TAO_Notify_Refcountable* p ) const;
 
-  void dump( const char* title = 0 );
+  void dump( const char* title = nullptr );
 
 private:
   TAO_Notify_Tracker();

@@ -70,7 +70,7 @@ TAO_LogMgr_i::init (CORBA::ORB_ptr orb,
   }
 
 #if (TAO_HAS_MINIMUM_POA == 0) && !defined (CORBA_E_COMPACT)
-  PortableServer::ServantActivator* servant_activator = 0;
+  PortableServer::ServantActivator* servant_activator = nullptr;
 
   ACE_NEW_THROW_EX (servant_activator,
                     TAO_LogActivator (*this),
@@ -80,7 +80,7 @@ TAO_LogMgr_i::init (CORBA::ORB_ptr orb,
 #endif
 
   // Load Log Strategy
-  TAO_Log_Persistence_Strategy* strategy_ = 0;
+  TAO_Log_Persistence_Strategy* strategy_ = nullptr;
 
   strategy_ =
     ACE_Dynamic_Service<TAO_Log_Persistence_Strategy>::instance ("Log_Persistence");
@@ -128,7 +128,7 @@ TAO_LogMgr_i::create_log_reference (DsLogAdmin::LogId id)
 DsLogAdmin::Log_ptr
 TAO_LogMgr_i::create_log_object (DsLogAdmin::LogId id)
 {
-  PortableServer::ServantBase* servant = 0;
+  PortableServer::ServantBase* servant = nullptr;
 
   servant = create_log_servant (id);
 

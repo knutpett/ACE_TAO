@@ -192,7 +192,7 @@ void CNamingTreeCtrl::OnItemexpanding(NMHDR* pNMHDR, LRESULT* pResult)
 {
   NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
   // TODO: Add your control notification handler code here
-  *pResult = 0;
+  *pResult = nullptr;
   // If this item has a child, it has already been listed so nothing to do..
   if(GetChildItem(pNMTreeView->itemNew.hItem))
   {
@@ -393,7 +393,7 @@ void CNamingTreeCtrl::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
     Dialog.DoModal();
   }
 
-  *pResult = 0;
+  *pResult = nullptr;
 }
 
 void CNamingTreeCtrl::OnCopy()

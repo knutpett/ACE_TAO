@@ -95,7 +95,7 @@ TAO_ClientRequestInfo::effective_profile (void)
 {
   this->check_validity ();
 
-  IOP::TaggedProfile *tagged_profile = 0;
+  IOP::TaggedProfile *tagged_profile = nullptr;
   ACE_NEW_THROW_EX (tagged_profile,
                     IOP::TaggedProfile,
                     CORBA::NO_MEMORY (
@@ -141,7 +141,7 @@ TAO_ClientRequestInfo::received_exception (void)
   // The spec says that if it is a user exception which can't be
   // inserted then the UNKNOWN exception needs to be thrown with minor
   // code 1.
-  CORBA::Any * temp = 0;
+  CORBA::Any * temp = nullptr;
 
   ACE_NEW_THROW_EX (temp,
                     CORBA::Any,
@@ -193,7 +193,7 @@ TAO_ClientRequestInfo::get_effective_component (IOP::ComponentId id)
     {
       if (components[i].tag == id)
         {
-          IOP::TaggedComponent *tagged_component = 0;
+          IOP::TaggedComponent *tagged_component = nullptr;
 
           // Only allocate a sequence if we have a tagged component
           // that matches the given IOP::ComponentId.
@@ -230,7 +230,7 @@ TAO_ClientRequestInfo::get_effective_components (IOP::ComponentId id)
 
   IOP::MultipleComponentProfile &components = ecs.components ();
 
-  IOP::TaggedComponentSeq *tagged_components = 0;
+  IOP::TaggedComponentSeq *tagged_components = nullptr;
   IOP::TaggedComponentSeq_var safe_tagged_components;
 
   const CORBA::ULong len = components.length ();

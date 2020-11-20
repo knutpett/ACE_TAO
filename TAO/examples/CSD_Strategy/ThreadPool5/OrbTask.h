@@ -21,7 +21,7 @@ class OrbTask : public ACE_Task_Base
     OrbTask(CORBA::ORB_ptr orb, unsigned num_threads = 1);
     virtual ~OrbTask();
 
-    virtual int open(void* x = 0);
+    virtual int open(void* x = nullptr);
     virtual int svc();
     virtual int close(u_long);
 

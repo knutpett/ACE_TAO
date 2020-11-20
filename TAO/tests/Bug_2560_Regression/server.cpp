@@ -64,7 +64,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     Quoter_Stock_i::set_default_POA ( poa.in() ) ;
 
     // Create the servant
-    Quoter_Stock_Factory_i *stock_factory_i = 0;
+    Quoter_Stock_Factory_i *stock_factory_i = nullptr;
     ACE_NEW_RETURN (stock_factory_i,
                     Quoter_Stock_Factory_i,
                     -1);

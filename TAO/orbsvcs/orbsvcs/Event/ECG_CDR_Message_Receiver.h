@@ -151,7 +151,7 @@ public:
    *        the same process.
    */
   void init (TAO_ECG_Refcounted_Endpoint ignore_from
-             /* , ACE_Lock *lock = 0 */);
+             /* , ACE_Lock *lock = nullptr */);
 
   // Shutdown the component: close down the request map, etc.
   void shutdown (void);

@@ -292,7 +292,7 @@ ACE_Ping_Socket::send_echo_check (ACE_INET_Addr &remote_addr,
       return -1;
     }
 
-  sockaddr_in *addr_connect = 0;
+  sockaddr_in *addr_connect = nullptr;
   addr_connect = (sockaddr_in *) remote_addr.get_addr ();
 
   /*
@@ -318,7 +318,7 @@ ACE_Ping_Socket::send_echo_check (ACE_INET_Addr &remote_addr,
 
   ACE_OS::memset (this->icmp_send_buff_, 0, sizeof this->icmp_send_buff_);
   int datalen = ICMP_DATA_LENGTH;
-  struct icmp *_icmp = 0;
+  struct icmp *_icmp = nullptr;
 
   _icmp = (struct icmp *) this->icmp_send_buff_;
   _icmp->icmp_type = ICMP_ECHO;

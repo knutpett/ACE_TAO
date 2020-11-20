@@ -23,8 +23,8 @@ CORBA::Object_ptr EventChannelFactory_i::create_object (
 {
 
   ORBSVCS_DEBUG((LM_DEBUG,"EventChannelFactory_i::create_object\n"));
-  FILE* file = 0;
-  char *id_str=0, *prog=0;
+  FILE* file = nullptr;
+  char *id_str = nullptr, *id_str = nullptr;
 
   try{
 

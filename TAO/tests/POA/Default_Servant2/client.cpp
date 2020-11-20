@@ -19,7 +19,7 @@
 #include "ace/OS_NS_fcntl.h"
 #include "ace/OS_NS_unistd.h"
 
-static const ACE_TCHAR *iorfile = 0;
+static const ACE_TCHAR *iorfile = nullptr;
 static const ACE_TCHAR *filename = ACE_TEXT ("test");
 static const ACE_TCHAR *message = ACE_TEXT ("POA rules!!");
 

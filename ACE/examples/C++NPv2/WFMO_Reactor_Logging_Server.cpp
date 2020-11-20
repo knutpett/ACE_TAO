@@ -87,7 +87,7 @@ public:
 
 protected:
   virtual int handle_input (ACE_HANDLE) {
-    Logging_Event_Handler_WFMO *peer_handler = 0;
+    Logging_Event_Handler_WFMO *peer_handler = nullptr;
     ACE_NEW_RETURN (peer_handler,
                     Logging_Event_Handler_WFMO (reactor ()),
                     -1);

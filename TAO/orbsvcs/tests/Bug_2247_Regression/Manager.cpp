@@ -14,11 +14,11 @@
 #include "ace/OS_NS_stdio.h"
 
 // Files which have the IOR
-const ACE_TCHAR *first_ior = 0;
-const ACE_TCHAR *first_key = 0;
-const ACE_TCHAR *second_ior = 0;
-const ACE_TCHAR *second_key = 0;
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *first_ior = nullptr;
+const ACE_TCHAR *first_key = nullptr;
+const ACE_TCHAR *second_ior = nullptr;
+const ACE_TCHAR *second_key = nullptr;
+const ACE_TCHAR *ior_output_file = nullptr;
 int shutdown_test = 0;
 int merged_test = 0;
 
@@ -535,7 +535,7 @@ Client_i::init (void)
 
 
   int argc = 0;
-  ACE_TCHAR **argv = 0;
+  ACE_TCHAR **argv = nullptr;
   this->orb_ = CORBA::ORB_init (argc, argv);
 
   CORBA::Object_var object =

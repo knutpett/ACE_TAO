@@ -63,7 +63,7 @@ TAO_Notify_Tests_Periodic_Consumer_Command::init (ACE_Arg_Shifter& arg_shifter)
               arg_shifter.consume_arg ();
             }
 
-          TAO_Notify_Tests_Periodic_Consumer* consumer = 0;
+          TAO_Notify_Tests_Periodic_Consumer* consumer = nullptr;
 
           // create the consumer
           if (is_relay == 1)
@@ -75,7 +75,7 @@ TAO_Notify_Tests_Periodic_Consumer_Command::init (ACE_Arg_Shifter& arg_shifter)
 
           consumer->set_name (this->name_);
 
-         TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+         TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
          LOOKUP_MANAGER->resolve (act_mgr);
 
          {
@@ -143,12 +143,12 @@ TAO_Notify_Tests_Periodic_Consumer_Command::init (ACE_Arg_Shifter& arg_shifter)
 TAO_Notify_Tests_Periodic_Consumer*
 TAO_Notify_Tests_Periodic_Consumer_Command::consumer (void)
 {
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
 
   LOOKUP_MANAGER->resolve (act_mgr);
 
   // Locate the consumer
-  TAO_Notify_Tests_Periodic_Consumer* consumer = 0;
+  TAO_Notify_Tests_Periodic_Consumer* consumer = nullptr;
 
   {
     act_mgr->resolve (consumer, this->name_.c_str ());

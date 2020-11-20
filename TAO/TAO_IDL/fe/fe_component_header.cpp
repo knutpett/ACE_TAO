@@ -113,10 +113,10 @@ FE_ComponentHeader::compile_supports (UTL_NameList *supports)
       return;
     }
 
-  AST_Decl *d = 0;
-  UTL_ScopedName *item = 0;
-  AST_Interface *iface = 0;
-  AST_Type *t = 0;
+  AST_Decl *d = nullptr;
+  UTL_ScopedName *item = nullptr;
+  AST_Interface *iface = nullptr;
+  AST_Type *t = nullptr;
   long j = 0;
   long k = 0;
 

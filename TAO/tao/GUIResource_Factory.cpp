@@ -30,7 +30,7 @@ namespace TAO
     //   not necessary, because the performance is not an issue here.
     ACE_GUARD_RETURN (TAO_SYNCH_MUTEX, ace_mon, this->lock_, 0);
 
-    ACE_Reactor *reactor = 0;
+    ACE_Reactor *reactor = nullptr;
     ACE_NEW_RETURN (reactor,
                     ACE_Reactor (this->reactor_impl (), 1),
                     0);

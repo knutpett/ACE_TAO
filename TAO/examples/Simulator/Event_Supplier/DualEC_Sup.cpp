@@ -733,8 +733,8 @@ DualEC_Supplier::start_generating_events (void)
 void
 DualEC_Supplier::load_schedule_data ()
 {
-  Navigation * nav = 0;
-  Weapons * weap = 0;
+  Navigation * nav = nullptr;
+  Weapons * weap = nullptr;
 
   Schedule_Viewer_Data data;
 

@@ -52,7 +52,7 @@ ACE_Local_Memory_Pool::acquire (size_t nbytes,
   ACE_TRACE ("ACE_Local_Memory_Pool::acquire");
   rounded_bytes = this->round_up (nbytes);
 
-  char *temp = 0;
+  char *temp = nullptr;
 #if defined (ACE_HAS_ALLOC_HOOKS)
   ACE_ALLOCATOR_RETURN (temp,
                         static_cast<char*>(ACE_Allocator::instance()->malloc(sizeof(char) * rounded_bytes)),
@@ -60,7 +60,7 @@ ACE_Local_Memory_Pool::acquire (size_t nbytes,
 #else
   ACE_NEW_RETURN (temp,
                   char[rounded_bytes],
-                  0);
+                  nullptr);
 #endif /* ACE_HAS_ALLOC_HOOKS */
 
   ACE_Auto_Basic_Array_Ptr<char> cp (temp);
@@ -139,7 +139,7 @@ ACE_Local_Memory_Pool::remap (void *)
 void *
 ACE_Local_Memory_Pool::base_addr (void) const
 {
-  return 0;
+  return nullptr;
 }
 
 // Let the underlying new operator figure out the alignment...

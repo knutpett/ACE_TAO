@@ -1028,7 +1028,7 @@ be_visitor_union_branch_cdr_op_cs::explicit_default (void)
            !si.is_done ();
            si.next ())
         {
-          be_union_branch *bub = 0; // union branch node
+          be_union_branch *bub = nullptr; // union branch node
 
           AST_Decl *d = si.item ();
 

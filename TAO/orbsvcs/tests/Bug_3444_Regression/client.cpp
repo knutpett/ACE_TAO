@@ -4,7 +4,7 @@
 
 
 
-const ACE_TCHAR *ior_server = 0;
+const ACE_TCHAR *ior_server = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

@@ -43,7 +43,7 @@ public:
   // Perform one message block dependant service.
 
 private:
-  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv=0);
+  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = nullptr);
 
   virtual int svc (void);
   // Iterate <n_iterations> time printing off a message and "waiting"
@@ -150,7 +150,7 @@ Worker_Task<BARRIER>::svc (void)
 
   for (int iter = 1; ;iter++)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       int result = this->getq (mb);
 
@@ -195,7 +195,7 @@ Worker_Task<BARRIER>::producer (void)
   for (;;)
     {
       // Allocate a new message.
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       ACE_NEW_RETURN (mb,
                       ACE_Message_Block (BUFSIZ),

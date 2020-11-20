@@ -27,7 +27,7 @@ int ACE_TMAIN (int ac, ACE_TCHAR* av[]) {
     boxedLong* p2 = new boxedLong (775);
     boxedString* s1 = new boxedString ("hello");
     boxedString* s2 = new boxedString ("world");
-    boxedString* null = 0;
+    boxedString* null = nullptr;
     boxedValue* b = new OBV_demo::value::idl::boxedValue ();
     b->b1 (p1);
     b->b2 (p2);

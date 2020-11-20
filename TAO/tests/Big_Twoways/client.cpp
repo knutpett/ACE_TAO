@@ -69,7 +69,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                             1);
         }
 
-      Peer *peer_impl = 0;
+      Peer *peer_impl = nullptr;
       ACE_NEW_RETURN (peer_impl,
                       Peer (orb.in ()),
                       1);

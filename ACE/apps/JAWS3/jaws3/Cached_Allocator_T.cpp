@@ -6,7 +6,7 @@
 template <class T, class ACE_LOCK> char *
 JAWS_Cached_Allocator<T, ACE_LOCK>::get_next_pool (char *pool)
 {
-  char *next = 0;
+  char *next = nullptr;
   char *next_indirect = pool + (this->pool_size_);
   ACE_OS::memcpy (&next, next_indirect, sizeof (char *));
   return next;
@@ -22,7 +22,7 @@ JAWS_Cached_Allocator<T, ACE_LOCK>::set_next_pool (char *pool, char *next_pool)
 template <class T, class ACE_LOCK> void
 JAWS_Cached_Allocator<T, ACE_LOCK>::extend_pool (void)
 {
-  char *new_pool = 0;
+  char *new_pool = nullptr;
   ACE_NEW (new_pool, char[this->pool_size_ + sizeof (char *)]);
 
   for (size_t c = 0; c < (this->pool_size_ / sizeof (T)); c++)
@@ -69,7 +69,7 @@ JAWS_Cached_Allocator<T, ACE_LOCK>::malloc (size_t nbytes)
   if (nbytes > sizeof (T))
     return 0;
 
-  ACE_Cached_Mem_Pool_Node<T> *node = 0;
+  ACE_Cached_Mem_Pool_Node<T> *node = nullptr;
   node = this->free_list_.remove ();
 
   if (node == 0)
@@ -94,7 +94,7 @@ JAWS_Cached_Allocator<T, ACE_LOCK>::free (void *ptr)
 template <class T> JAWS_Cached_Allocator<T, ACE_SYNCH_NULL_MUTEX> *
 JAWS_TSS_Cached_Allocator<T>::ts_allocator (void)
 {
-  JAWS_Cached_Allocator<T, ACE_SYNCH_NULL_MUTEX> *ts_obj = 0;
+  JAWS_Cached_Allocator<T, ACE_SYNCH_NULL_MUTEX> *ts_obj = nullptr;
 
   ts_obj = this->ts_allocator_.ts_object ();
 

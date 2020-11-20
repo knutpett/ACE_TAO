@@ -108,7 +108,7 @@ public:
    *            @a ignore_suspended is true.
    */
   int find (const ACE_TCHAR name[],
-            const ACE_Service_Type **srp = 0,
+            const ACE_Service_Type **srp = nullptr,
             bool ignore_suspended = true) const;
 
   /// Remove an existing service record. If @a sr == 0, the service record
@@ -116,14 +116,14 @@ public:
   /// the service's record is removed from the repository, but not deleted;
   /// *sr receives the service record pointer and the caller is responsible
   /// for properly disposing of it.
-  int remove (const ACE_TCHAR name[], ACE_Service_Type **sr = 0);
+  int remove (const ACE_TCHAR name[], ACE_Service_Type **sr = nullptr);
 
   // = Liveness control
   /// Resume a service record.
-  int resume (const ACE_TCHAR name[], const ACE_Service_Type **srp = 0);
+  int resume (const ACE_TCHAR name[], const ACE_Service_Type **srp = nullptr);
 
   /// Suspend a service record.
-  int suspend (const ACE_TCHAR name[], const ACE_Service_Type **srp = 0);
+  int suspend (const ACE_TCHAR name[], const ACE_Service_Type **srp = nullptr);
 
   /// Return the current size of the repository.
   size_t current_size (void) const;
@@ -168,7 +168,7 @@ protected:
    */
   int find_i (const ACE_TCHAR service_name[],
               size_t &slot,
-              const ACE_Service_Type **srp = 0,
+              const ACE_Service_Type **srp = nullptr,
               bool ignore_suspended = true) const;
 
   /// @brief Relocate (static) services to another DLL.

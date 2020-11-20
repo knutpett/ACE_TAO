@@ -37,7 +37,7 @@ Supplier_Router::svc (void)
 {
   ACE_ASSERT (this->is_writer ());
 
-  ACE_Message_Block *message_block = 0;
+  ACE_Message_Block *message_block = nullptr;
 
   if (options.debug ())
     ACE_DEBUG ((LM_DEBUG, "(%t) starting svc in %s\n", this->name ()));

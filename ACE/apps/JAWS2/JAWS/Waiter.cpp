@@ -53,7 +53,7 @@ JAWS_Waiter::wait_for_completion (int i)
       }
 
   ioh = *iohptr;
-  *iohptr = 0;
+  *iohptr = nullptr;
 
   ioh->lock ();
   ioh->release ();

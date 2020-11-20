@@ -365,11 +365,11 @@ public:
   virtual int stop (void);
   virtual int handle_input (void);
   virtual int send_frame (ACE_Message_Block *frame,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const iovec *iov,
                           int iovcnt,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const char*buf,
                           size_t len);

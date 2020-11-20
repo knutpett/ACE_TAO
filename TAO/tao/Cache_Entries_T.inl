@@ -181,7 +181,7 @@ namespace TAO
   template <typename TRANSPORT_DESCRIPTOR_TYPE> ACE_INLINE void
   Cache_ExtId_T<TRANSPORT_DESCRIPTOR_TYPE>::duplicate (void)
   {
-    transport_descriptor_type *prop = 0;
+    transport_descriptor_type *prop = nullptr;
 
     // Make a deep copy
     prop = this->transport_property_->duplicate ();

@@ -372,8 +372,8 @@ public:
                     ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR> * =0,
                     ACE_Concurrency_Strategy<SVC_HANDLER> * = 0,
                     ACE_Scheduling_Strategy<SVC_HANDLER> * = 0,
-                    const ACE_TCHAR *service_name = 0,
-                    const ACE_TCHAR *service_description = 0,
+                    const ACE_TCHAR *service_name = nullptr,
+                    const ACE_TCHAR *service_description = nullptr,
                     int use_select = ACE_DEFAULT_ACCEPTOR_USE_SELECT,
                     int reuse_addr = 1);
 
@@ -576,7 +576,7 @@ public:
   /// Create a {SVC_HANDLER}, accept the connection into the
   /// {SVC_HANDLER}, and activate the {SVC_HANDLER}.
   virtual int accept (SVC_HANDLER * = 0,
-                      typename PEER_ACCEPTOR::PEER_ADDR *remote_addr = 0,
+                      typename PEER_ACCEPTOR::PEER_ADDR *remote_addr = nullptr,
                       const ACE_Synch_Options &synch_options = ACE_Synch_Options::defaults,
                       bool restart = true,
                       bool reset_new_handle = false);

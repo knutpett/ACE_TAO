@@ -96,7 +96,7 @@ public:
 
   /// Called when timer expires.
   virtual int handle_timeout (const ACE_Time_Value &tv,
-                              const void *arg = 0);
+                              const void *arg = nullptr);
 
   /// Task event loop.
   int svc (void);

@@ -225,7 +225,7 @@ connect_client (void *arg)
 void
 create_reactor (void)
 {
-  ACE_Reactor_Impl *impl = 0;
+  ACE_Reactor_Impl *impl = nullptr;
 
 #if defined (TEST_CAN_USE_WFMO_REACTOR)
   if (opt_wfmo_reactor)
@@ -237,7 +237,7 @@ create_reactor (void)
     ACE_NEW (impl,
              ACE_Select_Reactor);
 
-  ACE_Reactor *reactor = 0;
+  ACE_Reactor *reactor = nullptr;
   ACE_NEW (reactor,
            ACE_Reactor (impl));
   ACE_Reactor::instance (reactor);

@@ -51,7 +51,7 @@ TimeStamp_Protocol_Object::handle_input (void)
 //                n,
 //                frame_size));
 
-//        ACE_Message_Block* mb = 0;
+//        ACE_Message_Block* mb = nullptr;
 //        ACE_NEW_RETURN (mb,
 //                    ACE_Message_Block(frame_size),
 //                    -1);
@@ -93,7 +93,7 @@ TimeStamp_Protocol_Object::handle_input (void)
 //                  "(%N|%l) Frame Size %d\n",
 //                  n));
 
-//      ACE_Message_Block* mb = 0;
+//      ACE_Message_Block* mb = nullptr;
 //      ACE_NEW_RETURN (mb,
 //                      ACE_Message_Block (frame_size),
 //                      -1);
@@ -207,12 +207,12 @@ TimeStamp_Protocol_Factory::make_protocol_object (TAO_FlowSpec_Entry *entry,
                                                   TAO_AV_Flow_Handler *handler,
                                                   TAO_AV_Transport *transport)
 {
-  TAO_AV_Callback *callback = 0;
+  TAO_AV_Callback *callback = nullptr;
   endpoint->get_callback (entry->flowname (),
                           callback);
 
 
-  TimeStamp_Protocol_Object *object = 0;
+  TimeStamp_Protocol_Object *object = nullptr;
   ACE_NEW_RETURN (object,
                   TimeStamp_Protocol_Object (callback,
                                              transport),

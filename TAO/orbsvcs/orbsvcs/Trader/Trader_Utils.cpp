@@ -250,7 +250,7 @@ TAO_Property_Evaluator::is_dynamic_property (int index)
 CORBA::Any*
 TAO_Property_Evaluator::property_value (int index)
 {
-  CORBA::Any* prop_val = 0;
+  CORBA::Any* prop_val = nullptr;
   CORBA::Boolean in_cache =
     this->dp_cache_ != 0 && this->dp_cache_[index] != 0;
 
@@ -263,7 +263,7 @@ TAO_Property_Evaluator::property_value (int index)
   else if (this->supports_dp_)
     {
       // Property is defined at this point.
-      const CosTradingDynamic::DynamicProp* dp_struct = 0;
+      const CosTradingDynamic::DynamicProp* dp_struct = nullptr;
       const CORBA::String_var name = this->props_[index].name.in ();
       const CORBA::Any& value = this->props_[index].value;
 
@@ -314,7 +314,7 @@ TAO_Property_Evaluator::property_type (int index)
     {
       // Extract type information from the DP_Struct.
       const CORBA::Any& value = this->props_[index].value;
-      const CosTradingDynamic::DynamicProp* dp_struct = 0;
+      const CosTradingDynamic::DynamicProp* dp_struct = nullptr;
       value >>= dp_struct;
 
       // Grab a pointer to the returned_type description
@@ -382,7 +382,7 @@ CORBA::Any*
 TAO_Property_Evaluator_By_Name::property_value (const char* property_name)
 {
   int index = 0;
-  CORBA::Any* prop_value = 0;
+  CORBA::Any* prop_value = nullptr;
   CORBA::String_var prop_name (property_name);
 
   // If the property name is in the map, delegate evaluation to our
@@ -415,7 +415,7 @@ const CosTrading::Property*
 TAO_Property_Evaluator_By_Name::get_property (const char* property_name)
 {
   int index = 0;
-  CosTrading::Property* property = 0;
+  CosTrading::Property* property = nullptr;
   CORBA::String_var prop_name (property_name);
 
   if (this->table_.find (prop_name, index) == 0)
@@ -436,7 +436,7 @@ construct_dynamic_prop (const char* name,
 {
   ACE_UNUSED_ARG (name);
 
-  CosTradingDynamic::DynamicProp* dp_struct = 0;
+  CosTradingDynamic::DynamicProp* dp_struct = nullptr;
 
   ACE_NEW_RETURN (dp_struct,
                   CosTradingDynamic::DynamicProp,
@@ -706,7 +706,7 @@ TAO_Policies::exact_type_match (void) const
 const CosTrading::TraderName*
 TAO_Policies::starting_trader (void) const
 {
-  const CosTrading::TraderName* trader_name = 0;
+  const CosTrading::TraderName* trader_name = nullptr;
 
   if (this->policies_[STARTING_TRADER] != 0)
     {
@@ -791,7 +791,7 @@ TAO_Policies::hop_count (void) const
 const CosTrading::Admin::OctetSeq*
 TAO_Policies::request_id (void) const
 {
-  const CosTrading::Admin::OctetSeq* request_id = 0;
+  const CosTrading::Admin::OctetSeq* request_id = nullptr;
 
   if (this->policies_[REQUEST_ID] != 0)
     {
@@ -1141,7 +1141,7 @@ TAO_Offer_Modifier::affect_change (const CosTrading::PropertySeq& modifies)
 
   for (i = 0; i < merge_length; i++)
     {
-      Property_Table::ENTRY* entry = 0;
+      Property_Table::ENTRY* entry = nullptr;
       CORBA::String_var prop_name = modifies[i].name.in ();
 
       CosTrading::Property* prop =
@@ -1165,7 +1165,7 @@ TAO_Offer_Modifier::affect_change (const CosTrading::PropertySeq& modifies)
   // relative ordering.
   for (i = 0; i < original_length; i++)
     {
-      CosTrading::Property* prop_value = 0;
+      CosTrading::Property* prop_value = nullptr;
       const char* name = this->offer_->properties[i].name;
       CORBA::String_var prop_name (name);
       if (this->props_.unbind (prop_name, prop_value) == 0)
@@ -1174,7 +1174,7 @@ TAO_Offer_Modifier::affect_change (const CosTrading::PropertySeq& modifies)
 
   for (i = 0; i < merge_length; i++)
     {
-      CosTrading::Property* prop_value = 0;
+      CosTrading::Property* prop_value = nullptr;
       const char* name = modifies[i].name;
       CORBA::String_var prop_name (name);
       if (this->props_.unbind (prop_name, prop_value) == 0)
@@ -1346,7 +1346,7 @@ TAO_Offer_Filter::limits_applied (void)
        ! p_iter.done ();
        p_iter.advance ())
     {
-      CORBA::String_var* policy_name_ptr = 0;
+      CORBA::String_var* policy_name_ptr = nullptr;
       p_iter.next (policy_name_ptr);
       temp[i++] = CORBA::string_dup (policy_name_ptr->in ());
     }
@@ -1433,7 +1433,7 @@ TAO_Property_Filter::filter_offer (CosTrading::Offer* source,
            ! prop_iter.done ();
            prop_iter.advance (), elem++)
         {
-          CosTrading::Property** prop_ptr = 0;
+          CosTrading::Property** prop_ptr = nullptr;
 
           prop_iter.next (prop_ptr);
           d_props[elem] = **prop_ptr;

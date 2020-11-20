@@ -168,7 +168,7 @@ Client_Request_Interceptor::receive_exception (
         {
           CORBA::Any_var exception;
           CORBA::TypeCode_var tc;
-          const char * id = 0;
+          const char * id = nullptr;
 
           switch (scenario)
             {

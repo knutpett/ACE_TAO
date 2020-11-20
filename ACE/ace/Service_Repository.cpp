@@ -292,7 +292,7 @@ ACE_Service_Repository::find_i (const ACE_TCHAR name[],
       if ((*iter).second->fini_called ())
         {
           if (srp != 0)
-            *srp = 0;
+            *srp = nullptr;
           return -1;
         }
 
@@ -396,7 +396,7 @@ ACE_Service_Repository::insert (const ACE_Service_Type *sr)
 
   size_t i = 0;
   int return_value = -1;
-  ACE_Service_Type const *s = 0;
+  ACE_Service_Type const *s = nullptr;
 
   // Establish scope for locking while manipulating the service
   // storage
@@ -489,7 +489,7 @@ int
 ACE_Service_Repository::remove (const ACE_TCHAR name[], ACE_Service_Type **ps)
 {
   ACE_TRACE ("ACE_Service_Repository::remove");
-  ACE_Service_Type *s = 0;
+  ACE_Service_Type *s = nullptr;
   {
     ACE_GUARD_RETURN (ACE_SYNCH_RECURSIVE_MUTEX, ace_mon, this->lock_, -1);
 

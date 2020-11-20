@@ -47,7 +47,7 @@ TAO_UIPMC_Protocol_Factory::options_delimiter (void) const
 TAO_Acceptor *
 TAO_UIPMC_Protocol_Factory::make_acceptor (void)
 {
-  TAO_Acceptor *acceptor = 0;
+  TAO_Acceptor *acceptor = nullptr;
   ACE_NEW_RETURN (acceptor,
                   TAO_UIPMC_Acceptor (
                     this->listen_on_all_,
@@ -65,7 +65,7 @@ TAO_UIPMC_Protocol_Factory::init (int argc,
 
   while (arg_shifter.is_anything_left ())
     {
-      const ACE_TCHAR *current_arg = 0;
+      const ACE_TCHAR *current_arg = nullptr;
 
       // This option lets you override the default
       if (0 != (current_arg = arg_shifter.get_the_parameter
@@ -133,7 +133,7 @@ TAO_UIPMC_Protocol_Factory::make_connector (void)
   // only on the client side.
   ACE_Utils::UUID_GENERATOR::instance ()->init ();
 
-  TAO_Connector *connector = 0;
+  TAO_Connector *connector = nullptr;
   ACE_NEW_RETURN (connector,
                   TAO_UIPMC_Connector,
                   0);

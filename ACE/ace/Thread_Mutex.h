@@ -49,8 +49,8 @@ class ACE_Export ACE_Thread_Mutex
 {
 public:
   /// Constructor.
-  ACE_Thread_Mutex (const ACE_TCHAR *name = 0,
-                    ACE_mutexattr_t *attributes = 0);
+  ACE_Thread_Mutex (const ACE_TCHAR *name = nullptr,
+                    ACE_mutexattr_t *attributes = nullptr);
 
   /// Implicitly destroy the mutex.
   ~ACE_Thread_Mutex (void);

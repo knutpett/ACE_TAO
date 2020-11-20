@@ -75,7 +75,7 @@ CORBA::NVList::~NVList (void)
 
   for (iter.first (); !iter.done (); iter.advance ())
     {
-      CORBA::NamedValue_ptr *nv = 0;
+      CORBA::NamedValue_ptr *nv = nullptr;
       (void) iter.next (nv);
       delete *nv;
     }
@@ -241,7 +241,7 @@ CORBA::NVList::item (CORBA::ULong n)
       throw ::CORBA::Bounds ();
     }
 
-  CORBA::NamedValue_ptr *nv = 0;
+  CORBA::NamedValue_ptr *nv = nullptr;
 
   this->values_.get (nv, n);
   return *nv;
@@ -305,7 +305,7 @@ CORBA::NVList::_tao_encode (TAO_OutputCDR &cdr, int flag)
 
       for (i.first (); !i.done (); i.advance ())
         {
-          CORBA::NamedValue_ptr *item = 0;
+          CORBA::NamedValue_ptr *item = nullptr;
           (void) i.next (item);
 
           CORBA::NamedValue_ptr nv = *item;
@@ -347,7 +347,7 @@ CORBA::NVList::_tao_encode (TAO_OutputCDR &cdr, int flag)
 
   for (i.first (); !i.done (); i.advance ())
     {
-      CORBA::NamedValue_ptr *item = 0;
+      CORBA::NamedValue_ptr *item = nullptr;
       (void) i.next (item);
 
       CORBA::NamedValue_ptr nv = *item;
@@ -375,7 +375,7 @@ CORBA::NVList::_tao_decode (TAO_InputCDR &incoming, int flag)
 
   for (i.first (); !i.done (); i.advance ())
     {
-      CORBA::NamedValue_ptr *item = 0;
+      CORBA::NamedValue_ptr *item = nullptr;
       (void) i.next (item);
 
       CORBA::NamedValue_ptr nv = *item;

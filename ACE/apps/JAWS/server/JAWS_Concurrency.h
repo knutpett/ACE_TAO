@@ -23,7 +23,7 @@ class JAWS_Concurrency_Base : public ACE_Task<ACE_SYNCH>
 {
 public:
   JAWS_Concurrency_Base (void);
-  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = nullptr);
   virtual int svc (void);
 };
 
@@ -38,7 +38,7 @@ class JAWS_Dispatch_Policy
 public:
   JAWS_Dispatch_Policy (void);
   virtual ~JAWS_Dispatch_Policy (void);
-  virtual JAWS_Concurrency_Base * update (void *state = 0) = 0;
+  virtual JAWS_Concurrency_Base * update (void *state = nullptr) = 0;
 };
 
 class JAWS_Dispatcher
@@ -89,7 +89,7 @@ class JAWS_Thread_Per_Task : public JAWS_Concurrency_Base
 public:
   JAWS_Thread_Per_Task (long flags = THR_NEW_LWP, int maxthreads = 20);
 
-  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = nullptr);
 
 private:
   long flags_;

@@ -188,7 +188,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         }
 
       size_t busy_count = 0;
-      TAO_Transport *transport = 0;
+      TAO_Transport *transport = nullptr;
       TAO::Transport_Cache_Manager::Find_Result find_result =
         tcm.find_transport (&desc, transport, busy_count);
       // We don't need this transport any more. Release the ownership.

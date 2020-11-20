@@ -35,7 +35,7 @@ Server_Task::svc (void)
 
      poa_manager->activate ();
 
-     Visual_i *vi = 0;
+     Visual_i *vi = nullptr;
      ACE_NEW_RETURN (vi, Visual_i (sorb_.in ()), 1);
      PortableServer::ServantBase_var server_impl = vi;
 

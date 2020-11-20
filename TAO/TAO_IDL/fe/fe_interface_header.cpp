@@ -266,9 +266,9 @@ FE_InterfaceHeader::compile_inheritance (UTL_NameList *ifaces,
       return;
     }
 
-  AST_Decl *d = 0;
-  UTL_ScopedName *item = 0;
-  AST_Interface *i = 0;
+  AST_Decl *d = nullptr;
+  UTL_ScopedName *item = nullptr;
+  AST_Interface *i = nullptr;
 
   // Compute expanded flattened non-repeating list of interfaces
   // which this one inherits from.
@@ -424,7 +424,7 @@ FE_InterfaceHeader::check_inherit (AST_Interface *i,
 void
 FE_InterfaceHeader::add_inheritance (AST_Type *i)
 {
-  AST_Type  **oiseen = 0;
+  AST_Type  **oiseen = nullptr;
 
   // Make sure there's space for one more.
   if (this->iallocated_ == this->iused_)
@@ -461,7 +461,7 @@ FE_InterfaceHeader::add_inheritance (AST_Type *i)
 void
 FE_InterfaceHeader::add_inheritance_flat (AST_Interface *i)
 {
-  AST_Interface **oiseen_flat = 0;
+  AST_Interface **oiseen_flat = nullptr;
 
   // Make sure there's space for one more.
   if (this->iallocated_flat_ == this->iused_flat_)

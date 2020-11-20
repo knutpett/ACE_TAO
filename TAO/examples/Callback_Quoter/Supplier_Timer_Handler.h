@@ -46,7 +46,7 @@ public:
 
   /// Method which will be called by the Reactor when timeout occurs.
   virtual int handle_timeout (const ACE_Time_Value &tv,
-                              const void *arg = 0);
+                              const void *arg = nullptr);
 
 private:
 

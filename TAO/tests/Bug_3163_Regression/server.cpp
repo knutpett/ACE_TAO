@@ -84,7 +84,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      ctest_impl *hello_impl = 0;
+      ctest_impl *hello_impl = nullptr;
       ACE_NEW_RETURN (hello_impl,
                       ctest_impl (orb.in ()),
                       1);

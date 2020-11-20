@@ -19,7 +19,7 @@ namespace TAO
   handler_type*
   TAO_Buffer_Allocator<handler_type, alloc_type>::allocate (void)
   {
-    handler_type* myvalue = 0;
+    handler_type* myvalue = nullptr;
     ACE_NEW_MALLOC_RETURN (myvalue,
                            static_cast <handler_type*>(
                                allocator_->malloc (sizeof (handler_type))),

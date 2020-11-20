@@ -44,7 +44,7 @@ class ACE_Auto_Basic_Ptr
 public:
   typedef X element_type;
 
-  explicit ACE_Auto_Basic_Ptr (X * p = 0) : p_ (p) {}
+  explicit ACE_Auto_Basic_Ptr (X * p = nullptr) : p_ (p) {}
 
   ACE_Auto_Basic_Ptr (ACE_Auto_Basic_Ptr<X> & ap);
   ACE_Auto_Basic_Ptr<X> &operator= (ACE_Auto_Basic_Ptr<X> & rhs);
@@ -54,7 +54,7 @@ public:
   X &operator *() const;
   X *get (void) const;
   X *release (void);
-  void reset (X * p = 0);
+  void reset (X * p = nullptr);
 
   /// Dump the state of an object.
   void dump (void) const;
@@ -89,7 +89,7 @@ class auto_ptr : public ACE_Auto_Basic_Ptr<X>
 public:
   typedef X element_type;
 
-  explicit auto_ptr (X * p = 0) : ACE_Auto_Basic_Ptr<X> (p) {}
+  explicit auto_ptr (X * p = nullptr) : ACE_Auto_Basic_Ptr<X> (p) {}
   auto_ptr (auto_ptr<X> & ap) : ACE_Auto_Basic_Ptr<X> (ap.release ()) {}
 
   X *operator-> () const;
@@ -109,7 +109,7 @@ class ACE_Auto_Ptr : public ACE_Auto_Basic_Ptr <X>
 public:
   typedef X element_type;
 
-  explicit ACE_Auto_Ptr (X * p = 0) : ACE_Auto_Basic_Ptr<X> (p) {}
+  explicit ACE_Auto_Ptr (X * p = nullptr) : ACE_Auto_Basic_Ptr<X> (p) {}
 
   X *operator-> () const;
 };
@@ -128,7 +128,7 @@ class ACE_Auto_Basic_Array_Ptr
 public:
   typedef X element_type;
 
-  explicit ACE_Auto_Basic_Array_Ptr (X * p = 0) : p_ (p) {}
+  explicit ACE_Auto_Basic_Array_Ptr (X * p = nullptr) : p_ (p) {}
 
   ACE_Auto_Basic_Array_Ptr (ACE_Auto_Basic_Array_Ptr<X> & ap);
   ACE_Auto_Basic_Array_Ptr<X> &operator= (ACE_Auto_Basic_Array_Ptr<X> & rhs);
@@ -139,7 +139,7 @@ public:
   X & operator[] (int i) const;
   X * get (void) const;
   X * release (void);
-  void reset (X * p = 0);
+  void reset (X * p = nullptr);
 
   /// Dump the state of an object.
   void dump (void) const;
@@ -163,7 +163,7 @@ class ACE_Auto_Array_Ptr : public ACE_Auto_Basic_Array_Ptr<X>
 public:
   typedef X element_type;
 
-  explicit ACE_Auto_Array_Ptr (X *p = 0)
+  explicit ACE_Auto_Array_Ptr (X *p = nullptr)
     : ACE_Auto_Basic_Array_Ptr<X> (p) {}
 
   X *operator-> () const;

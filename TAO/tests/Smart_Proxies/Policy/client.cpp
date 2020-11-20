@@ -109,7 +109,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       // By default this factory is permanent (i.e. registered for
       // this interface) but if there is a need for flexibility per
       // object instance then <one_shot_factory> needs to be set to 0.
-      Smart_Test_Factory *test_factory = 0;
+      Smart_Test_Factory *test_factory = nullptr;
       ACE_NEW_RETURN (test_factory,
                       Smart_Test_Factory (one_shot_factory),
                       -1);

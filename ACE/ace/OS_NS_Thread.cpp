@@ -137,7 +137,7 @@ ACE_TSS_Emulation::tss_base (void* ts_storage[], u_int *ts_created)
         }
     }
 
-  void **old_ts_storage = 0;
+  void **old_ts_storage = nullptr;
 
   // Get the tss_storage from thread-OS specific storage.
   if (ACE_OS::thr_getspecific_native (native_tss_key_,
@@ -308,7 +308,7 @@ ACE_TSS_Emulation::tss_open (void *ts_storage[ACE_TSS_THREAD_KEYS_MAX])
       void **tss_base_p = tss_base ();
       for (u_int i = 0; i < ACE_TSS_THREAD_KEYS_MAX; ++i, ++tss_base_p)
         {
-          *tss_base_p = 0;
+          *tss_base_p = nullptr;
         }
 
       return tss_base ();
@@ -676,7 +676,7 @@ TSS_Cleanup_Instance::~TSS_Cleanup_Instance (void)
 {
   // Variable to hold the mutex_ to delete outside the scope of the
   // guard.
-  ACE_Thread_Mutex *del_mutex = 0;
+  ACE_Thread_Mutex *del_mutex = nullptr;
 
   // scope the guard
   {
@@ -758,7 +758,7 @@ ACE_TSS_Cleanup::thread_exit (void)
     ACE_TSS_CLEANUP_GUARD
 
     // if not initialized or already cleaned up
-    ACE_TSS_Keys *this_thread_keys = 0;
+    ACE_TSS_Keys *this_thread_keys = nullptr;
     if (! find_tss_keys (this_thread_keys) )
       {
         return;
@@ -901,7 +901,7 @@ ACE_TSS_Cleanup::thread_detach_key (ACE_thread_key_t key)
   // variables to hold the destructor and the object to be destructed
   // the actual call is deferred until the guard is released
   ACE_TSS_Info::Destructor destructor = 0;
-  void * tss_obj = 0;
+  void * tss_obj = nullptr;
 
   // scope the guard
   {
@@ -941,7 +941,7 @@ ACE_TSS_Cleanup::thread_release (
   // assume guard is held by caller
   // Find the TSS keys (if any) for this thread
   // do not create them if they don't exist
-  ACE_TSS_Keys * thread_keys = 0;
+  ACE_TSS_Keys * thread_keys = nullptr;
   if (find_tss_keys (thread_keys))
     {
         // if this key is in use by this thread
@@ -1022,7 +1022,7 @@ ACE_TSS_Cleanup::tss_keys ()
         }
     }
 
-  void *ts_keys = 0;
+  void *ts_keys = nullptr;
   if (ACE_OS::thr_getspecific (in_use_, &ts_keys) == -1)
     {
       ACE_ASSERT (false);
@@ -1844,7 +1844,7 @@ ACE_OS::mutex_init (ACE_mutex_t *m,
   pthread_mutexattr_t l_attributes;
 # endif
 
-  if (attributes == 0)
+  if (attributes == nullptr)
     attributes = &l_attributes;
   int result = 0;
   int attr_init = 0;  // have we initialized the local attributes.
@@ -2619,8 +2619,8 @@ ACE_OS::event_init (ACE_event_t *event,
     }
 #elif defined (ACE_HAS_THREADS)
   ACE_UNUSED_ARG (sa);
-  event->name_ = 0;
-  event->eventdata_ = 0;
+  event->name_ = nullptr;
+  event->eventdata_ = nullptr;
 
   if (type == USYNC_PROCESS)
     {
@@ -2660,7 +2660,7 @@ ACE_OS::event_init (ACE_event_t *event,
           owner = true;
         }
 
-      void *const mapped = ACE_OS::mmap (0, sizeof (ACE_eventdata_t),
+      void *const mapped = ACE_OS::mmap (nullptr, sizeof (ACE_eventdata_t),
                                          PROT_RDWR, MAP_SHARED, fd);
       ACE_eventdata_t *evtdata = reinterpret_cast<ACE_eventdata_t *> (mapped);
       ACE_OS::close (fd);
@@ -2676,7 +2676,7 @@ ACE_OS::event_init (ACE_event_t *event,
       if (owner)
         {
           event->name_ = ACE_OS::strdup (name_p);
-          if (event->name_ == 0 ||
+          if (event->name_ == nullptr ||
               eventdata_init (event->eventdata_, USYNC_PROCESS, manual_reset,
                               initial_state, attributes, name, arg,
                               ACE_EVENT_USE_COND_PSHARED,
@@ -3579,8 +3579,8 @@ ACE_OS::thr_create (ACE_THR_FUNC func,
 # define  ACE_THREAD_ARGUMENT  thread_args
 #endif /* ! defined (ACE_NO_THREAD_ADAPTER) */
 
-  ACE_Base_Thread_Adapter *thread_args = 0;
-  if (thread_adapter == 0)
+  ACE_Base_Thread_Adapter *thread_args = nullptr;
+  if (thread_adapter == nullptr)
 #if defined (ACE_HAS_WIN32_STRUCTURAL_EXCEPTIONS)
     ACE_NEW_RETURN (thread_args,
                     ACE_OS_Thread_Adapter (func, args,
@@ -3602,7 +3602,7 @@ ACE_OS::thr_create (ACE_THR_FUNC func,
 
   std::unique_ptr <ACE_Base_Thread_Adapter> auto_thread_args;
 
-  if (thread_adapter == 0)
+  if (thread_adapter == nullptr)
     ACE_auto_ptr_reset (auto_thread_args,
                         thread_args);
 
@@ -3615,11 +3615,11 @@ ACE_OS::thr_create (ACE_THR_FUNC func,
 # endif /* ACE_NEEDS_HUGE_THREAD_STACKSIZE */
 
   ACE_thread_t tmp_thr;
-  if (thr_id == 0)
+  if (thr_id == nullptr)
     thr_id = &tmp_thr;
 
   ACE_hthread_t tmp_handle;
-  if (thr_handle == 0)
+  if (thr_handle == nullptr)
     thr_handle = &tmp_handle;
 
 # if defined (ACE_HAS_PTHREADS)
@@ -3648,7 +3648,7 @@ ACE_OS::thr_create (ACE_THR_FUNC func,
 #   if !defined (ACE_LACKS_PTHREAD_ATTR_SETSTACKSIZE)
 #     if !defined (ACE_LACKS_PTHREAD_ATTR_SETSTACK)
       int result;
-      if (stack != 0)
+      if (stack != nullptr)
         result = ACE_ADAPT_RETVAL (pthread_attr_setstack (&attr, stack, size), result);
       else
         result = ACE_ADAPT_RETVAL (pthread_attr_setstacksize (&attr, size), result);
@@ -4311,7 +4311,7 @@ ACE_OS::thr_join (ACE_hthread_t thr_handle,
   // We can't get the status of the thread
   if (status != 0)
     {
-      *status = 0;
+      *status = nullptr;
     }
 
   // This method can not support joining all threads

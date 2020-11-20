@@ -144,7 +144,7 @@ Object_Group_Factory_i::list_groups (int random)
     group_iter = &rr_iter;
 
   // Iterate over groups and populate the list.
-  Object_Group_Factory_i::HASH_MAP::ENTRY *hash_entry = 0;
+  Object_Group_Factory_i::HASH_MAP::ENTRY *hash_entry = nullptr;
   for (CORBA::ULong i = 0; i < len; i++)
     {
       group_iter->next (hash_entry);
@@ -342,7 +342,7 @@ Random_Object_Group::resolve (void)
   size_t member = ACE_OS::rand() % group_size;
 
   // Get the id of the member to return to the client.
-  ACE_CString *id = 0;
+  ACE_CString *id = nullptr;
   member_id_list_.get (id, member);
 
   ACE_DEBUG ((LM_DEBUG, "Load_Balancer: In <%C> Group resolved to <%C>\n",
@@ -385,7 +385,7 @@ RR_Object_Group::resolve (void)
     throw Load_Balancer::no_such_member ();
 
   // Get the id of the member to return to the client.
-  ACE_CString *id = 0;
+  ACE_CString *id = nullptr;
   member_id_list_.get (id, next_);
 
   ACE_DEBUG ((LM_DEBUG, "Load_Balancer: In <%C> Group resolved to <%C>\n",

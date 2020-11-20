@@ -48,9 +48,9 @@ parse_args (int argc, ACE_TCHAR *argv[])
   ACE_Get_Opt get_opts (argc, argv, ACE_TEXT("h:p:o:"));
   int c;
 
-  ACE_TCHAR *hostname = 0;
-  ACE_TCHAR *port = 0;
-  ACE_TCHAR *ior_file = 0;
+  ACE_TCHAR *hostname = nullptr;
+  ACE_TCHAR *port = nullptr;
+  ACE_TCHAR *ior_file = nullptr;
 
   while ((c = get_opts ()) != -1)
     switch (c)

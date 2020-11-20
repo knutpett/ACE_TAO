@@ -11,8 +11,8 @@
 #define CLIENT_THREAD_NUMBER    32
 #define HELLO_CALL_NUMBER       100
 
-const ACE_TCHAR *uipmc_url = 0;
-const ACE_TCHAR *client_uipmc_url = 0;
+const ACE_TCHAR *uipmc_url = nullptr;
+const ACE_TCHAR *client_uipmc_url = nullptr;
 
 void
 test_sleep (int microsec)

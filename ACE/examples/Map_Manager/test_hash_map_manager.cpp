@@ -39,7 +39,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
       MAP_MANAGER::ITERATOR iterator (hash);
 
-      for (MAP_MANAGER::ENTRY *entry = 0;
+      for (MAP_MANAGER::ENTRY *entry = nullptr;
            iterator.next (entry) != 0;
            iterator.advance ())
         ACE_DEBUG ((LM_DEBUG, "%s %s\n",

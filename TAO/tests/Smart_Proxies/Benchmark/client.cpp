@@ -129,7 +129,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
           // proxy designer who now can manage the lifetime of the object
           // much surely.
 
-          Smart_Test_Factory *test_factory = 0;
+          Smart_Test_Factory *test_factory = nullptr;
           ACE_NEW_RETURN (test_factory,
                           Smart_Test_Factory,
                           -1);

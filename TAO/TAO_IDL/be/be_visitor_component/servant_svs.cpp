@@ -775,7 +775,7 @@ be_visitor_servant_svs::gen_publishes_top (void)
           << node_->local_name ()
           << "_Servant::get_all_publishers (void)" << be_nl
           << "{" << be_idt_nl
-          << "::Components::PublisherDescriptions *retval = 0;"
+          << "::Components::PublisherDescriptions *retval = nullptr;"
           << be_nl
           << "ACE_NEW_THROW_EX (retval," << be_nl
           << "                  ::Components::PublisherDescriptions,"
@@ -882,7 +882,7 @@ be_visitor_servant_svs::gen_uses_top (void)
           << node_->local_name ()
           << "_Servant::get_all_receptacles (void)" << be_nl
           << "{" << be_idt_nl
-          << "::Components::ReceptacleDescriptions * retval = 0;"
+          << "::Components::ReceptacleDescriptions * retval = nullptr;"
           << be_nl
           << "ACE_NEW_THROW_EX (retval," << be_nl
           << "                  ::Components::ReceptacleDescriptions,"
@@ -1003,7 +1003,7 @@ be_visitor_servant_svs::gen_get_all_emitters (void)
       << node_->local_name ()
       << "_Servant::get_all_emitters (void)" << be_nl
       << "{" << be_idt_nl
-      << "::Components::EmitterDescriptions *retval = 0;"
+      << "::Components::EmitterDescriptions *retval = nullptr;"
       << be_nl
       << "ACE_NEW_THROW_EX (retval," << be_nl
       << "                  ::Components::EmitterDescriptions,"

@@ -7,7 +7,7 @@
 const char *
 sched_policy_name (int sched_policy)
 {
-  const char *name = 0;
+  const char *name = nullptr;
 
   switch (sched_policy)
     {

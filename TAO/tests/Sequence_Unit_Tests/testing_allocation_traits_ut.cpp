@@ -32,7 +32,7 @@ struct Tester
     expected_calls c(aspect::allocbuf_calls);
 
     aspect::allocbuf_calls.failure_countdown(2);
-    value_type * s = 0;
+    value_type * s = nullptr;
     CHECK_NO_THROW(s = aspect::allocbuf(4));
     aspect::freebuf(s);
     CHECK_THROW(s = aspect::allocbuf(4), testing_exception);
@@ -88,7 +88,7 @@ struct Tester
     expected_calls c(aspect::default_buffer_allocation_calls);
 
     aspect::default_buffer_allocation_calls.failure_countdown(2);
-    value_type * s = 0;
+    value_type * s = nullptr;
     CHECK_NO_THROW(
         s = aspect::default_buffer_allocation());
     aspect::freebuf(s);

@@ -54,7 +54,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Derived_i *derived_impl = 0;
+      Derived_i *derived_impl = nullptr;
       ACE_NEW_RETURN (derived_impl,
                       Derived_i (orb.in ()),
                       1);

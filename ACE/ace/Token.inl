@@ -33,7 +33,7 @@ ACE_Token::tryacquire (void)
 {
   ACE_TRACE ("ACE_Token::tryacquire");
   return this->shared_acquire
-    (0, 0, (ACE_Time_Value *) &ACE_Time_Value::zero, ACE_Token::WRITE_TOKEN);
+    (nullptr, nullptr, (ACE_Time_Value *) &ACE_Time_Value::zero, ACE_Token::WRITE_TOKEN);
 }
 
 ACE_INLINE int
@@ -60,7 +60,7 @@ ACE_Token::acquire_read (void)
 {
   ACE_TRACE ("ACE_Token::acquire_read");
   return this->shared_acquire
-    (0, 0, 0, ACE_Token::READ_TOKEN);
+    (nullptr, nullptr, nullptr, ACE_Token::READ_TOKEN);
 }
 
 ACE_INLINE int
@@ -68,7 +68,7 @@ ACE_Token::acquire_write (void)
 {
   ACE_TRACE ("ACE_Token::acquire_write");
   return this->shared_acquire
-    (0, 0, 0, ACE_Token::WRITE_TOKEN);
+    (nullptr, nullptr, nullptr, ACE_Token::WRITE_TOKEN);
 }
 
 ACE_INLINE int
@@ -76,7 +76,7 @@ ACE_Token::tryacquire_read (void)
 {
   ACE_TRACE ("ACE_Token::tryacquire_read");
   return this->shared_acquire
-    (0, 0, (ACE_Time_Value *) &ACE_Time_Value::zero, ACE_Token::READ_TOKEN);
+    (nullptr, nullptr, (ACE_Time_Value *) &ACE_Time_Value::zero, ACE_Token::READ_TOKEN);
 }
 
 ACE_INLINE int
@@ -93,7 +93,7 @@ ACE_Token::tryacquire_write (void)
 {
   ACE_TRACE ("ACE_Token::tryacquire_write");
   return this->shared_acquire
-    (0, 0, (ACE_Time_Value *) &ACE_Time_Value::zero, ACE_Token::WRITE_TOKEN);
+    (nullptr, nullptr, (ACE_Time_Value *) &ACE_Time_Value::zero, ACE_Token::WRITE_TOKEN);
 }
 
 ACE_INLINE int

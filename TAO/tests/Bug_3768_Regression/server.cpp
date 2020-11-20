@@ -72,7 +72,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      TestServer *test_impl = 0;
+      TestServer *test_impl = nullptr;
       ACE_NEW_RETURN (test_impl,
                       TestServer (),
                       1);

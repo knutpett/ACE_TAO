@@ -17,7 +17,7 @@ template <class ACCEPTOR> int
 Reactor_Logging_Server_Adapter<ACCEPTOR>::init (int argc,
                                                 ACE_TCHAR *argv[]) {
   int i;
-  char **array = 0;
+  char **array = nullptr;
   ACE_NEW_RETURN (array, char*[argc], -1);
   ACE_Auto_Array_Ptr<char *> char_argv (array);
 

@@ -158,7 +158,7 @@ AST_Decl::AST_Decl (NodeType nt,
 
   this->compute_full_name (n);
 
-  char *prefix = 0;
+  char *prefix = nullptr;
   idl_global->pragma_prefixes ().top (prefix);
   this->prefix_ = ACE::strnew (prefix ? prefix : "");
 
@@ -205,7 +205,7 @@ AST_Decl::AST_Decl (
 
   this->compute_full_name (name);
 
-  char *prefix = 0;
+  char *prefix = nullptr;
   idl_global->pragma_prefixes ().top (prefix);
   this->prefix_ = ACE::strnew (prefix ? prefix : "");
 
@@ -313,7 +313,7 @@ AST_Decl::compute_full_name (UTL_ScopedName *n)
 
   // OK, not global. So copy name of containing scope, then
   // smash last cdr of copy with new component
-  UTL_ScopedName *cn = 0;
+  UTL_ScopedName *cn = nullptr;
   AST_Decl *d = ScopeAsDecl (this->defined_in ());
   if (d)
     {
@@ -328,7 +328,7 @@ AST_Decl::compute_full_name (UTL_ScopedName *n)
     {
       if (this->pd_name)
         {
-          UTL_ScopedName *conc_name = 0;
+          UTL_ScopedName *conc_name = nullptr;
           ACE_NEW (conc_name,
                    UTL_ScopedName (this->pd_local_name->copy (), 0));
           this->pd_name->nconc (conc_name);
@@ -415,7 +415,7 @@ AST_Decl::compute_full_name (void)
       size_t namelen = 0;
       long first = true;
       long second = false;
-      char *name = 0;
+      char *name = nullptr;
 
       for (UTL_IdListActiveIterator i (this->name ());
            !i.is_done ();
@@ -496,10 +496,10 @@ AST_Decl::compute_repoID (void)
   size_t namelen = 4; // for the prefix "IDL:"
   long first = true;
   long second = false;
-  char *name = 0;
+  char *name = nullptr;
   const char *prefix = (this->prefix_ ? this->prefix_ : "");
   UTL_Scope *scope = this->defined_in ();
-  const char *parent_prefix = 0;
+  const char *parent_prefix = nullptr;
 
   // If our prefix is empty, we check to see if an ancestor has one.
   while (scope && !ACE_OS::strcmp (prefix, ""))
@@ -666,7 +666,7 @@ AST_Decl::compute_flat_name (void)
       size_t namelen = 0;
       long first = true;
       long second = false;
-      char *item_name = 0;
+      char *item_name = nullptr;
 
       // In the first loop, compute the total length.
       for (UTL_IdListActiveIterator i (this->name ());
@@ -998,8 +998,8 @@ AST_Decl::version (void)
 
       // All forms of repo id should contain two colons, the
       // version coming after the second one.
-      const char *tail1 = 0;
-      const char *tail2 = 0;
+      const char *tail1 = nullptr;
+      const char *tail2 = nullptr;
 
       if (repo_id)
         {
@@ -1252,19 +1252,19 @@ AST_Decl::compute_name (const char *prefix,
   result_local_str += suffix_str;
 
   // Identifier for the resulting local name.
-  Identifier *result_local_id = 0;
+  Identifier *result_local_id = nullptr;
   ACE_NEW_RETURN (result_local_id,
                   Identifier (result_local_str.c_str ()),
                   0);
 
   // UTL_Scoped name for the resulting local name.
-  UTL_ScopedName *result_local_name = 0;
+  UTL_ScopedName *result_local_name = nullptr;
   ACE_NEW_RETURN (result_local_name,
                   UTL_ScopedName (result_local_id, 0),
                   0);
 
   // Global scope?
-  UTL_ScopedName *result_name = 0;
+  UTL_ScopedName *result_name = nullptr;
   if (!this->defined_in ())
     {
       result_name = result_local_name;
@@ -1380,7 +1380,7 @@ AST_Decl::compute_local_name (const char *prefix,
   result_str += ACE_CString (suffix);
 
   // Identifier for the resulting local name.
-  Identifier *result_id = 0;
+  Identifier *result_id = nullptr;
   ACE_NEW_RETURN (result_id,
                   Identifier (result_str.c_str ()),
                   0);

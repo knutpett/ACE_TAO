@@ -12,7 +12,7 @@ void
 Server_ORBInitializer::pre_init (
     PortableInterceptor::ORBInitInfo_ptr orbinitinfo)
 {
-  POA_TestModule::test* test = 0;
+  POA_TestModule::test* test = nullptr;
   ACE_NEW (test,
            test_i);
   PortableServer::ServantBase_var safe (test);

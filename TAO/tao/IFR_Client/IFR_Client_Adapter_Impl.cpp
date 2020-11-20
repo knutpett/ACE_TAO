@@ -121,7 +121,7 @@ TAO_IFR_Client_Adapter_Impl::create_operation_list (
   for (CORBA::ULong i = 0; i < paramCount; ++i)
     {
       CORBA::Any value;
-      TAO::Unknown_IDL_Type *unk = 0;
+      TAO::Unknown_IDL_Type *unk = nullptr;
       ACE_NEW (unk,
                TAO::Unknown_IDL_Type (params[i].type.in ()));
       value.replace (unk);

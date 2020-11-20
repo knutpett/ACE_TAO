@@ -12,8 +12,8 @@ namespace TAO
     IdAssignmentStrategyFactoryImpl::create (
       ::PortableServer::IdAssignmentPolicyValue value)
     {
-      IdAssignmentStrategy *strategy = 0;
-      const char *strategy_name = 0;
+      IdAssignmentStrategy *strategy = nullptr;
+      const char *strategy_name = nullptr;
 
       switch (value)
       {

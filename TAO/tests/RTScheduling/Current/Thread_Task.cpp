@@ -27,7 +27,7 @@ Thread_Task::activate_task (int thr_count)
 
       this->current_ = RTScheduling::Current::_narrow (current_obj.in ());
 
-      const char * name = 0;
+      const char * name = nullptr;
       CORBA::Policy_ptr sched_param = 0;
       CORBA::Policy_ptr implicit_sched_param = 0;
 
@@ -89,7 +89,7 @@ Thread_Task::svc (void)
 {
   try
     {
-      const char * name = 0;
+      const char * name = nullptr;
       CORBA::Policy_ptr sched_param = 0;
       CORBA::Policy_ptr implicit_sched_param = 0;
 

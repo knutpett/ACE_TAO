@@ -18,7 +18,7 @@ class CNamingViewerDlg : public CDialog
 {
 // Construction
 public:
-  CNamingViewerDlg(CORBA::ORB_ptr pORB, CWnd* pParent = 0); // standard constructor
+  CNamingViewerDlg(CORBA::ORB_ptr pORB, CWnd* pParent = nullptr); // standard constructor
 
 // Dialog Data
   //{{AFX_DATA(CNamingViewerDlg)

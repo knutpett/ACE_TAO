@@ -184,7 +184,7 @@ TAO_DIOP_Endpoint::next (void)
 TAO_Endpoint *
 TAO_DIOP_Endpoint::duplicate (void)
 {
-  TAO_DIOP_Endpoint *endpoint = 0;
+  TAO_DIOP_Endpoint *endpoint = nullptr;
 
   ACE_NEW_RETURN (endpoint,
                   TAO_DIOP_Endpoint (this->host_.in (),

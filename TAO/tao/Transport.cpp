@@ -1651,7 +1651,7 @@ int
 TAO_Transport::queue_message_i (const ACE_Message_Block *message_block,
                                 ACE_Time_Value *max_wait_time, bool back)
 {
-  TAO_Queued_Message *queued_message = 0;
+  TAO_Queued_Message *queued_message = nullptr;
   ACE_NEW_RETURN (queued_message,
                   TAO_Asynch_Queued_Message (message_block,
                                              this->orb_core_,
@@ -1711,7 +1711,7 @@ TAO_Transport::handle_input (TAO_Resume_Handle &rh,
         }
     }
 
-  TAO_Queued_Data *q_data = 0;
+  TAO_Queued_Data *q_data = nullptr;
 
   if (this->incoming_message_stack_.top (q_data) != -1
       && q_data->missing_data () != TAO_MISSING_DATA_UNDEFINED)
@@ -1768,7 +1768,7 @@ TAO_Transport::consolidate_process_message (TAO_Queued_Data *q_data,
       q_data->msg_type () == GIOP::Fragment)
     {
       // consolidate message on top of stack, only for fragmented messages
-      TAO_Queued_Data *new_q_data = 0;
+      TAO_Queued_Data *new_q_data = nullptr;
 
       switch (this->messaging_object()->consolidate_fragmented_message (q_data, new_q_data))
         {
@@ -1848,7 +1848,7 @@ TAO_Transport::consolidate_enqueue_message (TAO_Queued_Data *q_data)
   if (q_data->more_fragments () ||
       q_data->msg_type () == GIOP::Fragment)
     {
-      TAO_Queued_Data *new_q_data = 0;
+      TAO_Queued_Data *new_q_data = nullptr;
 
       switch (this->messaging_object()->consolidate_fragmented_message (q_data, new_q_data))
         {
@@ -1978,7 +1978,7 @@ TAO_Transport::handle_input_parse_extra_messages (
   // parsed
   int buf_status = 0;
 
-  TAO_Queued_Data *q_data = 0;     // init
+  TAO_Queued_Data *q_data = nullptr;     // init
 
   // parse buffer until all messages have been extracted, consolidate
   // and enqueue complete messages, if the last message being parsed
@@ -2056,7 +2056,7 @@ TAO_Transport::handle_input_parse_data  (TAO_Resume_Handle &rh,
   size_t recv_size = 0; // Note: unsigned integer
 
   // Pointer to newly parsed message
-  TAO_Queued_Data *q_data = 0;
+  TAO_Queued_Data *q_data = nullptr;
 
   // Optimizing access of constants
   size_t const header_length = this->messaging_object ()->header_length ();

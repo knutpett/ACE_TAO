@@ -71,7 +71,7 @@ Supplier::perform_push (void)
 
       if (this->valuetype_)
         {
-          OBV_Hello::ValueTypeData * test_data = 0;
+          OBV_Hello::ValueTypeData * test_data = nullptr;
           ACE_NEW (test_data, OBV_Hello::ValueTypeData ());
           test_data->data ("ACE/TAO/CIAO");
           insert_into_any (event[0].data.any_value, test_data);

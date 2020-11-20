@@ -157,7 +157,7 @@ Routing_Slip_Persistence_Manager*
 Standard_Event_Persistence_Factory::create_routing_slip_persistence_manager(
   Persistent_Callback* callback)
 {
-  Routing_Slip_Persistence_Manager* rspm = 0;
+  Routing_Slip_Persistence_Manager* rspm = nullptr;
   ACE_NEW_RETURN(rspm, Routing_Slip_Persistence_Manager(this), rspm);
   rspm->set_callback(callback);
   return rspm;
@@ -166,7 +166,7 @@ Standard_Event_Persistence_Factory::create_routing_slip_persistence_manager(
 Routing_Slip_Persistence_Manager *
 Standard_Event_Persistence_Factory::first_reload_manager()
 {
-  Routing_Slip_Persistence_Manager * result = 0;
+  Routing_Slip_Persistence_Manager * result = nullptr;
   if (this->is_reloading_)
   {
     result = this->root_.load_next();

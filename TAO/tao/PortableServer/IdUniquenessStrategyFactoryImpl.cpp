@@ -12,7 +12,7 @@ namespace TAO
     IdUniquenessStrategyFactoryImpl::create (
       ::PortableServer::IdUniquenessPolicyValue value)
     {
-      IdUniquenessStrategy* strategy = 0;
+      IdUniquenessStrategy* strategy = nullptr;
       switch (value)
       {
         case ::PortableServer::MULTIPLE_ID :

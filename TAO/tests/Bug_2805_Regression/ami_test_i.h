@@ -25,7 +25,7 @@ class AMI_Test_i : public POA_A::AMI_Test
 public:
   /// ctor
   AMI_Test_i (CORBA::ORB_ptr orb,
-        CORBA::Long in_l = 0, const char * in_str = 0,
+        CORBA::Long in_l = 0, const char * in_str = nullptr,
   bool check_params = false);
 
   // The AMI_Test methods.

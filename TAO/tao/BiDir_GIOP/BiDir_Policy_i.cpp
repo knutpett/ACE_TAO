@@ -39,7 +39,7 @@ TAO_BidirectionalPolicy::policy_type (void)
 TAO_BidirectionalPolicy *
 TAO_BidirectionalPolicy::clone (void) const
 {
-  TAO_BidirectionalPolicy *copy = 0;
+  TAO_BidirectionalPolicy *copy = nullptr;
   ACE_NEW_RETURN (copy,
                   TAO_BidirectionalPolicy (*this),
                   0);
@@ -51,7 +51,7 @@ TAO_BidirectionalPolicy::copy (void)
 {
   // Future policy implementors: notice how the following code is
   // exception safe!
-  TAO_BidirectionalPolicy* tmp = 0;
+  TAO_BidirectionalPolicy* tmp = nullptr;
   ACE_NEW_THROW_EX (tmp, TAO_BidirectionalPolicy (*this),
                     CORBA::NO_MEMORY (TAO::VMCID,
                                       CORBA::COMPLETED_NO));

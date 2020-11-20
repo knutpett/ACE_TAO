@@ -36,7 +36,7 @@ Visual_i::normal (CORBA::Long arg)
       throw;
   }
 
-  const char *str = 0;
+  const char *str = nullptr;
   if (! (retrieved_any.in() >>= str) )
   {
     ACE_DEBUG ((LM_DEBUG, "Visual_i::normal : Problem extracting data from CORBA::Any\n"));

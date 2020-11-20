@@ -47,7 +47,7 @@ be_visitor_operation_upcall_command_ss::visit (
                         -1);
     }
 
-  be_module *module = 0;
+  be_module *module = nullptr;
 
   TAO_OutStream & os = *this->ctx_->stream ();
 

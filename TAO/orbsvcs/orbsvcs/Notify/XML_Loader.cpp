@@ -147,7 +147,7 @@ namespace TAO_Notify
         object_stack_.push (root);
         parser.parse (&input);
         ACE_ASSERT (object_stack_.size () == 1);
-        Topology_Object* cur = 0;
+        Topology_Object* cur = nullptr;
         object_stack_.pop (cur);
       }
       catch (const ACEXML_Exception& ex)
@@ -176,7 +176,7 @@ namespace TAO_Notify
     if (this->live_)
     {
       ACE_ASSERT (object_stack_.size () > 0);
-      Topology_Object* cur = 0;
+      Topology_Object* cur = nullptr;
       if (object_stack_.top (cur) == 0)
       {
         try
@@ -217,7 +217,7 @@ namespace TAO_Notify
                       ACE_TEXT("(%P|%t) XML_Loader: End Element %s\n"),
                       name));
         }
-      Topology_Object* cur = 0;
+      Topology_Object* cur = nullptr;
       object_stack_.pop (cur);
     }
   }

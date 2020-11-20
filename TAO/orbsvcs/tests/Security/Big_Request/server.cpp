@@ -5,7 +5,7 @@
 #include "ace/SString.h"
 #include "ace/Task.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 const char *cert_file = "cacert.pem";
 
 class OrbTask : public ACE_Task_Base

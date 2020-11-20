@@ -30,7 +30,7 @@ be_visitor_operation_ss::visit_operation (be_operation * node)
     }
 
   TAO_OutStream *os = this->ctx_->stream ();
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   this->ctx_->node (node);
 

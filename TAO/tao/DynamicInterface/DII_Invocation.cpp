@@ -112,7 +112,7 @@ namespace TAO
             }
 
           CORBA::Any any;
-          TAO::Unknown_IDL_Type *unk = 0;
+          TAO::Unknown_IDL_Type *unk = nullptr;
           ACE_NEW_RETURN (unk,
                           TAO::Unknown_IDL_Type (
                               tc.in (),

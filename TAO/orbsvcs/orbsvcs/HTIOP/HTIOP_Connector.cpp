@@ -186,17 +186,17 @@ TAO::HTIOP::Connector::make_connection (TAO::Profile_Transport_Resolver *,
 
   // This is where we need to set the ACE::HTBP::Stream to the connection
   // handler.
-  TAO::HTIOP::Connection_Handler *svc_handler = 0;
+  TAO::HTIOP::Connection_Handler *svc_handler = nullptr;
 
   // In more traditional connectors, the following code would be part of a
   // strategized connector's connect() method. This include making the
   // handler, attaching the session, and activating the handler.
 
   // Instantiate a ACE::HTBP::Session
-  ACE::HTBP::Session *session = 0;
+  ACE::HTBP::Session *session = nullptr;
   if (ACE::HTBP::Session::find_session (session_id, session) == -1)
     {
-      ACE_INET_Addr *proxy = 0;
+      ACE_INET_Addr *proxy = nullptr;
       ACE_NEW_RETURN (proxy,
                       ACE_INET_Addr(static_cast<u_short> (proxy_port),proxy_host.c_str()),
                       0);
@@ -348,7 +348,7 @@ TAO::HTIOP::Connector::make_profile (void)
   // or:
   //    host:port/object_key
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO::HTIOP::Profile (this->orb_core ()),
                     CORBA::NO_MEMORY (

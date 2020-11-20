@@ -528,7 +528,7 @@ test_ostream (void)
     }
 
   // Allocate the input buffer
-  char *buffer = 0;
+  char *buffer = nullptr;
   ACE_NEW_RETURN (buffer,
                   char[info.size_ + 1],
                   -1);
@@ -622,7 +622,7 @@ Log_Spec_Verify::log (ACE_Log_Record &log_record)
   else
     {
       const ACE_TCHAR *b = log_record.msg_data ();
-      const ACE_TCHAR *expect = 0;
+      const ACE_TCHAR *expect = nullptr;
 
       ++this->tests_;
 
@@ -735,8 +735,8 @@ test_format_specs (void)
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%}%IONE\n")));
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%}%IENDINDENTING\n")));
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%W\n"), ACE_TEXT_WIDE ("My string test\n")));
-  ACE_WCHAR_T *nill_string = 0;
-  char* char_nill_string = 0;
+  ACE_WCHAR_T *nill_string = nullptr;
+  char* char_nill_string = nullptr;
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%W\n"), nill_string));
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%s\n"), nill_string));
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%C\n"), char_nill_string));

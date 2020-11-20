@@ -68,12 +68,12 @@ public:
                     int version_major,
                     int version_minor,
                     const char *address,
-                    const char *options = 0);
+                    const char *options = nullptr);
   virtual int open_default (TAO_ORB_Core *orb_core,
                             ACE_Reactor *reactor,
                             int version_major,
                             int version_minor,
-                            const char *options = 0);
+                            const char *options = nullptr);
   virtual int close (void);
   virtual int create_profile (const TAO::ObjectKey &object_key,
                               TAO_MProfile &mprofile,
@@ -94,7 +94,7 @@ public:
   int hostname (TAO_ORB_Core *orb_core,
                 ACE_INET_Addr &addr,
                 char *&host,
-                const char *specified_hostname = 0);
+                const char *specified_hostname = nullptr);
 
   /**
    * Set the host name for the given address using the dotted decimal

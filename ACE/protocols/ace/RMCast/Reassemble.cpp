@@ -12,7 +12,7 @@ namespace ACE_RMCast
 
   void Reassemble::recv (Message_ptr m)
   {
-    Map::ENTRY* e = 0;
+    Map::ENTRY* e = nullptr;
     Address from (
       static_cast<From const*> (m->find (From::id))->address ());
 

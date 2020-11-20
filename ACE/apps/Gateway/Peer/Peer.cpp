@@ -112,7 +112,7 @@ Peer_Handler::transmit_stdin (void)
   int result = 0;
   if (this->connection_id_ != -1)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       ACE_NEW_RETURN (mb,
                       ACE_Message_Block (sizeof (Event)),
@@ -224,7 +224,7 @@ Peer_Handler::nonblk_put (ACE_Message_Block *mb)
 int
 Peer_Handler::handle_output (ACE_HANDLE)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("in handle_output\n")));
@@ -545,7 +545,7 @@ Peer_Handler::await_connection_id (void)
 int
 Peer_Handler::subscribe (void)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (sizeof (Event)),
@@ -564,7 +564,7 @@ Peer_Handler::subscribe (void)
 int
 Peer_Handler::await_events (void)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   ssize_t n = this->recv (mb);
 

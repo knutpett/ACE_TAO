@@ -681,7 +681,7 @@ ACE_WFMO_Reactor_Handler_Repository::make_changes_in_current_infos (void)
           // try to deregister again.
           ACE_HANDLE handle = ACE_INVALID_HANDLE;
           ACE_Reactor_Mask masks = ACE_Event_Handler::NULL_MASK;
-          ACE_Event_Handler *event_handler = 0;
+          ACE_Event_Handler *event_handler = nullptr;
 
           // See if this entry is scheduled for deletion
           if (this->current_info_[i].delete_entry_)
@@ -792,7 +792,7 @@ ACE_WFMO_Reactor_Handler_Repository::make_changes_in_suspension_infos (void)
           // try to deregister again.
           ACE_HANDLE handle = ACE_INVALID_HANDLE;
           ACE_Reactor_Mask masks = ACE_Event_Handler::NULL_MASK;
-          ACE_Event_Handler *event_handler = 0;
+          ACE_Event_Handler *event_handler = nullptr;
 
           // See if this entry is scheduled for deletion
           if (this->current_suspended_info_[i].delete_entry_)
@@ -897,7 +897,7 @@ ACE_WFMO_Reactor_Handler_Repository::make_changes_in_to_be_added_infos (void)
       // try to deregister again.
       ACE_HANDLE handle = ACE_INVALID_HANDLE;
       ACE_Reactor_Mask masks = ACE_Event_Handler::NULL_MASK;
-      ACE_Event_Handler *event_handler = 0;
+      ACE_Event_Handler *event_handler = nullptr;
 
       // See if this entry is scheduled for deletion
       if (this->to_be_added_info_[i].delete_entry_)
@@ -1562,7 +1562,7 @@ ACE_WFMO_Reactor_Handler_Repository::handler (ACE_HANDLE handle,
 {
   int found = 0;
   size_t i = 0;
-  ACE_Event_Handler *event_handler = 0;
+  ACE_Event_Handler *event_handler = nullptr;
   existing_masks = 0;
 
   // Look for the handle first
@@ -1886,7 +1886,7 @@ ACE_WFMO_Reactor::poll_remaining_handles (DWORD slot)
 int
 ACE_WFMO_Reactor::calculate_timeout (ACE_Time_Value *max_wait_time)
 {
-  ACE_Time_Value *time = 0;
+  ACE_Time_Value *time = nullptr;
   if (this->owner_ == ACE_Thread::self ())
     time = this->timer_queue_->calculate_timeout (max_wait_time);
   else
@@ -2437,7 +2437,7 @@ ACE_WFMO_Reactor_Notify::handle_signal (int signum,
 
   for (int i = 1; ; ++i)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       // Copy ACE_Time_Value::zero since dequeue_head will modify it.
       ACE_Time_Value zero_timeout (ACE_Time_Value::zero);
       if (this->message_queue_.dequeue_head (mb, &zero_timeout) == -1)
@@ -2536,7 +2536,7 @@ ACE_WFMO_Reactor_Notify::notify (ACE_Event_Handler *event_handler,
 {
   if (event_handler != 0)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       ACE_NEW_RETURN (mb,
                       ACE_Message_Block (sizeof (ACE_Notification_Buffer)),
                       -1);
@@ -2616,7 +2616,7 @@ ACE_WFMO_Reactor_Notify::purge_pending_notifications (ACE_Event_Handler *eh,
 
   for (index = 0; index < queue_size; ++index)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       if (-1 == this->message_queue_.dequeue_head (mb))
         return -1;        // This shouldn't happen...
 
@@ -2665,7 +2665,7 @@ ACE_WFMO_Reactor_Notify::purge_pending_notifications (ACE_Event_Handler *eh,
   queue_size  = local_queue.message_count ();
   for (index = 0; index < queue_size; ++index)
     {
-      ACE_Message_Block  *mb = 0;
+      ACE_Message_Block  *mb = nullptr;
       if (-1 == local_queue.dequeue_head (mb))
         {
           ACE_ASSERT (0);

@@ -45,7 +45,7 @@ class Client_Service : public SVC_HANDLER
   //     stdin and forward the data to its server.
 {
 public:
-  Client_Service (ACE_Thread_Manager *thr_mgr = 0)
+  Client_Service (ACE_Thread_Manager *thr_mgr = nullptr)
     : SVC_HANDLER (thr_mgr)
     {
       ACE_TRACE ("Client_Service::Client_Service");

@@ -41,7 +41,7 @@ public:
   /// Constructor.
   TAO_FT_Storable_Naming_Context_Factory (
                                           size_t hash_table_size = ACE_DEFAULT_MAP_SIZE,
-                                          TAO_FT_Naming_Replication_Manager * rep = 0);
+                                          TAO_FT_Naming_Replication_Manager * rep = nullptr);
 
   /// Destructor.  Does not deallocate the hash map: if an instance of
   /// this class goes out of scope, its hash_map remains in persistent storage.

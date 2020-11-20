@@ -28,7 +28,7 @@ Policy_Verifier::init (int argc, ACE_TCHAR *argv[])
 
   while (arg_shifter.is_anything_left ())
     {
-      const ACE_TCHAR *arg = 0;
+      const ACE_TCHAR *arg = nullptr;
       // IOR File Name Option.
       if (0 != (arg = arg_shifter.get_the_parameter (ACE_TEXT("-POAConfigFile"))))
         {

@@ -29,13 +29,13 @@ usage (const ACE_TCHAR* program)
 int
 ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
-  ACEXML_Char* filename = 0;
+  ACEXML_Char* filename = nullptr;
   int sax = 0;                  // Use SAXPrint handler or not.
   int str = 0;
 #ifdef USE_ZZIP
   int zip = 0;
 #endif
-  ACEXML_Char* url = 0;
+  ACEXML_Char* url = nullptr;
 
   ACE_Get_Opt get_opt (argc, argv, ACE_TEXT ("sf:lu:z"));
   int c;
@@ -78,13 +78,13 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     return -1;
   }
 
-  ACEXML_DefaultHandler *handler = 0;
-  ACEXML_CharStream *stm = 0;
-  ACEXML_FileCharStream *fstm = 0;
-  ACEXML_HttpCharStream *ustm = 0;
-  ACEXML_StrCharStream* sstm = 0;
+  ACEXML_DefaultHandler *handler = nullptr;
+  ACEXML_CharStream *stm = nullptr;
+  ACEXML_FileCharStream *fstm = nullptr;
+  ACEXML_HttpCharStream *ustm = nullptr;
+  ACEXML_StrCharStream* sstm = nullptr;
 #ifdef USE_ZZIP
-  ACEXML_ZipCharStream* zstm = 0;
+  ACEXML_ZipCharStream* zstm = nullptr;
 #endif /* USE_ZZIP */
   if (filename != 0)
     {

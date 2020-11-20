@@ -727,7 +727,7 @@ template <class EXT_ID, class INT_ID, class ACE_LOCK> ACE_INLINE
 ACE_Map_Entry<EXT_ID, INT_ID>&
 ACE_Map_Iterator_Base<EXT_ID, INT_ID, ACE_LOCK>::operator* (void) const
 {
-  ACE_Map_Entry<EXT_ID, INT_ID> *retv = 0;
+  ACE_Map_Entry<EXT_ID, INT_ID> *retv = nullptr;
 
   int const result = this->next (retv);
   ACE_ASSERT (result != 0);
@@ -740,7 +740,7 @@ template <class EXT_ID, class INT_ID, class ACE_LOCK> ACE_INLINE
 ACE_Map_Entry<EXT_ID, INT_ID>&
 ACE_Map_Const_Iterator_Base<EXT_ID, INT_ID, ACE_LOCK>::operator* (void) const
 {
-  ACE_Map_Entry<EXT_ID, INT_ID> *retv = 0;
+  ACE_Map_Entry<EXT_ID, INT_ID> *retv = nullptr;
 
   int const result = this->next (retv);
   ACE_ASSERT (result != 0);

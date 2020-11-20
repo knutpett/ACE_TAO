@@ -66,7 +66,7 @@ be_visitor_union_branch_public_ci::visit_array (be_array *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -201,7 +201,7 @@ be_visitor_union_branch_public_ci::visit_enum (be_enum *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // heck if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -272,7 +272,7 @@ be_visitor_union_branch_public_ci::visit_interface (be_interface *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -362,7 +362,7 @@ be_visitor_union_branch_public_ci::visit_interface_fwd (be_interface_fwd *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -470,7 +470,7 @@ be_visitor_union_branch_public_ci::emit_valuetype_common  (be_type *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -549,7 +549,7 @@ be_visitor_union_branch_public_ci::visit_predefined_type (
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -761,7 +761,7 @@ be_visitor_union_branch_public_ci::visit_sequence (be_sequence *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -1014,7 +1014,7 @@ be_visitor_union_branch_public_ci::visit_structure (be_structure *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())
@@ -1181,7 +1181,7 @@ be_visitor_union_branch_public_ci::visit_union (be_union *node)
     dynamic_cast<be_union_branch*> (this->ctx_->node ());
   be_union *bu =
     dynamic_cast<be_union*> (this->ctx_->scope ());
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Check if we are visiting this node via a visit to a typedef node.
   if (this->ctx_->alias ())

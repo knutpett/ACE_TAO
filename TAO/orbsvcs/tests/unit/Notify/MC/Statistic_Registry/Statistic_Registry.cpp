@@ -37,7 +37,7 @@ ACE_TMAIN (int, ACE_TCHAR*[])
         }
 
       // Test registry addition.
-      Monitor_Base* s = 0;
+      Monitor_Base* s = nullptr;
       ACE_NEW_RETURN (s,
                       Monitor_Base ("test1",
                                     Monitor_Control_Types::MC_COUNTER),

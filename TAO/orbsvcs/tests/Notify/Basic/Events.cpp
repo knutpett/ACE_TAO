@@ -98,7 +98,7 @@ Events::init (int argc,
   this->consumer_->init (root_poa_.in ());
   this->consumer_->connect (this->consumer_admin_.in ());
 
-  Event_StructuredPushConsumer* consumer2 = 0;
+  Event_StructuredPushConsumer* consumer2 = nullptr;
   ACE_NEW_RETURN (consumer2,
                   Event_StructuredPushConsumer (this),
                   -1);
@@ -123,7 +123,7 @@ Events::parse_args (int argc,
 {
     ACE_Arg_Shifter arg_shifter (argc,
                                  argv);
-    const ACE_TCHAR *current_arg = 0;
+    const ACE_TCHAR *current_arg = nullptr;
 
     while (arg_shifter.is_anything_left ())
     {

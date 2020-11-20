@@ -122,7 +122,7 @@ run_main (int, ACE_TCHAR *[])
 {
   ACE_START_TEST (ACE_TEXT ("Dynamic_Test"));
   A from_stack;
-  A* heap = 0;
+  A* heap = nullptr;
   ACE_NEW_RETURN (heap, A, 1);
   if (from_stack.dynamic_)
     {

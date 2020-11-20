@@ -462,9 +462,9 @@ public:
 
   int join (const ACE_INET_Addr &mcast_addr,
             int reuse_addr = 1,
-            const ACE_TCHAR *net_if = 0);
+            const ACE_TCHAR *net_if = nullptr);
   int leave (const ACE_INET_Addr &mcast_addr,
-             const ACE_TCHAR *net_if = 0);
+             const ACE_TCHAR *net_if = nullptr);
 
   // = Event Handler hooks.
   virtual int handle_input (ACE_HANDLE handle);
@@ -559,7 +559,7 @@ MCT_Event_Handler::join (const ACE_INET_Addr &mcast_addr,
                       -1);
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("Joined %C\n"), buf));
 
-  ACE_CString *str = 0;
+  ACE_CString *str = nullptr;
   ACE_NEW_RETURN (str, ACE_CString (buf), -1);
   this->address_vec_.push_back (str);
   return 0;
@@ -660,7 +660,7 @@ public:
 
   //FUZZ: disable check_for_lack_ACE_OS
   // = Task hooks.
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
   virtual int svc (void);
   //FUZZ: enable check_for_lack_ACE_OS
 

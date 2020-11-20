@@ -28,7 +28,7 @@ Push_Iterator_Factory_i::register_callback
 
   // Send the file to the client asynchronously.  This allows the
   // server to service multiple file requests from clients.
-  Callback_Handler *handler = 0;
+  Callback_Handler *handler = nullptr;
   ACE_NEW_THROW_EX (handler,
                     Callback_Handler (pathname,
                                       client_callback),
@@ -46,7 +46,7 @@ Push_Iterator_Factory_i::register_callback
     // HTTP 1.1 "Internal Server Error".
     throw Web_Server::Error_Result (500);
 
-  Web_Server::Metadata_Type *meta_tmp = 0;
+  Web_Server::Metadata_Type *meta_tmp = nullptr;
   ACE_NEW_THROW_EX (meta_tmp,
                     Web_Server::Metadata_Type,
                     CORBA::NO_MEMORY ());
@@ -106,7 +106,7 @@ Push_Iterator_Factory_i::content_type (const char *filename,
   // Search for extension
   // Handle the case where multiple periods exists in the filename,
   // e.g.:  foo.bar.ps
-  char * extension = 0;
+  char * extension = nullptr;
   for (char * tmp = const_cast<char *> (filename);
        tmp != 0 && tmp != tmp + len;
        )

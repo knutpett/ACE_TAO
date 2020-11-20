@@ -76,7 +76,7 @@ public:
    * handler.
    */
   virtual int open (ACE_Reactor_Impl *,
-                    ACE_Timer_Queue *timer_queue = 0,
+                    ACE_Timer_Queue *timer_queue = nullptr,
                     int disable_notify = 0);
   virtual int close (void);
 
@@ -90,9 +90,9 @@ public:
    * caller will block until action is possible, else will wait until
    * the relative time specified in *timeout elapses).
    */
-  virtual int notify (ACE_Event_Handler *eh = 0,
+  virtual int notify (ACE_Event_Handler *eh = nullptr,
                       ACE_Reactor_Mask mask = ACE_Event_Handler::EXCEPT_MASK,
-                      ACE_Time_Value *timeout = 0);
+                      ACE_Time_Value *timeout = nullptr);
 
   /// Unimplemented method required by pure virtual method in abstract
   /// base class.
@@ -274,7 +274,7 @@ class ACE_Export ACE_Dev_Poll_Reactor : public ACE_Reactor_Impl
   struct Event_Tuple
   {
     /// Constructor to set up defaults.
-    Event_Tuple (ACE_Event_Handler *eh = 0,
+    Event_Tuple (ACE_Event_Handler *eh = nullptr,
                  ACE_Reactor_Mask m = ACE_Event_Handler::NULL_MASK,
                  bool is_suspended = false,
                  bool is_controlled = false);
@@ -410,7 +410,7 @@ public:
   ACE_Dev_Poll_Reactor (ACE_Sig_Handler * = 0,
                         ACE_Timer_Queue * = 0,
                         int disable_notify_pipe = 0,
-                        ACE_Reactor_Notify *notify = 0,
+                        ACE_Reactor_Notify *notify = nullptr,
                         int mask_signals = 1,
                         int s_queue = ACE_DEV_POLL_TOKEN::FIFO);
 
@@ -431,7 +431,7 @@ public:
                         ACE_Sig_Handler * = 0,
                         ACE_Timer_Queue * = 0,
                         int disable_notify_pipe = 0,
-                        ACE_Reactor_Notify *notify = 0,
+                        ACE_Reactor_Notify *notify = nullptr,
                         int mask_signals = 1,
                         int s_queue = ACE_DEV_POLL_TOKEN::FIFO);
 
@@ -505,8 +505,8 @@ public:
    * @note It is only possible to achieve millisecond timeout
    *       resolutions with the @c ACE_Dev_Poll_Reactor.
    */
-  virtual int handle_events (ACE_Time_Value *max_wait_time = 0);
-  virtual int alertable_handle_events (ACE_Time_Value *max_wait_time = 0);
+  virtual int handle_events (ACE_Time_Value *max_wait_time = nullptr);
+  virtual int alertable_handle_events (ACE_Time_Value *max_wait_time = nullptr);
 
   /**
    * This method is just like the one above, except the
@@ -574,15 +574,15 @@ public:
    */
   virtual int register_handler (int signum,
                                 ACE_Event_Handler *new_sh,
-                                ACE_Sig_Action *new_disp = 0,
-                                ACE_Event_Handler **old_sh = 0,
-                                ACE_Sig_Action *old_disp = 0);
+                                ACE_Sig_Action *new_disp = nullptr,
+                                ACE_Event_Handler **old_sh = nullptr,
+                                ACE_Sig_Action *old_disp = nullptr);
 
   /// Registers @a new_sh to handle a set of signals @a sigset using the
   /// @a new_disp.
   virtual int register_handler (const ACE_Sig_Set &sigset,
                                 ACE_Event_Handler *new_sh,
-                                ACE_Sig_Action *new_disp = 0);
+                                ACE_Sig_Action *new_disp = nullptr);
 
   /// Removes @a event_handler.
   /**
@@ -618,7 +618,7 @@ public:
    */
   virtual int remove_handler (int signum,
                               ACE_Sig_Action *new_disp,
-                              ACE_Sig_Action *old_disp = 0,
+                              ACE_Sig_Action *old_disp = nullptr,
                               int sigkey = -1);
 
   /// Calls <remove_handler> for every signal in @a sigset.
@@ -712,7 +712,7 @@ public:
    * wasn't found.
    */
   virtual int cancel_timer (long timer_id,
-                            const void **arg = 0,
+                            const void **arg = nullptr,
                             int dont_call_handle_close = 1);
 
   // = High-level event handler scheduling operations
@@ -743,7 +743,7 @@ public:
    * 0, the caller will block until action is possible, else will wait
    * until the relative time specified in @a timeout elapses).
    */
-  virtual int notify (ACE_Event_Handler *event_handler = 0,
+  virtual int notify (ACE_Event_Handler *event_handler = nullptr,
                       ACE_Reactor_Mask mask = ACE_Event_Handler::EXCEPT_MASK,
                       ACE_Time_Value * = 0);
 
@@ -788,7 +788,7 @@ public:
    */
   virtual int handler (ACE_HANDLE handle,
                        ACE_Reactor_Mask mask,
-                       ACE_Event_Handler **event_handler = 0);
+                       ACE_Event_Handler **event_handler = nullptr);
 
   /**
    * Check to see if @a signum is associated with a valid Event_Handler
@@ -819,7 +819,7 @@ public:
    *       event loop simulataneously.  As such, this method is a
    *       no-op.
    */
-  virtual int owner (ACE_thread_t new_owner, ACE_thread_t *old_owner = 0);
+  virtual int owner (ACE_thread_t new_owner, ACE_thread_t *old_owner = nullptr);
 
   /// Return the ID of the "owner" thread.
   /**
@@ -974,7 +974,7 @@ protected:
   int remove_handler_i (ACE_HANDLE handle,
                         ACE_Reactor_Mask mask,
                         ACE_Guard<ACE_SYNCH_MUTEX> &repo_guard,
-                        ACE_Event_Handler *eh = 0);
+                        ACE_Event_Handler *eh = nullptr);
   // FUZZ: enable check_for_ACE_Guard
 
   /// Temporarily remove the given handle from the "interest set."
@@ -1119,11 +1119,11 @@ protected:
     /// is appropriate for cases where a thread wants to wait for and
     /// dispatch an event, not causing an existing waiter to relinquish the
     /// token.
-    int acquire_quietly (ACE_Time_Value *max_wait = 0);
+    int acquire_quietly (ACE_Time_Value *max_wait = nullptr);
 
     /// A helper method that acquires the token at a high priority, and
     /// does wake the current token holder.
-    int acquire (ACE_Time_Value *max_wait = 0);
+    int acquire (ACE_Time_Value *max_wait = nullptr);
 
   private:
     Token_Guard (void);

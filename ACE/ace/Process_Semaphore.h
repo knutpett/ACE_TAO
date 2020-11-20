@@ -42,8 +42,8 @@ public:
   /// Initialize the semaphore, with an initial value of @a count and a
   /// maximum value of @a max.
   ACE_Process_Semaphore (u_int count = 1, // By default make this unlocked.
-                         const ACE_TCHAR *name = 0,
-                         void * = 0,
+                         const ACE_TCHAR *name = nullptr,
+                         void * = nullptr,
                          int max = 0x7FFFFFFF);
 
   /**

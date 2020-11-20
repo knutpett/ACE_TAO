@@ -48,7 +48,7 @@ template <ACE_PEER_STREAM_1>
 class ConnectionDetectHandler : public ACE_Svc_Handler <ACE_PEER_STREAM_2, ACE_NULL_SYNCH>
 {
 public:
-  ConnectionDetectHandler(TAO_FTEC_Fault_Listener* listener = 0)
+  ConnectionDetectHandler(TAO_FTEC_Fault_Listener* listener = nullptr)
     : listener_(listener){}
 
     virtual int close (u_long flags = 0);

@@ -19,7 +19,7 @@ typedef ACE_Malloc_LIFO_Iterator <ACE_MMAP_MEMORY_POOL, ACE_Null_Mutex> MALLOC_L
 typedef ACE_Malloc_FIFO_Iterator <ACE_MMAP_MEMORY_POOL, ACE_Null_Mutex> MALLOC_FIFO_ITERATOR;
 
 // Shared memory manager.
-static TEST_MALLOC *shmem_allocator = 0;
+static TEST_MALLOC *shmem_allocator = nullptr;
 
 // Backing store name.
 static ACE_TCHAR backing_store[MAXPATHLEN + 1] = ACE_TEXT ("");
@@ -186,7 +186,7 @@ GUI_Handler::insert_employee (const char *name,
                        "Employee already exists\n"),
                       -1);
 
-  Employee *new_employee = 0;
+  Employee *new_employee = nullptr;
 
   ACE_NEW_RETURN (new_employee,
                   Employee (name, id),
@@ -203,7 +203,7 @@ GUI_Handler::insert_employee (const char *name,
 int
 GUI_Handler::find_employee (const char *name)
 {
-  void *temp = 0;
+  void *temp = nullptr;
 
   if (shmem_allocator->find (name,
                              temp) == 0)
@@ -233,7 +233,7 @@ GUI_Handler::list_employees (void)
                 "LIFO order:\n"));
     MALLOC_LIFO_ITERATOR iterator (*shmem_allocator);
 
-    for (void *temp = 0;
+    for (void *temp = nullptr;
          iterator.next (temp) != 0;
          iterator.advance ())
       {
@@ -250,7 +250,7 @@ GUI_Handler::list_employees (void)
                 "FIFO order:\n"));
     MALLOC_FIFO_ITERATOR iterator (*shmem_allocator);
 
-    for (void *temp = 0;
+    for (void *temp = nullptr;
          iterator.next (temp) != 0;
          iterator.advance ())
       {
@@ -267,7 +267,7 @@ GUI_Handler::list_employees (void)
 int
 GUI_Handler::delete_employee (const char *name)
 {
-  void *temp = 0;
+  void *temp = nullptr;
 
   if (shmem_allocator->unbind (name,
                                temp) == 0)

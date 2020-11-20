@@ -59,7 +59,7 @@ namespace Kokyu
   {
   public:
     /// Constructor
-    Shutdown_Task_Command (ACE_Allocator *mb_allocator = 0);
+    Shutdown_Task_Command (ACE_Allocator *mb_allocator = nullptr);
 
     /// Command callback
     int execute ();

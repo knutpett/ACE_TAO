@@ -59,7 +59,7 @@ public:
   typedef Functor functor_type;
 
   /// Constructor
-  explicit Auto_Functor (X * p = 0,
+  explicit Auto_Functor (X * p = nullptr,
       Functor functor = Functor()); // throw()
 
   Auto_Functor (Auto_Functor & rhs); // throw()
@@ -82,7 +82,7 @@ public:
 
   X * release(); // throw()
 
-  void reset (X * p = 0); // throw()
+  void reset (X * p = nullptr); // throw()
 
   void reset (X * p, Functor f); // throw()
 

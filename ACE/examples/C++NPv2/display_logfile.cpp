@@ -221,7 +221,7 @@ public:
 
   virtual int svc () {
     int stop = 0;
-    for (ACE_Message_Block *mb = 0; !stop && getq (mb) != -1; ) {
+    for (ACE_Message_Block *mb = nullptr; !stop && getq (mb) != -1; ) {
       if (mb->msg_type () == ACE_Message_Block::MB_STOP)
         stop = 1;
       else
@@ -324,7 +324,7 @@ public:
          -1);
       separator->copy ("|");
 
-      ACE_Message_Block *dup = 0;
+      ACE_Message_Block *dup = nullptr;
       for (ACE_Message_Block *temp = mblk; temp != 0; ) {
         dup = separator->duplicate ();
         dup->cont (temp->cont ());

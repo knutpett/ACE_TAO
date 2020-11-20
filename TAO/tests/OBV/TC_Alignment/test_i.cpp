@@ -18,7 +18,7 @@ test_i::get_value (CORBA::Long offset)
   {
     case 1:
     {
-      obvmod::tcOffset1 *vt1 = 0;
+      obvmod::tcOffset1 *vt1 = nullptr;
       ACE_NEW_RETURN (vt1,
                       tcOffset1_i,
                       0);
@@ -28,7 +28,7 @@ test_i::get_value (CORBA::Long offset)
     }
     case 3:
     {
-      obvmod::tcOffset003 *vt3 = 0;
+      obvmod::tcOffset003 *vt3 = nullptr;
       ACE_NEW_RETURN (vt3,
                       tcOffset3_i,
                       0);
@@ -38,7 +38,7 @@ test_i::get_value (CORBA::Long offset)
     }
     case 5:
     {
-      obvmod::tcOffset00005 *vt5 = 0;
+      obvmod::tcOffset00005 *vt5 = nullptr;
       ACE_NEW_RETURN (vt5,
                       tcOffset5_i,
                       0);
@@ -48,7 +48,7 @@ test_i::get_value (CORBA::Long offset)
     }
     case 7:
     {
-      obvmod::tcOffset0000007 *vt7 = 0;
+      obvmod::tcOffset0000007 *vt7 = nullptr;
       ACE_NEW_RETURN (vt7,
                       tcOffset7_i,
                       0);

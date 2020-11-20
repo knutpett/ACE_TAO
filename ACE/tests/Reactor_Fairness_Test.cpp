@@ -179,7 +179,7 @@ sender (void *arg)
   int i;
 
   // Automagic memory cleanup.
-  ACE_SOCK_Stream *temp_socks = 0;
+  ACE_SOCK_Stream *temp_socks = nullptr;
   ACE_NEW_RETURN (temp_socks,
                   ACE_SOCK_Stream [opt_nconnections],
                   0);

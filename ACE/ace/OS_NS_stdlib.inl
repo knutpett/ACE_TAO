@@ -297,8 +297,8 @@ ACE_OS::mktemp (wchar_t *s)
   // a narrow-char string for mktemp (), then convert the name back to
   // wide-char for the caller.
   ACE_Wide_To_Ascii narrow_s (s);
-  if (::mktemp (narrow_s.char_rep ()) == 0)
-    return 0;
+  if (::mktemp (narrow_s.char_rep ()) == nullptr)
+    return nullptr;
   ACE_Ascii_To_Wide wide_s (narrow_s.char_rep ());
   ACE_OS::strcpy (s, wide_s.wchar_rep ());
   return s;
@@ -458,13 +458,13 @@ ACE_OS::realpath (const wchar_t *file_name,
 #    else /* ACE_WIN32 */
   ACE_Wide_To_Ascii n_file_name (file_name);
   char n_resolved[PATH_MAX];
-  if (0 != ACE_OS::realpath (n_file_name.char_rep (), n_resolved))
+  if (nullptr != ACE_OS::realpath (n_file_name.char_rep (), n_resolved))
     {
       ACE_Ascii_To_Wide w_resolved (n_resolved);
       ACE_OS::strcpy (resolved_name, w_resolved.wchar_rep ());
       return resolved_name;
     }
-  return 0;
+  return nullptr;
 #    endif /* ! ACE_WIN32 */
 }
 #  endif /* ACE_HAS_WCHAR */

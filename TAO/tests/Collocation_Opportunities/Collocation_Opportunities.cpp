@@ -63,7 +63,7 @@ test_i::method (void)
       TAO::Portable_Server::POA_Current_Impl &tao_poa_current_implementation =
         *tao_poa_current.implementation ();
 
-      const char *upcall = 0;
+      const char *upcall = nullptr;
       if (tao_poa_current_implementation.previous ())
         upcall = "collocated";
       else

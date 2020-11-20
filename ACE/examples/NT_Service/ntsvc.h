@@ -44,7 +44,7 @@ public:
 
   /// Where the real work is done:
   virtual int handle_timeout (const ACE_Time_Value& tv,
-                              const void *arg = 0);
+                              const void *arg = nullptr);
 
 private:
   typedef ACE_NT_Service inherited;

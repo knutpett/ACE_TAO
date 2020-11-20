@@ -81,7 +81,7 @@ class Library
 {
 public:
 
-  Library (const ACE_TCHAR *name = 0 );
+  Library (const ACE_TCHAR *name = nullptr );
   /// Constructor is responsible for loading all of the modules related to the
   /// library
   ~Library ();

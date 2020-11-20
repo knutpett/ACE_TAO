@@ -63,7 +63,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         return 1;
 
       ACE_DEBUG ((LM_DEBUG, "(%P|%t) server - init hello\n"));
-      Hello *hello_impl = 0;
+      Hello *hello_impl = nullptr;
       ACE_NEW_RETURN (hello_impl,
                       Hello (orb.in ()),
                       1);

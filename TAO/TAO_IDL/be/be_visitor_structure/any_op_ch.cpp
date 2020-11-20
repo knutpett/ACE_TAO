@@ -41,7 +41,7 @@ be_visitor_structure_any_op_ch::visit_structure (be_structure *node)
   *os << be_nl_2 << "// TAO_IDL - Generated from" << be_nl
       << "// " << __FILE__ << ":" << __LINE__ << be_nl_2;
 
-  be_module *module = 0;
+  be_module *module = nullptr;
   if (node->is_nested ())
     {
       AST_Decl *d = node;
@@ -117,7 +117,7 @@ be_visitor_structure_any_op_ch::visit_structure (be_structure *node)
 int
 be_visitor_structure_any_op_ch::visit_field (be_field *node)
 {
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // First generate the type information.
   bt = dynamic_cast<be_type*> (node->field_type ());

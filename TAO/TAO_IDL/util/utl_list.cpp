@@ -114,7 +114,7 @@ UTL_List::nconc (UTL_List *l)
 UTL_List *
 UTL_List::copy (void)
 {
-  UTL_List *retval = 0;
+  UTL_List *retval = nullptr;
 
   if (this->pd_cdr_data == 0)
     {

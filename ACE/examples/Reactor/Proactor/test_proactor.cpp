@@ -42,7 +42,7 @@
 
 
 // Host that we're connecting to.
-static ACE_TCHAR *host = 0;
+static ACE_TCHAR *host = nullptr;
 
 // Port that we're receiving connections on.
 static u_short port = ACE_DEFAULT_SERVER_PORT;
@@ -164,7 +164,7 @@ Receiver::initiate_read_stream (void)
   // Create a new <Message_Block>.  Note that this message block will
   // be used both to <read> data asynchronously from the socket and to
   // <write> data asynchronously to the file.
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (BUFSIZ + 1),
                   -1);
@@ -492,7 +492,7 @@ Sender::initiate_read_file (void)
   // Create a new <Message_Block>.  Note that this message block will
   // be used both to <read> data asynchronously from the file and to
   // <write> data asynchronously to the socket.
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (BUFSIZ + 1),
                   -1);

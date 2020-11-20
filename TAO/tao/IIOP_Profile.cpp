@@ -21,7 +21,7 @@ TAO_IIOP_Profile::~TAO_IIOP_Profile (void)
 {
   // Clean up the list of endpoints since we own it.
   // Skip the head, since it is not dynamically allocated.
-  TAO_Endpoint *tmp = 0;
+  TAO_Endpoint *tmp = nullptr;
 
   for (TAO_Endpoint *next = this->endpoint ()->next ();
        next != 0;
@@ -487,7 +487,7 @@ TAO_IIOP_Profile::to_string (void) const
        ACE_OS::strlen (::the_prefix) /* "iiop" */ +
        1 /* colon separator */);
 
- const TAO_IIOP_Endpoint *endp = 0;
+ const TAO_IIOP_Endpoint *endp = nullptr;
  for (endp = &this->endpoint_; endp != 0; endp = endp->next_)
    {
       buflen += (
@@ -574,8 +574,8 @@ TAO_IIOP_Profile::create_profile_body (TAO_OutputCDR &encap) const
 #if defined (ACE_HAS_IPV6)
   // For IPv6 decimal addresses make sure the possibly included scopeid
   // is not published as this has only local meaning.
-  const char* host = 0;
-  const char* pos = 0;
+  const char* host = nullptr;
+  const char* pos = nullptr;
   if (this->endpoint_.is_ipv6_decimal_ &&
       (pos = ACE_OS::strchr (host = this->endpoint_.host (), '%')) != 0)
     {
@@ -631,8 +631,8 @@ TAO_IIOP_Profile::encode_alternate_endpoints (void)
 #if defined (ACE_HAS_IPV6)
       // For IPv6 decimal addresses make sure the possibly included scopeid
       // is not published as this has only local meaning.
-      const char* host = 0;
-      const char* pos = 0;
+      const char* host = nullptr;
+      const char* pos = nullptr;
       if (endpoint->is_ipv6_decimal_ &&
           (pos = ACE_OS::strchr (host = endpoint->host (), '%')) != 0)
         {
@@ -791,7 +791,7 @@ TAO_IIOP_Profile::decode_endpoints (void)
            i > 0;
            --i)
         {
-          TAO_IIOP_Endpoint *endpoint = 0;
+          TAO_IIOP_Endpoint *endpoint = nullptr;
           ACE_NEW_RETURN (endpoint,
                           TAO_IIOP_Endpoint (endpoints[i].host,
                                              endpoints[i].port,
@@ -829,7 +829,7 @@ TAO_IIOP_Profile::decode_endpoints (void)
       if (!(in_cdr >> host.out()) || !(in_cdr >> port))
         return -1;
 
-      TAO_IIOP_Endpoint *endpoint = 0;
+      TAO_IIOP_Endpoint *endpoint = nullptr;
       ACE_NEW_RETURN (endpoint,
                       TAO_IIOP_Endpoint (host.in(),
                                          port,

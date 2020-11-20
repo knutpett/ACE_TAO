@@ -110,7 +110,7 @@ AST_Operation::AST_Operation (AST_Type *rt,
     has_in_arguments_ (false),
     has_native_ (0)
 {
-  AST_PredefinedType *pdt = 0;
+  AST_PredefinedType *pdt = nullptr;
 
   // Check that if the operation is oneway, the return type must be void.
   if (rt != 0 && pd_flags == OP_oneway)
@@ -242,9 +242,9 @@ AST_Operation::compute_argument_attr (void)
       return 0;
     }
 
-  AST_Decl *d = 0;
-  AST_Type *type = 0;
-  AST_Argument *arg = 0;
+  AST_Decl *d = nullptr;
+  AST_Type *type = nullptr;
+  AST_Argument *arg = nullptr;
 
   this->argument_count_ = 0;
 
@@ -316,9 +316,9 @@ AST_Operation::fe_add_exceptions (UTL_NameList *t)
       return 0;
     }
 
-  UTL_ScopedName *nl_n = 0;
-  AST_Type *fe = 0;
-  AST_Decl *d = 0;
+  UTL_ScopedName *nl_n = nullptr;
+  AST_Type *fe = nullptr;
+  AST_Decl *d = nullptr;
 
   this->pd_exceptions = 0;
 
@@ -420,7 +420,7 @@ AST_Operation::fe_add_exceptions (UTL_NameList *t)
         }
       else
         {
-          UTL_ExceptList *el = 0;
+          UTL_ExceptList *el = nullptr;
           ACE_NEW_RETURN (el,
                           UTL_ExceptList (fe,
                                           0),
@@ -449,9 +449,9 @@ AST_Operation::fe_add_argument (AST_Argument *t)
 void
 AST_Operation::dump (ACE_OSTREAM_TYPE &o)
 {
-  AST_Decl *d = 0;
-  AST_Type *e = 0;
-  UTL_String *s = 0;
+  AST_Decl *d = nullptr;
+  AST_Type *e = nullptr;
+  UTL_String *s = nullptr;
 
   if (this->pd_flags == OP_oneway)
     {

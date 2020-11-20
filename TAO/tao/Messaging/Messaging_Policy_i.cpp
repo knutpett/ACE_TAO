@@ -111,7 +111,7 @@ TAO_RelativeRoundtripTimeoutPolicy::create (const CORBA::Any& val)
   if ((val >>= value) == 0)
     throw ::CORBA::PolicyError (CORBA::BAD_POLICY_VALUE);
 
-  TAO_RelativeRoundtripTimeoutPolicy *tmp = 0;
+  TAO_RelativeRoundtripTimeoutPolicy *tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     TAO_RelativeRoundtripTimeoutPolicy (value),
                     CORBA::NO_MEMORY (TAO::VMCID,
@@ -123,7 +123,7 @@ TAO_RelativeRoundtripTimeoutPolicy::create (const CORBA::Any& val)
 TAO_RelativeRoundtripTimeoutPolicy *
 TAO_RelativeRoundtripTimeoutPolicy::clone (void) const
 {
-  TAO_RelativeRoundtripTimeoutPolicy *copy = 0;
+  TAO_RelativeRoundtripTimeoutPolicy *copy = nullptr;
   ACE_NEW_RETURN (copy,
                   TAO_RelativeRoundtripTimeoutPolicy (*this),
                   0);
@@ -136,7 +136,7 @@ TAO_RelativeRoundtripTimeoutPolicy::copy (void)
   // Future policy implementors: notice how the following code is
   // exception safe!
 
-  TAO_RelativeRoundtripTimeoutPolicy* tmp = 0;
+  TAO_RelativeRoundtripTimeoutPolicy* tmp = nullptr;
   ACE_NEW_THROW_EX (tmp, TAO_RelativeRoundtripTimeoutPolicy (*this),
                     CORBA::NO_MEMORY (TAO::VMCID,
                                       CORBA::COMPLETED_NO));
@@ -259,7 +259,7 @@ TAO_Sync_Scope_Policy::create (const CORBA::Any& val)
   if ((val >>= synchronization) == 0)
     throw ::CORBA::PolicyError (CORBA::BAD_POLICY_VALUE);
 
-  TAO_Sync_Scope_Policy *servant = 0;
+  TAO_Sync_Scope_Policy *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     TAO_Sync_Scope_Policy (synchronization),
                     CORBA::NO_MEMORY ());
@@ -270,7 +270,7 @@ TAO_Sync_Scope_Policy::create (const CORBA::Any& val)
 TAO_Sync_Scope_Policy *
 TAO_Sync_Scope_Policy::clone (void) const
 {
-  TAO_Sync_Scope_Policy *copy = 0;
+  TAO_Sync_Scope_Policy *copy = nullptr;
   ACE_NEW_RETURN (copy,
                   TAO_Sync_Scope_Policy (*this),
                   0);
@@ -286,7 +286,7 @@ TAO_Sync_Scope_Policy::synchronization (void)
 CORBA::Policy_ptr
 TAO_Sync_Scope_Policy::copy (void)
 {
-  TAO_Sync_Scope_Policy *servant = 0;
+  TAO_Sync_Scope_Policy *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     TAO_Sync_Scope_Policy (*this),
                     CORBA::NO_MEMORY ());

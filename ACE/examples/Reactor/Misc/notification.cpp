@@ -53,7 +53,7 @@ public:
   virtual int handle_input (ACE_HANDLE);
   // General notification messages to the Reactor.
 
-  virtual int notify (ACE_Time_Value *tv = 0);
+  virtual int notify (ACE_Time_Value *tv = nullptr);
   // Perform notifications.
 
   virtual int svc (void);

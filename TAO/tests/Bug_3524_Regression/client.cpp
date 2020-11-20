@@ -1355,7 +1355,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv);
 
-      ::Test::vtp_init *vtp_factory = 0;
+      ::Test::vtp_init *vtp_factory = nullptr;
       ACE_NEW_THROW_EX (vtp_factory,
                         ::Test::vtp_init,
                         CORBA::NO_MEMORY ());

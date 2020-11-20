@@ -58,7 +58,7 @@ public:
   /// the user MUST call shutdown () when handler is no longer needed
   /// (and its reactor still exists).
   int open (const char * mcast_addr,
-            const ACE_TCHAR *net_if = 0);
+            const ACE_TCHAR *net_if = nullptr);
 
   /// TAO_ECG_Handler_Shutdown method.
   /// Unsubscribe from the reactor and close the datagram.

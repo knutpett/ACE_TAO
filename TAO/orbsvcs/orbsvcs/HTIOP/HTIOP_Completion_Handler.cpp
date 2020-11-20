@@ -103,7 +103,7 @@ TAO::HTIOP::Completion_Handler::handle_input (ACE_HANDLE h)
 
   if (handler == 0)
     {
-      TAO::HTIOP::Connection_Handler *svc_handler = 0;
+      TAO::HTIOP::Connection_Handler *svc_handler = nullptr;
       if (this->creation_strategy_->make_svc_handler (svc_handler) == -1)
         {
           if (TAO_debug_level > 0)

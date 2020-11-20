@@ -12,7 +12,7 @@
 class HTTPU_Export Parse_HTTP_Request : public HTTP_HCodes
 {
 public:
-  Parse_HTTP_Request (const char *request = 0);
+  Parse_HTTP_Request (const char *request = nullptr);
   ~Parse_HTTP_Request (void);
 
   void init (const char *request);

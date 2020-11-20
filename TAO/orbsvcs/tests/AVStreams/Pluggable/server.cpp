@@ -3,7 +3,7 @@
 #include "server.h"
 #include "ace/Get_Opt.h"
 
-static FILE *output_file = 0;
+static FILE *output_file = nullptr;
 // File into which the received data is written.
 
 static const ACE_TCHAR *output_file_name = ACE_TEXT ("output");

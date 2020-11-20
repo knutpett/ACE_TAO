@@ -39,14 +39,14 @@ class ACE_Condition<ACE_Null_Mutex>
 {
 public:
   ACE_Condition (const ACE_Null_Mutex &m,
-                 const ACE_TCHAR * = 0,
-                 void * = 0)
+                 const ACE_TCHAR * = nullptr,
+                 void * = nullptr)
     : mutex_ ((ACE_Null_Mutex &) m) {}
 
   ACE_Condition (const ACE_Null_Mutex &m,
                  const ACE_Condition_Attributes &,
-                 const ACE_TCHAR * = 0,
-                 void * = 0)
+                 const ACE_TCHAR * = nullptr,
+                 void * = nullptr)
   : mutex_ ((ACE_Null_Mutex &) m) {}
 
   ~ACE_Condition (void) {}

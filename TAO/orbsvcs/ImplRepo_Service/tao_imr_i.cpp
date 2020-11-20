@@ -528,7 +528,7 @@ TAO_IMR_Op_Link::parse (int argc, ACE_TCHAR **argv)
           while (last < num)
             {
               if ((c = ACE_OS::strchr (arg, ',')) != 0)
-                *c = 0;
+                *c = nullptr;
               this->peers_[last++] = CORBA::string_dup (arg);
               if (c != 0)
                 arg = c+1;
@@ -1349,7 +1349,7 @@ TAO_IMR_Op_Register::run (void)
 
   ImplementationRepository::ServerInformation_var server_information;
   ImplementationRepository::StartupOptions  local;
-  ImplementationRepository::StartupOptions* options = 0;
+  ImplementationRepository::StartupOptions* options = nullptr;
 
   try
     {

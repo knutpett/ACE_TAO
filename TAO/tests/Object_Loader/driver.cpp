@@ -21,7 +21,7 @@ ACE_TMAIN(int, ACE_TCHAR *[])
               ACE_OS::sprintf (buf, "ORB_%4.4d", j);
 
               int argc = 0;
-              ACE_TCHAR **argv = 0;
+              ACE_TCHAR **argv = nullptr;
               CORBA::ORB_var orb =
                 CORBA::ORB_init (argc, argv, buf);
 
@@ -58,7 +58,7 @@ ACE_TMAIN(int, ACE_TCHAR *[])
           ACE_OS::sprintf (buf, "ORB_%4.4d", j);
 
           int argc = 0;
-          ACE_TCHAR **argv = 0;
+          ACE_TCHAR **argv = nullptr;
           CORBA::ORB_var orb =
             CORBA::ORB_init (argc, argv, buf);
 

@@ -27,7 +27,7 @@ CC_LockSetFactory::~CC_LockSetFactory (void)
 CosConcurrencyControl::LockSet_ptr
 CC_LockSetFactory::create (void)
 {
-  CC_LockSet *ls = 0;
+  CC_LockSet *ls = nullptr;
 
   ACE_GUARD_RETURN (TAO_SYNCH_MUTEX, ace_mon, this->lock_, CosConcurrencyControl::LockSet::_nil ());
 
@@ -41,7 +41,7 @@ CC_LockSetFactory::create (void)
 CosConcurrencyControl::LockSet_ptr
 CC_LockSetFactory::create_related (CosConcurrencyControl::LockSet_ptr which)
 {
-  CC_LockSet *ls = 0;
+  CC_LockSet *ls = nullptr;
 
   ACE_GUARD_RETURN (TAO_SYNCH_MUTEX, ace_mon, this->lock_, CosConcurrencyControl::LockSet::_nil ());
 

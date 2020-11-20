@@ -118,7 +118,7 @@ public:
    * was passed in when <schedule_timer> was invoked.
    */
   virtual int handle_timeout (const ACE_Time_Value &current_time,
-                              const void *act = 0);
+                              const void *act = nullptr);
 
   /// Called when a process exits.
   virtual int handle_exit (ACE_Process *);
@@ -132,7 +132,7 @@ public:
 
   /// Called when object is signaled by OS (either via UNIX signals or
   /// when a Win32 object becomes signaled).
-  virtual int handle_signal (int signum, siginfo_t * = 0, ucontext_t * = 0);
+  virtual int handle_signal (int signum, siginfo_t * = nullptr, ucontext_t * = nullptr);
 
   enum
     {
@@ -281,7 +281,7 @@ public:
 
 protected:
   /// Force ACE_Event_Handler to be an abstract base class.
-  ACE_Event_Handler (ACE_Reactor * = 0,
+  ACE_Event_Handler (ACE_Reactor * = nullptr,
                      int priority = ACE_Event_Handler::LO_PRIORITY);
 
   /// Typedef for implementation of reference counting.
@@ -340,7 +340,7 @@ public:
   ACE_Event_Handler *release (void);
 
   /// Reset the handler.
-  void reset (ACE_Event_Handler *p = 0);
+  void reset (ACE_Event_Handler *p = nullptr);
 
   /// Bool operator to check if the ACE_Event_Handler_var has a value
   explicit operator bool() const;

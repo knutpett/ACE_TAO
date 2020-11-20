@@ -123,7 +123,7 @@ Gateway_EC::run (int argc, ACE_TCHAR ** argv)
 
       // Set up multicast components.
       // Obtain mcast gateway from service configurator.
-      TAO_ECG_Mcast_Gateway * gateway = 0;
+      TAO_ECG_Mcast_Gateway * gateway = nullptr;
       gateway =
         ACE_Dynamic_Service<TAO_ECG_Mcast_Gateway>::instance ("ECG_Mcast_Gateway");
 

@@ -236,7 +236,7 @@ public:
   //FUZZ: disable check_for_lack_ACE_OS
   // Listing 1000 code/ch18
   virtual int open (void *arg,
-                    Module *head = 0, Module *tail = 0)
+                    Module *head = nullptr, Module *tail = nullptr)
   {
   //FUZZ: enable check_for_lack_ACE_OS
     if (tail == 0)
@@ -346,7 +346,7 @@ public:
   // Listing 13 code/ch18
   int record (RecordingDevice *recorder)
   {
-    ACE_Message_Block * mb = 0;
+    ACE_Message_Block * mb = nullptr;
     ACE_NEW_RETURN (mb, ACE_Message_Block (sizeof(Message)), -1);
 
     Message *message = (Message *)mb->wr_ptr ();

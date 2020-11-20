@@ -88,7 +88,7 @@ Consumer_Entry::Consumer_Entry (Event_Comm::Consumer *consumer,
     compiled_regexp_ (0),
     consumer_ (consumer)
 {
-  char *compile_buffer = 0;
+  char *compile_buffer = nullptr;
 
   this->criteria (filtering_criteria);
   ACE_ASSERT (this->criteria ());
@@ -167,7 +167,7 @@ Notifier_i::subscribe (Event_Comm::Consumer_ptr consumer_ref,
   // criteria is different that is good news since we currently don't
   // allow duplicates...  @@ Should duplicates be allowed?
 
-  for (MAP_ENTRY *me = 0; mi.next (me) != 0; mi.advance ())
+  for (MAP_ENTRY *me = nullptr; mi.next (me) != 0; mi.advance ())
     {
       Consumer_Entry *nr_entry = me->int_id_;
 
@@ -218,14 +218,14 @@ Notifier_i::unsubscribe (Event_Comm::Consumer_ptr consumer_ref,
               "in Notifier_i::unsubscribe for %x\n",
               consumer_ref));
 
-  Consumer_Entry *nr_entry = 0;
+  Consumer_Entry *nr_entry = nullptr;
   MAP_ITERATOR mi (this->map_);
   int found = 0;
 
   // Locate <Consumer_Entry> and free up resources.  @@ Note, we don't
   // properly handle deallocation of KEYS!
 
-  for (MAP_ENTRY *me = 0;
+  for (MAP_ENTRY *me = nullptr;
        mi.next (me) != 0;
        mi.advance ())
     {
@@ -277,7 +277,7 @@ Notifier_i::disconnect (const char *reason)
   // Notify all the consumers, taking into account the filtering
   // criteria.
 
-  for (MAP_ENTRY *me = 0;
+  for (MAP_ENTRY *me = nullptr;
        mi.next (me) != 0;
        mi.advance ())
     {
@@ -325,7 +325,7 @@ Notifier_i::push (const Event_Comm::Event &event)
 
   // Notify all the consumers.
 
-  for (MAP_ENTRY *me = 0; mi.next (me) != 0; mi.advance ())
+  for (MAP_ENTRY *me = nullptr; mi.next (me) != 0; mi.advance ())
     {
       Event_Comm::Consumer_ptr consumer_ref = me->int_id_->consumer ();
       ACE_ASSERT (consumer_ref != 0);

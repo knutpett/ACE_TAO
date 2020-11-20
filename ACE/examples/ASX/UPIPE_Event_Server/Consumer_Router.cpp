@@ -68,7 +68,7 @@ Consumer_Router::close (u_long)
 int
 Consumer_Router::svc (void)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   ACE_ASSERT (this->is_reader ());
 

@@ -170,7 +170,7 @@ private:
 class ACE_Static_Node : public ACE_Parse_Node
 {
 public:
-  ACE_Static_Node (const ACE_TCHAR *name, ACE_TCHAR *params = 0);
+  ACE_Static_Node (const ACE_TCHAR *name, ACE_TCHAR *params = nullptr);
   virtual ~ACE_Static_Node (void);
 
   virtual void apply (ACE_Service_Gestalt *cfg, int &yyerrno);
@@ -400,7 +400,7 @@ public:
   ACE_Function_Node (const ACE_TCHAR *pathname, const ACE_TCHAR *func_name);
   virtual void *symbol (ACE_Service_Gestalt *config,
                         int &yyerrno,
-                        ACE_Service_Object_Exterminator *gobbler = 0);
+                        ACE_Service_Object_Exterminator *gobbler = nullptr);
   virtual ~ACE_Function_Node (void);
 
   /// Dump the state of an object.

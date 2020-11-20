@@ -320,10 +320,10 @@ public:
    * the socket group, if applicable.  The_@a flags indicate if we're a
    * sender, receiver, or both.
    */
-  ACE_QoS_Params (iovec *caller_data = 0,
-                  iovec *callee_data = 0,
-                  ACE_QoS *socket_qos = 0,
-                  ACE_QoS *group_socket_qos = 0,
+  ACE_QoS_Params (iovec *caller_data = nullptr,
+                  iovec *callee_data = nullptr,
+                  ACE_QoS *socket_qos = nullptr,
+                  ACE_QoS *group_socket_qos = nullptr,
                   unsigned long flags = 0);
 
   /// Get caller data.
@@ -408,7 +408,7 @@ public:
    * passed back to the application as a condition function parameter,
    * i.e., it is an Asynchronous Completion Token (ACT).
    */
-  ACE_Accept_QoS_Params (ACE_QOS_CONDITION_FUNC qos_condition_callback = 0,
+  ACE_Accept_QoS_Params (ACE_QOS_CONDITION_FUNC qos_condition_callback = nullptr,
                          unsigned long callback_data = 0);
 
   /// Get QoS condition callback.

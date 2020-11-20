@@ -33,9 +33,9 @@ namespace ACE
     public:
 
       /// Constructor
-      Environment (ACE_Configuration *config = 0,
+      Environment (ACE_Configuration *config = nullptr,
                    int using_registry = 0,
-                   const ACE_TCHAR *persistent_file = 0);
+                   const ACE_TCHAR *persistent_file = nullptr);
 
       /// Destructor
       ~Environment ();

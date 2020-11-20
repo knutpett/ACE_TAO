@@ -52,7 +52,7 @@ public:
   Scheduler (void);
 
   /// Initializer.
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
 
   /// Terminator.
   virtual int close (u_long flags = 0);

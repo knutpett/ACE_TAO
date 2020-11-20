@@ -129,7 +129,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       // following extraction from the CORBA::Any fails, then the
       // original data in the TSC was not replaced within the client
       // request interceptor, as this test should do.
-      const char *str = 0;
+      const char *str = nullptr;
       if (new_data.in () >>= str)
         {
           ACE_DEBUG ((LM_DEBUG,

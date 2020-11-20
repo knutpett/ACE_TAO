@@ -101,7 +101,7 @@ test_forward_permanent (CORBA::ORB_ptr orb)
   TAO_Stub *stub1 = obj1->_stubobj ();
   TAO_Stub *stub4 = obj4->_stubobj ();
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
 
   profile = stub1->profile_in_use ();
 
@@ -154,7 +154,7 @@ test_forward_permanent_mix (CORBA::ORB_ptr orb)
   TAO_Stub *stub4 = obj4->_stubobj ();
   TAO_Stub *stub5 = obj5->_stubobj ();
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
 
   profile = stub1->profile_in_use ();
 
@@ -259,7 +259,7 @@ test_forward (CORBA::ORB_ptr orb)
   TAO_Stub *stub2 = obj2->_stubobj ();
   TAO_Stub *stub3 = obj3->_stubobj ();
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
 
   profile = stub1->profile_in_use ();
 

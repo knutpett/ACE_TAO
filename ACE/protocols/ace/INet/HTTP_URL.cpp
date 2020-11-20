@@ -100,7 +100,7 @@ namespace ACE
 
     ACE::INet::ClientRequestHandler* URL::create_default_request_handler () const
       {
-        ACE::INet::ClientRequestHandler* prh = 0;
+        ACE::INet::ClientRequestHandler* prh = nullptr;
         ACE_NEW_NORETURN (prh, ClientRequestHandler ());
         return prh;
       }
@@ -122,7 +122,7 @@ namespace ACE
 
     ACE::INet::URL_Base* URL::Factory::create_from_string (const ACE_CString& url_string)
       {
-        URL* purl = 0;
+        URL* purl = nullptr;
         ACE_NEW_NORETURN (purl, URL (url_string));
         return purl;
       }

@@ -45,7 +45,7 @@ public:
 
   int open (void* factory);
   int handle_input (ACE_HANDLE handle = ACE_INVALID_HANDLE);
-  int handle_timeout (const ACE_Time_Value &now, const void *act = 0);
+  int handle_timeout (const ACE_Time_Value &now, const void *act = nullptr);
   int handle_close (ACE_HANDLE handle = ACE_INVALID_HANDLE,
                     ACE_Reactor_Mask mask = 0);
 

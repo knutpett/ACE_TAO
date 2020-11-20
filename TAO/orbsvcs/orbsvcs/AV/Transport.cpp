@@ -107,7 +107,7 @@ TAO_AV_Connector_Registry::open (TAO_Base_StreamEndPoint *endpoint,
                                        flow_factory) == -1)
                     return -1;
 
-                  TAO_AV_Transport *transport = 0;
+                  TAO_AV_Transport *transport = nullptr;
                   if (connector->connect (entry,
                                           transport,
                                           TAO_AV_Core::TAO_AV_DATA) == -1)
@@ -140,7 +140,7 @@ TAO_AV_Connector_Registry::open (TAO_Base_StreamEndPoint *endpoint,
                                                    control_flow_factory) == -1)
                         return -1;
 
-                      TAO_AV_Transport *control_transport = 0;
+                      TAO_AV_Transport *control_transport = nullptr;
                       if (control_connector->connect (entry,
                                                       control_transport,
                                                       TAO_AV_Core::TAO_AV_CONTROL) == -1)
@@ -527,7 +527,7 @@ int
 TAO_AV_Flow_Handler::schedule_timer (void)
 {
   ACE_Event_Handler *event_handler = this->event_handler ();
-  ACE_Time_Value *tv = 0;
+  ACE_Time_Value *tv = nullptr;
 
   this->callback_->get_timeout (tv, this->timeout_arg_);
   if (tv == 0)
@@ -582,7 +582,7 @@ TAO_AV_Flow_Handler::handle_timeout (const ACE_Time_Value & /*tv*/,
   if (result < 0)
     return result;
   ACE_Event_Handler *event_handler = this->event_handler ();
-  ACE_Time_Value *timeout = 0;
+  ACE_Time_Value *timeout = nullptr;
 
   this->callback_->get_timeout (timeout,  this->timeout_arg_);
   if (timeout == 0)

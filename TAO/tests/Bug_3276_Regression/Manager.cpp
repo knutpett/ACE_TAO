@@ -5,8 +5,8 @@
 #include "ace/Get_Opt.h"
 #include "ace/OS_NS_stdio.h"
 
-const ACE_TCHAR *control_ior = 0;
-const ACE_TCHAR *proxy_ior = 0;
+const ACE_TCHAR *control_ior = nullptr;
+const ACE_TCHAR *proxy_ior = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -49,7 +49,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       CORBA::String_var ior =
         orb->object_to_string (server_ref.in ());
 
-      FILE *output_file = 0;
+      FILE *output_file = nullptr;
 
       if (proxy_ior != 0)
         {
@@ -189,7 +189,7 @@ Manager::init (int argc, ACE_TCHAR *argv[])
 int
 Manager::activate_servant ()
 {
-  Servant_Locator *tmp = 0;
+  Servant_Locator *tmp = nullptr;
 
   ACE_NEW_THROW_EX (tmp,
                     Servant_Locator,

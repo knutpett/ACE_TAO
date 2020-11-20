@@ -133,7 +133,7 @@ ACE::HTBP::Stream::send (const void *buf,
 {
   if (this->session_->outbound() == 0)
     {
-      ACE_Message_Block *msg = 0;
+      ACE_Message_Block *msg = nullptr;
       ACE_NEW_RETURN (msg,ACE_Message_Block(n),-1);
       msg->copy ((const char *)buf,n);
       // probably ought to separately enqueue the flags and put the data buf
@@ -151,7 +151,7 @@ ACE::HTBP::Stream::send (const void *buf,
 {
   if (this->session_->outbound() == 0)
     {
-      ACE_Message_Block *msg = 0;
+      ACE_Message_Block *msg = nullptr;
       ACE_NEW_RETURN (msg,ACE_Message_Block(n),-1);
       msg->copy ((const char *)buf,n);
       return this->session_->enqueue(msg);
@@ -166,7 +166,7 @@ ACE::HTBP::Stream::sendv (const iovec iov[],
 {
   if (this->session_->outbound() == 0)
     {
-      ACE_Message_Block *msg = 0;
+      ACE_Message_Block *msg = nullptr;
       size_t total = 0;
       int i = 0;
       for (; i < iovcnt; i++)

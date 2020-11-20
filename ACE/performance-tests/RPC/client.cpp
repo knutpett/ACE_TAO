@@ -7,7 +7,7 @@
 
 int ACE_TMAIN (int argc, ACE_TCHAR* argv[])
 {
-  char* host = 0;
+  char* host = nullptr;
   int nsamples = 10000;
   int c;
 

@@ -54,7 +54,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       // Create client callback CORBA object
 
-      TestCallback *test_impl = 0;
+      TestCallback *test_impl = nullptr;
       ACE_NEW_RETURN (test_impl,
                       TestCallback (orb.in()),
                       1);

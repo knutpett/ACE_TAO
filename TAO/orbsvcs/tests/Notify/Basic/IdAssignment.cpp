@@ -23,7 +23,7 @@ IdAssignment::parse_args (int argc,
 {
     ACE_Arg_Shifter arg_shifter (argc, argv);
 
-    const ACE_TCHAR *current_arg = 0;
+    const ACE_TCHAR *current_arg = nullptr;
 
     while (arg_shifter.is_anything_left ())
     {
@@ -368,15 +368,15 @@ IdAssignment::destroy_supplier_admin (
 void
 IdAssignment::run_test(void)
 {
-  CosNotifyChannelAdmin::ChannelID* ec_id = 0;
+  CosNotifyChannelAdmin::ChannelID* ec_id = nullptr;
   ACE_NEW (ec_id,
            CosNotifyChannelAdmin::ChannelID [this->ec_count_]);
 
-  CosNotifyChannelAdmin::AdminID* consumer_admin_id = 0;
+  CosNotifyChannelAdmin::AdminID* consumer_admin_id = nullptr;
   ACE_NEW (consumer_admin_id,
            CosNotifyChannelAdmin::AdminID [this->consumer_admin_count_]);
 
-  CosNotifyChannelAdmin::AdminID* supplier_admin_id = 0;
+  CosNotifyChannelAdmin::AdminID* supplier_admin_id = nullptr;
   ACE_NEW (supplier_admin_id,
            CosNotifyChannelAdmin::AdminID [this->supplier_admin_count_]);
 

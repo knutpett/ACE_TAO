@@ -177,13 +177,13 @@ client (void *arg)
   int i;
 
   // Automagic memory cleanup.
-  Write_Handler **temp_writers = 0;
+  Write_Handler **temp_writers = nullptr;
   ACE_NEW_RETURN (temp_writers,
                   Write_Handler *[opt_nconnections],
                   0);
   ACE_Auto_Basic_Array_Ptr <Write_Handler *> writers (temp_writers);
 
-  ACE_TCHAR *temp_failed = 0;
+  ACE_TCHAR *temp_failed = nullptr;
   ACE_NEW_RETURN (temp_failed,
                   ACE_TCHAR[opt_nconnections],
                   0);
@@ -247,7 +247,7 @@ client (void *arg)
 void
 create_reactor (void)
 {
-  ACE_Reactor_Impl *impl = 0;
+  ACE_Reactor_Impl *impl = nullptr;
 
   if (opt_wfmo_reactor)
     {
@@ -260,7 +260,7 @@ create_reactor (void)
     ACE_NEW (impl,
              ACE_Select_Reactor);
 
-  ACE_Reactor *reactor = 0;
+  ACE_Reactor *reactor = nullptr;
   ACE_NEW (reactor,
            ACE_Reactor (impl));
   ACE_Reactor::instance (reactor);
@@ -271,7 +271,7 @@ create_reactor (void)
 void
 print_results (ACE_Profile_Timer::ACE_Elapsed_Time &et)
 {
-  const ACE_TCHAR *reactor_type = 0;
+  const ACE_TCHAR *reactor_type = nullptr;
 
   if (opt_wfmo_reactor)
     reactor_type = ACE_TEXT ("WFMO_Reactor");

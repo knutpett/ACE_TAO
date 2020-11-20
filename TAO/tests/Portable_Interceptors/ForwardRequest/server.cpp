@@ -9,8 +9,8 @@
 #include "tao/AnyTypeCode/AnyTypeCode_Adapter_Impl.h"
 #include "ace/OS_NS_stdio.h"
 
-const ACE_TCHAR *ior1_file = 0;
-const ACE_TCHAR *ior2_file = 0;
+const ACE_TCHAR *ior1_file = nullptr;
+const ACE_TCHAR *ior2_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -59,7 +59,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   try
     {
 #if TAO_HAS_INTERCEPTORS == 1
-      Server_ORBInitializer *temp_initializer = 0;
+      Server_ORBInitializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       Server_ORBInitializer,
                       -1);  // No exceptions yet!

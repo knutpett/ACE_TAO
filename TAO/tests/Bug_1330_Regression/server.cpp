@@ -4,7 +4,7 @@
 
 #include "tao/IORTable/IORTable.h"
 
-const ACE_TCHAR *object_key = 0;
+const ACE_TCHAR *object_key = nullptr;
 const ACE_TCHAR *ior_file = ACE_TEXT ("server.ior");
 
 int
@@ -62,7 +62,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Test_i *server_impl = 0;
+      Test_i *server_impl = nullptr;
       ACE_NEW_RETURN (server_impl,
                       Test_i (orb.in ()),
                       1);

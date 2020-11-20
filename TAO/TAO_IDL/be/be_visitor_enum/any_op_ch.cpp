@@ -35,7 +35,7 @@ be_visitor_enum_any_op_ch::visit_enum (be_enum *node)
   *os << be_nl_2 << "// TAO_IDL - Generated from" << be_nl
       << "// " << __FILE__ << ":" << __LINE__;
 
-  be_module *module = 0;
+  be_module *module = nullptr;
 
   if (node->is_nested ())
     {

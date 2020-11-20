@@ -306,7 +306,7 @@ namespace ACE_RMCast
     Profile const*
     find (u16 id) const
     {
-      Profiles::ENTRY* e = 0;
+      Profiles::ENTRY* e = nullptr;
 
       if (profiles_.find (id, e) == -1) return 0;
 
@@ -904,7 +904,7 @@ namespace ACE_RMCast
       //
       for (iterator i (this_.begin ()); !i.done (); i.advance ())
       {
-        u64* psn = 0;
+        u64* psn = nullptr;
         i.next (psn);
         os << *psn;
       }

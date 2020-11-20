@@ -49,7 +49,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   try {
     CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
 
-    ACE_TCHAR *other_server_ior = 0;
+    ACE_TCHAR *other_server_ior = nullptr;
 
     int server_num = 0;
     int reply_delay_secs = 0;

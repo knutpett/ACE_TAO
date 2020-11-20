@@ -25,7 +25,7 @@ TAO_EC_Disjunction_Filter::~TAO_EC_Disjunction_Filter (void)
        ++i)
     {
       delete *i;
-      *i = 0;
+      *i = nullptr;
     }
   delete[] this->children_;
   this->children_ = 0;

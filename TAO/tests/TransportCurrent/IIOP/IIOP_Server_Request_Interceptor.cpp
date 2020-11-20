@@ -33,7 +33,7 @@ namespace Test {
     CORBA::String_var name (this->name ());
 
     int tmpargc = 0;
-    ACE_TCHAR **tmpargv = 0;
+    ACE_TCHAR **tmpargv = nullptr;
     CORBA::ORB_var orb = CORBA::ORB_init (tmpargc,
                                           tmpargv,
                                           orbid);

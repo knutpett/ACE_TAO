@@ -15,7 +15,7 @@ EventSequenceConsumer_i::push_structured_events (
 
   std::cout << "events received " << std::endl;
 
-  const char* value = 0;
+  const char* value = nullptr;
 
   for (unsigned int n = 0; n < events.length(); ++n) {
     for (unsigned int i = 0; i < events[n].filterable_data.length(); ++i) {

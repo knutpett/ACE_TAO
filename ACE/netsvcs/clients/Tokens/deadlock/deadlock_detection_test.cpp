@@ -100,7 +100,7 @@ run_writer (void *vp)
   for (int x = 0; x < iterations; x++)
     {
       // Cycle through each of the first three tokens.
-      ACE_Token_Proxy *t = 0;
+      ACE_Token_Proxy *t = nullptr;
       switch (acquire_number)
         {
         case 0:

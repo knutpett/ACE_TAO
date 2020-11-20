@@ -21,7 +21,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 {
   CosNaming::Name the_name (0);
   CORBA::ORB_var orb;
-  const ACE_TCHAR *ior = 0;
+  const ACE_TCHAR *ior = nullptr;
 
   int err = 0;
 
@@ -38,10 +38,10 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         context = false;
       const ACE_TCHAR
         *const pname = argv[0];
-      const ACE_TCHAR *nameService = 0;
+      const ACE_TCHAR *nameService = nullptr;
       ACE_TCHAR kindsep = ACE_TEXT('.');
       ACE_TCHAR ctxsep[] = ACE_TEXT("/");
-      ACE_TCHAR *name = 0;
+      ACE_TCHAR *name = nullptr;
 
       if (0 < argc)
         {

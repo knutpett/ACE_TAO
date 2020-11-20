@@ -92,7 +92,7 @@ unsigned long const DRV_MAX_ARGCOUNT = 1024;
 unsigned long DRV_argcount = 0;
 ACE_TCHAR const * DRV_arglist[DRV_MAX_ARGCOUNT] = { 0 };
 
-static char const * output_arg_format = 0;
+static char const * output_arg_format = nullptr;
 static long output_arg_index = 0;
 
 ACE_TCHAR const TCHAR_DIR_DOT[] = ACE_TEXT(".");
@@ -112,7 +112,7 @@ static char tmp_ifile[MAXPATHLEN + 1] = { 0 };
 // Lines can be 1024 chars long intially -
 // it will expand as required.
 #define LINEBUF_SIZE 1024
-char* drv_line = 0;
+char* drv_line = nullptr;
 static size_t drv_line_size = LINEBUF_SIZE + 1;
 
 // Push the new CPP location if we got a -Yp argument.
@@ -140,7 +140,7 @@ DRV_cpp_putarg (const char *str)
 
   if (str && ACE_OS::strchr (str, ' '))
     {
-      ACE_TCHAR *buf = 0;
+      ACE_TCHAR *buf = nullptr;
       ACE_NEW_NORETURN (buf, ACE_TCHAR[ACE_OS::strlen (str) + 3]);
       if (buf)
         {
@@ -233,7 +233,7 @@ DRV_get_line (FILE *file)
         {
           // Create a bigger buffer
           size_t temp_size = drv_line_size * 2;
-          char *temp = 0;
+          char *temp = nullptr;
           ACE_NEW_RETURN (temp, char [temp_size], false);
           ACE_OS::strcpy (temp, drv_line);
           delete [] drv_line;
@@ -400,7 +400,7 @@ DRV_sweep_dirs (const char *rel_path,
   bname += rel_path;
   bool include_added = false;
   char abspath[MAXPATHLEN] = "";
-  char *full_path = 0;
+  char *full_path = nullptr;
 
   for (ACE_DIRENT *dir_entry; (dir_entry = dir.read ()) != 0;)
     {
@@ -911,7 +911,7 @@ DRV_get_orb_idl_includes (void)
   static char const orb_idl[] = "tao/orb.idl";
 
  // Search for orb.idl in supplied include file search paths.
-  char const * directory = 0;
+  char const * directory = nullptr;
   FILE * fp = FE_Utils::open_included_file (orb_idl, directory);
 
   if (fp == 0)
@@ -1001,7 +1001,7 @@ DRV_copy_input (FILE *fin,
       ++d;
     }
 
-  *d = 0;
+  *d = nullptr;
   ACE_OS::fprintf (f,
                    "#line 1 \"%s\"\n",
                    buf);
@@ -1153,7 +1153,7 @@ DRV_pre_proc (const char *myfile)
                   myfile);
   ACE_OS::fclose (file);
 
-  UTL_String *utl_string = 0;
+  UTL_String *utl_string = nullptr;
 
 #if defined (ACE_OPENVMS)
   {
@@ -1187,13 +1187,13 @@ DRV_pre_proc (const char *myfile)
 
   ACE_Auto_String_Free safety (ACE_OS::strdup (myfile));
 
-  UTL_String *stripped_tmp = 0;
+  UTL_String *stripped_tmp = nullptr;
   ACE_NEW (stripped_tmp,
            UTL_String (DRV_stripped_name (safety.get ()), true));
 
   idl_global->set_stripped_filename (stripped_tmp);
 
-  UTL_String *real_tmp = 0;
+  UTL_String *real_tmp = nullptr;
   ACE_NEW (real_tmp,
            UTL_String (t_ifile, true));
 

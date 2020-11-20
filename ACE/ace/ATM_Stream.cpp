@@ -81,7 +81,7 @@ ACE_ATM_Stream::get_peer_name (void) const
   // Find the host address in the ATM hosts file and return the
   //  host name
   char line[256];
-  char *host_ptr, *host_name = 0;
+  char *host_ptr, *host_name = nullptr;
   ACE_NEW_RETURN (host_name, char[256], 0);
   while (!atm_hosts.eof ()) {
     atm_hosts.getline (line, 256);

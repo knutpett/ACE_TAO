@@ -90,7 +90,7 @@ ACE_TSS_Emulation::ts_object (const ACE_thread_key_t key)
         void **tss_base_p = reinterpret_cast<void **> (ace_tss_keys);
         for (u_int i = 0; i < ACE_TSS_THREAD_KEYS_MAX; ++i, ++tss_base_p)
           {
-            *tss_base_p = 0;
+            *tss_base_p = nullptr;
           }
       }
 #    endif /* ACE_HAS_VXTHREADS */
@@ -410,12 +410,12 @@ ACE_OS::cond_timedwait (ACE_cond_t *cv,
   int result = 0;
   timespec_t ts;
 
-  if (timeout != 0)
+  if (timeout != nullptr)
     ts = *timeout; // Calls ACE_Time_Value::operator timespec_t().
 
 #   if defined (ACE_HAS_PTHREADS)
 
-  ACE_OSCALL (ACE_ADAPT_RETVAL (timeout == 0
+  ACE_OSCALL (ACE_ADAPT_RETVAL (timeout == nullptr
                                 ? pthread_cond_wait (cv, external_mutex)
                                 : pthread_cond_timedwait (cv, external_mutex,
                                                             (ACE_TIMESPEC_PTR) &ts),
@@ -428,7 +428,7 @@ ACE_OS::cond_timedwait (ACE_cond_t *cv,
     errno = ETIME;
 
 #   elif defined (ACE_HAS_STHREADS)
-  ACE_OSCALL (ACE_ADAPT_RETVAL (timeout == 0
+  ACE_OSCALL (ACE_ADAPT_RETVAL (timeout == nullptr
                                 ? ::cond_wait (cv, external_mutex)
                                 : ::cond_timedwait (cv,
                                                     external_mutex,
@@ -437,7 +437,7 @@ ACE_OS::cond_timedwait (ACE_cond_t *cv,
               int, -1, result);
 #   elif defined (ACE_HAS_WTHREADS) && defined (ACE_HAS_WTHREADS_CONDITION_VARIABLE)
   int msec_timeout = 0;
-  if (timeout != 0)
+  if (timeout != nullptr)
     {
       ACE_Time_Value relative_time = timeout->to_relative_time ();
       // Watchout for situations where a context switch has caused the
@@ -452,7 +452,7 @@ ACE_OS::cond_timedwait (ACE_cond_t *cv,
 
   return result;
 #   endif /* ACE_HAS_STHREADS */
-  if (timeout != 0)
+  if (timeout != nullptr)
     timeout->set (ts); // Update the time value before returning.
 
   return result;
@@ -469,13 +469,13 @@ ACE_INLINE int
 ACE_OS::mutex_lock (ACE_mutex_t *m,
                     const ACE_Time_Value *timeout)
 {
-  return timeout == 0 ? ACE_OS::mutex_lock (m) : ACE_OS::mutex_lock (m, *timeout);
+  return timeout == nullptr ? ACE_OS::mutex_lock (m) : ACE_OS::mutex_lock (m, *timeout);
 }
 
 ACE_INLINE int
 ACE_OS::event_wait (ACE_event_t *event)
 {
-  return ACE_OS::event_timedwait (event, 0);
+  return ACE_OS::event_timedwait (event, nullptr);
 }
 
 ACE_INLINE int
@@ -487,7 +487,7 @@ ACE_OS::event_init (ACE_event_t *event,
                     void *arg,
                     LPSECURITY_ATTRIBUTES sa)
 {
-  ACE_condattr_t *pattr = 0;
+  ACE_condattr_t *pattr = nullptr;
   return ACE_OS::event_init (event, type, pattr, manual_reset, initial_state, name, arg, sa);
 }
 
@@ -915,7 +915,7 @@ ACE_INLINE int
 ACE_OS::recursive_mutex_lock (ACE_recursive_thread_mutex_t *m,
                               const ACE_Time_Value *timeout)
 {
-  return timeout == 0
+  return timeout == nullptr
     ? ACE_OS::recursive_mutex_lock (m)
     : ACE_OS::recursive_mutex_lock (m, *timeout);
 }
@@ -1457,7 +1457,7 @@ ACE_OS::sema_destroy (ACE_sema_t *s)
 #else
         delete s->sema_;
 #endif /* ACE_HAS_ALLOC_HOOKS */
-      s->sema_ = 0;
+      s->sema_ = nullptr;
       return result;
     }
 #elif defined (ACE_USES_FIFO_SEM)
@@ -1516,7 +1516,7 @@ ACE_OS::sema_init (ACE_sema_t *s,
                    int max,
                    LPSECURITY_ATTRIBUTES sa)
 {
-  ACE_condattr_t *pattr = 0;
+  ACE_condattr_t *pattr = nullptr;
   return ACE_OS::sema_init (s, count, type, pattr, name, arg, max, sa);
 }
 
@@ -1535,7 +1535,7 @@ ACE_OS::sema_init (ACE_sema_t *s,
   ACE_UNUSED_ARG (max);
   ACE_UNUSED_ARG (sa);
 
-  s->name_ = 0;
+  s->name_ = nullptr;
   s->avoid_unlink_ = false;
 #  if defined (ACE_HAS_POSIX_SEM_TIMEOUT) || defined (ACE_DISABLE_POSIX_SEM_TIMEOUT_EMULATION)
   ACE_UNUSED_ARG (arg);
@@ -1883,7 +1883,7 @@ ACE_OS::sema_init (ACE_sema_t *s,
                    int max,
                    LPSECURITY_ATTRIBUTES sa)
 {
-  ACE_condattr_t *pattr = 0;
+  ACE_condattr_t *pattr = nullptr;
   return ACE_OS::sema_init (s, count, type, pattr, name, arg, max, sa);
 }
 
@@ -2601,7 +2601,7 @@ ACE_OS::sema_wait (ACE_sema_t *s, ACE_Time_Value &tv)
 ACE_INLINE int
 ACE_OS::sema_wait (ACE_sema_t *s, ACE_Time_Value *tv)
 {
-  return tv == 0 ? ACE_OS::sema_wait (s) : ACE_OS::sema_wait (s, *tv);
+  return tv == nullptr ? ACE_OS::sema_wait (s) : ACE_OS::sema_wait (s, *tv);
 }
 
 ACE_INLINE int
@@ -2658,9 +2658,9 @@ ACE_OS::sigtimedwait (const sigset_t *sset,
   ACE_OS_TRACE ("ACE_OS::sigtimedwait");
 #if defined (ACE_HAS_SIGTIMEDWAIT)
   timespec_t ts;
-  timespec_t *tsp = 0;
+  timespec_t *tsp = nullptr;
 
-  if (timeout != 0)
+  if (timeout != nullptr)
     {
       ts = *timeout; // Calls ACE_Time_Value::operator timespec_t().
       tsp = &ts;
@@ -2681,7 +2681,7 @@ ACE_OS::sigwait (sigset_t *sset, int *sig)
 {
   ACE_OS_TRACE ("ACE_OS::sigwait");
   int local_sig;
-  if (sig == 0)
+  if (sig == nullptr)
     sig = &local_sig;
 #if defined (ACE_HAS_THREADS)
 # if (defined (__FreeBSD__) && (__FreeBSD__ < 3))
@@ -3206,10 +3206,10 @@ ACE_OS::thr_name (void)
 #if defined (ACE_HAS_VXTHREADS)
   return ::taskName (ACE_OS::thr_self ());
 #else
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 #endif
 #else
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 #endif
 }
 
@@ -3740,7 +3740,7 @@ ACE_INLINE int
 ACE_OS::thread_mutex_lock (ACE_thread_mutex_t *m,
                            const ACE_Time_Value *timeout)
 {
-  return timeout == 0
+  return timeout == nullptr
     ? ACE_OS::thread_mutex_lock (m)
     : ACE_OS::thread_mutex_lock (m, *timeout);
 }
@@ -3952,8 +3952,8 @@ ACE_Thread_ID::operator!= (const ACE_Thread_ID &rhs) const
 
 ACE_INLINE
 ACE_event_t::ACE_event_t (void) :
-  name_ (0),
-  eventdata_ (0)
+  name_ (nullptr),
+  eventdata_ (nullptr)
 {
 }
 

@@ -171,7 +171,7 @@ TAO_EC_Gateway_IIOP_Factory::create_consumerec_control (TAO_EC_Gateway_IIOP* gat
   else if (this->consumer_ec_control_ == 1)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_.c_str ());
       ACE_Time_Value rate (0, this->consumer_ec_control_period_);
@@ -180,7 +180,7 @@ TAO_EC_Gateway_IIOP_Factory::create_consumerec_control (TAO_EC_Gateway_IIOP* gat
   else if (this->consumer_ec_control_ == 2)
     {
       int argc = 0;
-      ACE_TCHAR **argv = 0;
+      ACE_TCHAR **argv = nullptr;
       CORBA::ORB_var orb =
         CORBA::ORB_init (argc, argv, this->orbid_.c_str ());
       ACE_Time_Value rate (0, this->consumer_ec_control_period_);

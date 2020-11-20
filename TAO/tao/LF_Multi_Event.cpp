@@ -58,7 +58,7 @@ TAO_LF_Multi_Event::unbind (TAO_LF_Follower *follower)
 void
 TAO_LF_Multi_Event::add_event (TAO_Connection_Handler *ev)
 {
-  Event_Node *node = 0;
+  Event_Node *node = nullptr;
   ACE_NEW (node, Event_Node);
   node->next_ = this->events_;
   node->ptr_ = ev;

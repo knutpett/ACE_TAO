@@ -19,7 +19,7 @@
 static const ACE_TCHAR *ior = ACE_TEXT ("file://supplier.ior");
 static CORBA::Short discard_policy = CosNotification::AnyOrder;
 static int sent = 40;
-static Notify_Sequence_Push_Consumer* consumer_1 = 0;
+static Notify_Sequence_Push_Consumer* consumer_1 = nullptr;
 
 // ******************************************************************
 // Subroutine Section

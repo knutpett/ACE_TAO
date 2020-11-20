@@ -65,7 +65,7 @@ static ACE_THR_FUNC_RETURN unmarshalledOctetServer (void *arg){
     msgBufSize = ACE_NTOHL(msgBufSize);
 
     // allocate the buffer for the message payload
-    ACE_CDR::Octet * msgBuf = 0;
+    ACE_CDR::Octet * msgBuf = nullptr;
     ACE_NEW_RETURN(msgBuf,
                    ACE_CDR::Octet[msgBufSize],
                    0);

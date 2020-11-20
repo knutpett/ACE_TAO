@@ -36,7 +36,7 @@ class Echo_Handler : public ACE_Svc_Handler<ACE_MEM_STREAM, ACE_SYNCH>
 {
 public:
   /// The Svc_Handler callbacks.
-  Echo_Handler (ACE_Thread_Manager *thr_mgr = 0);
+  Echo_Handler (ACE_Thread_Manager *thr_mgr = nullptr);
   virtual int open (void *);
   static void reset_handler (void);
   virtual int handle_input (ACE_HANDLE h);

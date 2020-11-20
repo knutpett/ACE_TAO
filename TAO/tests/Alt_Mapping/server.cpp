@@ -16,7 +16,7 @@
 #include "ace/OS_NS_stdio.h"
 
 // Parses the command line arguments and returns an error status.
-static FILE *ior_output_file = 0;
+static FILE *ior_output_file = nullptr;
 static const ACE_TCHAR *ior_output_filename = ACE_TEXT("test.ior");
 
 static int
@@ -51,7 +51,7 @@ int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
   PortableServer::POA_var oa_ptr;
-  Alt_Mapping_i *svnt = 0;
+  Alt_Mapping_i *svnt = nullptr;
 
   try
     {

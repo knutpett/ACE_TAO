@@ -169,9 +169,9 @@ public:
    * whether the implementation object should be deleted by the
    * Proactor or not. If @a tq is 0, a new TIMER_QUEUE is created.
    */
-  ACE_Proactor (ACE_Proactor_Impl *implementation = 0,
+  ACE_Proactor (ACE_Proactor_Impl *implementation = nullptr,
                 bool delete_implementation = false,
-                ACE_Proactor_Timer_Queue *tq = 0);
+                ACE_Proactor_Timer_Queue *tq = nullptr);
 
   /// Destruction.
   ~ACE_Proactor (void);
@@ -334,7 +334,7 @@ public:
    * wasn't found.
    */
   int cancel_timer (long timer_id,
-                    const void **act = 0,
+                    const void **act = nullptr,
                     int dont_call_handle_close = 1);
 
   /**

@@ -3,7 +3,7 @@
 #include "ace/OS_NS_unistd.h"
 #include "testC.h"
 
-const ACE_TCHAR *ior_input_file = 0;
+const ACE_TCHAR *ior_input_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

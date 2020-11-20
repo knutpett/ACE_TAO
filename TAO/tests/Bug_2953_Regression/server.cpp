@@ -236,8 +236,8 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
     const char *orbidA = "orbidA";
     const char *orbidB = "orbidB";
 
-    PortableServer::ServantBase *implA = 0;
-    PortableServer::ServantBase *implB = 0;
+    PortableServer::ServantBase *implA = nullptr;
+    PortableServer::ServantBase *implB = nullptr;
     RTCORBA::ThreadpoolId tpidA = 0;
     RTCORBA::ThreadpoolId tpidB = 0;
 

@@ -53,7 +53,7 @@ MIF_DT_Creator::yield (time_t suspend_time,
           ACE_OS::sleep (1);
           CORBA::Policy_var sched_param;
           sched_param = this->sched_param (100);
-          const char * name = 0;
+          const char * name = nullptr;
           current->update_scheduling_segment (name,
                                               sched_param.in (),
                                               sched_param.in ());

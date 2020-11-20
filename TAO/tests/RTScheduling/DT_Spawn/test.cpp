@@ -11,7 +11,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   CORBA::ORB_var orb;
   RTScheduling::Current_var current;
 
-  const char * name = 0;
+  const char * name = nullptr;
   CORBA::Policy_ptr sched_param = 0;
   CORBA::Policy_ptr implicit_sched_param = 0;
 

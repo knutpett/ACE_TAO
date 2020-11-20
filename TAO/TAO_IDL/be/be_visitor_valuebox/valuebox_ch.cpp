@@ -507,9 +507,9 @@ be_visitor_valuebox_ch::visit_structure (be_structure *node)
   // member.  These functions have the same signatures as
   // acessor and modifier functions for union members.
 
-  AST_Decl *d = 0;
-  AST_Field *field = 0;
-  be_type *bt = 0;
+  AST_Decl *d = nullptr;
+  AST_Field *field = nullptr;
+  be_type *bt = nullptr;
   be_visitor_context ctx (*this->ctx_);
 
   for (UTL_ScopeActiveIterator si (node, UTL_Scope::IK_decls);
@@ -608,9 +608,9 @@ be_visitor_valuebox_ch::visit_union (be_union *node)
   // Now generate the accessor and modifier functions for each union
   // member.
 
-  AST_Decl *d = 0;
-  AST_Field *field = 0;
-  be_type *bt = 0;
+  AST_Decl *d = nullptr;
+  AST_Field *field = nullptr;
+  be_type *bt = nullptr;
   be_visitor_context ctx (*this->ctx_);
 
   for (UTL_ScopeActiveIterator si (node, UTL_Scope::IK_decls);

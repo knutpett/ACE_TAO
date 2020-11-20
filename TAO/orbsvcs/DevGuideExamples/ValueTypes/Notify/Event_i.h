@@ -23,7 +23,7 @@ public:
 
   virtual ::CORBA::ValueBase *_copy_value (void)
   {
-    ::CORBA::ValueBase *ret_val = 0;
+    ::CORBA::ValueBase *ret_val = nullptr;
     ACE_NEW_THROW_EX (
       ret_val,
       MyEvent_i (

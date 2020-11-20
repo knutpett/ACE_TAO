@@ -128,7 +128,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       ACE_DEBUG ((LM_DEBUG, "Building session list . . . "));
 
-      Session_Control *session_control_impl = 0;
+      Session_Control *session_control_impl = nullptr;
       ACE_NEW_RETURN (session_control_impl,
                       Session_Control (peer_count),
                       1);

@@ -39,7 +39,7 @@ testBug3049 (int , ACE_TCHAR *[])
     // Confirm that ORBC has SHMIOP, which it inherits from ORBB, and
     // that SHMIOP is not available in the global context
 
-    ACE_Service_Object *so = 0;
+    ACE_Service_Object *so = nullptr;
     int error = 0;
     so = ACE_Dynamic_Service<ACE_Service_Object>::instance ("SHMIOP_Factory");
     if (so != 0)

@@ -45,7 +45,7 @@ TAO_Persistent_Context_Index::bind (const char *poa_id,
     {
       // Populate memory with data.
       counter = reinterpret_cast<ACE_UINT32 *> (ptr);
-      *counter = 0;
+      *counter = nullptr;
       char * poa_id_ptr = ptr + counter_len;
       ACE_OS::strcpy (poa_id_ptr, poa_id);
 
@@ -162,7 +162,7 @@ TAO_Persistent_Context_Index::init (size_t context_size)
 int
 TAO_Persistent_Context_Index::recreate_all (void)
 {
-  CONTEXT_INDEX::ITERATOR *index_iter = 0;
+  CONTEXT_INDEX::ITERATOR *index_iter = nullptr;
 
   ACE_NEW_RETURN (index_iter,
                   (CONTEXT_INDEX::ITERATOR) (*index_),
@@ -174,7 +174,7 @@ TAO_Persistent_Context_Index::recreate_all (void)
   typedef ACE_Hash_Map_With_Allocator<TAO_Persistent_Index_ExtId,
     TAO_Persistent_Index_IntId>  IND_DEF;
 
-  IND_DEF::ENTRY *entry = 0;
+  IND_DEF::ENTRY *entry = nullptr;
 
   if (TAO_debug_level > 0)
     ORBSVCS_DEBUG ((LM_DEBUG, "Starting to recreate Naming Contexts from the file...\n"));
@@ -197,7 +197,7 @@ TAO_Persistent_Context_Index::recreate_all (void)
       // allocation fails.
       ACE_Auto_Basic_Ptr<TAO_Persistent_Naming_Context> temp (context_impl);
 
-      TAO_Naming_Context *context = 0;
+      TAO_Naming_Context *context = nullptr;
       ACE_NEW_RETURN (context,
                       TAO_Naming_Context (context_impl),
                       -1);
@@ -266,7 +266,7 @@ TAO_Persistent_Context_Index::create_index (void)
                       -1);
 #endif /* ACE_LACKS_ACCESS */
 
-  void *context_index = 0;
+  void *context_index = nullptr;
 
   // This is the easy case since if we find hash table in the
   // memory-mapped file we know it's already initialized.

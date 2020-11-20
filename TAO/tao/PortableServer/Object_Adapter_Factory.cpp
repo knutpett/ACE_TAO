@@ -7,7 +7,7 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 TAO_Adapter*
 TAO_Object_Adapter_Factory::create (TAO_ORB_Core *orb_core)
 {
-  TAO_Adapter* adapter = 0;
+  TAO_Adapter* adapter = nullptr;
   ACE_NEW_RETURN (adapter,
                   TAO_Object_Adapter (orb_core->server_factory ()->
                                       active_object_map_creation_parameters (),

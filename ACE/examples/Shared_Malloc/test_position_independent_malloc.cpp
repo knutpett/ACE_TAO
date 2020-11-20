@@ -55,7 +55,7 @@ initialize (TEST_MALLOC *allocator)
   data1->i2_ = 222;
   data1->i3_ = 333;
 
-  void *gap = 0;
+  void *gap = nullptr;
   ACE_ALLOCATOR_RETURN (gap,
                         allocator->malloc (sizeof (256)),
                         0);
@@ -146,14 +146,14 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   ACE_MMAP_Memory_Pool_Options options (base_addr);
 
   // Create an allocator.
-  TEST_MALLOC *ptr = 0;
+  TEST_MALLOC *ptr = nullptr;
   ACE_NEW_RETURN (ptr,
                   TEST_MALLOC (ACE_TEXT("test_file"),
                                ACE_TEXT("test_lock"),
                                &options),
                   1);
   auto_ptr <TEST_MALLOC> allocator (ptr);
-  void *data = 0;
+  void *data = nullptr;
 
   // This is the first time in, so we allocate the memory and bind it
   // to the name "foo".

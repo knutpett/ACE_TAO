@@ -83,7 +83,7 @@ ACE_Future_Set<T>::insert (ACE_Future<T> &future)
 template <class T> void
 ACE_Future_Set<T>::update (const ACE_Future<T> &future)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   FUTURE &local_future = const_cast<ACE_Future<T> &> (future);
 
   ACE_NEW (mb,
@@ -100,8 +100,8 @@ ACE_Future_Set<T>::next_readable (ACE_Future<T> &future,
   if (this->is_empty ())
     return 0;
 
-  ACE_Message_Block *mb = 0;
-  FUTURE_REP *future_rep = 0;
+  ACE_Message_Block *mb = nullptr;
+  FUTURE_REP *future_rep = nullptr;
 
   // Wait for a "readable future" signal from the message queue.
   if (this->future_notification_queue_->dequeue_head (mb,
@@ -117,7 +117,7 @@ ACE_Future_Set<T>::next_readable (ACE_Future<T> &future,
     return 0;
 
   // Remove the hash map entry with the specified future rep from our map.
-  FUTURE_HOLDER *future_holder = 0;
+  FUTURE_HOLDER *future_holder = nullptr;
   if (this->future_map_.find (future_rep,
                               future_holder) != -1)
     {

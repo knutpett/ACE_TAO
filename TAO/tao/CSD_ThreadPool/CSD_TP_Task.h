@@ -87,7 +87,7 @@ namespace TAO
       bool add_request(TP_Request* request);
 
       /// Activate the worker threads
-      virtual int open(void* args = 0);
+      virtual int open(void* args = nullptr);
 
       /// The "mainline" executed by each worker thread.
       virtual int svc();

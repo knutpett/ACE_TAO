@@ -108,7 +108,7 @@ ACEXML_Debug_Attribute_Builder::dump (void)
       {
         cout << "(";
         ACEXML_STRING_QUEUE_ITERATOR iter (this->att_value_queue_);
-        ACEXML_String *n = 0;
+        ACEXML_String *n = nullptr;
 
         while (iter.advance () != 0)
           {

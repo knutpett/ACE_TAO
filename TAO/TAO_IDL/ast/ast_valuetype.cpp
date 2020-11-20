@@ -109,7 +109,7 @@ AST_ValueType::in_recursion (ACE_Unbounded_Queue<AST_Type *> &list)
       else
       {
         // get the head element which is the type being tested
-        AST_Type** recursable_type = 0;
+        AST_Type** recursable_type = nullptr;
         list.get (recursable_type, 0);
         // Check if we are the possibly recursive type being tested
         if (!ACE_OS::strcmp (this->full_name (),
@@ -250,9 +250,9 @@ AST_Decl *
 AST_ValueType::look_in_supported (UTL_ScopedName *e,
                                   bool full_def_only)
 {
-  AST_Decl *d = 0;
-  AST_Decl *d_before = 0;
-  AST_Type **is = 0;
+  AST_Decl *d = nullptr;
+  AST_Decl *d_before = nullptr;
+  AST_Type **is = nullptr;
   long nis = -1;
 
   // Can't look in an interface which was not yet defined.

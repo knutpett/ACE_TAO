@@ -507,7 +507,7 @@ static int input YY_PROTO(( void ));
 #if YY_STACK_USED
 static int yy_start_stack_ptr = 0;
 static int yy_start_stack_depth = 0;
-static int *yy_start_stack = 0;
+static int *yy_start_stack = nullptr;
 #ifndef YY_NO_PUSH_STATE
 static void yy_push_state YY_PROTO(( int new_state ));
 #endif
@@ -624,8 +624,8 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 YY_DECL
   {
   yy_state_type yy_current_state;
-  char *yy_cp = 0;
-  char *yy_bp = 0;
+  char *yy_cp = nullptr;
+  char *yy_bp = nullptr;
   int yy_act;
 
 //#line 50 "ETCL/ETCL.ll"

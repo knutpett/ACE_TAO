@@ -18,7 +18,7 @@ void Messenger_i::send_message (const CORBA::OctetSeq & user_name)
   try
     {
       int argc = 0;
-      char **argv = 0;
+      char **argv = nullptr;
 
       CORBA::ORB_var orb = CORBA::ORB_init (argc, argv);
 

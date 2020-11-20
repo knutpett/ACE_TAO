@@ -51,7 +51,7 @@ passer_i::shutdown (void)
 void
 passer_i::pass_ops (base_out outarg)
 {
-  foo_i *servant = 0;
+  foo_i *servant = nullptr;
   ACE_NEW (servant,
            foo_i);
 

@@ -120,7 +120,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                       ACE_TEXT ("Start ORB_init with ORBVerboseLogging=%d\n"),
                       verbose));
 
-          ACE_TCHAR **extra = 0;
+          ACE_TCHAR **extra = nullptr;
           ACE_NEW_RETURN (extra, ACE_TCHAR *[extra_argc], -1);
           extra[0] = ACE::strnew (ACE_TEXT ("-ORBCDRTradeoff"));
           extra[1] = ACE::strnew (ACE_TEXT ("2048"));

@@ -6,8 +6,8 @@
 #include "PersistentPOA.h"
 #include "DllORB.h"
 
-const ACE_TCHAR *POAname_ = 0;
-const ACE_TCHAR *ORBname_ = 0;
+const ACE_TCHAR *POAname_ = nullptr;
+const ACE_TCHAR *ORBname_ = nullptr;
 
 PersistentPoa::PersistentPoa ( )
 {

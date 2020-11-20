@@ -11,8 +11,8 @@
 const ssize_t Send_Size = 4*1024;
 const size_t Loops = 10;
 const size_t Total_Size = Send_Size * Loops;
-const ACE_TCHAR * remote_host = 0;
-const ACE_TCHAR * config_file = 0;
+const ACE_TCHAR * remote_host = nullptr;
+const ACE_TCHAR * config_file = nullptr;
 unsigned remote_port = 8088;
 
 int

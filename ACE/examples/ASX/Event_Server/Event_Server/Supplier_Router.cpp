@@ -16,7 +16,7 @@ Supplier_Router::svc (void)
 
   ACE_DEBUG ((LM_DEBUG, "(%t) starting svc in Supplier_Router\n"));
 
-  for (ACE_Message_Block *mb = 0;
+  for (ACE_Message_Block *mb = nullptr;
        this->getq (mb) >= 0;
        )
     {

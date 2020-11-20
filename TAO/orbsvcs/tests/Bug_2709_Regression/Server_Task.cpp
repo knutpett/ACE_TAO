@@ -34,7 +34,7 @@ Server_Task::svc (void)
 
       poa_manager->activate ();
 
-      TestImpl * server_impl = 0;
+      TestImpl * server_impl = nullptr;
       ACE_NEW_RETURN (server_impl, TestImpl (sorb_.in ()), 1);
 
       PortableServer::ObjectId_var id =

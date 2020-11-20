@@ -42,7 +42,7 @@ namespace PortableServer
     typedef T servant_type;
 
     /// Constructor.  Assumes ownership of @c p.
-    Servant_var (T * p = 0);
+    Servant_var (T * p = nullptr);
 
     /// Copy constructor.  Adds reference to @c rhs.
     Servant_var (Servant_var<T> const & rhs);

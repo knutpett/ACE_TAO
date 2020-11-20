@@ -13,7 +13,7 @@ class CACE_Init_TestDlg : public CDialog
 {
 // Construction
 public:
-  CACE_Init_TestDlg(CWnd* pParent = 0);  // standard constructor
+  CACE_Init_TestDlg(CWnd* pParent = nullptr);  // standard constructor
 
 // Dialog Data
   //{{AFX_DATA(CACE_Init_TestDlg)

@@ -160,7 +160,7 @@ TAO_SCIOP_Endpoint::next (void)
 TAO_Endpoint *
 TAO_SCIOP_Endpoint::duplicate (void)
 {
-  TAO_SCIOP_Endpoint *endpoint = 0;
+  TAO_SCIOP_Endpoint *endpoint = nullptr;
 
   // @@NOTE: Not at all exception safe
   ACE_NEW_RETURN (endpoint,

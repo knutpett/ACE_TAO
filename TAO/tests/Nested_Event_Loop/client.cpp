@@ -95,7 +95,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       // Try to narrow the object reference to a <server> reference.
       server_var server_object = server::_narrow (object.in ());
 
-      client_i * servant = 0;
+      client_i * servant = nullptr;
       ACE_NEW_RETURN (servant,
                       client_i(server_object.in ()),
                       1);

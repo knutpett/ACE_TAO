@@ -33,7 +33,7 @@ Thread_Task::svc (void)
                       importance_));
         }
 
-      const char * name = 0;
+      const char * name = nullptr;
       CORBA::Policy_var implicit_sched_param = CORBA::Policy::_duplicate (sched_param_.in ());;
       this->current_->begin_scheduling_segment (name,
                                                 sched_param_.in (),

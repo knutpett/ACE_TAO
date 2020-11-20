@@ -106,9 +106,9 @@ ACE_OS::flock_init (ACE_OS::ace_flock_t *lock,
   lock->overlapped_.hEvent = 0;
 #endif /* ACE_WIN32 */
   lock->handle_ = ACE_INVALID_HANDLE;
-  lock->lockname_ = 0;
+  lock->lockname_ = nullptr;
 
-  if (name != 0)
+  if (name != nullptr)
     {
       ACE_OSCALL (ACE_OS::open (name, flags, perms),
                   ACE_HANDLE,
@@ -170,7 +170,7 @@ ACE_OS::flock_destroy (ACE_OS::ace_flock_t *lock,
       // Close the handle.
       ACE_OS::close (lock->handle_);
       lock->handle_ = ACE_INVALID_HANDLE;
-      if (lock->lockname_ != 0)
+      if (lock->lockname_ != nullptr)
         {
           if (unlink_file)
             ACE_OS::unlink (lock->lockname_);
@@ -182,7 +182,7 @@ ACE_OS::flock_destroy (ACE_OS::ace_flock_t *lock,
             static_cast<void *> (const_cast<ACE_TCHAR *> (lock->lockname_)));
 #endif /* ACE_HAS_ALLOC_HOOKS */
         }
-      lock->lockname_ = 0;
+      lock->lockname_ = nullptr;
     }
   return 0;
 }
@@ -362,11 +362,11 @@ ACE_OS::cuserid (char *user, size_t maxlen)
   ACE_OS_TRACE ("ACE_OS::cuserid");
 #if defined (ACE_VXWORKS)
   ACE_UNUSED_ARG (maxlen);
-  if (user == 0)
+  if (user == nullptr)
     {
       // Require that the user field be non-null, i.e., don't
       // allocate or use static storage.
-      ACE_NOTSUP_RETURN (0);
+      ACE_NOTSUP_RETURN (nullptr);
     }
   else
     {
@@ -376,18 +376,18 @@ ACE_OS::cuserid (char *user, size_t maxlen)
 #elif defined (ACE_HAS_PHARLAP) || defined (ACE_HAS_WINCE)
   ACE_UNUSED_ARG (user);
   ACE_UNUSED_ARG (maxlen);
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 #elif defined (ACE_WIN32)
   BOOL const result = GetUserNameA (user, (u_long *) &maxlen);
   if (result == FALSE)
-    ACE_FAIL_RETURN (0);
+    ACE_FAIL_RETURN (nullptr);
   else
     return user;
 #elif defined (ACE_HAS_ALT_CUSERID)
 #  if defined (ACE_LACKS_PWD_FUNCTIONS)
   ACE_UNUSED_ARG (user);
   ACE_UNUSED_ARG (maxlen);
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
   //#    error Cannot use alternate cuserid() without POSIX password functions!
 #  endif  /* ACE_LACKS_PWD_FUNCTIONS */
 
@@ -399,10 +399,10 @@ ACE_OS::cuserid (char *user, size_t maxlen)
     {
       // It doesn't make sense to have a zero length user ID.
       errno = EINVAL;
-      return 0;
+      return nullptr;
     }
 
-  struct passwd *pw = 0;
+  struct passwd *pw = nullptr;
 
   // Make sure the file pointer is at the beginning of the password file
   ACE_OS::setpwent ();
@@ -415,16 +415,16 @@ ACE_OS::cuserid (char *user, size_t maxlen)
   // Make sure the password file is closed.
   ACE_OS::endpwent ();
 
-  if (pw == 0)
+  if (pw == nullptr)
     {
       errno = ENOENT;
-      return 0;
+      return nullptr;
     }
 
   size_t max_length = 0;
-  char *userid = 0;
+  char *userid = nullptr;
 
-  if (user == 0)
+  if (user == nullptr)
     {
       // Not reentrant/thread-safe, but nothing else can be done if a
       // zero pointer was passed in as the destination.
@@ -454,7 +454,7 @@ ACE_OS::cuserid (char *user, size_t maxlen)
   else
     {
       errno = ENOSPC;  // Buffer is not large enough.
-      return 0;
+      return nullptr;
     }
 #else
   // Hackish because of missing buffer size!
@@ -479,9 +479,9 @@ ACE_OS::cuserid (wchar_t *user, size_t maxlen)
     return user;
 # else /* ACE_WIN32 */
   char *char_user;
-  wchar_t *result = 0;
+  wchar_t *result = nullptr;
 
-  ACE_NEW_RETURN (char_user, char[maxlen + 1], 0);
+  ACE_NEW_RETURN (char_user, char[maxlen + 1], nullptr);
 
   if (ACE_OS::cuserid (char_user, maxlen))
     {
@@ -522,7 +522,7 @@ ACE_OS::fdopen (ACE_HANDLE handle, const ACE_TCHAR *mode)
   // kernel file handle -> FILE* conversion...
   // Options: _O_APPEND, _O_RDONLY and _O_TEXT are lost
 
-  FILE * file = 0;
+  FILE * file = nullptr;
 
   int const crt_handle = ::_open_osfhandle (intptr_t (handle), 0);
 
@@ -974,7 +974,7 @@ ACE_OS::tempnam (const char *dir, const char *pfx)
 #if defined (ACE_LACKS_TEMPNAM)
   ACE_UNUSED_ARG (dir);
   ACE_UNUSED_ARG (pfx);
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 #elif defined (ACE_HAS_NONCONST_TEMPNAM)
   ACE_OSCALL_RETURN (ACE_STD_NAMESPACE::tempnam (const_cast <char *> (dir), const_cast<char *> (pfx)), char *, 0);
 #elif defined (ACE_TEMPNAM_EQUIVALENT)
@@ -992,7 +992,7 @@ ACE_OS::tempnam (const wchar_t *dir, const wchar_t *pfx)
 #if defined (ACE_LACKS_TEMPNAM)
   ACE_UNUSED_ARG (dir);
   ACE_UNUSED_ARG (pfx);
-  ACE_NOTSUP_RETURN (0);
+  ACE_NOTSUP_RETURN (nullptr);
 #elif defined(ACE_WIN32)
 #  if defined (ACE_HAS_NONCONST_TEMPNAM)
   ACE_OSCALL_RETURN (::_wtempnam (const_cast <wchar_t*> (dir), const_cast <wchar_t*> (pfx)), wchar_t *, 0);
@@ -1006,13 +1006,13 @@ ACE_OS::tempnam (const wchar_t *dir, const wchar_t *pfx)
   char *name = ACE_OS::tempnam (ndir, npfx);
   // ACE_OS::tempnam returns a pointer to a malloc()-allocated space.
   // Convert that string to wide-char and free() the original.
-  wchar_t *wname = 0;
-  if (name != 0)
+  wchar_t *wname = nullptr;
+  if (name != nullptr)
     {
       size_t namelen = ACE_OS::strlen (name) + 1;
       wname = reinterpret_cast<wchar_t *>
         (ACE_OS::malloc (namelen * sizeof (wchar_t)));
-      if (wname != 0)
+      if (wname != nullptr)
         ACE_OS::strcpy (wname, ACE_Ascii_To_Wide (name).wchar_rep ());
       ACE_OS::free (name);
     }

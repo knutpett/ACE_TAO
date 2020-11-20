@@ -114,7 +114,7 @@ be_visitor_attr_return::visit_predefined_type (
             << this->attr_name_string_.c_str () << ".in ());";
         break;
       case AST_PredefinedType::PT_any:
-        os_ << "::CORBA::Any * retval = 0;" << be_nl
+        os_ << "::CORBA::Any * retval = nullptr;" << be_nl
             << "ACE_NEW_RETURN (" << be_idt_nl
             << "retval," << be_nl
             << "::CORBA::Any ("
@@ -153,7 +153,7 @@ be_visitor_attr_return::visit_sequence (be_sequence *)
     }
 
   os_ << be_nl
-      << "::" << bt->full_name () << " * retval = 0;" << be_nl
+      << "::" << bt->full_name () << " * retval = nullptr;" << be_nl
       << "ACE_NEW_RETURN (" << be_idt_nl
       << "retval," << be_nl
       << "::" << bt->full_name () << " (" << be_idt_nl
@@ -193,7 +193,7 @@ be_visitor_attr_return::visit_structure (be_structure *node)
     }
   else
     {
-      os_ << node->full_name () << " * retval = 0;" << be_nl
+      os_ << node->full_name () << " * retval = nullptr;" << be_nl
           << "ACE_NEW_RETURN (" << be_idt_nl
           << "retval," << be_nl
           << "::" << node->full_name () << "," << be_nl
@@ -241,7 +241,7 @@ be_visitor_attr_return::visit_union (be_union *node)
     }
   else
     {
-      os_ << node->full_name () << " * retval = 0;" << be_nl
+      os_ << node->full_name () << " * retval = nullptr;" << be_nl
           << "ACE_NEW_RETURN (" << be_idt_nl
           << "retval," << be_nl
           << "::" << node->full_name () << "," << be_nl

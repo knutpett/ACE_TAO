@@ -122,7 +122,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
         root_poa->the_POAManager ();
 
       // Create a servant.
-      reference_counted_test_i *servant = 0;
+      reference_counted_test_i *servant = nullptr;
       ACE_NEW_RETURN (servant,
                       reference_counted_test_i (orb.in (),
                                                 root_poa.in ()),

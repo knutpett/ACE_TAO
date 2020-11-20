@@ -468,7 +468,7 @@ TAO_FlowSpec_Entry::get_local_addr_str (void)
     {
     case AF_INET:
       {
-        ACE_TCHAR *buf = 0;
+        ACE_TCHAR *buf = nullptr;
         ACE_NEW_RETURN (buf,
                         ACE_TCHAR [BUFSIZ],
                         0);
@@ -553,7 +553,7 @@ TAO_Forward_FlowSpec_Entry::parse (const char *flowSpec_entry)
 
   if (tokenizer [TAO_AV_PEER_ADDR] != 0)
     {
-      ACE_INET_Addr *addr = 0;
+      ACE_INET_Addr *addr = nullptr;
 
 
       if (this->protocol_ == TAO_AV_Core::TAO_AV_SCTP_SEQ)

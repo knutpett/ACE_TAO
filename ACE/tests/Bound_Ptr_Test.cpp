@@ -349,7 +349,7 @@ run_main (int, ACE_TCHAR *[])
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%t) performing synchronous test...\n")));
 
-  Parent *parent1 = 0;
+  Parent *parent1 = nullptr;
   ACE_NEW_RETURN (parent1,
                   Parent,
                   -1);
@@ -393,7 +393,7 @@ run_main (int, ACE_TCHAR *[])
                          -1);
     }
 
-  Printer *printer1 = 0;
+  Printer *printer1 = nullptr;
   ACE_NEW_RETURN (printer1,
                   Printer ("I am printer 1"),
                   -1);
@@ -437,7 +437,7 @@ run_main (int, ACE_TCHAR *[])
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%t) performing asynchronous test...\n")));
 
-  Scheduler *scheduler_ptr = 0;
+  Scheduler *scheduler_ptr = nullptr;
 
   // Create active objects..
   ACE_NEW_RETURN (scheduler_ptr,
@@ -454,7 +454,7 @@ run_main (int, ACE_TCHAR *[])
     }
 
   {
-    Printer *printer2 = 0;
+    Printer *printer2 = nullptr;
     ACE_NEW_RETURN (printer2,
                     Printer ("I am printer 2"),
                     -1);

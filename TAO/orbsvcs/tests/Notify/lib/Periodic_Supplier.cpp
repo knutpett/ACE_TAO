@@ -45,7 +45,7 @@ TAO_Notify_Tests_Periodic_Supplier::init_state (ACE_Arg_Shifter& arg_shifter)
   if (TAO_Notify_Tests_StructuredPushSupplier::init_state (arg_shifter) == -1)
     return -1;
 
-  const ACE_TCHAR *current_arg = 0;
+  const ACE_TCHAR *current_arg = nullptr;
 
   while (arg_shifter.is_anything_left ())
     {

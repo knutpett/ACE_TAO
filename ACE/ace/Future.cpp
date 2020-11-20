@@ -74,7 +74,7 @@ ACE_Future_Rep<T>::dump (void) const
 template <class T> ACE_Future_Rep<T> *
 ACE_Future_Rep<T>::internal_create (void)
 {
-  ACE_Future_Rep<T> *temp = 0;
+  ACE_Future_Rep<T> *temp = nullptr;
   ACE_NEW_RETURN (temp,
                   ACE_Future_Rep<T> (),
                   0);

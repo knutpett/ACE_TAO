@@ -422,7 +422,7 @@ AST_Structure::fwd_redefinition_helper (AST_Structure *&i,
   AST_Decl *d =
     s->lookup_by_name_local (i->local_name (), false);
 
-  AST_Structure *fd = 0;
+  AST_Structure *fd = nullptr;
 
   if (d != 0)
     {

@@ -78,33 +78,33 @@ public:
 
   /// Write the complete Message_Block chain to the connection.
   virtual ssize_t send (const ACE_Message_Block *mblk,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Write the contents of the buffer of length len to the connection.
   virtual ssize_t send (const char *buf,
                         size_t len,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Write the contents of iovcnt iovec's to the connection.
   virtual ssize_t send (const iovec *iov,
                         int iovcnt,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Read len bytes from into buf.
   virtual ssize_t recv (char *buf,
                         size_t len,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Read len bytes from into buf using flags.
   virtual ssize_t recv (char *buf,
                         size_t len,
                         int flags,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   ///  Read received data into the iovec buffers.
   virtual ssize_t recv (iovec *iov,
                         int iovcnt,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   TAO_AV_SCTP_SEQ_Flow_Handler *handler (void) { return this->handler_; }
 
@@ -122,12 +122,12 @@ class TAO_AV_SCTP_SEQ_Flow_Handler
    public ACE_Svc_Handler <ACE_SOCK_SEQPACK_ASSOCIATION, ACE_NULL_SYNCH>
 {
 public:
-  TAO_AV_SCTP_SEQ_Flow_Handler (TAO_AV_Callback *callback = 0);
+  TAO_AV_SCTP_SEQ_Flow_Handler (TAO_AV_Callback *callback = nullptr);
   virtual ~TAO_AV_SCTP_SEQ_Flow_Handler (void);
   virtual TAO_AV_Transport *transport (void);
   virtual int open (void * = 0);
   virtual int handle_input (ACE_HANDLE fd);
-  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg = 0);
+  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg = nullptr);
   virtual ACE_Event_Handler* event_handler (void){ return this; }
   /// Change the QoS
   virtual int change_qos (AVStreams::QoS);
@@ -246,7 +246,7 @@ class TAO_AV_Export TAO_AV_SCTP_SEQ_Object  : public TAO_AV_Protocol_Object
 {
 public:
   TAO_AV_SCTP_SEQ_Object (TAO_AV_Callback *callback,
-                     TAO_AV_Transport *transport = 0);
+                     TAO_AV_Transport *transport = nullptr);
 
   /// Dtor
   virtual ~TAO_AV_SCTP_SEQ_Object (void);
@@ -255,11 +255,11 @@ public:
 
   /// send a data frame.
   virtual int send_frame (ACE_Message_Block *frame,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const iovec *iov,
                           int iovcnt,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const char*buf,
                           size_t len);

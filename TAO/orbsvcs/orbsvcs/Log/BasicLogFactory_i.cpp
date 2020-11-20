@@ -93,7 +93,7 @@ TAO_BasicLogFactory_i::create_repositoryid ()
 PortableServer::ServantBase*
 TAO_BasicLogFactory_i::create_log_servant (DsLogAdmin::LogId id)
 {
-  TAO_BasicLog_i* basic_log_i = 0;
+  TAO_BasicLog_i* basic_log_i = nullptr;
 
   ACE_NEW_THROW_EX (basic_log_i,
                     TAO_BasicLog_i (this->orb_.in (),

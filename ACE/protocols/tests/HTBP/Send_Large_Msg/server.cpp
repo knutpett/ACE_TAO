@@ -15,7 +15,7 @@ const size_t Send_Size = 4*1024;
 const size_t Loops = 10;
 const size_t Total_Size = Send_Size * Loops;
 unsigned port = 8088;
-const ACE_TCHAR *notifier_file = 0;
+const ACE_TCHAR *notifier_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

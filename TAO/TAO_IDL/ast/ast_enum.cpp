@@ -111,8 +111,8 @@ AST_Enum::member_count (void)
 UTL_ScopedName *
 AST_Enum::value_to_name (const unsigned long v)
 {
-  AST_EnumVal *item = 0;
-  AST_Decl *d = 0;
+  AST_EnumVal *item = nullptr;
+  AST_Decl *d = nullptr;
 
   for (UTL_ScopeActiveIterator i (this, IK_decls); !i.is_done (); i.next ())
     {
@@ -132,8 +132,8 @@ AST_Enum::value_to_name (const unsigned long v)
 AST_EnumVal *
 AST_Enum::lookup_by_value (const AST_Expression *v)
 {
-  AST_EnumVal *item = 0;
-  AST_Decl *d = 0;
+  AST_EnumVal *item = nullptr;
+  AST_Decl *d = nullptr;
 
   for (UTL_ScopeActiveIterator i (this, IK_decls);
        !i.is_done ();
@@ -202,7 +202,7 @@ munge_name_for_enumval (UTL_ScopedName *n,
       n = (UTL_ScopedName *) n->tail ();
     }
 
-  UTL_IdList *id = 0;
+  UTL_IdList *id = nullptr;
   ACE_NEW_RETURN (id,
                   UTL_IdList (last_component->copy (),
                               0),
@@ -237,8 +237,8 @@ AST_Enum::compute_member_count (void)
 AST_EnumVal *
 AST_Enum::fe_add_enum_val (AST_EnumVal *t)
 {
-  AST_Decl *d = 0;
-  AST_EnumVal *t1 = 0;
+  AST_Decl *d = nullptr;
+  AST_EnumVal *t1 = nullptr;
 
   AST_Expression::AST_ExprValue *ev =
     t->constant_value ()->coerce (AST_Expression::EV_ulong);
@@ -315,7 +315,7 @@ AST_Enum::fe_add_enum_val (AST_EnumVal *t)
 void
 AST_Enum::dump (ACE_OSTREAM_TYPE &o)
 {
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
 
   if (this->is_local ())
     {

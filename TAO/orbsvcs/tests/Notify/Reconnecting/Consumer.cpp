@@ -1024,7 +1024,7 @@ Consumer_Main::load_ids()
         eb = pb + ACE_OS::strlen (pb);
         nb = eb;
       }
-      *eb = 0;
+      *eb = nullptr;
       if (pb < eb)
       {
         int value = ACE_OS::atoi(pb);

@@ -101,7 +101,7 @@ ACE::HTBP::ID_Requestor::get_HTID ()
     return ACE::HTBP::ID_Requestor::htid_.rep();
 
   ACE_SOCK_Stream cli_stream;
-  ACE_TCHAR * htid = 0;
+  ACE_TCHAR * htid = nullptr;
 
   if (this->url_.length() == 0 ||
       this->connect_to_server (&cli_stream) == -1 ||

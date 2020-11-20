@@ -277,7 +277,7 @@ ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>::expire (const ACE_Time_
       ACE_MT (ACE_Reverse_Lock<ACE_LOCK> rev_lk(this->mutex_));
       ACE_MT (ACE_GUARD_RETURN (ACE_Reverse_Lock<ACE_LOCK>, rmon, rev_lk, -1));
 
-      const void *upcall_act = 0;
+      const void *upcall_act = nullptr;
 
       this->preinvoke (info, cur_time, upcall_act);
 
@@ -379,7 +379,7 @@ ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>::expire_single (
   }
   // We do not need the lock anymore, all these operations take place
   // with local variables.
-  const void *upcall_act = 0;
+  const void *upcall_act = nullptr;
 
   // Preinvoke (handles refcount if needed, etc.)
   this->preinvoke (info, cur_time, upcall_act);

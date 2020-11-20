@@ -44,8 +44,8 @@ public:
   ACE_Event_T (int manual_reset = 0,
                int initial_state = 0,
                int type = USYNC_THREAD,
-               const ACE_TCHAR *name = 0,
-               void *arg = 0,
+               const ACE_TCHAR *name = nullptr,
+               void *arg = nullptr,
                LPSECURITY_ATTRIBUTES sa = 0);
 
   /// Implicitly destroy the event variable.

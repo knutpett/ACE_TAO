@@ -53,7 +53,7 @@ void showRecords (void)
   {
     MALLOC_LIFO_ITERATOR iter (*g_allocator);
 
-    for (void *temp = 0; iter.next (temp) != 0; iter.advance ())
+    for (void *temp = nullptr; iter.next (temp) != 0; iter.advance ())
       {
         Record *record =
           reinterpret_cast<Record *> (temp);

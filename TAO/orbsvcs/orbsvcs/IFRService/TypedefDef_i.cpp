@@ -29,7 +29,7 @@ TAO_TypedefDef_i::describe (void)
 CORBA::Contained::Description *
 TAO_TypedefDef_i::describe_i (void)
 {
-  CORBA::Contained::Description *desc_ptr = 0;
+  CORBA::Contained::Description *desc_ptr = nullptr;
   ACE_NEW_THROW_EX (desc_ptr,
                     CORBA::Contained::Description,
                     CORBA::NO_MEMORY ());

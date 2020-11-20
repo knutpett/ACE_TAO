@@ -50,7 +50,7 @@ public:
 
   ::CORBA::ValueBase *_copy_value ()
   {
-    ::CORBA::ValueBase *ret_val = 0;
+    ::CORBA::ValueBase *ret_val = nullptr;
     ACE_NEW_THROW_EX (
       ret_val,
       Person_i (

@@ -78,7 +78,7 @@ ACE_Token_Collection::acquire (int notify,
 
   COLLECTION::ITERATOR iterator (collection_);
 
-  for (COLLECTION::ENTRY *temp = 0;
+  for (COLLECTION::ENTRY *temp = nullptr;
        iterator.next (temp) != 0;
        iterator.advance ())
     {
@@ -143,7 +143,7 @@ ACE_Token_Collection::tryacquire (void (*sleep_hook)(void *))
 
   COLLECTION::ITERATOR iterator (collection_);
 
-  for (COLLECTION::ENTRY *temp = 0;
+  for (COLLECTION::ENTRY *temp = nullptr;
        iterator.next (temp) != 0;
        iterator.advance ())
     {
@@ -166,7 +166,7 @@ ACE_Token_Collection::renew (int requeue_position,
 
   COLLECTION::ITERATOR iterator (collection_);
 
-  for (COLLECTION::ENTRY *temp = 0;
+  for (COLLECTION::ENTRY *temp = nullptr;
        iterator.next (temp) != 0;
        iterator.advance ())
     {
@@ -208,7 +208,7 @@ ACE_Token_Collection::release (ACE_Synch_Options &)
   ACE_TRACE ("ACE_Token_Collection::release");
   COLLECTION::ITERATOR iterator (collection_);
 
-  for (COLLECTION::ENTRY *temp = 0;
+  for (COLLECTION::ENTRY *temp = nullptr;
        iterator.next (temp) != 0;
        iterator.advance ())
     {
@@ -242,7 +242,7 @@ ACE_Token_Collection::~ACE_Token_Collection (void)
   ACE_TRACE ("ACE_Token_Collection::~ACE_Token_Collection");
   COLLECTION::ITERATOR iterator (collection_);
 
-  for (COLLECTION::ENTRY *temp = 0;
+  for (COLLECTION::ENTRY *temp = nullptr;
        iterator.next (temp) != 0;
        iterator.advance ())
     {

@@ -4,7 +4,7 @@
 #include "ace/Get_Opt.h"
 #include "ace/OS_NS_stdio.h"
 
-const ACE_TCHAR *ior_file = 0;
+const ACE_TCHAR *ior_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -55,7 +55,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         return -1;
 
       // Servant
-      test_i *servant = 0;
+      test_i *servant = nullptr;
       ACE_NEW_RETURN (servant,
                       test_i (0, orb.in ()),
                       -1);

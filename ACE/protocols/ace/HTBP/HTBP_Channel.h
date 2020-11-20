@@ -80,7 +80,7 @@ namespace ACE
       friend class Notifier;
       // Initialization and termination methods.
       /// Constructor.
-      Channel (Session *s = 0);
+      Channel (Session *s = nullptr);
 
       Channel (ACE_SOCK_Stream &s);
       Channel (ACE_HANDLE h);
@@ -112,22 +112,22 @@ namespace ACE
       ssize_t recv (void *buf,
                     size_t n,
                     int flags,
-                    const ACE_Time_Value *timeout = 0);
+                    const ACE_Time_Value *timeout = nullptr);
 
       /// Recv an <n> byte buffer from the connected socket.
       ssize_t recv (void *buf,
                     size_t n,
-                    const ACE_Time_Value *timeout = 0);
+                    const ACE_Time_Value *timeout = nullptr);
 
       /// Recv an <iovec> of size <n> from the connected socket.
       ssize_t recvv (iovec iov[],
                      int n,
-                     const ACE_Time_Value *timeout = 0);
+                     const ACE_Time_Value *timeout = nullptr);
 
       /// Same as above.  Deprecated.
       ssize_t recv (iovec iov[],
                     size_t n,
-                    const ACE_Time_Value *timeout = 0);
+                    const ACE_Time_Value *timeout = nullptr);
 
       /**
        * Allows a client to read from a socket without having to provide a
@@ -138,23 +138,23 @@ namespace ACE
        * delete [] io_vec->iov_base.
        */
       ssize_t recvv (iovec *io_vec,
-                     const ACE_Time_Value *timeout = 0);
+                     const ACE_Time_Value *timeout = nullptr);
 
       /// Send an <n> byte buffer to the connected socket.
       ssize_t send (const void *buf,
                     size_t n,
                     int flags,
-                    const ACE_Time_Value *timeout = 0);
+                    const ACE_Time_Value *timeout = nullptr);
 
       /// Send an <n> byte buffer to the connected socket.
       ssize_t send (const void *buf,
                     size_t n,
-                    const ACE_Time_Value *timeout = 0);
+                    const ACE_Time_Value *timeout = nullptr);
 
       /// Send an <iovec> of size <n> to the connected socket.
       ssize_t sendv (const iovec iov[],
                      int n,
-                     const ACE_Time_Value *timeout = 0);
+                     const ACE_Time_Value *timeout = nullptr);
 
       // = Selectively close endpoints.
       /// Close down the reader.

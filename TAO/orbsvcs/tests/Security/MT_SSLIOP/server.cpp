@@ -3,10 +3,10 @@
 #include "test_i.h"
 #include "Server_Worker.h"
 
-const ACE_TCHAR *ior_output_file = 0;
-ACE_TCHAR *another_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
+ACE_TCHAR *another_output_file = nullptr;
 ACE_CString ior_table_name = "";
-char *another_table_name = 0;
+char *another_table_name = nullptr;
 int nthreads = 4;
 
 int

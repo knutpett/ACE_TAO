@@ -58,7 +58,7 @@ TAO_Leader_Follower::allocate_follower (void)
   if (!this->follower_free_list_.is_empty ())
     return this->follower_free_list_.pop_front ();
 
-  TAO_LF_Follower* ptr = 0;
+  TAO_LF_Follower* ptr = nullptr;
   ACE_NEW_RETURN (ptr,
                   TAO_LF_Follower (*this),
                   0);
@@ -211,7 +211,7 @@ TAO_Leader_Follower::defer_event (ACE_Event_Handler* eh)
                 ACE_TEXT ("TAO (%P|%t) - TAO_Leader_Follower::defer_event, ")
                 ACE_TEXT ("deferring event handler[%d]\n"),
                 eh->get_handle ()));
-  Deferred_Event* ptr = 0;
+  Deferred_Event* ptr = nullptr;
   ACE_NEW_RETURN (ptr,
                   Deferred_Event (eh),
                   -1);
@@ -622,7 +622,7 @@ TAO_Leader_Follower::wait_for_event (TAO_LF_Event *event,
        * here. If there was an error in handle_events () that the
        * leader saw, I (Bala) believe it should be propagated to the
        * clients.
-       * result = 0;
+       * result = nullptr;
        */
       if (event->error_detected_i ())
         {

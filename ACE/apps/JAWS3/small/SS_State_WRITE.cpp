@@ -54,7 +54,7 @@ TeraSS_State_WRITE::transition ( const JAWS_Event_Result &result
 
   // In the WRITE state, move to DONE state if success, ERROR if error.
 
-  JAWS_Protocol_State *next_state = 0;
+  JAWS_Protocol_State *next_state = nullptr;
 
   switch (result.status ())
     {

@@ -38,7 +38,7 @@ public:
   //FUZZ: disable check_for_lack_ACE_OS
   // = Task hooks.
   ///FUZZ: enable check_for_lack_ACE_OS
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
   virtual int close (u_long flags = 0);
   virtual int svc (void);
 

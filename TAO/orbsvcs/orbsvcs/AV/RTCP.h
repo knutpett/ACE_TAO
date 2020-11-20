@@ -154,7 +154,7 @@ public:
 
   /// Called when a frame arrives for a FlowConsumer.
   virtual int receive_frame (ACE_Message_Block *frame,
-                             TAO_AV_frame_info *frame_info = 0,
+                             TAO_AV_frame_info *frame_info = nullptr,
                              const ACE_Addr &peer_address = ACE_Addr::sap_any);
   int send_frame (ACE_Message_Block *frame);
 
@@ -201,7 +201,7 @@ public:
   /// constructor.
   TAO_AV_RTCP_Object (TAO_AV_Callback *client_cb,
                       TAO_AV_RTCP_Callback *&rtcp_cb,
-                      TAO_AV_Transport *transport = 0);
+                      TAO_AV_Transport *transport = nullptr);
 
   /// Destructor
   virtual ~TAO_AV_RTCP_Object (void);
@@ -220,12 +220,12 @@ public:
 
   /// send a data frame.
   virtual int send_frame (ACE_Message_Block *frame,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   /// send a frame in iovecs.
   virtual int send_frame (const iovec *iov,
                           int iovcnt,
-                          TAO_AV_frame_info *frame_info = 0);
+                          TAO_AV_frame_info *frame_info = nullptr);
 
   virtual int send_frame (const char*buf,
                           size_t len);

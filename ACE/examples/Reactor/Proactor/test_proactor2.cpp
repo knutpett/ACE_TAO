@@ -57,7 +57,7 @@ int PrintSigMask ();
 #define  COUT(X)  cout << X ; cout.flush ();
 
 // Host that we're connecting to.
-static ACE_TCHAR *host = 0;
+static ACE_TCHAR *host = nullptr;
 
 // duplex mode: ==0 half-duplex
 //              !=0 full duplex
@@ -226,7 +226,7 @@ int Receiver::initiate_read_stream (void)
               "initiate_read_stream called\n"));
 
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (BUFSIZ + 1),
                   -1);
@@ -513,7 +513,7 @@ int Sender::initiate_read_stream (void)
               "initiate_read_stream called\n"));
 
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (BUFSIZ + 1),
                   -1);

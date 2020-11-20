@@ -66,7 +66,7 @@ const ACE_TCHAR *sem_name ()
 #endif /* !defined (ACE_LACKS_FORK) */
 
 // Synchronize the start of the parent and the child.
-static SYNCHRONIZER *synchronizer = 0;
+static SYNCHRONIZER *synchronizer = nullptr;
 
 static void *
 child (void * = 0)

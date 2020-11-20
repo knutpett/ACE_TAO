@@ -18,7 +18,7 @@ int ACE_TMAIN (int, ACE_TCHAR *[])
       return 1;
     }
 
-  const CORBA::LongSeq *cls = 0;
+  const CORBA::LongSeq *cls = nullptr;
   if (!(a >>= cls))
     {
       ACE_DEBUG ((LM_ERROR, ACE_TEXT ("ERROR: Failed to extract\n")));

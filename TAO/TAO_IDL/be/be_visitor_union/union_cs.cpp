@@ -89,7 +89,7 @@ int be_visitor_union_cs::visit_union (be_union *node)
   *os << "this->disc_ = ";
 
   UTL_ScopeActiveIterator si (node, UTL_Scope::IK_decls);
-  be_union_branch *ub = 0;
+  be_union_branch *ub = nullptr;
 
   // In case we have some bogus enum values from an enum declared
   // in our scope.

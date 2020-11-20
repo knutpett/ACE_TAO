@@ -354,7 +354,7 @@ Client::get_high_priority_jitter (void)
     this->ts_->global_jitter_array_[0]->begin ();
 
   // latency in usecs.
-  ACE_timer_t *latency = 0;
+  ACE_timer_t *latency = nullptr;
 
   for (iterator.first ();
        iterator.next (latency) == 1;
@@ -414,7 +414,7 @@ Client::get_low_priority_jitter (void)
       ACE_timer_t number_of_calls =
         this->ts_->count_ [j] / this->ts_->granularity_;
 
-      ACE_timer_t *latency = 0;
+      ACE_timer_t *latency = nullptr;
 
       u_int i = 0;
 
@@ -460,7 +460,7 @@ Client::get_jitter (u_int id)
   ACE_timer_t number_of_calls =
     this->ts_->count_[id] / this->ts_->granularity_;
 
-  ACE_timer_t *latency = 0;
+  ACE_timer_t *latency = nullptr;
 
   u_int i = 0;
 

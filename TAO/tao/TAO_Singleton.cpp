@@ -41,7 +41,7 @@ TAO_Singleton<TYPE, ACE_LOCK>::instance_i (void)
 #if defined (ACE_LACKS_STATIC_DATA_MEMBER_TEMPLATES)
   // Pointer to the Singleton instance.  This works around a bug with
   // G++ and it's (mis-)handling of templates and statics...
-  static TAO_Singleton<TYPE, ACE_LOCK> *singleton_ = 0;
+  static TAO_Singleton<TYPE, ACE_LOCK> *singleton_ = nullptr;
 
   return singleton_;
 #else
@@ -78,7 +78,7 @@ TAO_Singleton<TYPE, ACE_LOCK>::instance (void)
           // Obtain a lock from the ACE_Object_Manager.  The pointer
           // is static, so we only obtain one per TAO_Singleton
           // instantiation.
-          static ACE_LOCK *lock = 0;
+          static ACE_LOCK *lock = nullptr;
           if (ACE_Object_Manager::get_singleton_lock (lock) != 0)
             // Failed to acquire the lock!
             return 0;
@@ -115,7 +115,7 @@ TAO_Singleton<TYPE, ACE_LOCK>::cleanup (void *param)
   if (param)
     {
       ACE_LOCK **lock = static_cast<ACE_LOCK **> (param);
-      *lock = 0;
+      *lock = nullptr;
     }
 #endif
 }
@@ -150,7 +150,7 @@ TAO_TSS_Singleton<TYPE, ACE_LOCK>::instance_i (void)
 #if defined (ACE_LACKS_STATIC_DATA_MEMBER_TEMPLATES)
   // Pointer to the Singleton instance.  This works around a bug with
   // G++ and it's (mis-)handling of templates and statics...
-  static TAO_TSS_Singleton<TYPE, ACE_LOCK> *singleton_ = 0;
+  static TAO_TSS_Singleton<TYPE, ACE_LOCK> *singleton_ = nullptr;
 
   return singleton_;
 #else
@@ -187,7 +187,7 @@ TAO_TSS_Singleton<TYPE, ACE_LOCK>::instance (void)
           // Obtain a lock from the ACE_Object_Manager.  The pointer
           // is static, so we only obtain one per TAO_Singleton
           // instantiation.
-          static ACE_LOCK *lock = 0;
+          static ACE_LOCK *lock = nullptr;
           if (ACE_Object_Manager::get_singleton_lock (lock) != 0)
             // Failed to acquire the lock!
             return 0;

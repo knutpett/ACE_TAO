@@ -105,7 +105,7 @@ TAO_IIOP_Connector::open (TAO_ORB_Core *orb_core)
     return -1;
 
   /// Our connect creation strategy
-  TAO_IIOP_CONNECT_CREATION_STRATEGY *connect_creation_strategy = 0;
+  TAO_IIOP_CONNECT_CREATION_STRATEGY *connect_creation_strategy = nullptr;
 
   ACE_NEW_RETURN (connect_creation_strategy,
                   TAO_IIOP_CONNECT_CREATION_STRATEGY
@@ -114,7 +114,7 @@ TAO_IIOP_Connector::open (TAO_ORB_Core *orb_core)
                   -1);
 
   /// Our activation strategy
-  TAO_IIOP_CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = 0;
+  TAO_IIOP_CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = nullptr;
 
   ACE_NEW_RETURN (concurrency_strategy,
                   TAO_IIOP_CONNECT_CONCURRENCY_STRATEGY (orb_core),
@@ -180,7 +180,7 @@ TAO_IIOP_Connector::make_connection (TAO::Profile_Transport_Resolver *r,
                                      TAO_Transport_Descriptor_Interface &desc,
                                      ACE_Time_Value *timeout)
 {
-  TAO_IIOP_Connection_Handler *svc_handler = 0;
+  TAO_IIOP_Connection_Handler *svc_handler = nullptr;
   TAO_IIOP_Endpoint *iiop_endpoint =
     this->remote_endpoint (desc.endpoint());
   if (iiop_endpoint == 0)
@@ -263,8 +263,8 @@ TAO_IIOP_Connector::make_parallel_connection (
                 ACE_TEXT ("TAO (%P|%t) - IIOP_Connector::")
                 ACE_TEXT ("make_parallel_connection, ")
                 ACE_TEXT ("to %d endpoints\n"), max_count));
-  TAO_IIOP_Endpoint **eplist = 0;
-  TAO_IIOP_Connection_Handler **shlist = 0;
+  TAO_IIOP_Endpoint **eplist = nullptr;
+  TAO_IIOP_Connection_Handler **shlist = nullptr;
   ACE_NEW_RETURN (shlist, TAO_IIOP_Connection_Handler *[max_count], 0);
   ACE_NEW_RETURN (eplist, TAO_IIOP_Endpoint *[max_count], 0);
 
@@ -314,7 +314,7 @@ TAO_IIOP_Connector::make_parallel_connection (
         }
     }
 
-  TAO_Transport *winner = 0;
+  TAO_Transport *winner = nullptr;
   if (count > 0) // only complete if at least one pending or success
     {
       // Make sure that we always do a remove_reference for every member
@@ -540,8 +540,8 @@ TAO_IIOP_Connector::complete_connection (int result,
 
   // At this point, the connection has been successfully created
   // connected or not connected, but we have a connection.
-  TAO_IIOP_Connection_Handler *svc_handler = 0;
-  TAO_IIOP_Endpoint *iiop_endpoint = 0;
+  TAO_IIOP_Connection_Handler *svc_handler = nullptr;
+  TAO_IIOP_Endpoint *iiop_endpoint = nullptr;
 
   if (transport != 0)
     {
@@ -686,7 +686,7 @@ TAO_IIOP_Connector::complete_connection (int result,
 TAO_Profile *
 TAO_IIOP_Connector::create_profile (TAO_InputCDR& cdr)
 {
-  TAO_Profile *pfile = 0;
+  TAO_Profile *pfile = nullptr;
   ACE_NEW_RETURN (pfile,
                   TAO_IIOP_Profile (this->orb_core ()),
                   0);
@@ -709,7 +709,7 @@ TAO_IIOP_Connector::make_profile (void)
   // or:
   //    host:port/object_key
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO_IIOP_Profile (this->orb_core ()),
                     CORBA::NO_MEMORY (

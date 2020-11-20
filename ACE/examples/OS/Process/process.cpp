@@ -40,8 +40,8 @@ const ACE_TCHAR *SLEEP_PATH = ACE_TEXT ("sleep");
 #endif /* ACE_WIN32 */
 
 static const ACE_TCHAR *executable = EXEC_NAME;
-static ACE_TCHAR *print_file = 0;
-static ACE_TCHAR *environment_string = 0;
+static ACE_TCHAR *print_file = nullptr;
+static ACE_TCHAR *environment_string = nullptr;
 static int get_env = 0;
 static int run_date = 0;
 static int run_ls = 0;

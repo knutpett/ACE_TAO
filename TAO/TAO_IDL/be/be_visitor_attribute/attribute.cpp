@@ -59,12 +59,12 @@ be_visitor_attribute::visit_attribute (be_attribute *node)
   AST_Decl *d = ScopeAsDecl (s);
   ACE_CString op_name (this->ctx_->port_prefix ());
   op_name += node->local_name ()->get_string ();
-  Identifier *op_id = 0;
+  Identifier *op_id = nullptr;
   ACE_NEW_RETURN (op_id,
                   Identifier (op_name.c_str ()),
                   -1);
 
-  UTL_ScopedName *op_ln = 0;
+  UTL_ScopedName *op_ln = nullptr;
   ACE_NEW_RETURN (op_ln,
                   UTL_ScopedName (op_id, 0),
                   -1);

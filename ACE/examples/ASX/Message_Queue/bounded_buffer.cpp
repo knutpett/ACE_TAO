@@ -26,7 +26,7 @@ producer (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
   for (int n; ; )
     {
       // Allocate a new message.
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       ACE_NEW_RETURN (mb, ACE_Message_Block (BUFSIZ), 0);
 
@@ -71,7 +71,7 @@ static void *consumer (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 
   for (;;)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       ACE_Time_Value timeout (ACE_OS::time (0) + 4, 0); // Wait for upto 4 seconds
 

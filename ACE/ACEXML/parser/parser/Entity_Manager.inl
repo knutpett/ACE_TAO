@@ -15,7 +15,7 @@ ACEXML_Entity_Manager::resolve_entity (const ACEXML_Char *ref)
   if (!this->entities_)
     return 0;
 
-  ACEXML_ENTITY_ENTRY *entry = 0;
+  ACEXML_ENTITY_ENTRY *entry = nullptr;
 
   if (this->entities_->find (ACEXML_String (ref, 0, false),
                             entry) == 0)

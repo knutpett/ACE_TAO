@@ -79,7 +79,7 @@ TAO::CSD::TP_Strategy_Factory::init (int argc,
             }
           else
             {
-              *sep = 0;
+              *sep = nullptr;
               poa_name = ACE_TEXT_ALWAYS_CHAR (argv[curarg]);
               num_threads = ACE_OS::strtol (sep + 1, &sep, 10);
               if (*sep != 0 && *sep != ':')
@@ -97,7 +97,7 @@ TAO::CSD::TP_Strategy_Factory::init (int argc,
             }
 
           // Create the ThreadPool strategy for each named poa.
-          TP_Strategy* strategy = 0;
+          TP_Strategy* strategy = nullptr;
           ACE_NEW_RETURN (strategy,
                           TP_Strategy (num_threads, serialize_servants),
                           -1);

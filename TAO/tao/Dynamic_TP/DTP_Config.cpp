@@ -66,7 +66,7 @@ TAO_DTP_Config::init (int argc, ACE_TCHAR* argv[])
 {
   TAO_DTP_Definition entry;
 
-  ACE_TCHAR *name = 0;
+  ACE_TCHAR *name = nullptr;
   bool overwrite = false;
 
   int curarg = 0;
@@ -242,7 +242,7 @@ TAO_DTP_Config::parse_long (int &curarg,
   if (result < 1)
     return result;
 
-  ACE_TCHAR *err = 0;
+  ACE_TCHAR *err = nullptr;
   value = ACE_OS::strtol (str, &err, 10);
   if (err && *err != 0)
     {

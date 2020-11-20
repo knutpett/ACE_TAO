@@ -686,7 +686,7 @@ Shared_Backing_Store::XMLHandler_Ptr
 Shared_Backing_Store::get_listings (Lockable_File& listing_lf,
                                     bool only_changes) const
 {
-  LocatorListings_XMLHandler *raw_xml = 0;
+  LocatorListings_XMLHandler *raw_xml = nullptr;
   if (only_changes)
     {
       ACE_NEW_RETURN (raw_xml,
@@ -779,7 +779,7 @@ Shared_Backing_Store::write_listing (FILE* list)
   UniqueId uid;
 
   // Save servers
-  Locator_Repository::SIMap::ENTRY* sientry = 0;
+  Locator_Repository::SIMap::ENTRY* sientry = nullptr;
   Locator_Repository::SIMap::CONST_ITERATOR siit (this->servers ());
   for (; siit.next (sientry); siit.advance() )
     {
@@ -792,7 +792,7 @@ Shared_Backing_Store::write_listing (FILE* list)
     }
 
   // Save Activators
-  Locator_Repository::AIMap::ENTRY* aientry = 0;
+  Locator_Repository::AIMap::ENTRY* aientry = nullptr;
   Locator_Repository::AIMap::CONST_ITERATOR aiit (this->activators ());
   for (; aiit.next (aientry); aiit.advance ())
     {
@@ -1127,7 +1127,7 @@ Shared_Backing_Store::gen_ior (char*& ft_imr_ior)
 
   // otherwise we need to combine the primary and backup ior to make
   // the fault tolerant ImR ior
-  char* combined_ior = 0;
+  char* combined_ior = nullptr;
   CORBA::String_var reason;
   try
     {
@@ -1195,14 +1195,14 @@ Shared_Backing_Store::LocatorListings_XMLHandler::LocatorListings_XMLHandler(
 : dir_(dir),
   only_changes_(true)
 {
-  Locator_Repository::SIMap::ENTRY* sientry = 0;
+  Locator_Repository::SIMap::ENTRY* sientry = nullptr;
   Locator_Repository::SIMap::CONST_ITERATOR siit (servers);
   for (; siit.next (sientry); siit.advance() )
     {
       unmatched_servers_.bind (sientry->ext_id_, sientry->int_id_);
     }
 
-  Locator_Repository::AIMap::ENTRY* aientry = 0;
+  Locator_Repository::AIMap::ENTRY* aientry = nullptr;
   Locator_Repository::AIMap::CONST_ITERATOR aiit (activators);
   for (; aiit.next (aientry); aiit.advance() )
     {
@@ -1264,7 +1264,7 @@ void
 Shared_Backing_Store::LocatorListings_XMLHandler::remove_unmatched(
   Locator_Repository& repo)
 {
-  Locator_Repository::SIMap::ENTRY* sientry = 0;
+  Locator_Repository::SIMap::ENTRY* sientry = nullptr;
   Locator_Repository::SIMap::CONST_ITERATOR siit (this->unmatched_servers_);
   for (; siit.next (sientry); siit.advance() )
     {
@@ -1277,7 +1277,7 @@ Shared_Backing_Store::LocatorListings_XMLHandler::remove_unmatched(
         }
     }
 
-  Locator_Repository::AIMap::ENTRY* aientry = 0;
+  Locator_Repository::AIMap::ENTRY* aientry = nullptr;
   Locator_Repository::AIMap::CONST_ITERATOR aiit (this->unmatched_activators_);
   for (; aiit.next (aientry); aiit.advance ())
     {

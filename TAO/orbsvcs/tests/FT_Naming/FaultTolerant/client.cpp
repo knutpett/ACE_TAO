@@ -156,11 +156,11 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   int c_depth   = 4;
   int o_breadth = 4;
 
-  ACE_TCHAR *ns1ref = 0;
-  ACE_TCHAR *ns2ref = 0;
+  ACE_TCHAR *ns1ref = nullptr;
+  ACE_TCHAR *ns2ref = nullptr;
 
-  ACE_TCHAR *nm1ref = 0;
-  ACE_TCHAR *nm2ref = 0;
+  ACE_TCHAR *nm1ref = nullptr;
+  ACE_TCHAR *nm2ref = nullptr;
 
   typedef enum {
     TT_FAILOVER,

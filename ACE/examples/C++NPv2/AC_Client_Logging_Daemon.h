@@ -39,7 +39,7 @@ protected:
 class AC_Input_Handler
   : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNCH> {
 public:
-  AC_Input_Handler (AC_Output_Handler *handler = 0)
+  AC_Input_Handler (AC_Output_Handler *handler = nullptr)
     : output_handler_ (handler) {}
   virtual int open (void *); // Initialization hook method.
   virtual int close (u_long = 0); // Shutdown hook method.

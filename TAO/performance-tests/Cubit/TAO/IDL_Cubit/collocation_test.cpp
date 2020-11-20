@@ -22,7 +22,7 @@ struct Barriers
   ACE_Barrier client_fini_;
 };
 
-static const ACE_TCHAR *server_cmd = 0;
+static const ACE_TCHAR *server_cmd = nullptr;
 
 void *
 svr_worker (void *arg)
@@ -69,7 +69,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
   ACE_Get_Opt get_opts (argc, argv, ACE_TEXT("s:c:"));
   int c = -1;
-  const ACE_TCHAR *client_cmd = 0;
+  const ACE_TCHAR *client_cmd = nullptr;
 
   while ((c = get_opts ()) != -1)
     switch (c)

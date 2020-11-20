@@ -15,7 +15,7 @@ class HTTPU_Export HTTP_Parse_URL
   // always returns a null value for the host.
 
 public:
-  HTTP_Parse_URL (const char *url = 0);
+  HTTP_Parse_URL (const char *url = nullptr);
   ~HTTP_Parse_URL (void);
 
   void init (const char *url);

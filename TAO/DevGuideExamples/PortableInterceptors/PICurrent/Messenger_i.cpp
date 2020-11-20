@@ -41,7 +41,7 @@ CORBA::Boolean Messenger_i::send_message (
 char * Messenger_i::get_time (void)
 {
   time_t thetime;
-  struct tm * timeinfo = 0;
+  struct tm * timeinfo = nullptr;
 
   ACE_OS::time(&thetime);
   timeinfo = ACE_OS::localtime(&thetime);

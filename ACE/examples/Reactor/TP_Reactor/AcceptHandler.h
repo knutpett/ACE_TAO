@@ -33,7 +33,7 @@ class AcceptHandler : public ACE_Event_Handler {
         /**
          * @param reactor The reactor which will use this accept handler.
          */
-        AcceptHandler(ACE_Reactor *reactor = 0);
+        AcceptHandler(ACE_Reactor *reactor = nullptr);
 
         /**
          * The destructor exists for tracing purposes.

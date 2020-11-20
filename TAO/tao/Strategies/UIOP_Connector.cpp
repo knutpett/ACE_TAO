@@ -39,7 +39,7 @@ TAO_UIOP_Connector::open (TAO_ORB_Core *orb_core)
     return -1;
 
   // Our connect creation strategy
-  TAO_UIOP_CONNECT_CREATION_STRATEGY *connect_creation_strategy = 0;
+  TAO_UIOP_CONNECT_CREATION_STRATEGY *connect_creation_strategy = nullptr;
 
   ACE_NEW_RETURN (connect_creation_strategy,
                   TAO_UIOP_CONNECT_CREATION_STRATEGY
@@ -48,7 +48,7 @@ TAO_UIOP_Connector::open (TAO_ORB_Core *orb_core)
                   -1);
 
   /// Our activation strategy
-  TAO_UIOP_CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = 0;
+  TAO_UIOP_CONNECT_CONCURRENCY_STRATEGY *concurrency_strategy = nullptr;
 
   ACE_NEW_RETURN (concurrency_strategy,
                   TAO_UIOP_CONNECT_CONCURRENCY_STRATEGY (orb_core),
@@ -156,7 +156,7 @@ TAO_UIOP_Connector::make_connection (TAO::Profile_Transport_Resolver *r,
   // polling the reactor for connection completion. However, the side-effect
   // was to cause the connection to timeout immediately.
 
-  TAO_UIOP_Connection_Handler *svc_handler = 0;
+  TAO_UIOP_Connection_Handler *svc_handler = nullptr;
 
   // Connect.
   int result =
@@ -307,7 +307,7 @@ TAO_UIOP_Connector::create_profile (TAO_InputCDR& cdr)
 TAO_Profile *
 TAO_UIOP_Connector::make_profile (void)
 {
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO_UIOP_Profile (this->orb_core ()),
                     CORBA::NO_MEMORY (

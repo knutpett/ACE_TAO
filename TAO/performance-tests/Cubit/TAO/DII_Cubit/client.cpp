@@ -506,7 +506,7 @@ DII_Cubit_Client::cube_union_dii (void)
 
 
       // Extract the result and check validity.
-      const Cubit::oneof* ret_ptr = 0;
+      const Cubit::oneof* ret_ptr = nullptr;
       req->return_value () >>= ret_ptr;
 
       if (ret_ptr->cm ().l != arg_union.cm ().l * arg_union.cm ().l * arg_union.cm ().l
@@ -585,7 +585,7 @@ DII_Cubit_Client::cube_octet_seq_dii (int length)
       // Same length as in IDL_Cubit tests so timings can be compared.
       // Return value holder is set to a different length to test resizing.
       Cubit::octet_seq arg_octet_seq (length);
-      const Cubit::octet_seq *ret_octet_seq_ptr = 0;
+      const Cubit::octet_seq *ret_octet_seq_ptr = nullptr;
       arg_octet_seq.length (length);
       arg_octet_seq[0] = 4;
 
@@ -641,7 +641,7 @@ DII_Cubit_Client::cube_long_seq_dii (int length)
       // Same length as in IDL_Cubit tests so timings can be compared.
       // Return value holder is set to a different length to test
       // resizing.
-      const Cubit::long_seq *ret_long_seq_ptr = 0;
+      const Cubit::long_seq *ret_long_seq_ptr = nullptr;
       Cubit::long_seq arg_long_seq (length);
       arg_long_seq.length (length);
       arg_long_seq[0] = 4;

@@ -121,7 +121,7 @@ void
 Logging_Supplier::load_schedule_data
       (ACE_Unbounded_Queue<Schedule_Viewer_Data *> &schedule_data)
 {
-  Schedule_Viewer_Data *data = 0;
+  Schedule_Viewer_Data *data = nullptr;
 
   if (this->input_file_name_)
     {
@@ -190,7 +190,7 @@ Logging_Supplier::load_schedule_data
     {
       ACE_NEW (data, Schedule_Viewer_Data);
 
-      const char *oper_name = 0;
+      const char *oper_name = nullptr;
       switch (i % 4)
       {
       case 0:

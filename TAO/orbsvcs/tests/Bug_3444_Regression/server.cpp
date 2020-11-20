@@ -5,8 +5,8 @@
 
 
 
-const ACE_TCHAR *uipmc_url = 0;
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *uipmc_url = nullptr;
+const ACE_TCHAR *ior_output_file = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -50,7 +50,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       CORBA::Object_var poa_object =
         orb->resolve_initial_references("RootPOA");
 
-      Server_impl* server_obj = 0;
+      Server_impl* server_obj = nullptr;
       ACE_NEW_RETURN (server_obj,
                       Server_impl(orb.in()),
                       -1);

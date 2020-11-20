@@ -39,7 +39,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       PortableServer::ServantBase_var impl;
       {
-        Echo_Caller * tmp = 0;
+        Echo_Caller * tmp = nullptr;
         // ACE_NEW_RETURN is the worst possible way to handle
         // exceptions (think: what if the constructor allocates memory
         // and fails?), but I'm not in the mood to fight for a more

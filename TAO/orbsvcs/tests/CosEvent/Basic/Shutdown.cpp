@@ -81,8 +81,8 @@ run_test (PortableServer::POA_ptr poa,
 
   // ****************************************************************
 
-  CEC_Counting_Consumer **consumer = 0;
-  CEC_Counting_Supplier **supplier = 0;
+  CEC_Counting_Consumer **consumer = nullptr;
+  CEC_Counting_Supplier **supplier = nullptr;
 
   const int n = 200;
   ACE_NEW (consumer, CEC_Counting_Consumer*[n]);

@@ -202,9 +202,9 @@ AST_Attribute::get_set_exceptions (void) const
 UTL_NameList *
 AST_Attribute::fe_add_get_exceptions (UTL_NameList *t)
 {
-  UTL_ScopedName *nl_n = 0;
-  AST_Type *fe = 0;
-  AST_Decl *d = 0;
+  UTL_ScopedName *nl_n = nullptr;
+  AST_Type *fe = nullptr;
+  AST_Decl *d = nullptr;
 
   this->pd_get_exceptions = 0;
 
@@ -234,7 +234,7 @@ AST_Attribute::fe_add_get_exceptions (UTL_NameList *t)
 
       fe = dynamic_cast<AST_Type*> (d);
 
-      UTL_ExceptList *el = 0;
+      UTL_ExceptList *el = nullptr;
       ACE_NEW_RETURN (el,
                       UTL_ExceptList (fe, 0),
                       0);
@@ -257,9 +257,9 @@ AST_Attribute::fe_add_get_exceptions (UTL_NameList *t)
 UTL_NameList *
 AST_Attribute::fe_add_set_exceptions (UTL_NameList *t)
 {
-  UTL_ScopedName *nl_n = 0;
-  AST_Type *fe = 0;
-  AST_Decl *d = 0;
+  UTL_ScopedName *nl_n = nullptr;
+  AST_Type *fe = nullptr;
+  AST_Decl *d = nullptr;
 
   this->pd_set_exceptions = 0;
 
@@ -287,7 +287,7 @@ AST_Attribute::fe_add_set_exceptions (UTL_NameList *t)
 
       fe = dynamic_cast<AST_Type*> (d);
 
-      UTL_ExceptList *el = 0;
+      UTL_ExceptList *el = nullptr;
       ACE_NEW_RETURN (el,
                       UTL_ExceptList (fe, 0),
                       0);

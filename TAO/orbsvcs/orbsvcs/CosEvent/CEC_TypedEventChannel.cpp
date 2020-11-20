@@ -178,7 +178,7 @@ TAO_CEC_TypedEventChannel::disconnected (TAO_CEC_ProxyPushSupplier* supplier)
 TAO_CEC_Operation_Params *
 TAO_CEC_TypedEventChannel::find_from_ifr_cache (const char *operation)
 {
-  TAO_CEC_Operation_Params *found = 0;
+  TAO_CEC_Operation_Params *found = nullptr;
 
   this->interface_description_.find (operation, found);
 

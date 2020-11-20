@@ -14,7 +14,7 @@ TAO_Valuetype_Adapter_Factory_Impl::~TAO_Valuetype_Adapter_Factory_Impl (void)
 TAO_Valuetype_Adapter *
 TAO_Valuetype_Adapter_Factory_Impl::create (void)
 {
-  TAO_Valuetype_Adapter_Impl *nva = 0;
+  TAO_Valuetype_Adapter_Impl *nva = nullptr;
   ACE_NEW_THROW_EX (nva,
                     TAO_Valuetype_Adapter_Impl (),
                     CORBA::NO_MEMORY ());

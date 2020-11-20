@@ -16,7 +16,7 @@ bool
 checkResult (const CORBA::Any &any, const MultiLabelUnion &mlu)
 {
   bool error = false;
-  const MultiLabelUnion *extracted = 0;
+  const MultiLabelUnion *extracted = nullptr;
   if (any >>= extracted)
     {
       if (extracted->_d () == mlu._d ())

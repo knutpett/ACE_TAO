@@ -72,8 +72,8 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   int c_breadth = 4;
   int c_depth = 4;
   int o_breadth = 4;
-  ACE_TCHAR *ns1ref = 0;
-  ACE_TCHAR *ns2ref = 0;
+  ACE_TCHAR *ns1ref = nullptr;
+  ACE_TCHAR *ns2ref = nullptr;
   int test_runs = 100;
 
   ACE_Get_Opt get_opts (argc, argv, ACE_TEXT ("b:d:o:p:q:t:"));

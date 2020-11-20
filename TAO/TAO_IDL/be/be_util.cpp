@@ -34,7 +34,7 @@ be_util::gen_nested_namespace_begin (TAO_OutStream *os,
                                      be_module *node,
                                      bool skel)
 {
-  char *item_name = 0;
+  char *item_name = nullptr;
   bool first_level = true;
 
   for (UTL_IdListActiveIterator i (node->name ());
@@ -154,7 +154,7 @@ be_util::prep_be_arg (char *s)
   static const char stripped_filename[]    = "stripped_filename=";
   static const char no_fixed_err[]         = "no_fixed_err";
 
-  char* last = 0;
+  char* last = nullptr;
 
   for (char* arg = ACE_OS::strtok_r (s, ",", &last);
        arg != 0;
@@ -944,7 +944,7 @@ be_util::generator_init (void)
 {
   tao_cg = TAO_CODEGEN::instance ();
 
-  AST_Generator *gen = 0;
+  AST_Generator *gen = nullptr;
   ACE_NEW_RETURN (gen,
                   be_generator,
                   0);

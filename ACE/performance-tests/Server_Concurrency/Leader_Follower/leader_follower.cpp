@@ -242,7 +242,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   ACE_SYNCH_CONDITION condition (mutex);
 
   // Leader Followers.
-  Leader_Follower_Task **leader_followers = 0;
+  Leader_Follower_Task **leader_followers = nullptr;
   ACE_NEW_RETURN (leader_followers,
                   Leader_Follower_Task *[number_of_threads],
                   -1);

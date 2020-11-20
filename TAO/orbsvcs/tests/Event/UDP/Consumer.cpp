@@ -84,7 +84,7 @@ Consumer::push (const RtecEventComm::EventSet& events)
 
       if (this->valuetype_)
         {
-          Hello::ValueTypeData * test_data = 0;
+          Hello::ValueTypeData * test_data = nullptr;
           if (events[i].data.any_value >>= test_data)
             {
               ACE_DEBUG ((LM_DEBUG, "Consumer (%P|%t): Received message <%d>: %C\n",
@@ -101,7 +101,7 @@ Consumer::push (const RtecEventComm::EventSet& events)
         }
       else
         {
-          const char* mystring = 0;
+          const char* mystring = nullptr;
           if (events[i].data.any_value >>= mystring)
             {
               ACE_DEBUG ((LM_DEBUG, "Consumer (%P|%t): Received message <%d>: %C\n",

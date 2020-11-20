@@ -15,7 +15,7 @@
 
 static const ACE_TCHAR *ior_output_file = ACE_TEXT ("supplier.ior");
 static bool useFilters = false;
-static Notify_Push_Supplier* supplier = 0;
+static Notify_Push_Supplier* supplier = nullptr;
 static bool use_or_operator = false;
 static int num_events = 90;
 

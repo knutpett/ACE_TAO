@@ -135,7 +135,7 @@ Admin_Client::parse_args (int argc, ACE_TCHAR *argv[])
   int c;
   int result = 0;
   CORBA::ULong i = 0;
-  ACE_TCHAR *name = 0;
+  ACE_TCHAR *name = nullptr;
 
   while ((c = opts ()) != -1)
     switch (c)
@@ -403,7 +403,7 @@ Admin_Client::enum_test (void)
 
   ACE_TEST_ASSERT (dkind == CORBA::dk_Enum);
 
-  const CORBA::TypeDescription *td = 0;
+  const CORBA::TypeDescription *td = nullptr;
   desc->value >>= td;
 
   if (this->debug_)
@@ -526,7 +526,7 @@ Admin_Client::enum_test (void)
     evar->members ();
 
   count = fellows->length ();
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (i = 0; i < count; ++i)
     {
@@ -744,7 +744,7 @@ Admin_Client::alias_test (void)
   CORBA::Contained::Description_var desc =
     a_var->describe ();
 
-  const CORBA::TypeDescription *td = 0;
+  const CORBA::TypeDescription *td = nullptr;
   desc->value >>= td;
 
   if (this->debug_)
@@ -972,7 +972,7 @@ Admin_Client::struct_test (void)
   CORBA::Contained::Description_var desc =
     svar->describe ();
 
-  const CORBA::TypeDescription *td = 0;
+  const CORBA::TypeDescription *td = nullptr;
   desc->value >>= td;
 
   if (this->debug_)
@@ -1209,7 +1209,7 @@ Admin_Client::struct_test (void)
 
   for (i = 0; i < length; ++i)
     {
-      const CORBA::TypeDescription *td = 0;
+      const CORBA::TypeDescription *td = nullptr;
       cont_desc[i].value >>= td;
 
       str = td->type->id ();
@@ -1337,7 +1337,7 @@ Admin_Client::union_test (void)
   TAO_OutputCDR maker2;
   maker2.write_ulong (3);  // THREE
   TAO_InputCDR maker2_in (maker2);
-  TAO::Unknown_IDL_Type *impl2 = 0;
+  TAO::Unknown_IDL_Type *impl2 = nullptr;
   ACE_NEW (impl2,
            TAO::Unknown_IDL_Type (d_type.in (),
                                   maker2_in));
@@ -1352,7 +1352,7 @@ Admin_Client::union_test (void)
   TAO_OutputCDR maker0;
   maker0.write_ulong (2);  // TWO
   TAO_InputCDR maker0_in (maker0);
-  TAO::Unknown_IDL_Type *impl0 = 0;
+  TAO::Unknown_IDL_Type *impl0 = nullptr;
   ACE_NEW (impl0,
            TAO::Unknown_IDL_Type (d_type.in (),
                                   maker0_in));
@@ -1367,7 +1367,7 @@ Admin_Client::union_test (void)
   TAO_OutputCDR maker1;
   maker1.write_ulong (0); // ZERO
   TAO_InputCDR maker1_in (maker1);
-  TAO::Unknown_IDL_Type *impl1 = 0;
+  TAO::Unknown_IDL_Type *impl1 = nullptr;
   ACE_NEW (impl1,
            TAO::Unknown_IDL_Type (d_type.in (),
                                   maker1_in));
@@ -1430,7 +1430,7 @@ Admin_Client::union_test (void)
   ACE_TEST_ASSERT (slot == 2);
 
   CORBA::String_var str;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (CORBA::ULong i = 0; i < length; ++i)
     {
@@ -1573,7 +1573,7 @@ Admin_Client::exception_test (void)
   CORBA::Contained::Description_var desc =
     exvar->describe ();
 
-  const CORBA::ExceptionDescription *ed = 0;
+  const CORBA::ExceptionDescription *ed = nullptr;
   desc->value >>= ed;
 
   if (this->debug_)
@@ -1830,7 +1830,7 @@ Admin_Client::exception_test (void)
 
   ACE_TEST_ASSERT (length == 2);
 
-  const CORBA::TypeDescription *td = 0;
+  const CORBA::TypeDescription *td = nullptr;
 
   for (i = 0; i < length; ++i)
     {
@@ -2216,7 +2216,7 @@ Admin_Client::interface_test (void)
   CORBA::Contained::Description_var desc =
     p_op->describe ();
 
-  const CORBA::OperationDescription *od = 0;
+  const CORBA::OperationDescription *od = nullptr;
   desc->value >>= od;
 
   if (this->debug_)
@@ -2254,7 +2254,7 @@ Admin_Client::interface_test (void)
 
   ACE_TEST_ASSERT (length == 3);
 
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (i = 0; i < length; ++i)
     {
@@ -2421,7 +2421,7 @@ Admin_Client::interface_test (void)
 
   desc = ivar->describe ();
 
-  const CORBA::InterfaceDescription *ifd = 0;
+  const CORBA::InterfaceDescription *ifd = nullptr;
   desc->value >>= ifd;
 
   length = ifd->base_interfaces.length ();
@@ -2436,7 +2436,7 @@ Admin_Client::interface_test (void)
 
   ACE_TEST_ASSERT (length == 2);
 
-  const char *base_iface_id = 0;
+  const char *base_iface_id = nullptr;
 
   for (i = 0; i < length; ++i)
     {
@@ -2633,7 +2633,7 @@ Admin_Client::move_test (void)
   ACE_TEST_ASSERT (length == 2);
 
   CORBA::ULong i = 0;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   for (i = 0; i < length; ++i)
     {

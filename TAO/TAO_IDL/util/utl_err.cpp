@@ -259,7 +259,7 @@ error_string (UTL_Error::ErrorCode c)
  * Get filename from node or from idl_global if node is null.
  */
 static const char *
-get_filename (AST_Decl *node = 0)
+get_filename (AST_Decl *node = nullptr)
 {
   return node ? node->file_name ().c_str ()
     : idl_global->filename ()->get_string ();
@@ -269,7 +269,7 @@ get_filename (AST_Decl *node = 0)
  * Get line number from node or from idl_global if node is null.
  */
 static long
-get_lineno (AST_Decl *node = 0)
+get_lineno (AST_Decl *node = nullptr)
 {
   return node ? node->line () : idl_global->lineno ();
 }
@@ -293,7 +293,7 @@ idl_error_header (UTL_Error::ErrorCode c, long lineno, ACE_CString s)
   idl_global->set_err_count (idl_global->err_count () + 1);
 }
 static void
-idl_error_header (UTL_Error::ErrorCode c, AST_Decl *node = 0)
+idl_error_header (UTL_Error::ErrorCode c, AST_Decl *node = nullptr)
 {
   idl_error_header (c, get_lineno (node), get_filename (node));
 }
@@ -317,7 +317,7 @@ idl_warning_header (UTL_Error::ErrorCode c, long lineno, ACE_CString s)
               error_string (c)));
 }
 static void
-idl_warning_header (UTL_Error::ErrorCode c, AST_Decl *node = 0)
+idl_warning_header (UTL_Error::ErrorCode c, AST_Decl *node = nullptr)
 {
   idl_warning_header (c, get_lineno (node), get_filename (node));
 }

@@ -379,8 +379,8 @@ ACE_Service_Manager::handle_input (ACE_HANDLE)
           offset += result;
           *offset = 0;
 
-          if (ACE_OS::strchr (request, '\r') != 0
-              || ACE_OS::strchr (request, '\n') != 0)
+          if (ACE_OS::strchr (request, '\r') != nullptr
+              || ACE_OS::strchr (request, '\n') != nullptr)
             {
               remaining = 0;
             }
@@ -404,7 +404,7 @@ ACE_Service_Manager::handle_input (ACE_HANDLE)
       /* NOTREACHED */
     default:
       {
-        ACE_Event_Handler *old_signal_handler = 0;
+        ACE_Event_Handler *old_signal_handler = nullptr;
         ACE_Reactor::instance ()->register_handler (SIGPIPE,
                                                     this,
                                                     0,

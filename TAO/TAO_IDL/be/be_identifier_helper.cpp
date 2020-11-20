@@ -12,7 +12,7 @@ ACE_CString IdentifierHelper::tmp_retval_;
 const char *
 IdentifierHelper::type_name (be_type *t, be_visitor *visitor)
 {
-  AST_PredefinedType *pdt = 0;
+  AST_PredefinedType *pdt = nullptr;
 
   switch (t->node_type ())
     {
@@ -78,7 +78,7 @@ IdentifierHelper::type_name (be_type *t, be_visitor *visitor)
 Identifier *
 IdentifierHelper::original_local_name (Identifier * local_name)
 {
-  Identifier * id = 0;
+  Identifier * id = nullptr;
   const char *lname = local_name->get_string ();
 
   // Remove _cxx_ if:
@@ -118,7 +118,7 @@ IdentifierHelper::orig_sn (UTL_IdList * sn, bool for_idl)
   ACE_CString retval;
   bool first = true;
   bool second = false;
-  Identifier *id = 0;
+  Identifier *id = nullptr;
 
   for (UTL_IdListActiveIterator i (sn); !i.is_done ();)
     {

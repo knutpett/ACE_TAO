@@ -67,25 +67,25 @@ public:
   /// on error, else number of bytes sent.
   ssize_t send (const char *buffer,
                 size_t n,
-                ACE_Time_Value *timeout = 0);
+                ACE_Time_Value *timeout = nullptr);
 
   /// Recv a buffer of upto @a n bytes from the message queue.  Returns
   /// -1 on error, else number of bytes read.
   ssize_t recv (char *buffer,
                 size_t n,
-                ACE_Time_Value *timeout = 0);
+                ACE_Time_Value *timeout = nullptr);
 
   /// Send a buffer of exactly @a n bytes to the message queue.  Returns
   /// -1 on error, else number of bytes written (which should == n).
   ssize_t send_n (const char *buffer,
                   size_t n,
-                  ACE_Time_Value *timeout = 0);
+                  ACE_Time_Value *timeout = nullptr);
 
   /// Recv a buffer of exactly @a n bytes from the message queue.
   /// Returns -1 on error, else the number of bytes read.
   ssize_t recv_n (char *buffer,
                   size_t n,
-                  ACE_Time_Value *timeout = 0);
+                  ACE_Time_Value *timeout = nullptr);
 
   /// Perform control operations on the UPIPE_Stream.
   int control (int cmd, void *val) const;

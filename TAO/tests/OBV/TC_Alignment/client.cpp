@@ -3,10 +3,10 @@
 
 static const ACE_TCHAR *ior_input_file = ACE_TEXT("file://test.ior");
 
-static obvmod::tcOffset1 *vt1 = 0;
-static obvmod::tcOffset003 *vt3 = 0;
-static obvmod::tcOffset00005 *vt5 = 0;
-static obvmod::tcOffset0000007 *vt7 = 0;
+static obvmod::tcOffset1 *vt1 = nullptr;
+static obvmod::tcOffset003 *vt3 = nullptr;
+static obvmod::tcOffset00005 *vt5 = nullptr;
+static obvmod::tcOffset0000007 *vt7 = nullptr;
 
 int debug = 0;
 int do_shutdown = 0;
@@ -16,7 +16,7 @@ register_factories (CORBA::ORB_ptr orb)
 {
   // Create and register factories.
 
-  obvmod::tcOffset1_init *factory1 = 0;
+  obvmod::tcOffset1_init *factory1 = nullptr;
   ACE_NEW_RETURN (factory1,
                   obvmod::tcOffset1_init,
                   -1);
@@ -26,7 +26,7 @@ register_factories (CORBA::ORB_ptr orb)
 
   factory1->_remove_ref ();
 
-  obvmod::tcOffset003_init *factory3 = 0;
+  obvmod::tcOffset003_init *factory3 = nullptr;
   ACE_NEW_RETURN (factory3,
                   obvmod::tcOffset003_init,
                   -1);
@@ -36,7 +36,7 @@ register_factories (CORBA::ORB_ptr orb)
 
   factory3->_remove_ref ();
 
-  obvmod::tcOffset00005_init *factory5 = 0;
+  obvmod::tcOffset00005_init *factory5 = nullptr;
   ACE_NEW_RETURN (factory5,
                   obvmod::tcOffset00005_init,
                   -1);
@@ -46,7 +46,7 @@ register_factories (CORBA::ORB_ptr orb)
 
   factory5->_remove_ref ();
 
-  obvmod::tcOffset0000007_init *factory7 = 0;
+  obvmod::tcOffset0000007_init *factory7 = nullptr;
   ACE_NEW_RETURN (factory7,
                   obvmod::tcOffset0000007_init,
                   -1);

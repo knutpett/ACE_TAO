@@ -383,7 +383,7 @@ TAO_Codeset_Manager_i::open(TAO_ORB_Core& core)
     }
 #endif
   //
-  TAO_Codeset_Service_Context_Handler* h = 0;
+  TAO_Codeset_Service_Context_Handler* h = nullptr;
   ACE_NEW (h,
            TAO_Codeset_Service_Context_Handler());
   core.service_context_registry ().bind (IOP::CodeSets, h);

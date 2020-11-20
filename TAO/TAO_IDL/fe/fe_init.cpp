@@ -84,7 +84,7 @@ fe_populate_global_scope (void)
   // No need to created a scoped name for the basic types, the
   // AST_PredefinedType constructor will do that.
 
-  AST_PredefinedType *pdt = 0;
+  AST_PredefinedType *pdt = nullptr;
   AST_Root *root =
     dynamic_cast<AST_Root*> (idl_global->root ());
 
@@ -252,7 +252,7 @@ fe_populate_global_scope (void)
 
   m->fe_add_predefined_type (pdt);
 
-  char *trash = 0;
+  char *trash = nullptr;
   idl_global->pragma_prefixes ().pop (trash);
   ACE::strdelete (trash);
 }
@@ -393,7 +393,7 @@ FE_init (void)
 void
 FE_populate (void)
 {
-  AST_Root *r = 0;
+  AST_Root *r = nullptr;
 
   // Check that the BE init created a generator object
   if (idl_global->gen () == 0)
@@ -469,7 +469,7 @@ FE_store_env_include_paths (void)
   ACE_Unbounded_Queue<ACE_CString> list;
   FE_extract_env_include_paths (list);
 
-  ACE_CString *path_tmp = 0;
+  ACE_CString *path_tmp = nullptr;
   for (ACE_Unbounded_Queue_Iterator<ACE_CString>iter (list);
        !iter.done (); iter.advance ())
     {
@@ -483,7 +483,7 @@ FE_store_env_include_paths (void)
 const char *
 FE_get_cpp_loc_from_env (void)
 {
-  const char *cpp_loc = 0;
+  const char *cpp_loc = nullptr;
 
   // See if TAO_IDL_PREPROCESSOR is defined.
   ACE_Env_Value<char*> preprocessor (ACE_TEXT ("TAO_IDL_PREPROCESSOR"),
@@ -523,7 +523,7 @@ FE_get_cpp_loc_from_env (void)
 const char *
 FE_get_cpp_args_from_env (void)
 {
-  const char *cpp_args = 0;
+  const char *cpp_args = nullptr;
 
   // Added some customizable preprocessor options
   ACE_Env_Value<char*> args1 (ACE_TEXT ("TAO_IDL_PREPROCESSOR_ARGS"),

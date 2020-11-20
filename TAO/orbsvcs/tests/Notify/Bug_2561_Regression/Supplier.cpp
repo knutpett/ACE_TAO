@@ -22,7 +22,7 @@
 // Data Section
 // ******************************************************************
 
-static TAO_Notify_Tests_SequencePushSupplier* supplier_1 = 0;
+static TAO_Notify_Tests_SequencePushSupplier* supplier_1 = nullptr;
 static const ACE_TCHAR* ior_output_file = ACE_TEXT ("supplier.ior");
 
 // ******************************************************************

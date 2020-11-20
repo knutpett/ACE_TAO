@@ -331,7 +331,7 @@ struct yy_buffer_state
 /* Stack of input buffers. */
 static size_t yy_buffer_stack_top = 0; /**< index of top of stack. */
 static size_t yy_buffer_stack_max = 0; /**< capacity of stack. */
-static YY_BUFFER_STATE * yy_buffer_stack = 0; /**< Stack as an array. */
+static YY_BUFFER_STATE * yy_buffer_stack = nullptr; /**< Stack as an array. */
 
 
 
@@ -357,7 +357,7 @@ static int yy_n_chars;    /* number of characters read into yy_ch_buf */
 int yyleng;
 
 /* Points to current character in buffer. */
-static char *yy_c_buf_p = 0;
+static char *yy_c_buf_p = nullptr;
 static int yy_init = 0;    /* whether we need to initialize */
 static int yy_start = 0;  /* start state number */
 
@@ -417,7 +417,7 @@ void yyfree ( void *  );
 /* Begin user sect3 */
 typedef flex_uint8_t YY_CHAR;
 
-FILE *yyin = 0, *yyout = 0;
+FILE *yyin = nullptr, *yyout = nullptr;
 
 typedef int yy_state_type;
 

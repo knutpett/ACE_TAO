@@ -37,7 +37,7 @@ Server_Task::svc (void)
 
       poa_manager->activate ();
 
-      Visual_i * server_impl = 0;
+      Visual_i * server_impl = nullptr;
       ACE_NEW_RETURN (server_impl, Visual_i (sorb_.in ()), 1);
 
       PortableServer::ObjectId_var id =

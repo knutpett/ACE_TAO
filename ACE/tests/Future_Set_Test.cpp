@@ -59,7 +59,7 @@ public:
 
   //FUZZ: disable check_for_lack_ACE_OS
   /// Initializer.
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
 
   /// Terminator.
   //FUZZ: enable check_for_lack_ACE_OS
@@ -519,7 +519,7 @@ run_main (int, ACE_TCHAR *[])
                   (u_int) resultd));
     }
 
-  const ACE_TCHAR *name = 0;
+  const ACE_TCHAR *name = nullptr;
   count = 0;
   while (fsetname.next_readable (fname))
     {

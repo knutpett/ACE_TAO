@@ -27,7 +27,7 @@ Custom_Time_Policy_Strategy::~Custom_Time_Policy_Strategy ()
 
 ACE_Timer_Queue * Custom_Time_Policy_Strategy::create_timer_queue (void)
 {
-  ACE_Timer_Queue * tmq = 0;
+  ACE_Timer_Queue * tmq = nullptr;
 
   typedef ACE_Timer_Heap_T<ACE_Event_Handler *,
                            ACE_Event_Handler_Handle_Timeout_Upcall,

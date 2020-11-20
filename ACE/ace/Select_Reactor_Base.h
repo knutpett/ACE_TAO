@@ -136,7 +136,7 @@ public:
 
   /// Initialize.
   virtual int open (ACE_Reactor_Impl *,
-                    ACE_Timer_Queue * = 0,
+                    ACE_Timer_Queue * = nullptr,
                     int disable_notify_pipe = ACE_DISABLE_NOTIFY_PIPE_DEFAULT);
 
   /// Destroy.
@@ -153,9 +153,9 @@ public:
    * the caller will block until action is possible, else will wait
    * until the relative time specified in @c *timeout elapses).
    */
-  virtual int notify (ACE_Event_Handler * = 0,
+  virtual int notify (ACE_Event_Handler * = nullptr,
                       ACE_Reactor_Mask = ACE_Event_Handler::EXCEPT_MASK,
-                      ACE_Time_Value * timeout = 0);
+                      ACE_Time_Value * timeout = nullptr);
 
   /// Handles pending threads (if any) that are waiting to unblock the
   /// ACE_Select_Reactor.
@@ -472,7 +472,7 @@ public:
    * ACE_Event_Handler object. Returns the number of notifications
    * purged. Returns -1 on error.
    */
-  virtual int purge_pending_notifications (ACE_Event_Handler * = 0,
+  virtual int purge_pending_notifications (ACE_Event_Handler * = nullptr,
                                            ACE_Reactor_Mask    = ACE_Event_Handler::ALL_EVENTS_MASK);
 
   /// Does the reactor allow the application to resume the handle on

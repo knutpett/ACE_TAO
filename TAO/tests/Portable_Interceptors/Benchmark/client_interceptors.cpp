@@ -50,7 +50,7 @@ Vault_Client_Request_Interceptor::send_request (
 
       const char passwd[] = "root123";
       CORBA::ULong string_len = sizeof (passwd) + 1;
-      CORBA::Octet *buf = 0;
+      CORBA::Octet *buf = nullptr;
       ACE_NEW (buf,
                CORBA::Octet [string_len]);
       ACE_OS::strcpy (reinterpret_cast<char *> (buf), passwd);
@@ -66,7 +66,7 @@ Vault_Client_Request_Interceptor::send_request (
       Dynamic::ParameterList_var paramlist =
         ri->arguments ();
 
-      const Test_Interceptors::Secure_Vault::Record *record = 0;
+      const Test_Interceptors::Secure_Vault::Record *record = nullptr;
       CORBA::Long id;
       CORBA::ULong i = 0;  // index -- explicitly used to avoid
                            // overloaded operator ambiguity.
@@ -160,7 +160,7 @@ Vault_Client_Request_Context_Interceptor::send_request (
 
   const char passwd[] = "root123";
   CORBA::ULong string_len = sizeof (passwd) + 1;
-  CORBA::Octet *buf = 0;
+  CORBA::Octet *buf = nullptr;
   ACE_NEW_THROW_EX (buf,
                     CORBA::Octet [string_len],
                     CORBA::NO_MEMORY ());
@@ -261,7 +261,7 @@ Vault_Client_Request_Dynamic_Interceptor::send_request (
       Dynamic::ParameterList_var paramlist =
         ri->arguments ();
 
-      const Test_Interceptors::Secure_Vault::Record *record = 0;
+      const Test_Interceptors::Secure_Vault::Record *record = nullptr;
       CORBA::Long id;
       CORBA::ULong i = 0;  // index -- explicitly used to avoid
                            // overloaded operator ambiguity.

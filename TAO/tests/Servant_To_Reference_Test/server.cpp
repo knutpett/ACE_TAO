@@ -107,16 +107,16 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      One_Impl *one_impl = 0;
+      One_Impl *one_impl = nullptr;
       ACE_NEW_RETURN (one_impl,
                       One_Impl (orb.in ()),
                       1);
-      Two_Impl *two_impl = 0;
+      Two_Impl *two_impl = nullptr;
       ACE_NEW_RETURN (two_impl,
                       Two_Impl (orb.in ()),
                       1);
 
-      Three_Impl *three_impl = 0;
+      Three_Impl *three_impl = nullptr;
       ACE_NEW_RETURN (three_impl,
                       Three_Impl (orb.in ()),
                       1);

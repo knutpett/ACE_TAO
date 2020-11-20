@@ -67,7 +67,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       /* Create, register factories */
 
-      Supports_Test::Node_init * node_factory = 0;
+      Supports_Test::Node_init * node_factory = nullptr;
 
       ACE_NEW_RETURN (node_factory, node_init_impl, 1);
 
@@ -80,7 +80,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       node_factory->_remove_ref ();
 
 
-      Supports_Test::vt_graph_init * vt_graph_factory = 0;
+      Supports_Test::vt_graph_init * vt_graph_factory = nullptr;
 
       ACE_NEW_RETURN (vt_graph_factory, vt_graph_init_impl, 1);
 
@@ -95,7 +95,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       /* Check return values for register_value_factory */
 
-      Supports_Test::Node_init * node_factory2 = 0;
+      Supports_Test::Node_init * node_factory2 = nullptr;
 
       ACE_NEW_RETURN (node_factory2, node_init_impl, 1);
 
@@ -129,7 +129,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
           // vt_graph_var. Then register the instance with the POA to obtain an
           // object reference, stored as a graph_var. Increment the reference count
           // of the vt_graph_impl instance.
-          vt_graph_impl * the_vt_graph = 0;
+          vt_graph_impl * the_vt_graph = nullptr;
           ACE_NEW_RETURN (the_vt_graph, vt_graph_impl (3), 1);
           Supports_Test::vt_graph_var test_vt_graph = the_vt_graph;
 

@@ -74,7 +74,7 @@ be_visitor_component_exs::visit_component (be_component *node)
        ! i.done ();
        i.advance ())
     {
-      char **item = 0;
+      char **item = nullptr;
       i.next (item);
 
       UTL_ScopedName *sn =

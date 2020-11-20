@@ -45,7 +45,7 @@ Database_i::get (Test::Index i)
   if (i >= this->max_range_)
     throw Test::OutOfRange (0, this->max_range_);
 
-  Test::OctetSeq* copy = 0;
+  Test::OctetSeq* copy = nullptr;
   ACE_NEW_THROW_EX (copy,
                     Test::OctetSeq (this->elements_[i]),
                     CORBA::NO_MEMORY ());

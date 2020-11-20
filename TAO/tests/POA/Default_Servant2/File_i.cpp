@@ -127,7 +127,7 @@ FileImpl::Descriptor::fd (void)
   //
 
   int argc = 0;
-  ACE_TCHAR **argv = 0;
+  ACE_TCHAR **argv = nullptr;
   CORBA::ORB_var orb = CORBA::ORB_init (argc, argv);
 
   // Get the POA Current object reference

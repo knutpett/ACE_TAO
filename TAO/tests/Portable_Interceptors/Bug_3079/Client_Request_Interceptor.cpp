@@ -58,7 +58,7 @@ Client_Request_Interceptor::receive_exception (
   if (CORBA::is_nil (this->orb_.in ()))
   {
     int argc = 0;
-    ACE_TCHAR **argv = 0;
+    ACE_TCHAR **argv = nullptr;
     this->orb_ = CORBA::ORB_init (argc, argv, this->orb_id_.in ());
   }
 
@@ -85,7 +85,7 @@ Client_Request_Interceptor::receive_exception (
       CORBA::Any_var ex = ri->received_exception ();
 
       CORBA::TypeCode_var tc;
-      const char * id = 0;
+      const char * id = nullptr;
       tc = ex->type ();
       id = tc->id ();
 

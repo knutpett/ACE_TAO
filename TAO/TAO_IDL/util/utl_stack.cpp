@@ -89,7 +89,7 @@ UTL_ScopeStack::~UTL_ScopeStack (void)
 UTL_ScopeStack *
 UTL_ScopeStack::push (UTL_Scope *el)
 {
-  UTL_Scope **tmp = 0;
+  UTL_Scope **tmp = nullptr;
   long ostack_data_nalloced;
   long i;
 
@@ -133,7 +133,7 @@ UTL_ScopeStack::pop (void)
   // it goes away with the scope.
   if (current != 0 && current->has_prefix ())
     {
-      char *trash = 0;
+      char *trash = nullptr;
       idl_global->pragma_prefixes ().pop (trash);
       delete [] trash;
     }

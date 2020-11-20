@@ -213,7 +213,7 @@ short_stream (void)
   // Basic types for input
   ACE_CDR::Char ch1 = '\0';
   ACE_CDR::WChar wch1 = '\x00';
-  ACE_CDR::WChar *wstr1 = 0;
+  ACE_CDR::WChar *wstr1 = nullptr;
   ACE_CString str1;
   std::string std_str1;
 #if !defined(ACE_LACKS_STD_WSTRING)

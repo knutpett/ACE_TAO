@@ -33,7 +33,7 @@ public:
   /// By default will use the standard Naming_Server.  If a server is provided
   /// it will use that one instead. This object takes ownership of the provided
   /// Naming Server.
-  TAO_Naming_Loader (TAO_Naming_Server *server = 0);
+  TAO_Naming_Loader (TAO_Naming_Server *server = nullptr);
 
   /// Destructor
   ~TAO_Naming_Loader (void);

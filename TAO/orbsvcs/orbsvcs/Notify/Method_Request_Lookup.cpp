@@ -79,7 +79,7 @@ int TAO_Notify_Method_Request_Lookup::execute_i (void)
 
   TAO_Notify_Consumer_Map::ENTRY* entry = map.find (this->event_->type ());
 
-  TAO_Notify_ProxySupplier_Collection* consumers = 0;
+  TAO_Notify_ProxySupplier_Collection* consumers = nullptr;
 
   if (entry != 0)
   {
@@ -112,7 +112,7 @@ TAO_Notify_Method_Request_Lookup::unmarshal (
   TAO_InputCDR & cdr)
 {
   bool ok = true;
-  TAO_Notify_Method_Request_Lookup_Queueable * result = 0;
+  TAO_Notify_Method_Request_Lookup_Queueable * result = nullptr;
   CORBA::ULong count;
   if (cdr.read_ulong (count))
   {

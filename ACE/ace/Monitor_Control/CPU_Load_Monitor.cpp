@@ -132,8 +132,8 @@ namespace ACE
           return;
         }
 
-      char *item = 0;
-      char *arg = 0;
+      char *item = nullptr;
+      char *arg = nullptr;
 
       while ((ACE_OS::fgets (buf_, sizeof (buf_), file_ptr_)) != 0)
         {

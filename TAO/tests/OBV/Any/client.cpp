@@ -45,7 +45,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       // Create and register factories.
 
-      OBV_AnyTest::VA_init *va_factory = 0;
+      OBV_AnyTest::VA_init *va_factory = nullptr;
       ACE_NEW_RETURN (va_factory,
                       OBV_AnyTest::VA_init,
                       1); // supplied by mapping
@@ -55,7 +55,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       va_factory->_remove_ref (); // release ownership
 
 
-      OBV_AnyTest::VB_init *vb_factory = 0;
+      OBV_AnyTest::VB_init *vb_factory = nullptr;
       ACE_NEW_RETURN (vb_factory,
                       OBV_AnyTest::VB_init,
                       1); // supplied by mapping
@@ -83,7 +83,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       OBV_AnyTest::VA *pva = va2._retn();
       a2 <<= &pva;
 
-      OBV_AnyTest::VA* dst = 0;
+      OBV_AnyTest::VA* dst = nullptr;
 
       if (!(a1 >>= dst) || dst->id () != magic)
         {
@@ -151,7 +151,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         }
 
       // STEP 2.
-      OBV_AnyTest::VB* dst_vb = 0;
+      OBV_AnyTest::VB* dst_vb = nullptr;
       result = test->get_something (
           1);
 

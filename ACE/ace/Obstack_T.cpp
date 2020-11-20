@@ -108,7 +108,7 @@ ACE_Obstack_T<ACE_CHAR_T>::new_chunk (void)
 {
   ACE_TRACE ("ACE_Obstack_T<ACE_CHAR_T>::new_chunk");
 
-  ACE_Obchunk *temp = 0;
+  ACE_Obchunk *temp = nullptr;
 
   ACE_NEW_MALLOC_RETURN (temp,
                          static_cast<ACE_Obchunk *> (this->allocator_strategy_->malloc

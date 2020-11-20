@@ -215,9 +215,9 @@ Client::run (void)
   ACE_hrtime_t sum = 0;
   ACE_hrtime_t max = 0;
   ACE_hrtime_t min = (ACE_hrtime_t) (u_int) -1;
-  FILE *sumfp = 0;
-  FILE *distfp = 0;
-  FILE *sampfp = 0;
+  FILE *sumfp = nullptr;
+  FILE *distfp = nullptr;
+  FILE *sampfp = nullptr;
   pid_t *pid = (pid_t *) sbuf;
   int *seq = (int *) (sbuf + sizeof (int));
 
@@ -225,7 +225,7 @@ Client::run (void)
   ACE_OS::memset (rbuf, 0, bufsz);
 
   *pid = ACE_OS::getpid ();
-  *seq = 0;
+  *seq = nullptr;
 
   ACE_DEBUG ((LM_DEBUG,
               "PID = %d, Starting SEQ = %d\n",
@@ -236,7 +236,7 @@ Client::run (void)
   Samples = (ACE_hrtime_t *) ACE_OS::calloc (nsamples,
                                              sizeof (ACE_hrtime_t));
 
-  for (i = -1, *seq = 0, j = 0;
+  for (i = -1, *seq = nullptr, j = 0;
        i < (ACE_INT32) nsamples;
        (*seq)++, i++, j++, timer.reset ())
     {

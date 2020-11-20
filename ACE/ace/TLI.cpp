@@ -151,7 +151,7 @@ ACE_TLI::set_option (int level, int option, void *optval, int optlen)
   return ACE_OS::t_optmgmt (this->get_handle (), &req, &ret);
 
 #elif defined (ACE_HAS_SVR4_TLI)
-  struct opthdr *opthdr = 0; /* See <sys/socket.h> for info on this format */
+  struct opthdr *opthdr = nullptr; /* See <sys/socket.h> for info on this format */
 
   this->so_opt_req.flags = T_NEGOTIATE;
   this->so_opt_req.opt.len = sizeof *opthdr + OPTLEN (optlen);
@@ -230,7 +230,7 @@ ACE_TLI::get_option (int level, int option, void *optval, int &optlen)
     }
 
 #elif defined (ACE_HAS_SVR4_TLI)
-  struct opthdr *opthdr = 0; /* See <sys/socket.h> for details on this format */
+  struct opthdr *opthdr = nullptr; /* See <sys/socket.h> for details on this format */
 
   this->so_opt_req.flags = T_CHECK;
   this->so_opt_ret.opt.len = sizeof *opthdr + OPTLEN (optlen);

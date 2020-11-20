@@ -16,8 +16,8 @@
 #include "ace/OS_NS_unistd.h"
 #include "ace/OS_NS_string.h"
 
-static ACE_TCHAR *ior = 0;
-static ACE_TCHAR *ior_input_file = 0;
+static ACE_TCHAR *ior = nullptr;
+static ACE_TCHAR *ior_input_file = nullptr;
 
 static int
 parse_args (int argc, ACE_TCHAR **argv)

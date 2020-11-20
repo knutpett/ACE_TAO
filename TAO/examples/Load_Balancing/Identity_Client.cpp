@@ -106,7 +106,7 @@ Identity_Client::run (void)
                        "Identity_Client: problems using the factory ior\n"),
                       -1);
 
-  const char *group_name = 0;
+  const char *group_name = nullptr;
   if (this->use_random_)
     group_name = "Identity, Random";
   else

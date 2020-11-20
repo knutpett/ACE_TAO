@@ -52,12 +52,12 @@ public:
   virtual ~ACE_Cleanup (void);
 
   /// Cleanup method that, by default, simply deletes itself.
-  virtual void cleanup (void *param = 0);
+  virtual void cleanup (void *param = nullptr);
 };
 
 /// Adapter for cleanup, used by ACE_Object_Manager.
 extern "C" ACE_Export
-void ACE_CLEANUP_DESTROYER_NAME (ACE_Cleanup *, void *param = 0);
+void ACE_CLEANUP_DESTROYER_NAME (ACE_Cleanup *, void *param = nullptr);
 
 /**
  * @class ACE_Cleanup_Info_Node
@@ -125,7 +125,7 @@ public:
   ~ACE_OS_Exit_Info (void);
 
   /// Use to register a cleanup hook.
-  int at_exit_i (void *object, ACE_CLEANUP_FUNC cleanup_hook, void *param, const char* name = 0);
+  int at_exit_i (void *object, ACE_CLEANUP_FUNC cleanup_hook, void *param, const char* name = nullptr);
 
   /// Look for a registered cleanup hook object.  Returns true if already
   /// registered, false if not.

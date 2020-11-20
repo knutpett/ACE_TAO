@@ -193,7 +193,7 @@ DRV_drive (const char *s)
 {
   // Set the name of the IDL file we are parsing. This is useful to
   // the backend when it generates C++ headers and files.
-  UTL_String *utl_string = 0;
+  UTL_String *utl_string = nullptr;
   ACE_NEW (utl_string,
            UTL_String (s, true));
 
@@ -407,7 +407,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
           throw Bailout ();
         }
 
-      FILE *output_file = 0;
+      FILE *output_file = nullptr;
 
       if (idl_global->multi_file_input ())
         {

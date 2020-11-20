@@ -31,7 +31,7 @@ class Supplier_Handler
   : public Peer_Handler<SUPPLIER_ROUTER, SUPPLIER_KEY>
 {
 public:
-  Supplier_Handler (ACE_Thread_Manager *tm = 0);
+  Supplier_Handler (ACE_Thread_Manager *tm = nullptr);
   virtual int open (void *);
 };
 
@@ -42,7 +42,7 @@ public:
 
 protected:
   // ACE_Task hooks..
-  virtual int open (void *a = 0);
+  virtual int open (void *a = nullptr);
   virtual int close (u_long flags = 0);
   virtual int put (ACE_Message_Block *msg, ACE_Time_Value * = 0);
   virtual int svc (void);

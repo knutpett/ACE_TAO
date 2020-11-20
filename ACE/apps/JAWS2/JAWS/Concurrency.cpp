@@ -33,7 +33,7 @@ JAWS_Concurrency_Base::singleton_mb (void)
       if (this->mb_acquired_ == 0)
         {
           int result;
-          ACE_Message_Block *mb = 0;
+          ACE_Message_Block *mb = nullptr;
 
           result = this->getq (mb);
           this->mb_acquired_ = 1;
@@ -59,8 +59,8 @@ JAWS_Concurrency_Base::svc (void)
 {
   JAWS_TRACE ("JAWS_Concurrency_Base::svc");
 
-  ACE_Message_Block *mb = 0;         // The message queue element
-  JAWS_Data_Block *db = 0;           // Contains the task list
+  ACE_Message_Block *mb = nullptr;         // The message queue element
+  JAWS_Data_Block *db = nullptr;           // Contains the task list
 
   mb = this->singleton_mb ();
 
@@ -118,9 +118,9 @@ JAWS_Concurrency_Base::svc_hook (JAWS_Data_Block *ts_db)
 
   int result = 0;
 
-  JAWS_IO_Handler *handler = 0;      // Keeps the state of the task
-  JAWS_Pipeline_Handler *task = 0;   // The task itself
-  JAWS_Data_Block *mb = 0;     // The task message block
+  JAWS_IO_Handler *handler = nullptr;      // Keeps the state of the task
+  JAWS_Pipeline_Handler *task = nullptr;   // The task itself
+  JAWS_Data_Block *mb = nullptr;     // The task message block
 
   task = ts_db->task ();
   handler = 0;
@@ -142,7 +142,7 @@ JAWS_Concurrency_Base::svc_hook (JAWS_Data_Block *ts_db)
             handler->done ();
           handler = 0;
           JAWS_IO_Handler **ioh = waiter->find_by_index (waiter_index);
-          *ioh = 0;
+          *ioh = nullptr;
           break;
         }
 
@@ -183,7 +183,7 @@ JAWS_Concurrency_Base::svc_hook (JAWS_Data_Block *ts_db)
           if (result == -2)
             {
               JAWS_IO_Handler **ioh = waiter->find_by_index (waiter_index);
-              *ioh = 0;
+              *ioh = nullptr;
               result = 0;
             }
           break;
@@ -256,7 +256,7 @@ JAWS_Thread_Pool_Task::make (long flags, int nthreads, int maxthreads)
   for (int i = 0; i < nthreads; i++)
     {
       JAWS_Thread_ID thr_id(thr_names[i]);
-      JAWS_IO_Handler *dummy = 0;
+      JAWS_IO_Handler *dummy = nullptr;
 
       JAWS_Waiter_Singleton::instance ()->insert (thr_id, dummy);
     }
@@ -317,7 +317,7 @@ JAWS_Thread_Per_Task::activate_hook (void)
                       -1);
 
   JAWS_Thread_ID thr_id (thr_name);
-  JAWS_IO_Handler *dummy = 0;
+  JAWS_IO_Handler *dummy = nullptr;
 
   // In the thread-per-request strategy, need to take care of the
   // case when the waiter array is full.  Think about that problem

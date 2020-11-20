@@ -45,11 +45,11 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
       poaManager2->activate ();
       poaManager->activate ();
 
-      TestMonitorable_i* monitorable_i = 0;
+      TestMonitorable_i* monitorable_i = nullptr;
       ACE_NEW_RETURN (monitorable_i, TestMonitorable_i, 1);
       PortableServer::ServantBase_var monitorable_var = monitorable_i;
 
-      TestMonitorable_i* m2 = 0;
+      TestMonitorable_i* m2 = nullptr;
       ACE_NEW_RETURN (m2, TestMonitorable_i, 1);
       PortableServer::ServantBase_var m2_var = m2;
 

@@ -83,7 +83,7 @@ run_main (int, ACE_TCHAR *[])
   const u_int threads = ACE_MAX_THREADS;
 
   {
-    ObjectWithTSS *o = 0;
+    ObjectWithTSS *o = nullptr;
     ACE_NEW_RETURN (o, ObjectWithTSS, 1);
     ACE_Auto_Ptr<ObjectWithTSS> owner (o);
 

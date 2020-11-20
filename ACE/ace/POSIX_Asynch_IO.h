@@ -167,7 +167,7 @@ public:
   int open (const ACE_Handler::Proxy_Ptr &handler_proxy,
             ACE_HANDLE handle,
             const void *completion_key,
-            ACE_Proactor *proactor = 0);
+            ACE_Proactor *proactor = nullptr);
 
   /// Check the documentation for ACE_Asynch_Operation::cancel.
   int cancel (void);
@@ -673,7 +673,7 @@ public:
   int open (const ACE_Handler::Proxy_Ptr &handler_proxy,
             ACE_HANDLE handle,
             const void *completion_key,
-            ACE_Proactor *proactor = 0);
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous accept.  The asynchronous accept
@@ -817,7 +817,7 @@ public:
   int open (const ACE_Handler::Proxy_Ptr &handler_proxy,
             ACE_HANDLE handle,
             const void *completion_key,
-            ACE_Proactor *proactor = 0);
+            ACE_Proactor *proactor = nullptr);
 
   /**
    * This starts off an asynchronous connect.

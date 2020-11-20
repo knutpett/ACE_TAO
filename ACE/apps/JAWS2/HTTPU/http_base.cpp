@@ -40,7 +40,7 @@ HTTP_Base::receive (ACE_Message_Block &mb)
 int
 HTTP_Base::deliver (ACE_Message_Block &mb)
 {
-  JAWS_Header_Data *data = 0;
+  JAWS_Header_Data *data = nullptr;
 
   // Deliver this outgoing request.
   // We do this by building the request up and writing it into the
@@ -175,8 +175,8 @@ HTTP_Base::payload_size (void)
 int
 HTTP_Base::build_headers (JAWS_Headers *new_headers)
 {
-  JAWS_Header_Data *data = 0;
-  JAWS_Header_Data *data2 = 0;
+  JAWS_Header_Data *data = nullptr;
+  JAWS_Header_Data *data2 = nullptr;
   JAWS_Header_Table_Iterator iter (*new_headers);
 
   iter.first ();

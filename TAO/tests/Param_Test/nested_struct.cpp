@@ -49,7 +49,7 @@ Test_Nested_Struct::dii_req_invoke (CORBA::Request *req)
 
   req->invoke ();
 
-  const Param_Test::Nested_Struct *tmp = 0;
+  const Param_Test::Nested_Struct *tmp = nullptr;
   req->return_value () >>= tmp;
   this->ret_ = new Param_Test::Nested_Struct (*tmp);
 

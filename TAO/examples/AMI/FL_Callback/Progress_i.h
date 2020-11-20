@@ -23,7 +23,7 @@ public:
                    int n_iterations,
                    int x, int y,
                    int w, int h,
-                   const char* l = 0);
+                   const char* l = nullptr);
 
   /// Keep track of the progress on each peer
   void sent_request (CORBA::Long id);

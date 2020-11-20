@@ -99,7 +99,7 @@ UTL_LabelList::copy (void)
 {
   AST_Expression *val = this->pd_car_data->label_val ();
 
-  AST_Expression *val_copy = 0;
+  AST_Expression *val_copy = nullptr;
   ACE_NEW_RETURN (val_copy,
                   AST_Expression (val, val->ev ()->et),
                   0);
@@ -108,7 +108,7 @@ UTL_LabelList::copy (void)
     idl_global->gen ()->create_union_label (this->pd_car_data->label_kind (),
                                             val_copy);
 
-  UTL_LabelList *retval = 0;
+  UTL_LabelList *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   UTL_LabelList (label_copy,
                                  0),

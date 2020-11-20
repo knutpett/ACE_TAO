@@ -9,7 +9,7 @@ Receiver_Factory::Receiver_Factory (CORBA::ORB_ptr orb)
 Test::Receiver_ptr
 Receiver_Factory::create_receiver (void)
 {
-  Receiver *receiver_impl = 0;
+  Receiver *receiver_impl = nullptr;
   ACE_NEW_THROW_EX (receiver_impl,
                     Receiver,
                     CORBA::NO_MEMORY ());

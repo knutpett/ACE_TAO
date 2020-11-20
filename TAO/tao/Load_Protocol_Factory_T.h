@@ -32,14 +32,14 @@ namespace TAO
     load_protocol_factory (TAO_ProtocolFactorySet &protocol_set,
                            const char *name)
     {
-      TAO_Protocol_Factory *protocol_factory = 0;
+      TAO_Protocol_Factory *protocol_factory = nullptr;
 #if defined (ACE_HAS_CPP11)
       std::unique_ptr<TAO_Protocol_Factory> safe_protocol_factory;
 #else
       auto_ptr<TAO_Protocol_Factory> safe_protocol_factory;
 #endif /* ACE_HAS_CPP11 */
 
-      TAO_Protocol_Item *item = 0;
+      TAO_Protocol_Item *item = nullptr;
 
       // If a protocol factory is obtained from the Service
       // Configurator then do not transfer ownership to the

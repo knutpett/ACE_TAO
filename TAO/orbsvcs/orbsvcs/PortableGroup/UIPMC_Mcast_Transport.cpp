@@ -40,7 +40,7 @@ TAO_UIPMC_Mcast_Transport::~TAO_UIPMC_Mcast_Transport (void)
       ACE_GUARD (TAO_SYNCH_MUTEX, complete_guard, this->complete_lock_);
       while (!this->complete_.is_empty ())
         {
-          TAO_PG::UIPMC_Recv_Packet *packet = 0;
+          TAO_PG::UIPMC_Recv_Packet *packet = nullptr;
           this->complete_.dequeue_head (packet);
           delete packet;
         }
@@ -362,7 +362,7 @@ TAO_UIPMC_Mcast_Transport::recv_all (TAO_Resume_Handle &rh)
                           id_hash));
             }
 
-          TAO_PG::UIPMC_Recv_Packet *packet = 0;
+          TAO_PG::UIPMC_Recv_Packet *packet = nullptr;
           if (this->incomplete_.find (id_hash, packet) == -1)
             {
               ACE_NEW_THROW_EX (packet,
@@ -454,7 +454,7 @@ TAO_UIPMC_Mcast_Transport::recv_all (TAO_Resume_Handle &rh)
   if (this->complete_.is_empty ())
     return 0; // Another thread got here first, not a problem.
 
-  TAO_PG::UIPMC_Recv_Packet *packet = 0;
+  TAO_PG::UIPMC_Recv_Packet *packet = nullptr;
   if (this->complete_.dequeue_head (packet) == -1)
     {
       ORBSVCS_DEBUG ((LM_DEBUG,

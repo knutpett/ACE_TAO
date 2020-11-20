@@ -66,7 +66,7 @@ TAO_RT_POA::new_POA (const String &name,
                      TAO_ORB_Core &orb_core,
                      TAO_Object_Adapter *object_adapter)
 {
-  TAO_RT_POA *poa = 0;
+  TAO_RT_POA *poa = nullptr;
 
   ACE_NEW_THROW_EX (poa,
                     TAO_RT_POA (name,
@@ -238,7 +238,7 @@ TAO_RT_POA::key_to_stub_i (const TAO::ObjectKey &object_key,
   if (this->thread_pool_ == 0 ||
       !this->thread_pool_->with_lanes ())
     {
-      TAO_Acceptor_Registry *acceptor_registry = 0;
+      TAO_Acceptor_Registry *acceptor_registry = nullptr;
 
       if (this->thread_pool_ == 0)
         {
@@ -430,7 +430,7 @@ TAO_RT_POA::lane_required (TAO_Thread_Lane *lane,
 CORBA::PolicyList *
 TAO_RT_POA::client_exposed_policies (CORBA::Short object_priority)
 {
-  CORBA::PolicyList *client_exposed_policies = 0;
+  CORBA::PolicyList *client_exposed_policies = nullptr;
   ACE_NEW_THROW_EX (client_exposed_policies,
                     CORBA::PolicyList (),
                     CORBA::NO_MEMORY (TAO::VMCID,

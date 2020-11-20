@@ -88,7 +88,7 @@ public:
 
   int consumer (void);
   int producer (void);
-  int put_message (ACE_Time_Value* timeout = 0);
+  int put_message (ACE_Time_Value* timeout = nullptr);
   int get_message (void);
   void print_producer_debug_message (void);
 
@@ -154,7 +154,7 @@ Message_Handler::handle_exception (ACE_HANDLE fd)
 int
 Message_Handler::process_message (void)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   if (this->getq (mb,
                   (ACE_Time_Value *) &ACE_Time_Value::zero) == -1)
@@ -179,7 +179,7 @@ Message_Handler::make_message (void)
 {
   if (--iterations > 0)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
       ACE_NEW (mb,
                ACE_Message_Block ((char *) ACE_TEXT ("hello")));
 
@@ -264,7 +264,7 @@ Watermark_Test::consumer (void)
 int
 Watermark_Test::get_message (void)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   if (this->getq (mb) == -1)
     ACE_ERROR_RETURN ((LM_ERROR,
@@ -287,7 +287,7 @@ Watermark_Test::get_message (void)
 int
 Watermark_Test::put_message (ACE_Time_Value *timeout)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (default_message,

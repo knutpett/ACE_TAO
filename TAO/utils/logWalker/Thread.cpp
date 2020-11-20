@@ -46,7 +46,7 @@ Thread::push_new_connection (PeerProcess *pp)
 PeerProcess *
 Thread::pop_new_connection (void)
 {
-  PeerProcess *pp = 0;
+  PeerProcess *pp = nullptr;
   this->new_connection_.pop (pp);
   return pp;
 }
@@ -54,7 +54,7 @@ Thread::pop_new_connection (void)
 PeerProcess *
 Thread::peek_new_connection (void) const
 {
-  PeerProcess *pp = 0;
+  PeerProcess *pp = nullptr;
   this->new_connection_.top (pp);
   return pp;
 }
@@ -247,7 +247,7 @@ Thread::pop_invocation (void)
 Invocation *
 Thread::current_invocation (void) const
 {
-  Invocation *inv = 0;
+  Invocation *inv = nullptr;
   if (this->current_invocation_.size() > 0)
     this->current_invocation_.top(inv);
   return inv;
@@ -286,7 +286,7 @@ Thread::get_summary (long &sent_reqs,
        !i.done();
        i.advance())
     {
-      Invocation *inv = 0;
+      Invocation *inv = nullptr;
       i.next(inv);
       if (inv->sent_request())
         {
@@ -313,7 +313,7 @@ Thread::dump_invocations (ostream &strm)
        !i.done();
        i.advance())
     {
-      Invocation *inv = 0;
+      Invocation *inv = nullptr;
       i.next(inv);
       size_t level = 0;
 
@@ -349,7 +349,7 @@ Thread::dump_incidents (ostream &strm, const ACE_Time_Value& relstart)
        !i.done();
        i.advance())
     {
-      Invocation *inv = 0;
+      Invocation *inv = nullptr;
       i.next(inv);
       size_t level = nested_queue.size();
 
@@ -390,7 +390,7 @@ Thread::count_nesting (void)
        !i.done();
        i.advance())
     {
-      Invocation *inv = 0;
+      Invocation *inv = nullptr;
       i.next(inv);
       size_t level = 0;
       while (!nested.empty ())

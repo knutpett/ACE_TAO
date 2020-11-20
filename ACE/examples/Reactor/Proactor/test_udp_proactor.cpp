@@ -28,7 +28,7 @@
   // This only works on asynch I/O-capable platforms.
 
 // Host that we're connecting to.
-static ACE_TCHAR *host = 0;
+static ACE_TCHAR *host = nullptr;
 
 // Port that we're receiving connections on.
 static u_short port = ACE_DEFAULT_SERVER_PORT;
@@ -102,7 +102,7 @@ Receiver::open_addr (const ACE_INET_Addr &localAddr)
   // read the message header and message body into 2 buffers
 
   // create a message block to read the message header
-  ACE_Message_Block* msg = 0;
+  ACE_Message_Block* msg = nullptr;
   ACE_NEW_RETURN (msg, ACE_Message_Block (1024), -1);
 
   // the next line sets the size of the header, even though we
@@ -112,7 +112,7 @@ Receiver::open_addr (const ACE_INET_Addr &localAddr)
   msg->size (20); // size of header to read is 20 bytes
 
   // create a message block to read the message body
-  ACE_Message_Block* body = 0;
+  ACE_Message_Block* body = nullptr;
   ACE_NEW_RETURN (body, ACE_Message_Block (1024), -1);
   // The message body will not exceed 1024 bytes, at least not in this test.
 
@@ -280,14 +280,14 @@ Sender::open (const ACE_TCHAR *host,
   // message body using 2 buffers
 
   // create a message block for the message header
-  ACE_Message_Block* msg = 0;
+  ACE_Message_Block* msg = nullptr;
   ACE_NEW_RETURN (msg, ACE_Message_Block (100), -1);
   const char raw_msg [] = "To be or not to be.";
   // Copy buf into the Message_Block and update the wr_ptr ().
   msg->copy (raw_msg, ACE_OS::strlen (raw_msg) + 1);
 
   // create a message block for the message body
-  ACE_Message_Block* body = 0;
+  ACE_Message_Block* body = nullptr;
   ACE_NEW_RETURN (body, ACE_Message_Block (100), -1);
   ACE_OS::memset (body->wr_ptr (), 'X', 100);
   body->wr_ptr (100); // always remember to update the wr_ptr ()

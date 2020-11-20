@@ -103,7 +103,7 @@ public:
   /// Assigns the various fields of a @c sigaction struct but doesn't
   /// register for signal handling via the @c sigaction function.
   ACE_Sig_Action (ACE_SignalHandler handler,
-                  sigset_t *sigmask = 0,
+                  sigset_t *sigmask = nullptr,
                   int flags = 0);
 
   /// Assigns the various fields of a @c sigaction struct but doesn't
@@ -119,7 +119,7 @@ public:
    */
   ACE_Sig_Action (ACE_SignalHandler handler,
                   int signum,
-                  sigset_t *sigmask = 0,
+                  sigset_t *sigmask = nullptr,
                   int flags = 0);
 
   /**
@@ -149,7 +149,7 @@ public:
    */
   ACE_Sig_Action (const ACE_Sig_Set &signalss,
                   ACE_SignalHandler handler,
-                  sigset_t *sigmask = 0,
+                  sigset_t *sigmask = nullptr,
                   int flags = 0);
 
   ACE_Sig_Action (const ACE_Sig_Action&) = default;
@@ -164,7 +164,7 @@ public:
   /// Register @c this as the current disposition and store old
   /// disposition into @a oaction if it is non-NULL.
   int register_action (int signum,
-                       ACE_Sig_Action *oaction = 0);
+                       ACE_Sig_Action *oaction = nullptr);
 
   /// Assign the value of @a oaction to @c this and make it become the
   /// new signal disposition.
@@ -223,7 +223,7 @@ public:
   /// This is kind of conditional Guard, needed when guard should be
   /// activated only when a specific condition met. When condition ==
   /// true (default), Guard is activated
-  ACE_Sig_Guard (ACE_Sig_Set *mask = 0, bool condition = true);
+  ACE_Sig_Guard (ACE_Sig_Set *mask = nullptr, bool condition = true);
 
   /// Restore blocked signals.
   ~ACE_Sig_Guard (void);

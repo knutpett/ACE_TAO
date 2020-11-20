@@ -49,11 +49,11 @@ class JAWS_Export JAWS_Cached_FILE : private JAWS_Filecache_Proxy
 public:
 
   JAWS_Cached_FILE (const char *const &filename,
-                    JAWS_Filecache_Proxy::Cache_Manager *cm = 0);
+                    JAWS_Filecache_Proxy::Cache_Manager *cm = nullptr);
   JAWS_Cached_FILE (const char *const &filename,
                     JAWS_FILE *&file,
                     size_t size,
-                    JAWS_Filecache_Proxy::Cache_Manager *cm = 0);
+                    JAWS_Filecache_Proxy::Cache_Manager *cm = nullptr);
 
   ~JAWS_Cached_FILE (void);
 

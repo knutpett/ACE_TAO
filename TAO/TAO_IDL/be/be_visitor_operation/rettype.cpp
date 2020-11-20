@@ -76,7 +76,7 @@ int
 be_visitor_operation_rettype::visit_predefined_type (
   be_predefined_type *node)
 {
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   if (this->ctx_->alias ())
     {
@@ -286,7 +286,7 @@ be_visitor_operation_rettype::visit_valuebox (
 const char *
 be_visitor_operation_rettype::type_name (be_type *node)
 {
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   if (this->ctx_->alias () != 0)
     {

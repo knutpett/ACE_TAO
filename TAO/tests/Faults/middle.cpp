@@ -83,7 +83,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                             1);
         }
 
-      Middle_i *middle_impl = 0;
+      Middle_i *middle_impl = nullptr;
       ACE_NEW_RETURN (middle_impl,
                       Middle_i (orb.in (),
                                 server.in ()),

@@ -157,7 +157,7 @@ TAO_Object_Adapter::TAO_Object_Adapter (const TAO_Server_Strategy_Factory::Activ
 {
   TAO_Object_Adapter::set_transient_poa_name_size (creation_parameters);
 
-  Hint_Strategy *hint_strategy = 0;
+  Hint_Strategy *hint_strategy = nullptr;
   if (creation_parameters.use_active_hint_in_poa_names_)
     ACE_NEW (hint_strategy,
              Active_Hint_Strategy (creation_parameters.poa_map_size_));
@@ -174,7 +174,7 @@ TAO_Object_Adapter::TAO_Object_Adapter (const TAO_Server_Strategy_Factory::Activ
 
   new_hint_strategy->object_adapter (this);
 
-  persistent_poa_name_map *ppnm = 0;
+  persistent_poa_name_map *ppnm = nullptr;
   switch (creation_parameters.poa_lookup_strategy_for_persistent_id_policy_)
     {
     case TAO_LINEAR:
@@ -203,7 +203,7 @@ TAO_Object_Adapter::TAO_Object_Adapter (const TAO_Server_Strategy_Factory::Activ
   auto_ptr<persistent_poa_name_map> new_persistent_poa_name_map (ppnm);
 #endif /* ACE_HAS_CPP11 */
 
-  transient_poa_map *tpm = 0;
+  transient_poa_map *tpm = nullptr;
   switch (creation_parameters.poa_lookup_strategy_for_transient_id_policy_)
     {
 #if (TAO_HAS_MINIMUM_POA_MAPS == 0)
@@ -317,7 +317,7 @@ TAO_Object_Adapter::~TAO_Object_Adapter (void)
 ACE_Lock *
 TAO_Object_Adapter::create_lock (TAO_SYNCH_MUTEX &thread_lock)
 {
-  ACE_Lock *the_lock = 0;
+  ACE_Lock *the_lock = nullptr;
   ACE_NEW_RETURN (the_lock,
                   ACE_Lock_Adapter<TAO_SYNCH_MUTEX> (thread_lock),
                   0);
@@ -440,7 +440,7 @@ TAO_Object_Adapter::activate_poa (const poa_name &folded_name,
        iterator != end;
        ++iterator)
     {
-      TAO_Root_POA *current = 0;
+      TAO_Root_POA *current = nullptr;
 
       try
         {
@@ -516,7 +516,7 @@ TAO_Object_Adapter::locate_servant_i (const TAO::ObjectKey &key)
   ACE_FUNCTION_TIMEPROBE (TAO_POA_LOCATE_SERVANT_START);
 
   PortableServer::ObjectId id;
-  TAO_Root_POA *poa = 0;
+  TAO_Root_POA *poa = nullptr;
 
   this->locate_poa (key, id, poa);
 
@@ -544,7 +544,7 @@ TAO_Object_Adapter::find_servant_i (const TAO::ObjectKey &key,
                                     PortableServer::Servant &servant)
 {
   PortableServer::ObjectId id;
-  TAO_Root_POA *poa = 0;
+  TAO_Root_POA *poa = nullptr;
 
   this->locate_poa (key, id, poa);
 
@@ -657,9 +657,9 @@ TAO_Object_Adapter::close (int wait_for_completion)
   // destroyed. In the case of the POA, this means that all object
   // etherealizations have finished and root POA has been destroyed
   // (implying that all descendent POAs have also been destroyed).
-  TAO_Root_POA *root = 0;
+  TAO_Root_POA *root = nullptr;
 #if (TAO_HAS_MINIMUM_POA == 0) && !defined (CORBA_E_COMPACT) && !defined (CORBA_E_MICRO)
-  TAO_POAManager_Factory* factory = 0;
+  TAO_POAManager_Factory* factory = nullptr;
 #endif
   {
     ACE_GUARD (ACE_Lock, ace_mon, this->lock ());
@@ -917,7 +917,7 @@ TAO_Object_Adapter::get_collocated_servant (const TAO_MProfile &mp)
                              TAO_Root_POA::TAO_OBJECTKEY_PREFIX_SIZE) != 0)
         continue;
 
-      TAO_ServantBase *servant = 0;
+      TAO_ServantBase *servant = nullptr;
 
       try
         {

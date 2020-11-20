@@ -19,7 +19,7 @@ UTL_Scope::fe_add_full_intf_decl (DECL *t)
       return 0;
     }
 
-  AST_Decl *predef = 0;
+  AST_Decl *predef = nullptr;
 
   // Already defined?
   if ((predef = this->lookup_for_add (t)) != 0)
@@ -110,7 +110,7 @@ template<typename FULL_DECL>
 typename FULL_DECL::FWD_TYPE *
 UTL_Scope::fe_add_fwd_intf_decl (typename FULL_DECL::FWD_TYPE *t)
 {
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
 
   // Already defined and cannot be redefined? Or already used?
   if ((d = this->lookup_for_add (t)) != 0)

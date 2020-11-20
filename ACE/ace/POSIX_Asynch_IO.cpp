@@ -297,7 +297,7 @@ ACE_POSIX_Asynch_Read_Stream::read (ACE_Message_Block &message_block,
     }
 
   // Create the Asynch_Result.
-  ACE_POSIX_Asynch_Read_Stream_Result *result = 0;
+  ACE_POSIX_Asynch_Read_Stream_Result *result = nullptr;
   ACE_POSIX_Proactor *proactor = this->posix_proactor ();
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Read_Stream_Result (this->handler_proxy_,
@@ -415,7 +415,7 @@ ACE_POSIX_Asynch_Write_Stream::write (ACE_Message_Block &message_block,
         ACE_TEXT ("Attempt to write 0 bytes\n")),
       -1);
 
-  ACE_POSIX_Asynch_Write_Stream_Result *result = 0;
+  ACE_POSIX_Asynch_Write_Stream_Result *result = nullptr;
   ACE_POSIX_Proactor *proactor = this->posix_proactor ();
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Write_Stream_Result (this->handler_proxy_,
@@ -526,7 +526,7 @@ ACE_POSIX_Asynch_Read_File::read (ACE_Message_Block &message_block,
         ACE_TEXT ("Attempt to read 0 bytes or no space in the message block\n")),
        -1);
 
-  ACE_POSIX_Asynch_Read_File_Result *result = 0;
+  ACE_POSIX_Asynch_Read_File_Result *result = nullptr;
   ACE_POSIX_Proactor *proactor = this->posix_proactor ();
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Read_File_Result (this->handler_proxy_,
@@ -653,7 +653,7 @@ ACE_POSIX_Asynch_Write_File::write (ACE_Message_Block &message_block,
         ACE_TEXT ("Attempt to write 0 bytes\n")),
       -1);
 
-  ACE_POSIX_Asynch_Write_File_Result *result = 0;
+  ACE_POSIX_Asynch_Write_File_Result *result = nullptr;
   ACE_POSIX_Proactor *proactor = this->posix_proactor ();
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Write_File_Result (this->handler_proxy_,
@@ -872,7 +872,7 @@ ACE_POSIX_Asynch_Accept::accept (ACE_Message_Block &message_block,
 
   // Common code for both WIN and POSIX.
   // Create future Asynch_Accept_Result
-  ACE_POSIX_Asynch_Accept_Result *result = 0;
+  ACE_POSIX_Asynch_Accept_Result *result = nullptr;
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Accept_Result (this->handler_proxy_,
                                                   this->handle_,
@@ -931,7 +931,7 @@ ACE_POSIX_Asynch_Accept::cancel_uncompleted (int flg_notify)
 
   for (; ; retval++)
     {
-      ACE_POSIX_Asynch_Accept_Result* result = 0;
+      ACE_POSIX_Asynch_Accept_Result* result = nullptr;
 
       this->result_queue_.dequeue_head (result);
 
@@ -1068,7 +1068,7 @@ ACE_POSIX_Asynch_Accept::handle_input (ACE_HANDLE /* fd */)
   // able to just go ahead and do the <accept> now on this <fd>. This
   // should be the same as the <listen_handle>.
 
-  ACE_POSIX_Asynch_Accept_Result* result = 0;
+  ACE_POSIX_Asynch_Accept_Result* result = nullptr;
 
   {
     ACE_MT (ACE_GUARD_RETURN (ACE_SYNCH_MUTEX, ace_mon, this->lock_, 0));
@@ -1252,7 +1252,7 @@ ACE_POSIX_Asynch_Connect::connect (ACE_HANDLE connect_handle,
 
   // Common code for both WIN and POSIX.
   // Create future Asynch_Connect_Result
-  ACE_POSIX_Asynch_Connect_Result *result = 0;
+  ACE_POSIX_Asynch_Connect_Result *result = nullptr;
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Connect_Result (this->handler_proxy_,
                                                    connect_handle,
@@ -1552,7 +1552,7 @@ ACE_POSIX_Asynch_Connect::handle_output (ACE_HANDLE fd)
 {
   ACE_TRACE ("ACE_POSIX_Asynch_Connect::handle_output");
 
-  ACE_POSIX_Asynch_Connect_Result* result = 0;
+  ACE_POSIX_Asynch_Connect_Result* result = nullptr;
 
   {
     ACE_MT (ACE_GUARD_RETURN (ACE_SYNCH_MUTEX, ace_mon, this->lock_, 0));
@@ -1593,7 +1593,7 @@ ACE_POSIX_Asynch_Connect::handle_close (ACE_HANDLE fd, ACE_Reactor_Mask)
 
   task.remove_io_handler (fd);
 
-  ACE_POSIX_Asynch_Connect_Result* result = 0;
+  ACE_POSIX_Asynch_Connect_Result* result = nullptr;
 
   {
     ACE_MT (ACE_GUARD_RETURN (ACE_SYNCH_MUTEX, ace_mon, this->lock_, 0));
@@ -2088,7 +2088,7 @@ ACE_POSIX_Asynch_Transmit_File::transmit_file (ACE_HANDLE file,
     bytes_per_send = bytes_to_write;
 
   // Configure the result parameter.
-  ACE_POSIX_Asynch_Transmit_File_Result *result = 0;
+  ACE_POSIX_Asynch_Transmit_File_Result *result = nullptr;
 
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Transmit_File_Result (this->handler_proxy_,
@@ -2107,7 +2107,7 @@ ACE_POSIX_Asynch_Transmit_File::transmit_file (ACE_HANDLE file,
                   -1);
 
   // Make the auxillary handler and initiate transmit.
-  ACE_POSIX_Asynch_Transmit_Handler *transmit_handler = 0;
+  ACE_POSIX_Asynch_Transmit_Handler *transmit_handler = nullptr;
 
   ACE_NEW_RETURN (transmit_handler,
                   ACE_POSIX_Asynch_Transmit_Handler (this->posix_proactor (),
@@ -2332,7 +2332,7 @@ ACE_POSIX_Asynch_Read_Dgram::recv (ACE_Message_Block *message_block,
 {
   size_t space = message_block->space ();
   // Create the Asynch_Result.
-  ACE_POSIX_Asynch_Read_Dgram_Result *result = 0;
+  ACE_POSIX_Asynch_Read_Dgram_Result *result = nullptr;
   ACE_POSIX_Proactor *proactor = this->posix_proactor ();
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Read_Dgram_Result (this->handler_proxy_,
@@ -2382,7 +2382,7 @@ ACE_POSIX_Asynch_Write_Dgram::send (ACE_Message_Block *message_block,
         ACE_TEXT ("Attempt to write 0 bytes\n")),
       -1);
 
-  ACE_POSIX_Asynch_Write_Dgram_Result *result = 0;
+  ACE_POSIX_Asynch_Write_Dgram_Result *result = nullptr;
   ACE_POSIX_Proactor *proactor = this->posix_proactor ();
   ACE_NEW_RETURN (result,
                   ACE_POSIX_Asynch_Write_Dgram_Result (this->handler_proxy_,

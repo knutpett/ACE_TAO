@@ -55,7 +55,7 @@ void Temperature_Grapher::update_graph (void)
   // Listing 5 code/ch21
   Graphable_Element_List graphable;
   ACE_BINDING_ITERATOR set_iterator (set);
-  for (ACE_Name_Binding *entry = 0;
+  for (ACE_Name_Binding *entry = nullptr;
        set_iterator.next (entry) != 0;
        set_iterator.advance ())
     {

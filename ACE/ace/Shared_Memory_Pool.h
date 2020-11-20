@@ -83,8 +83,8 @@ public:
   typedef ACE_Shared_Memory_Pool_Options OPTIONS;
 
   /// Initialize the pool.
-  ACE_Shared_Memory_Pool (const ACE_TCHAR *backing_store_name = 0,
-                          const OPTIONS *options = 0);
+  ACE_Shared_Memory_Pool (const ACE_TCHAR *backing_store_name = nullptr,
+                          const OPTIONS *options = nullptr);
 
   virtual ~ACE_Shared_Memory_Pool (void);
 

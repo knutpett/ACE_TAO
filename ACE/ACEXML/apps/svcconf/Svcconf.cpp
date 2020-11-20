@@ -9,7 +9,7 @@
 extern "C" ACE_Proper_Export_Flag ACE_XML_Svc_Conf *
 _ACEXML_create_XML_Svc_Conf_Object (void)
 {
-  ACE_XML_Svc_Conf *retp = 0;
+  ACE_XML_Svc_Conf *retp = nullptr;
 
   ACE_NEW_RETURN (retp,
                   ACEXML_Svcconf_Parser (),
@@ -45,7 +45,7 @@ ACEXML_Svcconf_Parser::parse_file (const ACE_TCHAR file[])
   if (file == 0)
     ACE_ERROR_RETURN ((LM_ERROR, "ACEXML_Svcconf_Parser: No filename specified\n"), -1);
 
-  ACEXML_FileCharStream *fstm = 0;
+  ACEXML_FileCharStream *fstm = nullptr;
   ACE_NEW_RETURN (fstm,
                   ACEXML_FileCharStream (),
                   1);
@@ -77,7 +77,7 @@ ACEXML_Svcconf_Parser::parse_string (const ACE_TCHAR str[])
   if (str == 0)
     ACE_ERROR_RETURN ((LM_ERROR, "ACEXML_Svcconf_Parser: Can't parse a null string\n"), -1);
 
-  ACEXML_StrCharStream *stm = 0;
+  ACEXML_StrCharStream *stm = nullptr;
   ACE_NEW_RETURN (stm, ACEXML_StrCharStream, -1);
   if (stm->open (str, ACE_TEXT ("Svcconf")) < 0)
     ACE_ERROR_RETURN ((LM_ERROR, "ACEXML_Svcconf_Parser: Unable to create "

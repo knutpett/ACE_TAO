@@ -50,7 +50,7 @@ namespace TAO
 
     public:
 
-      Connection_Handler (ACE_Thread_Manager* t = 0);
+      Connection_Handler (ACE_Thread_Manager* t = nullptr);
 
       /// Constructor.
       Connection_Handler (TAO_ORB_Core *orb_core);
@@ -73,7 +73,7 @@ namespace TAO
                             int force_active = 0,
                             long priority = ACE_DEFAULT_THREAD_PRIORITY,
                             int grp_id = -1,
-                            ACE_Task_Base *task = 0,
+                            ACE_Task_Base *task = nullptr,
                             ACE_hthread_t thread_handles[] = 0,
                             void *stack[] = 0,
                             size_t stack_size[] = 0,

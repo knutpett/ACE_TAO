@@ -49,7 +49,7 @@ TAO_Offer_Database<LOCK_TYPE>::
 insert_offer (const char* type, CosTrading::Offer* offer)
 {
   CosTrading::OfferId return_value = 0;
-  typename Offer_Database::ENTRY* database_entry = 0;
+  typename Offer_Database::ENTRY* database_entry = nullptr;
   CORBA::String_var service_type (type);
 
   ACE_READ_GUARD_RETURN (LOCK_TYPE, ace_mon, this->db_lock_, 0);
@@ -58,7 +58,7 @@ insert_offer (const char* type, CosTrading::Offer* offer)
     {
       // If there's no entry for the service type, create one.
 
-      Offer_Map_Entry* new_offer_map_entry = 0;
+      Offer_Map_Entry* new_offer_map_entry = nullptr;
       ACE_NEW_RETURN (new_offer_map_entry, Offer_Map_Entry, 0);
       ACE_NEW_RETURN (new_offer_map_entry->offer_map_, TAO_Offer_Map, 0);
       new_offer_map_entry->counter_ = 1;
@@ -99,12 +99,12 @@ remove_offer (const char* type, CORBA::ULong id)
   ACE_READ_GUARD_RETURN (LOCK_TYPE, ace_mon, this->db_lock_, -1);
 
   int return_value = -1;
-  typename Offer_Database::ENTRY* db_entry = 0;
+  typename Offer_Database::ENTRY* db_entry = nullptr;
   CORBA::String_var service_type (type);
 
   if (this->offer_db_.find (service_type, db_entry) == 0)
     {
-      CosTrading::Offer* offer = 0;
+      CosTrading::Offer* offer = nullptr;
       Offer_Map_Entry* offer_map_entry = db_entry->int_id_;
 
       if (offer_map_entry->lock_.acquire_write () == -1)
@@ -150,7 +150,7 @@ template <class LOCK_TYPE> int
 TAO_Offer_Database<LOCK_TYPE>::
 remove_offer (const CosTrading::OfferId offer_id)
 {
-  char* stype = 0;
+  char* stype = nullptr;
   CORBA::ULong index;
 
   this->parse_offer_id (offer_id,
@@ -170,7 +170,7 @@ lookup_offer (const CosTrading::OfferId offer_id,
               char*& type_name)
 {
   CORBA::ULong index;
-  CosTrading::Offer* offer = 0;
+  CosTrading::Offer* offer = nullptr;
   this->parse_offer_id (offer_id, type_name, index);
 
   if ((offer = this->lookup_offer (type_name, index)) == 0)
@@ -186,7 +186,7 @@ lookup_offer (const CosTrading::OfferId offer_id)
 {
   char* type_name;
   CORBA::ULong index;
-  CosTrading::Offer* offer = 0;
+  CosTrading::Offer* offer = nullptr;
 
   this->parse_offer_id (offer_id, type_name, index);
 
@@ -202,8 +202,8 @@ lookup_offer (const char* type, CORBA::ULong id)
 {
   ACE_READ_GUARD_RETURN (LOCK_TYPE, ace_mon, this->db_lock_, 0);
 
-  CosTrading::Offer* return_value = 0;
-  typename Offer_Database::ENTRY* db_entry = 0;
+  CosTrading::Offer* return_value = nullptr;
+  typename Offer_Database::ENTRY* db_entry = nullptr;
   CORBA::String_var service_type (type);
 
   if (this->offer_db_.find (service_type, db_entry) == 0)
@@ -211,7 +211,7 @@ lookup_offer (const char* type, CORBA::ULong id)
       Offer_Map_Entry* offer_map_entry = db_entry->int_id_;
       ACE_READ_GUARD_RETURN (LOCK_TYPE, ace_mon, offer_map_entry->lock_, 0);
 
-      TAO_Offer_Map::ENTRY* offer_entry_ptr = 0;
+      TAO_Offer_Map::ENTRY* offer_entry_ptr = nullptr;
       if (offer_map_entry->offer_map_->find (id, offer_entry_ptr) == 0)
         return_value = offer_entry_ptr->int_id_;
     }
@@ -289,7 +289,7 @@ generate_offer_id (const char *service_type_name, CORBA::ULong id)
   // hold portions of id string.
   CosTrading::OfferId offer_id =
      CORBA::string_alloc (static_cast<CORBA::ULong> (total_size));
-  char* return_value = 0;
+  char* return_value = nullptr;
   ACE_OS::sprintf (offer_id, "%016u%s", id, service_type_name);
 
   return_value = CORBA::string_dup (offer_id);
@@ -313,7 +313,7 @@ TAO_Service_Offer_Iterator (const char* type,
   if (this->stm_.db_lock_.acquire_read () == -1)
     return;
 
-  typename TAO_Offer_Database<LOCK_TYPE>::Offer_Map_Entry* entry = 0;
+  typename TAO_Offer_Database<LOCK_TYPE>::Offer_Map_Entry* entry = nullptr;
   if (this->stm_.offer_db_.find (service_type, entry) == -1)
     return;
   else

@@ -174,11 +174,11 @@ be_component::scan (UTL_Scope *s)
       return;
     }
 
-  AST_Extended_Port *ep = 0;
-  AST_Mirror_Port *mp = 0;
-  AST_Uses *u = 0;
-  AST_Provides *p = 0;
-  AST_Attribute *a = 0;
+  AST_Extended_Port *ep = nullptr;
+  AST_Mirror_Port *mp = nullptr;
+  AST_Uses *u = nullptr;
+  AST_Provides *p = nullptr;
+  AST_Attribute *a = nullptr;
   AST_Decl::NodeType my_nt;
   AST_Decl::NodeType scope_nt;
 
@@ -259,7 +259,7 @@ be_component::scan (UTL_Scope *s)
     }
 
   AST_Component *c = dynamic_cast<AST_Component*> (s);
-  AST_Interface *iface = 0;
+  AST_Interface *iface = nullptr;
 
   if (c != 0)
     {
@@ -341,7 +341,7 @@ be_component::gen_skel_inheritance (TAO_OutStream *os)
 
   long nsupports = this->n_inherits ();
   AST_Type **supports = this->supports ();
-  AST_Type *supported = 0;
+  AST_Type *supported = nullptr;
 
   for (long i = 0; i < nsupports; ++i)
     {
@@ -383,9 +383,9 @@ be_component::gen_is_a_ancestors (TAO_OutStream *os)
 void
 be_component::mirror_scan (AST_PortType *pt)
 {
-  AST_Uses *u = 0;
-  AST_Provides *p = 0;
-  AST_Attribute *a = 0;
+  AST_Uses *u = nullptr;
+  AST_Provides *p = nullptr;
+  AST_Attribute *a = nullptr;
 
   for (UTL_ScopeActiveIterator i (pt, UTL_Scope::IK_decls);
        !i.is_done ();

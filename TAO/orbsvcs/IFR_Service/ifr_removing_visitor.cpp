@@ -22,7 +22,7 @@ ifr_removing_visitor::visit_scope (UTL_Scope *node)
       UTL_ScopeActiveIterator si (node,
                                   UTL_Scope::IK_decls);
 
-      AST_Decl *d = 0;
+      AST_Decl *d = nullptr;
 
       try
         {

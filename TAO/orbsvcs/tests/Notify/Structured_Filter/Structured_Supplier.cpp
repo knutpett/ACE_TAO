@@ -17,7 +17,7 @@
 #include "ace/OS_NS_unistd.h"
 
 static const ACE_TCHAR *ior_file = ACE_TEXT ("supplier.ior");
-static TAO_Notify_Tests_StructuredPushSupplier* supplier = 0;
+static TAO_Notify_Tests_StructuredPushSupplier* supplier = nullptr;
 static int num_events = 90;
 
 class sig_i : public POA_sig

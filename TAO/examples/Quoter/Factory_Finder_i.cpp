@@ -37,7 +37,7 @@ Quoter_Factory_Finder_i::find_factories (const CosLifeCycle::Key &factory_key)
 {
   const char *exception_message = "Null Message";
 
-  CosLifeCycle::Factories *factories_ptr = 0;
+  CosLifeCycle::Factories *factories_ptr = nullptr;
 
   try
   {

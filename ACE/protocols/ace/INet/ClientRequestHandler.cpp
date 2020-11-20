@@ -46,7 +46,7 @@ namespace ACE
 
     ConnectionKey* ClientINetRequestHandler::INetConnectionKey::duplicate () const
       {
-        ConnectionKey* k = 0;
+        ConnectionKey* k = nullptr;
         ACE_NEW_RETURN (k,
                         INetConnectionKey (this->host_, this->port_),
                         0);

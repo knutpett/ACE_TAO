@@ -17,8 +17,8 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
   try
     {
-      ACE_TCHAR **extra = 0;
-      ACE_TCHAR **second_extra = 0;
+      ACE_TCHAR **extra = nullptr;
+      ACE_TCHAR **second_extra = nullptr;
       ACE_NEW_RETURN (extra, ACE_TCHAR *[extra_argc], -1);
       ACE_NEW_RETURN (second_extra, ACE_TCHAR *[second_extra_argc], -1);
       extra[0] = ACE::strnew (ACE_TEXT ("-ORBGestalt"));

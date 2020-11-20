@@ -216,7 +216,7 @@ TAO_ETCL_Literal_Constraint::operator const char* (void) const
   {
     case ACE_ETCL_COMPONENT:
       {
-        const char *retval = 0;
+        const char *retval = nullptr;
         CORBA::Any tmp;
         tmp.replace (this->any_);
         this->any_->_add_ref ();

@@ -54,7 +54,7 @@ namespace TAO
     {
 
     public:
-      Completion_Handler (ACE_Thread_Manager* t = 0);
+      Completion_Handler (ACE_Thread_Manager* t = nullptr);
       /// Constructor.
       Completion_Handler (TAO_ORB_Core *orb_core,
                           CORBA::Boolean = false);

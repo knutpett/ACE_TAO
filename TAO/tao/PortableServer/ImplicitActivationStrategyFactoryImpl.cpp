@@ -14,8 +14,8 @@ namespace TAO
     ImplicitActivationStrategyFactoryImpl::create (
       ::PortableServer::ImplicitActivationPolicyValue value)
     {
-      ImplicitActivationStrategy* strategy = 0;
-      const char * strategy_name = 0;
+      ImplicitActivationStrategy* strategy = nullptr;
+      const char * strategy_name = nullptr;
 
       switch (value)
       {

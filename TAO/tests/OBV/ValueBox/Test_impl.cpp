@@ -33,7 +33,7 @@ Test_impl::basic_op1 (VBlong * p1, VBlong *& p2, VBlong_out p3)
 
   p2->_value (p2->_value() * 3);
 
-  VBlong *retval = 0;
+  VBlong *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBlong (p1->_value()*3),
                   0);
@@ -52,7 +52,7 @@ Test_impl::basic_op2 (vb_basic::M_VBlong * p1,
 
   p2->_value (p2->_value() * 3);
 
-  vb_basic::M_VBlong *retval = 0;
+  vb_basic::M_VBlong *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   vb_basic::M_VBlong (p1->_value()*3),
                   0);
@@ -85,7 +85,7 @@ Test_impl::string_op1 (::VBstring * p1,
 
   rotate_string (p1->_boxed_inout ());
 
-  VBstring *retval = 0;
+  VBstring *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBstring (p1->_value ()),
                   0);
@@ -131,7 +131,7 @@ Test_impl::seq_op1 (::VBseqlong * p1,
       (*p2)[i] *= 3;
     }
 
-  VBseqlong *retval = 0;
+  VBseqlong *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBseqlong(*p1),
                   0);
@@ -176,7 +176,7 @@ Test_impl::struct_op1 (::VBfixed_struct1 * p1,
   p2->abstruct().s1 = (p2->abstruct()).s1 * 3;
   p2->abstruct().s2 = (p2->abstruct()).s2 * 3;
 
-  VBfixed_struct1 *retval = 0;
+  VBfixed_struct1 *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBfixed_struct1 (p1->_value()),
                   0);
@@ -209,7 +209,7 @@ Test_impl::struct_op3 (::VBvariable_struct1 * p1,
                   VBvariable_struct1 (p2->_value()),
                   0);
 
-  VBvariable_struct1 *retval = 0;
+  VBvariable_struct1 *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBvariable_struct1 (p1->_value()),
                   0);
@@ -249,7 +249,7 @@ Test_impl::array_op1 (::VBlongarray * p1,
                   VBlongarray(*p2),
                   0);
 
-  VBlongarray *retval = 0;
+  VBlongarray *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBlongarray(*p1),
                   0);
@@ -295,7 +295,7 @@ Test_impl::array_op3 (::VBstringarray * p1,
                   VBstringarray(*p2),
                   0);
 
-  VBstringarray *retval = 0;
+  VBstringarray *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   VBstringarray(*p1),
                   0);
@@ -340,7 +340,7 @@ Test_impl::union_op1 (::VBfixed_union1 * p1,
   ACE_NEW_RETURN (p3,
                   VBfixed_union1 (),
                   0);
-  VBfixed_union1 *rv = 0;
+  VBfixed_union1 *rv = nullptr;
   ACE_NEW_RETURN (rv,
                   VBfixed_union1 (),
                   0);
@@ -403,7 +403,7 @@ Test_impl::union_op3 (::VBvariable_union1 * p1,
   ACE_NEW_RETURN (p3,
                   VBvariable_union1 (),
                   0);
-  VBvariable_union1 *rv = 0;
+  VBvariable_union1 *rv = nullptr;
   ACE_NEW_RETURN (rv,
                   VBvariable_union1 (),
                   0);

@@ -7,7 +7,7 @@
 #include "orbsvcs/Event/EC_Gateway.h"
 #include "ace/Arg_Shifter.h"
 
-static const ACE_TCHAR *ecname = 0;
+static const ACE_TCHAR *ecname = nullptr;
 
 int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])

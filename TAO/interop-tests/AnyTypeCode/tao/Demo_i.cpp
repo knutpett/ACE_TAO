@@ -44,7 +44,7 @@ ATC_Test_i::~ATC_Test_i (void)
 char *
 ATC_Test_i::do_union (const ::CORBA::Any & a)
 {
-  const Demo::NestedUnion *any_union = 0;
+  const Demo::NestedUnion *any_union = nullptr;
   const char *result = "do_union called";
   if (a >>= any_union)
     {
@@ -104,7 +104,7 @@ ATC_Test_i::do_union (const ::CORBA::Any & a)
 char *
 ATC_Test_i::do_struct (const ::CORBA::Any & a)
 {
-  const Demo::NestedStruct *bar = 0;
+  const Demo::NestedStruct *bar = nullptr;
   const char *result = "do_struct called";
   if (a >>= bar)
     {
@@ -169,7 +169,7 @@ void
 ATC_Test_i::shutdown (void)
 {
   int argc = 0;
-  ACE_TCHAR **argv = 0;
+  ACE_TCHAR **argv = nullptr;
 
   CORBA::ORB_var def_orb = CORBA::ORB_init (argc, argv);
   def_orb->shutdown (false);

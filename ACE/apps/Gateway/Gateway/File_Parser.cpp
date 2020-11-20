@@ -56,7 +56,7 @@ File_Parser<ENTRY>::getint (ACE_INT32 &value)
       else
         {
           // ptr is used for error checking with ACE_OS::strtol.
-          char *ptr = 0;
+          char *ptr = nullptr;
 
           // try to convert the buf to a decimal number
           value = ACE_OS::strtol (buf, &ptr, 10);

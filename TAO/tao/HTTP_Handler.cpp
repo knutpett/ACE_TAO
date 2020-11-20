@@ -109,7 +109,7 @@ TAO_HTTP_Reader::receive_reply (void)
 {
   size_t num_recvd = 0;
   char buf [MTU+1];
-  char *buf_ptr = 0;
+  char *buf_ptr = nullptr;
   size_t bytes_read = 0;
 
   // Receive the first MTU bytes and strip the header off.
@@ -145,7 +145,7 @@ TAO_HTTP_Reader::receive_reply (void)
   // At this point, we have stripped off the header and are ready to
   // process data. buf_ptr points to the data
 
-  ACE_Message_Block* temp = 0;
+  ACE_Message_Block* temp = nullptr;
   ACE_Message_Block* curr = this->mb_;
 
   ACE_NEW_RETURN (temp,

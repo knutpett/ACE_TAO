@@ -113,7 +113,7 @@ int be_visitor_array_cs::visit_array (be_array *node)
   *os << fname << "_slice *" << be_nl;
   *os << fname << "_alloc (void)" << be_nl;
   *os << "{" << be_idt_nl;
-  *os << fname << "_slice *retval = 0;" << be_nl;
+  *os << fname << "_slice *retval = nullptr;" << be_nl;
   *os << "ACE_NEW_RETURN (retval, ";
 
   if (bt->accept (this) == -1)
@@ -192,7 +192,7 @@ int be_visitor_array_cs::visit_array (be_array *node)
 
   // Now generate code such that every element of the array gets assigned
   // inside the innermost level of the  nested loops generated above.
-  be_array *primitive_type = 0;
+  be_array *primitive_type = nullptr;
 
   if (bt->node_type () == AST_Decl::NT_typedef)
     {

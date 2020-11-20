@@ -589,7 +589,7 @@ be_visitor_facet_ami_exs::gen_facet_executor_op (be_operation *node)
       << "this->context_->resolve_service_reference (\"POA\");" << be_uidt_nl
       << "::PortableServer::POA_var poa =" << be_idt_nl
       << "::PortableServer::POA::_narrow (objvar.in ());" << be_uidt_nl
-      << this->iface_->local_name () << "_reply_handler *handler = 0;"
+      << this->iface_->local_name () << "_reply_handler *handler = nullptr;"
       << be_nl
       << "ACE_NEW (handler," << be_nl
       << "         " << this->iface_->local_name ()
@@ -701,7 +701,7 @@ be_visitor_facet_ami_exs::gen_facet_executor_sync_op (be_operation *node)
   os_ << be_nl
       << "{" << be_idt_nl;
 
-  AST_PredefinedType *pdt = 0;
+  AST_PredefinedType *pdt = nullptr;
   pdt = dynamic_cast<AST_PredefinedType*> (bt);
   bool ret = true;
   if ((pdt != 0) && (pdt->pt () == AST_PredefinedType::PT_void))

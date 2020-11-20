@@ -184,7 +184,7 @@ void
 DRV_parse_args (long ac, char **av)
 {
   ACE_CString buffer;
-  char *s = 0;
+  char *s = nullptr;
   long i;
   bool has_space = false;
 

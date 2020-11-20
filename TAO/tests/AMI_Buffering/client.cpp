@@ -401,7 +401,7 @@ run_message_count (CORBA::ORB_ptr orb,
   for (int j = 0; j != PAYLOAD_LENGTH; ++j)
     payload[j] = CORBA::Octet(j % 256);
 
-  Reply_Handler *reply_handler_impl = 0;
+  Reply_Handler *reply_handler_impl = nullptr;
   ACE_NEW_RETURN (reply_handler_impl,
                   Reply_Handler,
                   1);
@@ -512,7 +512,7 @@ run_timeout (CORBA::ORB_ptr orb,
   for (int j = 0; j != PAYLOAD_LENGTH; ++j)
     payload[j] = CORBA::Octet(j % 256);
 
-  Reply_Handler *reply_handler_impl = 0;
+  Reply_Handler *reply_handler_impl = nullptr;
   ACE_NEW_RETURN (reply_handler_impl,
                   Reply_Handler,
                   1);
@@ -631,7 +631,7 @@ run_timeout_reactive (CORBA::ORB_ptr orb,
   for (int j = 0; j != PAYLOAD_LENGTH; ++j)
     payload[j] = CORBA::Octet(j % 256);
 
-  Reply_Handler *reply_handler_impl = 0;
+  Reply_Handler *reply_handler_impl = nullptr;
   ACE_NEW_RETURN (reply_handler_impl,
                   Reply_Handler,
                   1);

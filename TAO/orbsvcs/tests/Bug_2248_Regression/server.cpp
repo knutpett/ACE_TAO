@@ -6,9 +6,9 @@
 #include "orbsvcs/FaultTolerance/FT_Service_Activate.h"
 #include "tao/ORBInitializer_Registry.h"
 
-const ACE_TCHAR *ior_output_file = 0;
-const ACE_TCHAR *merged_iorstr = 0;
-const ACE_TCHAR *key = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
+const ACE_TCHAR *merged_iorstr = nullptr;
+const ACE_TCHAR *key = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -51,7 +51,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
   try
     {
-      Server_ORBInitializer *temp_initializer = 0;
+      Server_ORBInitializer *temp_initializer = nullptr;
       ACE_NEW_RETURN (temp_initializer,
                       Server_ORBInitializer,
                       -1);  // No exceptions yet!

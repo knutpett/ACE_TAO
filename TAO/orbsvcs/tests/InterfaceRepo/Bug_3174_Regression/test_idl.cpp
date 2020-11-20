@@ -6,7 +6,7 @@
 
 namespace
 {
-  const ACE_TCHAR *ifr_ior_file = 0;
+  const ACE_TCHAR *ifr_ior_file = nullptr;
 }
 
 int

@@ -133,7 +133,7 @@ Grid_i::destroy (void)
 CORBA::Long *
 Grid_i::allocate_array (CORBA::Short x, CORBA::Short y)
 {
-  CORBA::Long *array = 0;
+  CORBA::Long *array = nullptr;
   ACE_NEW_THROW_EX (array,
                     CORBA::Long[x * y],
                     CORBA::NO_MEMORY ());
@@ -187,7 +187,7 @@ Grid_Factory_i::make_grid (CORBA::Short width,
 
   // This attempts to create a new Grid_i and throws an exception and
   // returns a null value if it fails
-  Grid_i *grid = 0;
+  Grid_i *grid = nullptr;
   ACE_NEW_THROW_EX (grid,
                     Grid_i (width, height),
                     CORBA::NO_MEMORY ());

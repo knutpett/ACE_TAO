@@ -3,8 +3,8 @@
 #include "ace/Get_Opt.h"
 #include "ace/ARGV.h"
 
-ACE_TCHAR const *orb1_args = 0;
-ACE_TCHAR const *orb2_args = 0;
+ACE_TCHAR const *orb1_args = nullptr;
+ACE_TCHAR const *orb2_args = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

@@ -264,7 +264,7 @@ class Locator_Export LiveCheck : public ACE_Event_Handler
              const ACE_Time_Value &interval);
   void shutdown (void);
   int handle_timeout (const ACE_Time_Value &current_time,
-                      const void *act = 0);
+                      const void *act = nullptr);
   bool has_server (const char *server);
   void add_server (const char *server,
                    bool may_ping,

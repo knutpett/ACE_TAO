@@ -374,7 +374,7 @@ AST_Module::fe_add_module (AST_Module *t)
     }
 
   // Already defined and cannot be redefined? Or already used?
-  AST_Module *m = 0;
+  AST_Module *m = nullptr;
   AST_Decl *d = this->lookup_for_add (t);
 
   if (d)

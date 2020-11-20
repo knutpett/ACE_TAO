@@ -125,8 +125,8 @@ HTTP_Headers::value (int index)
 const char *
 HTTP_Headers::value_next (int index)
 {
-  const char *hs = 0;
-  const char *hv = 0;
+  const char *hs = nullptr;
+  const char *hv = nullptr;
   JAWS_Header_Data *data;
 
   if (0 <= index && index < NUM_HEADER_STRINGS)

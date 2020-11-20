@@ -14,7 +14,7 @@ PolicyFactory::create_policy (CORBA::PolicyType type,
   if (!(value >>= val))
     throw CORBA::INTERNAL ();
 
-  Policy * p = 0;
+  Policy * p = nullptr;
   ACE_NEW_THROW_EX (p,
                     Policy (val),
                     CORBA::NO_MEMORY ());

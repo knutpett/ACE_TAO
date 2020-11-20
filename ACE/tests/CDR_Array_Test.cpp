@@ -301,7 +301,7 @@ CDR_Test<T, H>::ttoh (const T& t, char* s)
       *s++ = digits[ k & 15 ];
     }
 
-  *s = 0;
+  *s = nullptr;
 }
 
 void
@@ -383,7 +383,7 @@ CDR_Test<T, H>::do_test (int total, int niter, int use_array,
   ACE_DEBUG((LM_DEBUG,
              ACE_TEXT( "Writing data...\n" )));
 
-  char* toread = 0;
+  char* toread = nullptr;
   {
     ACE_TEST_ASSERT(use_array || total % 4 == 0);
 

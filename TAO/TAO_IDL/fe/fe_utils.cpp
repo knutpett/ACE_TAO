@@ -41,8 +41,8 @@ FE_Utils::duplicate_param_id (T_PARAMLIST_INFO *params)
        !i.done ();
        i.advance (), ++cur_pos)
     {
-      FE_Utils::T_Param_Info *this_one = 0;
-      FE_Utils::T_Param_Info *that_one = 0;
+      FE_Utils::T_Param_Info *this_one = nullptr;
+      FE_Utils::T_Param_Info *that_one = nullptr;
 
       i.next (this_one);
 
@@ -63,7 +63,7 @@ FE_Utils::duplicate_param_id (T_PARAMLIST_INFO *params)
 void
 FE_Utils::T_ARGLIST::destroy (void)
 {
-  AST_Decl **d = 0;
+  AST_Decl **d = nullptr;
 
   for (T_ARGLIST::ITERATOR i (this->begin ());
        !i.done ();
@@ -183,10 +183,10 @@ FE_Utils::ExprTypeToPredefinedType (AST_Expression::ExprType et)
 UTL_ScopedName *
 FE_Utils::string_to_scoped_name (const char *s)
 {
-  UTL_ScopedName *retval = 0;
+  UTL_ScopedName *retval = nullptr;
   ACE_CString str (s);
-  Identifier *id = 0;
-  UTL_ScopedName *sn = 0;
+  Identifier *id = nullptr;
+  UTL_ScopedName *sn = nullptr;
 
   while (! str.empty ())
     {
@@ -363,7 +363,7 @@ FE_Utils::create_implied_ami_uses_stuff (void)
        ! i.done ();
        i.advance ())
     {
-      char **item = 0;
+      char **item = nullptr;
       i.next (item);
 
       UTL_ScopedName *sn =
@@ -476,7 +476,7 @@ FE_Utils::check_for_seq_of_param (FE_Utils::T_PARAMLIST_INFO *list)
        !i.done ();
        i.advance (), ++index)
     {
-      FE_Utils::T_Param_Info *param = 0;
+      FE_Utils::T_Param_Info *param = nullptr;
       i.next (param);
 
       if (param->name_.find (pattern) == 0)
@@ -501,7 +501,7 @@ FILE *
 FE_Utils::open_included_file (char const * filename,
                               char const *& directory)
 {
-  FILE * f = 0;
+  FILE * f = nullptr;
   ACE_CString const the_file (ACE_CString ('/')
                               + ACE_CString (filename));
 
@@ -510,7 +510,7 @@ FE_Utils::open_included_file (char const * filename,
        !i.done () && f == 0;
        i.advance ())
     {
-      IDL_GlobalData::Include_Path_Info *path_info = 0;
+      IDL_GlobalData::Include_Path_Info *path_info = nullptr;
       (void) i.next (path_info);
 
       if (path_info->path_ != 0)
@@ -533,7 +533,7 @@ FE_Utils::is_include_file_found (ACE_CString & inc_file,
                                  UTL_String * idl_file_name)
 {
   char abspath[MAXPATHLEN] = "";
-  char *full_path = 0;
+  char *full_path = nullptr;
 
   // If the include path has literal "s (because of an include
   // of a Windows path with spaces), we must remove them here.
@@ -605,9 +605,9 @@ FE_Utils::validate_included_idl_files (void)
 
   char pre_abspath [MAXPATHLEN] = "";
   char post_abspath [MAXPATHLEN] = "";
-  IDL_GlobalData::Include_Path_Info *path_info = 0;
-  char *post_tmp = 0;
-  char *full_path = 0;
+  IDL_GlobalData::Include_Path_Info *path_info = nullptr;
+  char *post_tmp = nullptr;
+  char *full_path = nullptr;
 
   // We are going to assemble a list of the include files found in
   // the top level file in the order that they are found in the pre-
@@ -745,7 +745,7 @@ FE_Utils::validate_orb_include (UTL_String * idl_file_name)
        !iter.done ();
        iter.advance ())
     {
-      IDL_GlobalData::Include_Path_Info *path_info = 0;
+      IDL_GlobalData::Include_Path_Info *path_info = nullptr;
       iter.next (path_info);
 
       ACE_CString partial = path_info->path_;
@@ -834,10 +834,10 @@ FE_Utils::can_be_redefined (AST_Decl *prev_decl,
 
   UTL_Scope *prev_scope = prev_decl->defined_in ();
   UTL_Scope *curr_scope = curr_decl->defined_in ();
-  AST_Structure *s = 0;
-  AST_StructureFwd *s_fwd = 0;
-  AST_Template_Module *ptm = 0;
-  AST_Template_Module *ctm = 0;
+  AST_Structure *s = nullptr;
+  AST_StructureFwd *s_fwd = nullptr;
+  AST_Template_Module *ptm = nullptr;
+  AST_Template_Module *ctm = nullptr;
 
   bool nt_eq = (pnt == cnt);
   bool s_eq = (prev_scope == curr_scope);
@@ -962,7 +962,7 @@ FE_Utils::check_one_seq_of_param (FE_Utils::T_PARAMLIST_INFO *list,
           break;
         }
 
-      FE_Utils::T_Param_Info *info = 0;
+      FE_Utils::T_Param_Info *info = nullptr;
       i.next (info);
 
       if (info->name_ == param_id)

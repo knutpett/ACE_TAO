@@ -172,7 +172,7 @@ void
 AST_Root::destroy (void)
 {
   long i = 0;
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
 
   // Just destroy and delete everything but the CORBA
   // module, and the 'void' keyword, in case we are

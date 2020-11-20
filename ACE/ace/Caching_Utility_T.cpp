@@ -59,8 +59,8 @@ ACE_Pair_Caching_Utility<KEY, VALUE, CONTAINER, ITERATOR, ATTRIBUTES>::clear_cac
     = ACE_MAX (static_cast<size_t> (1),
                static_cast<size_t> (static_cast<double> (purge_percent)
                                     / 100 * current_map_size));
-  KEY *key_to_remove = 0;
-  VALUE *value_to_remove = 0;
+  KEY *key_to_remove = nullptr;
+  VALUE *value_to_remove = nullptr;
 
   for (size_t i = 0; i < entries_to_remove ; ++i)
     {
@@ -160,8 +160,8 @@ ACE_Recyclable_Handler_Caching_Utility<KEY, VALUE, CONTAINER, ITERATOR, ATTRIBUT
                static_cast<size_t> (static_cast<double> (purge_percent)
                                     / 100 * current_map_size));
 
-  KEY *key_to_remove = 0;
-  VALUE *value_to_remove = 0;
+  KEY *key_to_remove = nullptr;
+  VALUE *value_to_remove = nullptr;
 
   for (size_t i = 0; i < entries_to_remove ; ++i)
     {
@@ -283,8 +283,8 @@ ACE_Refcounted_Recyclable_Handler_Caching_Utility<KEY, VALUE, CONTAINER, ITERATO
   if (entries_to_remove >= available_entries  || entries_to_remove == 0)
     entries_to_remove = available_entries - 1;
 
-  KEY *key_to_remove = 0;
-  VALUE *value_to_remove = 0;
+  KEY *key_to_remove = nullptr;
+  VALUE *value_to_remove = nullptr;
 
   for (size_t i = 0; i < entries_to_remove ; ++i)
     {
@@ -403,8 +403,8 @@ ACE_Handler_Caching_Utility<KEY, VALUE, CONTAINER, ITERATOR, ATTRIBUTES>::clear_
                static_cast<size_t> (static_cast<double> (purge_percent)
                                     / 100 * current_map_size));
 
-  KEY *key_to_remove = 0;
-  VALUE *value_to_remove = 0;
+  KEY *key_to_remove = nullptr;
+  VALUE *value_to_remove = nullptr;
 
   for (size_t i = 0; i < entries_to_remove ; ++i)
     {

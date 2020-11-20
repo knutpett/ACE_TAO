@@ -301,7 +301,7 @@ CORBA::Object_ptr TAO::Object_Group_Creator::create_group (
 
     }
 
-    const PortableGroup::Location * first_location = 0;
+    const PortableGroup::Location * first_location = nullptr;
 
     for (CORBA::ULong nFact = 0; nFact < count; ++nFact)
     {

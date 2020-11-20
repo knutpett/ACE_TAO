@@ -46,7 +46,7 @@ Catior_i::decode (const ACE_CString& aString, ACE_CString& output)
   const ACE_CString iiopPrefix = "iiop:";
   const ACE_CString poopPrefix = ":IR:";
 
-  char * str = 0;
+  char * str = nullptr;
   CORBA::Boolean b = false;
   if (aString.find (iorPrefix) == 0)
     {
@@ -150,7 +150,7 @@ Catior_i::catiiop (char* string)
        *cp++ = *string++)
     continue;
 
-  *cp = 0;
+  *cp = nullptr;
   ++string;
 
   cp = ACE_OS::strchr ((char *) string, '/');
@@ -380,7 +380,7 @@ Catior_i::catpoop (char* string)
        *cp++ = *string++)
     continue;
 
-  *cp = 0;
+  *cp = nullptr;
   ++string;
 
   buffer_ += "Host Name:\t";
@@ -399,7 +399,7 @@ Catior_i::catpoop (char* string)
        *cp++ = *string++)
     continue;
 
-  *cp = 0;
+  *cp = nullptr;
   ++string;
 
   buffer_ += "Server Name:\t";
@@ -419,7 +419,7 @@ Catior_i::catpoop (char* string)
        *cp++ = *string++)
     continue;
 
-  *cp = 0;
+  *cp = nullptr;
   ++string;
 
   buffer_ += "Marker:\t\t";
@@ -438,7 +438,7 @@ Catior_i::catpoop (char* string)
        *cp++ = *string++)
     continue;
 
-  *cp = 0;
+  *cp = nullptr;
   ++string;
 
   buffer_ += "IR Host:\t\t";
@@ -457,7 +457,7 @@ Catior_i::catpoop (char* string)
        *cp++ = *string++)
     continue;
 
-  *cp = 0;
+  *cp = nullptr;
   ++string;
 
   buffer_ += "IR Server:\t\t";

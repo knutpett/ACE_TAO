@@ -25,7 +25,7 @@ TAO_Parser_Registry::~TAO_Parser_Registry (void)
 int
 TAO_Parser_Registry::open (TAO_ORB_Core *orb_core)
 {
-  char **names = 0;
+  char **names = nullptr;
   int number_of_names = 0;
 
   if (orb_core->resource_factory () == 0)

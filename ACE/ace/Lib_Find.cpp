@@ -92,7 +92,7 @@ ACE_LD_Symbol_Registry::register_symbol (const ACE_TCHAR* symname,
 void*
 ACE_LD_Symbol_Registry::find_symbol (const ACE_TCHAR* symname)
 {
-  void* symaddr = 0;
+  void* symaddr = nullptr;
   int const result = symbol_registry_.find (symname, symaddr);
 
   return (result == 0 ? symaddr : 0);
@@ -234,7 +234,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
   separator_ptr = ACE_OS::strrchr (tempcopy, '/');
 
   // This is a relative path.
-  if (separator_ptr == 0)
+  if (separator_ptr == nullptr)
     {
       searchpathname[0] = '\0';
       ACE_OS::strcpy (searchfilename, tempcopy);
@@ -254,7 +254,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
 
   const ACE_TCHAR *dll_suffix = ACE_DLL_SUFFIX;
 
-  if (s != 0)
+  if (s != nullptr)
     {
       // If we have a dot, we have a suffix
       has_suffix = true;
@@ -341,7 +341,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
       else
         {
 #if defined (ACE_WIN32) && !defined (ACE_HAS_WINCE)
-          ACE_TCHAR *file_component = 0;
+          ACE_TCHAR *file_component = nullptr;
           DWORD pathlen =
             ACE_TEXT_SearchPath (0,
                                  searchfilename,
@@ -376,7 +376,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
           else if (pathlen > 0)
             return 0;
 #else
-          ACE_TCHAR *ld_path = 0;
+          ACE_TCHAR *ld_path = nullptr;
 #  if defined ACE_DEFAULT_LD_SEARCH_PATH
           ld_path = const_cast<ACE_TCHAR*> (ACE_DEFAULT_LD_SEARCH_PATH);
 #  else
@@ -392,7 +392,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
 #  endif /* ACE_DEFAULT_LD_SEARCH_PATH */
 
 #if defined (ACE_HAS_WINCE)
-            ACE_TCHAR *ld_path_temp = 0;
+            ACE_TCHAR *ld_path_temp = nullptr;
             if (ld_path != 0)
               {
                 ld_path_temp = (ACE_TCHAR *)
@@ -414,8 +414,8 @@ ACE::ldfind (const ACE_TCHAR* filename,
               }
 #endif /* ACE_HAS_WINCE */
 
-          if (ld_path != 0
-              && (ld_path = ACE_OS::strdup (ld_path)) != 0)
+          if (ld_path != nullptr
+              && (ld_path = ACE_OS::strdup (ld_path)) != nullptr)
             {
               // strtok has the strange behavior of not separating the
               // string ":/foo:/bar" into THREE tokens.  One would expect
@@ -432,7 +432,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
 
               // Look at each dynamic lib directory in the search path.
 
-              ACE_TCHAR *nextholder = 0;
+              ACE_TCHAR *nextholder = nullptr;
               const ACE_TCHAR *path_entry =
                 ACE::strsplit_r (ld_path,
                                  ACE_LD_SEARCH_PATH_SEPARATOR_STR,
@@ -442,7 +442,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
               for (;;)
                 {
                   // Check if at end of search path.
-                  if (path_entry == 0)
+                  if (path_entry == nullptr)
                     {
                       errno = ENOENT;
                       result = -1;
@@ -489,7 +489,7 @@ ACE::ldfind (const ACE_TCHAR* filename,
 
                   // Fetch the next item in the path
                   path_entry =
-                    ACE::strsplit_r (0,
+                    ACE::strsplit_r (nullptr,
                                      ACE_LD_SEARCH_PATH_SEPARATOR_STR,
                                      nextholder);
                 }
@@ -528,7 +528,7 @@ ACE::ldopen (const ACE_TCHAR *filename,
   if (ACE::ldfind (filename,
                    buf,
                    sizeof (buf) /sizeof (ACE_TCHAR)) == -1)
-    return 0;
+    return nullptr;
   else
     return ACE_OS::fopen (buf, type);
 }
@@ -566,7 +566,7 @@ ACE::ldname (const ACE_TCHAR *entry_point)
 #else
   ACE_NEW_RETURN (new_name,
                   ACE_TCHAR[size],
-                  0);
+                  nullptr);
 #endif /* ACE_HAS_ALLOC_HOOKS */
 
   ACE_OS::strcpy (new_name, entry_point);
@@ -618,7 +618,7 @@ ACE::get_temp_dir (ACE_TCHAR *buffer, size_t buffer_len)
   // variable is defined to be.  If it doesn't exist, just use /tmp
   const char *tmpdir = ACE_OS::getenv ("TMPDIR");
 
-  if (tmpdir == 0)
+  if (tmpdir == nullptr)
     {
 #if defined (ACE_DEFAULT_TEMP_DIR)
       tmpdir = ACE_DEFAULT_TEMP_DIR;
@@ -705,16 +705,16 @@ ACE::strsplit_r (char *str,
                  const char *token,
                  char *&next_start)
 {
-  char *result = 0;
+  char *result = nullptr;
 
-  if (str != 0)
+  if (str != nullptr)
     next_start = str;
 
-  if (next_start != 0)
+  if (next_start != nullptr)
     {
       char *tok_loc = ACE_OS::strstr (next_start, token);
 
-      if (tok_loc != 0)
+      if (tok_loc != nullptr)
         {
           // Return the beginning of the string.
           result = next_start;
@@ -739,16 +739,16 @@ ACE::strsplit_r (wchar_t *str,
                  const wchar_t *token,
                  wchar_t *&next_start)
 {
-  wchar_t *result = 0;
+  wchar_t *result = nullptr;
 
-  if (str != 0)
+  if (str != nullptr)
     next_start = str;
 
-  if (next_start != 0)
+  if (next_start != nullptr)
     {
       wchar_t *tok_loc = ACE_OS::strstr (next_start, token);
 
-      if (tok_loc != 0)
+      if (tok_loc != nullptr)
         {
           // Return the beginning of the string.
           result = next_start;

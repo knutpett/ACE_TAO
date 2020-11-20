@@ -16,7 +16,7 @@
 #include "ace/os_include/os_netdb.h"
 
 unsigned port = 8088;
-const ACE_TCHAR *notifier_file = 0;
+const ACE_TCHAR *notifier_file = nullptr;
 int
 parse_args (int argc, ACE_TCHAR *argv[])
 {

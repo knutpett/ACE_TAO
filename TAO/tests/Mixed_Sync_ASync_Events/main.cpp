@@ -16,8 +16,8 @@
 #include "ace/Get_Opt.h"
 #include "ace/OS_NS_unistd.h"
 
-const ACE_TCHAR *ior_output_file = 0;
-const ACE_TCHAR *input_ior = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
+const ACE_TCHAR *input_ior = nullptr;
 A::RunMode mode_flag = A::RM_SLAVE;
 CORBA::ULong max_count = 20;
 

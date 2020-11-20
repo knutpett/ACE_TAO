@@ -6,7 +6,7 @@ int test_orb (CORBA::ORB_ptr orb)
 {
   int errors = 0;
 
-  POA_TestModule::test* test = 0;
+  POA_TestModule::test* test = nullptr;
   ACE_NEW_RETURN (test,
                   test_i, 1);
   PortableServer::ServantBase_var safe (test);
@@ -91,7 +91,7 @@ int test_orb (CORBA::ORB_ptr orb)
 int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-  Server_ORBInitializer *initializer = 0;
+  Server_ORBInitializer *initializer = nullptr;
   int retval = 0;
 
   ACE_NEW_RETURN (initializer,

@@ -49,7 +49,7 @@ EC_Wrapper::init (CORBA::ORB_ptr orb,
   // Allow reconnections - used by some tests.
   attr.consumer_reconnect = 1;
 
-  TAO_EC_Event_Channel * impl = 0;
+  TAO_EC_Event_Channel * impl = nullptr;
   ACE_NEW_RETURN (impl,
                   TAO_EC_Event_Channel (attr),
                   -1);

@@ -48,7 +48,7 @@ namespace ACE
         const ACE::HTTP::ClientRequestHandler::HttpConnectionKey& ikey =
             dynamic_cast<const ACE::HTTP::ClientRequestHandler::HttpConnectionKey&> (key);
 
-        SessionHolder_Impl* session_holder = 0;
+        SessionHolder_Impl* session_holder = nullptr;
         ACE_NEW_RETURN (session_holder,
                         SessionHolder_Impl (),
                         0);

@@ -41,7 +41,7 @@ TAO::Any_Impl_T<T>::insert (CORBA::Any & any,
                             CORBA::TypeCode_ptr tc,
                             T * const value)
 {
-  TAO::Any_Impl_T<T> *new_impl = 0;
+  TAO::Any_Impl_T<T> *new_impl = nullptr;
   ACE_NEW (new_impl,
            TAO::Any_Impl_T<T> (destructor,
                                tc,
@@ -84,7 +84,7 @@ TAO::Any_Impl_T<T>::extract (const CORBA::Any & any,
           return true;
         }
 
-      TAO::Any_Impl_T<T> *replacement = 0;
+      TAO::Any_Impl_T<T> *replacement = nullptr;
       ACE_NEW_RETURN (replacement,
                       TAO::Any_Impl_T<T> (destructor,
                                           any_tc,

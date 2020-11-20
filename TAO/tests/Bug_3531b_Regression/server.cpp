@@ -77,7 +77,7 @@ public:
 
   virtual int svc (void);
   virtual int close (u_long = 0);
-  virtual int put (ACE_Message_Block * mblk, ACE_Time_Value * tv = 0);
+  virtual int put (ACE_Message_Block * mblk, ACE_Time_Value * tv = nullptr);
   int process_cmd (void);
   void shutdown (bool do_shutdown);
   bool shutdown (void);
@@ -86,7 +86,7 @@ private:
   bool shutdown_;
 };
 
-ACE_TSS<Worker> *workers_p = 0;
+ACE_TSS<Worker> *workers_p = nullptr;
 #define workers (*workers_p)
 
 int Worker::svc (void)
@@ -119,7 +119,7 @@ int Worker::put (ACE_Message_Block * mblk, ACE_Time_Value * tv)
 
 int Worker::process_cmd (void)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   if (this->getq (mb, 0) == -1)
     {
       ACE_ERROR ((LM_ERROR, ACE_TEXT ("Error calling getq: $!\n")));
@@ -150,8 +150,8 @@ class Test_Reactor: public ACE_TP_Reactor
 public:
   Test_Reactor (size_t max_number_of_handles,
                   bool restart = false,
-                  ACE_Sig_Handler *sh = 0,
-                  ACE_Timer_Queue *tq = 0,
+                  ACE_Sig_Handler *sh = nullptr,
+                  ACE_Timer_Queue *tq = nullptr,
                   bool mask_signals = true,
                   int s_queue = ACE_Select_Reactor_Token::FIFO)
   : ACE_TP_Reactor(max_number_of_handles, restart, sh, tq, mask_signals, s_queue) {}
@@ -202,7 +202,7 @@ public:
 
   virtual ACE_Reactor_Impl* allocate_reactor_impl (void) const
   {
-    ACE_Reactor_Impl *impl = 0;
+    ACE_Reactor_Impl *impl = nullptr;
     ACE_NEW_RETURN (impl,
                     Test_Reactor (ACE::max_handles (),
                                     1,

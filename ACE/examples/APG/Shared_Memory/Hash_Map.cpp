@@ -25,7 +25,7 @@ ACE_Process_Mutex coordMutex("Coord-Mutex");
 // Listing 2 code/ch17
 HASH_MAP* smap (ALLOCATOR *shmem_allocator)
 {
-  void *db = 0;
+  void *db = nullptr;
   if (shmem_allocator->find (MAP_NAME, db) == 0)
     return (HASH_MAP *) db;
   size_t hash_table_size = sizeof (HASH_MAP);
@@ -138,7 +138,7 @@ int handle_child (void)
 
   ACE_GUARD_RETURN (ACE_Process_Mutex, ace_mon, coordMutex, -1);
 
-  ALLOCATOR * shmem_allocator = 0;
+  ALLOCATOR * shmem_allocator = nullptr;
   ACE_MMAP_Memory_Pool_Options options
     (ACE_DEFAULT_BASE_ADDR,
      ACE_MMAP_Memory_Pool_Options::ALWAYS_FIXED);
@@ -170,7 +170,7 @@ int handle_parent (ACE_TCHAR *cmdLine)
 {
   ACE_TRACE ("handle_parent");
 
-  ALLOCATOR * shmem_allocator = 0;
+  ALLOCATOR * shmem_allocator = nullptr;
   ACE_MMAP_Memory_Pool_Options options
     (ACE_DEFAULT_BASE_ADDR,
      ACE_MMAP_Memory_Pool_Options::ALWAYS_FIXED);

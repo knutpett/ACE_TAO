@@ -158,7 +158,7 @@ Persistent_File_Allocator::shutdown()
 Persistent_Storage_Block*
 Persistent_File_Allocator::allocate()
 {
-  Persistent_Storage_Block* result = 0;
+  Persistent_Storage_Block* result = nullptr;
   size_t block_number = 0;
   ACE_GUARD_RETURN (TAO_SYNCH_MUTEX, ace_mon, this->lock_, 0);
   if (!this->allocate_block(block_number))
@@ -178,7 +178,7 @@ Persistent_File_Allocator::allocate()
 Persistent_Storage_Block*
 Persistent_File_Allocator::allocate_at(size_t block_number)
 {
-  Persistent_Storage_Block* result = 0;
+  Persistent_Storage_Block* result = nullptr;
   this->used(block_number);
   if (DEBUG_LEVEL > 0) ORBSVCS_DEBUG ((LM_DEBUG,
     ACE_TEXT ("(%P|%t) Persistent_File_Allocator::allocate at : %B\n"),
@@ -194,7 +194,7 @@ Persistent_File_Allocator::allocate_at(size_t block_number)
 Persistent_Storage_Block*
 Persistent_File_Allocator::allocate_nowrite()
 {
-  Persistent_Storage_Block* result = 0;
+  Persistent_Storage_Block* result = nullptr;
   ACE_NEW_RETURN (result,
                   Persistent_Storage_Block (static_cast<size_t> (~0), 0),
                   0);
@@ -239,7 +239,7 @@ Persistent_File_Allocator::read(Persistent_Storage_Block* psb)
   bool cached = false;
   if (result)
   {
-    Persistent_Storage_Block** psbtemp = 0;
+    Persistent_Storage_Block** psbtemp = nullptr;
     {
       ACE_GUARD_RETURN (TAO_SYNCH_MUTEX, ace_mon, this->queue_lock_, false);
       size_t queue_size = this->block_queue_.size();
@@ -349,7 +349,7 @@ Persistent_File_Allocator::run()
   while (do_more_work)
   {
     do_more_work = false;
-    Persistent_Storage_Block * blk = 0;
+    Persistent_Storage_Block * blk = nullptr;
     {
       ACE_GUARD (TAO_SYNCH_MUTEX, ace_mon, this->queue_lock_);
       while (this->block_queue_.is_empty() && !terminate_thread_)
@@ -357,7 +357,7 @@ Persistent_File_Allocator::run()
         this->wake_up_thread_.wait();
       }
       // Awkward interface to peek at head of unbounded queue
-      Persistent_Storage_Block ** pblk = 0;
+      Persistent_Storage_Block ** pblk = nullptr;
       if (0 == this->block_queue_.get(pblk))
       {
         do_more_work = true;
@@ -372,7 +372,7 @@ Persistent_File_Allocator::run()
         pstore_.write(blk->block_number(), blk->data(), blk->get_sync());
       }
       {
-        Persistent_Storage_Block * blk2 = 0;
+        Persistent_Storage_Block * blk2 = nullptr;
         ACE_GUARD (TAO_SYNCH_MUTEX, ace_mon, this->queue_lock_);
         this->block_queue_.dequeue_head (blk2);
         // if this triggers, someone pushed onto the head of the queue

@@ -823,7 +823,7 @@ ACE_Timer_Wheel_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>::expire (const ACE_Time_
           this->free_node (n);
         }
 
-      const void *upcall_act = 0;
+      const void *upcall_act = nullptr;
 
       this->preinvoke (info, cur_time, upcall_act);
 

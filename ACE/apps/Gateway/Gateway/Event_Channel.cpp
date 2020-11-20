@@ -49,7 +49,7 @@ Event_Channel::compute_performance_statistics (void)
   // Iterate through the connection map summing up the number of bytes
   // sent/received.
 
-  for (CONNECTION_MAP_ENTRY *me = 0;
+  for (CONNECTION_MAP_ENTRY *me = nullptr;
        cmi.next (me) != 0;
        cmi.advance ())
     {
@@ -165,7 +165,7 @@ void
 Event_Channel::routing_event (Event_Key *forwarding_address,
                               ACE_Message_Block *data)
 {
-  Consumer_Dispatch_Set *dispatch_set = 0;
+  Consumer_Dispatch_Set *dispatch_set = nullptr;
 
   // Initialize the <dispatch_set> to points to the set of Consumers
   // associated with this forwarding address.
@@ -194,7 +194,7 @@ Event_Channel::routing_event (Event_Key *forwarding_address,
           // multi-threaded configuration.
           data->locking_strategy (Options::instance ()->locking_strategy ());
 
-          for (Connection_Handler **connection_handler = 0;
+          for (Connection_Handler **connection_handler = nullptr;
                dsi.next (connection_handler) != 0;
                dsi.advance ())
             {
@@ -351,7 +351,7 @@ Event_Channel::initiate_connector (void)
       // Iterate through the Consumer Map connecting all the
       // Connection_Handlers.
 
-      for (CONNECTION_MAP_ENTRY *me = 0;
+      for (CONNECTION_MAP_ENTRY *me = nullptr;
            cmi.next (me) != 0;
            cmi.advance ())
         {
@@ -430,7 +430,7 @@ Event_Channel::close (u_long)
 
     // Iterate over all the handlers and shut them down.
 
-    for (CONNECTION_MAP_ENTRY *me = 0; // It's safe to reset me to 0.
+    for (CONNECTION_MAP_ENTRY *me = nullptr; // It's safe to reset me to 0.
          cmi.next (me) != 0;
          cmi.advance ())
       {
@@ -463,7 +463,7 @@ Event_Channel::close (u_long)
   {
     CONNECTION_MAP_ITERATOR cmi (this->connection_map_);
 
-    for (CONNECTION_MAP_ENTRY *me = 0; // It's safe to reset me to 0.
+    for (CONNECTION_MAP_ENTRY *me = nullptr; // It's safe to reset me to 0.
          cmi.next (me) != 0;
          cmi.advance ())
       {

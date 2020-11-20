@@ -711,7 +711,7 @@ be_visitor_typecode_defn::queue_insert (
     ACE_CDR::Long offset
   )
 {
-  be_visitor_typecode_defn::QNode *qnode = 0;
+  be_visitor_typecode_defn::QNode *qnode = nullptr;
 
   ACE_NEW_RETURN (qnode, be_visitor_typecode_defn::QNode, 0);
 
@@ -741,8 +741,8 @@ be_visitor_typecode_defn::queue_lookup (
        !iter.done ();
        iter.advance ())
     {
-      be_visitor_typecode_defn::QNode **addr = 0;
-      be_visitor_typecode_defn::QNode *item = 0;
+      be_visitor_typecode_defn::QNode **addr = nullptr;
+      be_visitor_typecode_defn::QNode *item = nullptr;
       iter.next (addr);
       item = *addr;
 
@@ -763,7 +763,7 @@ queue_reset (ACE_Unbounded_Queue <be_visitor_typecode_defn::QNode *> & queue)
 {
   while (!queue.is_empty ())
     {
-      be_visitor_typecode_defn::QNode * qnode = 0;
+      be_visitor_typecode_defn::QNode * qnode = nullptr;
       (void) queue.dequeue_head (qnode);
       delete qnode;
     }

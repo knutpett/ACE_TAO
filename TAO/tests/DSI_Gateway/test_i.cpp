@@ -11,7 +11,7 @@ Simple_Server_i::test_method (CORBA::Long x,
                               Structure_out the_out_structure,
                               char *&name)
 {
-  Structure *tmp = 0;
+  Structure *tmp = nullptr;
   ACE_NEW_RETURN (tmp, Structure (the_in_structure), -1);
   the_out_structure = tmp;
 

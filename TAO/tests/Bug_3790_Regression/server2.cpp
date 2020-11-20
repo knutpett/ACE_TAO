@@ -104,7 +104,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       poa_manager->activate ();
 
       // Create task.
-      Task *task = 0;
+      Task *task = nullptr;
       ACE_NEW_RETURN (task,
                       Task (orb.in ()),
                       1);

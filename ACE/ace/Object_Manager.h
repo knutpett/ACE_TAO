@@ -118,7 +118,7 @@ template <class T> class ACE_Cleanup_Adapter;
  * can be used to register any object or array for any
  * cleanup activity at program termination.
  * 2) ACE_Object_Manager::at_exit (ACE_Cleanup *object,
- * void *param = 0);
+ * void *param = nullptr);
  * can be used to register an ACE_Cleanup object
  * for any cleanup activity at program termination.
  * The final mechanism is not general purpose, but can only
@@ -243,7 +243,7 @@ public:
    * shutting down, ENOMEM if insufficient virtual memory, or EEXIST
    * if the object (or array) had already been registered.
    */
-  static int at_exit (ACE_Cleanup *object, void *param = 0, const char* name = 0);
+  static int at_exit (ACE_Cleanup *object, void *param = nullptr, const char* name = nullptr);
 
 #if defined (ACE_HAS_TSS_EMULATION)
   static int init_tss (void);
@@ -267,7 +267,7 @@ public:
   static int at_exit (void *object,
                       ACE_CLEANUP_FUNC cleanup_hook,
                       void *param,
-                      const char* name = 0);
+                      const char* name = nullptr);
 
   static int remove_at_exit (void *object);
 

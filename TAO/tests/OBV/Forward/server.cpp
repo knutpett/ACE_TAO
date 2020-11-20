@@ -46,7 +46,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       // compiler so we just to put everything in a right order.
 
       // Create and register factory for BaseNode.
-      BaseNode_init *bn_factory = 0;
+      BaseNode_init *bn_factory = nullptr;
       ACE_NEW_RETURN (bn_factory,
                       BaseNode_init,
                       1);
@@ -56,7 +56,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       bn_factory->_remove_ref (); // release ownership
 
       // Create and register factory for TreeController.
-      TreeController_init *tc_factory = 0;
+      TreeController_init *tc_factory = nullptr;
       ACE_NEW_RETURN (tc_factory,
                       TreeController_init,
                       1);
@@ -66,7 +66,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       tc_factory->_remove_ref (); // release ownership
 
       // Create and register factory for StringNode.
-      StringNode_init *sn_factory = 0;
+      StringNode_init *sn_factory = nullptr;
       ACE_NEW_RETURN (sn_factory,
                       StringNode_init,
                       1);

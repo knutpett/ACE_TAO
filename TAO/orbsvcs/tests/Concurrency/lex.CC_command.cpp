@@ -489,7 +489,7 @@ static int input ACE_CC_YY_PROTO(( void ));
 #if ACE_CC_YY_STACK_USED
 static int ace_cc_yy_start_stack_ptr = 0;
 static int ace_cc_yy_start_stack_depth = 0;
-static int *ace_cc_yy_start_stack = 0;
+static int *ace_cc_yy_start_stack = nullptr;
 #ifndef ACE_CC_YY_NO_PUSH_STATE
 static void ace_cc_yy_push_state ACE_CC_YY_PROTO(( int new_state ));
 #endif
@@ -605,7 +605,7 @@ ACE_CC_YY_MALLOC_DECL
 ACE_CC_YY_DECL
   {
   ace_cc_yy_state_type ace_cc_yy_current_state;
-  char *ace_cc_yy_cp = 0, *ace_cc_yy_bp = 0;
+  char *ace_cc_yy_cp = nullptr, *ace_cc_yy_bp = nullptr;
   int ace_cc_yy_act;
 
 

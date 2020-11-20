@@ -46,8 +46,8 @@ namespace ACE
 
               /// Constructor
               StreamHandler (const ACE_Synch_Options &synch_options = ACE_Synch_Options::defaults,
-                             ACE_Thread_Manager *thr_mgr = 0,
-                             mq_type *mq = 0,
+                             ACE_Thread_Manager *thr_mgr = nullptr,
+                             mq_type *mq = nullptr,
                              ACE_Reactor *reactor = ACE_Reactor::instance ());
 
               /// Destructor
@@ -88,12 +88,12 @@ namespace ACE
               /// Attempts to receive data from peer and queue it.
               /// Called either from handle_input in reactive mode or
               /// directly from read_from_stream when non-reactive.
-              int handle_output_i (ACE_Time_Value* timeout = 0);
+              int handle_output_i (ACE_Time_Value* timeout = nullptr);
 
               /// Attempts to send queued data to peer.
               /// Called either from handle_output in reactive mode
               /// or directly from write_to_stream when non-reactive.
-              int handle_input_i (size_t rdlen, ACE_Time_Value* timeout = 0);
+              int handle_input_i (size_t rdlen, ACE_Time_Value* timeout = nullptr);
 
               /// processes queued input
               int process_input (char* buf,

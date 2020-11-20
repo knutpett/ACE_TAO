@@ -31,7 +31,7 @@ TAO_EndpointPolicy_i::policy_type (void)
 TAO_EndpointPolicy_i *
 TAO_EndpointPolicy_i::clone (void) const
 {
-  TAO_EndpointPolicy_i *copy = 0;
+  TAO_EndpointPolicy_i *copy = nullptr;
   ACE_NEW_RETURN (copy,
                   TAO_EndpointPolicy_i (*this),
                   0);
@@ -41,7 +41,7 @@ TAO_EndpointPolicy_i::clone (void) const
 EndpointPolicy::EndpointList *
 TAO_EndpointPolicy_i::value (void)
 {
-  EndpointPolicy::EndpointList* list = 0;
+  EndpointPolicy::EndpointList* list = nullptr;
   ACE_NEW_RETURN (list,
                   EndpointPolicy::EndpointList (this->value_),
                   0);
@@ -52,7 +52,7 @@ TAO_EndpointPolicy_i::value (void)
 CORBA::Policy_ptr
 TAO_EndpointPolicy_i::copy (void)
 {
-  TAO_EndpointPolicy_i* servant = 0;
+  TAO_EndpointPolicy_i* servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     TAO_EndpointPolicy_i (*this),
                     CORBA::NO_MEMORY ());

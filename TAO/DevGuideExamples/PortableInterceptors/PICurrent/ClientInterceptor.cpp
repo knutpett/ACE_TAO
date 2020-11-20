@@ -54,7 +54,7 @@ ClientInterceptor::send_request (PortableInterceptor::ClientRequestInfo_ptr ri)
   const char user_name[] = "Ron Klein";
   std::cout << "User's Name: " << user_name << std::endl;
   CORBA::ULong string_len = sizeof (user_name) + 1;
-  CORBA::Octet *buf = 0;
+  CORBA::Octet *buf = nullptr;
   buf = new CORBA::Octet [string_len];
 
   ACE_OS::strcpy (reinterpret_cast<char*> (buf), user_name);

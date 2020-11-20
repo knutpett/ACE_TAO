@@ -58,7 +58,7 @@ public:
 
   //FUZZ: disable check_for_lack_ACE_OS
   ///FUZZ: enable check_for_lack_ACE_OS
-  virtual int open (void *args = 0);
+  virtual int open (void *args = nullptr);
   virtual int close (u_long flags = 0);
 
   virtual int svc (void);
@@ -365,7 +365,7 @@ ACE_TMAIN (int, ACE_TCHAR *[])
         ACE_DEBUG ((LM_DEBUG, "(%t) result d %u\n", (u_int) resultc));
         ACE_DEBUG ((LM_DEBUG, "(%t) result e %u\n", (u_int) resultd));
 
-        const char *name = 0;
+        const char *name = nullptr;
 
         fname.get (name);
 

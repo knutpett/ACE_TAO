@@ -57,7 +57,7 @@ public:
   ACE_Select_Reactor_T (ACE_Sig_Handler * = 0,
                         ACE_Timer_Queue * = 0,
                         int disable_notify_pipe = ACE_DISABLE_NOTIFY_PIPE_DEFAULT,
-                        ACE_Reactor_Notify *notify = 0,
+                        ACE_Reactor_Notify *notify = nullptr,
                         bool mask_signals = true,
                         int s_queue = ACE_SELECT_TOKEN::FIFO);
 
@@ -82,7 +82,7 @@ public:
                         ACE_Sig_Handler * = 0,
                         ACE_Timer_Queue * = 0,
                         int disable_notify_pipe = ACE_DISABLE_NOTIFY_PIPE_DEFAULT,
-                        ACE_Reactor_Notify *notify = 0,
+                        ACE_Reactor_Notify *notify = nullptr,
                         bool mask_signals = true,
                         int s_queue = ACE_SELECT_TOKEN::FIFO);
 
@@ -158,8 +158,8 @@ public:
    * Current alertable_handle_events() is identical to
    * handle_events().
    */
-  virtual int handle_events (ACE_Time_Value *max_wait_time = 0);
-  virtual int alertable_handle_events (ACE_Time_Value *max_wait_time = 0);
+  virtual int handle_events (ACE_Time_Value *max_wait_time = nullptr);
+  virtual int alertable_handle_events (ACE_Time_Value *max_wait_time = nullptr);
   //@}
 
   //@{
@@ -241,15 +241,15 @@ public:
    */
   virtual int register_handler (int signum,
                                 ACE_Event_Handler *new_sh,
-                                ACE_Sig_Action *new_disp = 0,
-                                ACE_Event_Handler **old_sh = 0,
-                                ACE_Sig_Action *old_disp = 0);
+                                ACE_Sig_Action *new_disp = nullptr,
+                                ACE_Event_Handler **old_sh = nullptr,
+                                ACE_Sig_Action *old_disp = nullptr);
 
   /// Registers @a new_sh to handle a set of signals @a sigset using the
   /// @a new_disp.
   virtual int register_handler (const ACE_Sig_Set &sigset,
                                 ACE_Event_Handler *new_sh,
-                                ACE_Sig_Action *new_disp = 0);
+                                ACE_Sig_Action *new_disp = nullptr);
 
   /**
    * Removes the @a mask binding of @a eh from the Select_Reactor.  If
@@ -286,7 +286,7 @@ public:
    */
   virtual int remove_handler (int signum,
                               ACE_Sig_Action *new_disp,
-                              ACE_Sig_Action *old_disp = 0,
+                              ACE_Sig_Action *old_disp = nullptr,
                               int sigkey = -1);
 
   /// Calls <remove_handler> for every signal in @a sigset.
@@ -382,7 +382,7 @@ public:
    * succeeded and 0 if the @a timer_id wasn't found.
    */
   virtual int cancel_timer (long timer_id,
-                            const void **arg = 0,
+                            const void **arg = nullptr,
                             int dont_call_handle_close = 1);
 
   // = High-level Event_Handler scheduling operations
@@ -483,7 +483,7 @@ public:
   // = Only the owner thread can perform a <handle_events>.
 
   /// Set the new owner of the thread and return the old owner.
-  virtual int owner (ACE_thread_t n_id, ACE_thread_t *o_id = 0);
+  virtual int owner (ACE_thread_t n_id, ACE_thread_t *o_id = nullptr);
 
   /// Return the current owner of the thread.
   virtual int owner (ACE_thread_t *);
@@ -503,7 +503,7 @@ public:
    */
   virtual int handler (ACE_HANDLE handle,
                        ACE_Reactor_Mask mask,
-                       ACE_Event_Handler **eh = 0);
+                       ACE_Event_Handler **eh = nullptr);
 
   /**
    * Check to see if @a signum is associated with a valid Event_Handler
@@ -679,7 +679,7 @@ protected:
   int release_token (void);
 
   /// Stops the VC++ compiler from bitching about exceptions and destructors
-  int handle_events_i (ACE_Time_Value *max_wait_time = 0);
+  int handle_events_i (ACE_Time_Value *max_wait_time = nullptr);
 
   /// This flag is used to keep track of whether we are actively handling
   /// events or not.

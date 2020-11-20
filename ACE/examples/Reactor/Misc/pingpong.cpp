@@ -194,7 +194,7 @@ static const ACE_Time_Value SHUTDOWN_TIME (10);
 static void
 run_svc (ACE_HANDLE handle)
 {
-  Ping_Pong *callback = 0;
+  Ping_Pong *callback = nullptr;
   ACE_NEW (callback,
            Ping_Pong (ACE_TEXT_ALWAYS_CHAR (string_name),
                       handle));

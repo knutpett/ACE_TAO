@@ -63,7 +63,7 @@ static size_t max_aio_operations = 0;
 static int both = 0;
 
 // Host that we're connecting to.
-static const ACE_TCHAR *host = 0;
+static const ACE_TCHAR *host = nullptr;
 
 // number of Client instances
 static int clients = 1;
@@ -202,7 +202,7 @@ MyTask::create_proactor (ProactorType type_proactor, size_t max_op)
   ACE_UNUSED_ARG (type_proactor);
   ACE_UNUSED_ARG (max_op);
 
-  ACE_WIN32_Proactor *proactor_impl = 0;
+  ACE_WIN32_Proactor *proactor_impl = nullptr;
 
   ACE_NEW_RETURN (proactor_impl,
                   ACE_WIN32_Proactor,
@@ -213,7 +213,7 @@ MyTask::create_proactor (ProactorType type_proactor, size_t max_op)
 
 #elif defined (ACE_HAS_AIO_CALLS)
 
-  ACE_POSIX_Proactor * proactor_impl = 0;
+  ACE_POSIX_Proactor * proactor_impl = nullptr;
 
   switch (type_proactor)
     {
@@ -1040,7 +1040,7 @@ Server::initiate_read (void)
   if (this->flg_cancel_ || this->handle () == ACE_INVALID_HANDLE)
     return -1;
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   ACE_NEW_RETURN (mb,
                   ACE_Message_Block (1024), //BUFSIZ + 1),
                   -1);
@@ -1550,9 +1550,9 @@ Client::initiate_write (void)
 
 #if defined (ACE_WIN32)
 
-  ACE_Message_Block *mb1 = 0,
-                    *mb2 = 0,
-                    *mb3 = 0;
+  ACE_Message_Block *mb1 = nullptr,
+                    *mb2 = nullptr,
+                    *mb3 = nullptr;
 
   // No need to allocate +1 for proper printing - the memory includes it already
   ACE_NEW_RETURN (mb1,
@@ -1589,7 +1589,7 @@ Client::initiate_write (void)
     }
 #else /* ACE_WIN32 */
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   // No need to allocate +1 for proper printing - the memory includes
   // it already
@@ -1625,12 +1625,12 @@ Client::initiate_read (void)
     ACE_OS::strlen (complete_message);
 
 #if defined (ACE_HAS_WIN32_OVERLAPPED_IO)
-  ACE_Message_Block *mb1 = 0,
-                    *mb2 = 0,
-                    *mb3 = 0,
-                    *mb4 = 0,
-                    *mb5 = 0,
-                    *mb6 = 0;
+  ACE_Message_Block *mb1 = nullptr,
+                    *mb2 = nullptr,
+                    *mb3 = nullptr,
+                    *mb4 = nullptr,
+                    *mb5 = nullptr,
+                    *mb6 = nullptr;
 
   // We allocate +1 only for proper printing - we can just set the last byte
   // to '\0' before printing out
@@ -1680,7 +1680,7 @@ Client::initiate_read (void)
   size_t blksize = ( complete_message_length > BUFSIZ ) ?
                      complete_message_length : BUFSIZ;
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   // We allocate +1 only for proper printing - we can just set the last byte
   // to '\0' before printing out

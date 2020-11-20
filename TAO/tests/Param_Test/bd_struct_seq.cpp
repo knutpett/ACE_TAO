@@ -51,7 +51,7 @@ Test_Bounded_Struct_Sequence::dii_req_invoke (CORBA::Request *req)
 
   req->invoke ();
 
-  const Param_Test::Bounded_StructSeq *tmp = 0;
+  const Param_Test::Bounded_StructSeq *tmp = nullptr;
   req->return_value () >>= tmp;
   this->ret_ = new Param_Test::Bounded_StructSeq (*tmp);
 

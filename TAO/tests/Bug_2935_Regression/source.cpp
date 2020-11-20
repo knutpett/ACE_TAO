@@ -2,7 +2,7 @@
 
 // A ThreeTier client that calls tick and/or tock
 
-const ACE_TCHAR * ior_input_file = 0;
+const ACE_TCHAR * ior_input_file = nullptr;
 
 char input_ior[5000];
 

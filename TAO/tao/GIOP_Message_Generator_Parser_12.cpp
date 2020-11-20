@@ -465,7 +465,7 @@ TAO_GIOP_Message_Generator_Parser_12::marshall_target_spec (
           return false;
 
         // Get the IOR
-        IOP::IOR *ior = 0;
+        IOP::IOR *ior = nullptr;
         CORBA::ULong const index = spec.iop_ior (ior);
 
         if (ior)

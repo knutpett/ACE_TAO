@@ -164,7 +164,7 @@ namespace ACE
     Control_Action*
     Monitor_Base::remove_constraint (const long constraint_id)
     {
-      Control_Action* retval = 0;
+      Control_Action* retval = nullptr;
 
       {
         ACE_GUARD_RETURN (ACE_SYNCH_MUTEX, guard, this->mutex_, 0);

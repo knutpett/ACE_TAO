@@ -39,7 +39,7 @@ worker (void *c)
   intptr_t count = reinterpret_cast<intptr_t> (c);
 
   ACE_thread_key_t key = ACE_OS::NULL_key;
-  int *ip = 0;
+  int *ip = nullptr;
 
   // Make one key that will be available when the thread exits so that
   // we'll have something to cleanup!

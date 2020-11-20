@@ -89,7 +89,7 @@ template <typename CHAR_TYPE>
 const CHAR_TYPE *
 ACE_Arg_Shifter_T<CHAR_TYPE>::get_current (void) const
 {
-  const CHAR_TYPE * retval = 0;
+  const CHAR_TYPE * retval = nullptr;
 
   if (this->is_anything_left ())
     retval =  this->temp_[current_index_];

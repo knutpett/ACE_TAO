@@ -148,7 +148,7 @@ TT_Info::dump_properties (const CosTrading::PropertySeq& prop_seq,
   for (int length = prop_seq.length (), k = 0; k < length; k++)
     {
       CORBA::ULong seq_length = 0, i= 0;
-      CORBA::Any* value = 0;
+      CORBA::Any* value = nullptr;
       CORBA::TypeCode_ptr tc = 0;
       ACE_DEBUG ((LM_DEBUG, "%-15s: ", prop_seq[k].name.in ()));
       try
@@ -178,7 +178,7 @@ TT_Info::dump_properties (const CosTrading::PropertySeq& prop_seq,
 
       if (check)
         {
-          const TAO_Trader_Test::StringSeq* str_seq = 0;
+          const TAO_Trader_Test::StringSeq* str_seq = nullptr;
           (*value) >>= str_seq;
 
           for (seq_length = str_seq->length (), i = 0; i < seq_length; i++)
@@ -192,7 +192,7 @@ TT_Info::dump_properties (const CosTrading::PropertySeq& prop_seq,
 
           if (check)
             {
-              const TAO_Trader_Test::ULongSeq* ulong_seq = 0;
+              const TAO_Trader_Test::ULongSeq* ulong_seq = nullptr;
               (*value) >>= ulong_seq;
 
               for (seq_length = ulong_seq->length (), i = 0; i < seq_length; i++)
@@ -287,7 +287,7 @@ TT_Parse_Args::TT_Parse_Args (int& argc, ACE_TCHAR** argv)
                ACE_OS::strcmp (current_arg, ACE_TEXT("-iorfile")) == 0)
         {
           arg_shifter.consume_arg ();
-          FILE* ior_file = 0;
+          FILE* ior_file = nullptr;
 
           if (arg_shifter.is_parameter_next ())
             {

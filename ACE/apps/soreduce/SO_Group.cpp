@@ -97,7 +97,7 @@ SO_Group::add_executable (const char * path)
 
     if (dot != 0)
       {
-        *dot = 0;
+        *dot = nullptr;
       }
 
     char * libname = line + 3; // skip over "lib"

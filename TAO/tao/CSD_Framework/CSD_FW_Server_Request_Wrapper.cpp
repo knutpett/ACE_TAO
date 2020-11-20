@@ -154,7 +154,7 @@ TAO_ServerRequest*
 TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_ServerRequest*& request)
 {
   // TBD-CSD: Ultimately add an argument for an allocator.
-  TAO_ServerRequest* clone_obj = 0;
+  TAO_ServerRequest* clone_obj = nullptr;
   ACE_NEW_RETURN (clone_obj,
                   TAO_ServerRequest (),
                   0);
@@ -293,7 +293,7 @@ TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_ServerRequest*& request)
 TAO_InputCDR*
 TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_InputCDR*& from)
 {
-  TAO_InputCDR* clone_ptr = 0;
+  TAO_InputCDR* clone_ptr = nullptr;
   ACE_NEW_RETURN (clone_ptr,
                   TAO_InputCDR(*from),
                   0);
@@ -309,7 +309,7 @@ TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_Operation_Details const *& from,
   TAO_Operation_Details *& from_non_const
     = const_cast <TAO_Operation_Details *&>(from);
 
-  char* cloned_op_name = 0;
+  char* cloned_op_name = nullptr;
   ACE_NEW_RETURN (cloned_op_name,
                   char[from_non_const->opname_len_ + 1],
                   false);
@@ -319,7 +319,7 @@ TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_Operation_Details const *& from,
   // See if we can clone arguments.  If we can, the user compiled the
   // idl with the clonable arguments option, great.  If not, then
   // use the marshaling technique to copy the arguments
-  TAO::Argument** cloned_args = 0;
+  TAO::Argument** cloned_args = nullptr;
   CORBA::ULong num_cloned_args = 0;
   if (from->num_args_ > 0)
     {
@@ -382,7 +382,7 @@ TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_Operation_Details const *& from,
   // CSD-TBD: Eventually need to use allocators.
 
   // CSD-TBD: Assert that this->ex_data_ and this->ex_count_ are both == 0
-  TAO_Operation_Details* to_non_const = 0;
+  TAO_Operation_Details* to_non_const = nullptr;
   ACE_NEW_RETURN (to_non_const,
                   TAO_Operation_Details(cloned_op_name,
                                         from_non_const->opname_len_,
@@ -455,10 +455,10 @@ TAO::CSD::FW_Server_Request_Wrapper::clone (TAO_Service_Context& from,
 TAO_OutputCDR*
 TAO::CSD::FW_Server_Request_Wrapper::create_new_output_cdr ()
 {
-  TAO_OutputCDR* cdr = 0;
+  TAO_OutputCDR* cdr = nullptr;
 
   // A buffer that we will use to initialise the CDR stream
-  char* repbuf = 0;
+  char* repbuf = nullptr;
   ACE_NEW_RETURN (repbuf,
                  char[ACE_CDR::DEFAULT_BUFSIZE],
                  0);

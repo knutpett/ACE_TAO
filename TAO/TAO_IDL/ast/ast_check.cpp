@@ -71,7 +71,7 @@ trademarks or registered trademarks of Sun Microsystems, Inc.
 #include "utl_scope.h"
 
 // Static storage for remembering nodes.
-static AST_Type  **ast_fwds = 0;
+static AST_Type  **ast_fwds = nullptr;
 static long  ast_n_fwds_used = 0;
 static long  ast_n_fwds_alloc = 0;
 
@@ -82,7 +82,7 @@ static long  ast_n_fwds_alloc = 0;
 void
 AST_record_fwd_decl (AST_Type *n)
 {
-  AST_Type **o_ast_fwds = 0;
+  AST_Type **o_ast_fwds = nullptr;
   long o_ast_n_fwds_alloc = 0;
 
   // Make sure there's space to store one more.
@@ -120,7 +120,7 @@ AST_record_fwd_decl (AST_Type *n)
 TAO_IDL_FE_Export void
 AST_check_fwd_decls (void)
 {
-  AST_Type *d = 0;
+  AST_Type *d = nullptr;
 
   for (long i = 0; i < ast_n_fwds_used; ++i)
     {

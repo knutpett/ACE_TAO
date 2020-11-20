@@ -83,7 +83,7 @@ ACE_Test_Output::set_output (const ACE_TCHAR *filename, int append)
 #else
   ACE_TCHAR temp[MAXPATHLEN + 1] = { 0 };
   // Ignore the error value since the directory may already exist.
-  const ACE_TCHAR *test_dir = 0;
+  const ACE_TCHAR *test_dir = nullptr;
 
 #if defined (ACE_WIN32) || !defined (ACE_USES_WCHAR)
   test_dir = ACE_OS::getenv (ACE_TEXT ("ACE_TEST_DIR"));
@@ -142,7 +142,7 @@ ACE_Test_Output::set_output (const ACE_TCHAR *filename, int append)
   if (!this->output_file_->good ())
     return -1;
 #else /* when ACE_LACKS_IOSTREAM_TOTALLY */
-  const ACE_TCHAR *fmode = 0;
+  const ACE_TCHAR *fmode = nullptr;
   if (append)
     fmode = ACE_TEXT ("a");
   else

@@ -3,9 +3,9 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 ACE_INLINE
 ACE_DLList_Node::ACE_DLList_Node (void)
-  : item_ (0),
-    next_ (0),
-    prev_ (0)
+  : item_ (nullptr),
+    next_ (nullptr),
+    prev_ (nullptr)
 {
 }
 

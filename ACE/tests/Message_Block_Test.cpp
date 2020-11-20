@@ -65,7 +65,7 @@ public:
   virtual int svc (void);
 
   /// Allows the producer to pass messages to the <Message_Block>.
-  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = 0);
+  virtual int put (ACE_Message_Block *mb, ACE_Time_Value *tv = nullptr);
 
 private:
   //FUZZ: disable check_for_lack_ACE_OS
@@ -106,7 +106,7 @@ Worker_Task::svc (void)
 
   for (int count = 0; ; count++)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       if (-1 == this->msg_queue ()->dequeue_head (mb))
         ACE_ERROR_BREAK ((LM_ERROR,
@@ -251,7 +251,7 @@ static int
 produce (Worker_Task &worker_task,
          ACE_Allocator *alloc_strategy)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   int status;
 
   // Send <n_iteration> messages through the pipeline.
@@ -361,7 +361,7 @@ run_main (int, ACE_TCHAR *[])
   ACE_START_TEST (ACE_TEXT ("Message_Block_Test"));
 
   // A quick user-defined data block test, then the main event
-  User_Data *user_data_block = 0;
+  User_Data *user_data_block = nullptr;
   ACE_NEW_MALLOC_RETURN (user_data_block,
                          static_cast<User_Data *>(
                            ACE_Allocator::instance()->malloc(sizeof (User_Data))),
@@ -370,7 +370,7 @@ run_main (int, ACE_TCHAR *[])
 
   // Create a new message block referring to the User_Data block and
   // ensure it is released and freed correctly.
-  ACE_Message_Block *wrapper_mb = 0;
+  ACE_Message_Block *wrapper_mb = nullptr;
   ACE_NEW_RETURN (wrapper_mb,
                   ACE_Message_Block (user_data_block),
                   -1);

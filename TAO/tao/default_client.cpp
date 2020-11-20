@@ -242,7 +242,7 @@ TAO_Default_Client_Strategy_Factory::parse_args (int argc, ACE_TCHAR* argv[])
              {
                ACE_TCHAR* name = argv[curarg];
 
-               ACE_TCHAR *err = 0;
+               ACE_TCHAR *err = nullptr;
                long limit = ACE_OS::strtol (name, &err, 10);
                if (err && *err != 0)
                  {
@@ -264,7 +264,7 @@ TAO_Default_Client_Strategy_Factory::parse_args (int argc, ACE_TCHAR* argv[])
              {
                ACE_TCHAR* name = argv[curarg];
 
-               ACE_TCHAR *err = 0;
+               ACE_TCHAR *err = nullptr;
                long limit = ACE_OS::strtol (name, &err, 10);
                if (err && *err != 0)
                  {
@@ -287,7 +287,7 @@ TAO_Default_Client_Strategy_Factory::parse_args (int argc, ACE_TCHAR* argv[])
              {
                ACE_TCHAR* name = argv[curarg];
 
-               ACE_TCHAR *err = 0;
+               ACE_TCHAR *err = nullptr;
                long limit = ACE_OS::strtol (name, &err, 10);
                if (err && *err != 0)
                  {
@@ -309,7 +309,7 @@ TAO_Default_Client_Strategy_Factory::parse_args (int argc, ACE_TCHAR* argv[])
              {
                ACE_TCHAR* name = argv[curarg];
 
-               ACE_TCHAR *err = 0;
+               ACE_TCHAR *err = nullptr;
                long limit = ACE_OS::strtol (name, &err, 10);
                if (err && *err != 0)
                  {
@@ -331,7 +331,7 @@ TAO_Default_Client_Strategy_Factory::parse_args (int argc, ACE_TCHAR* argv[])
              {
                ACE_TCHAR* name = argv[curarg];
 
-               ACE_TCHAR *err = 0;
+               ACE_TCHAR *err = nullptr;
                long limit = ACE_OS::strtol (name, &err, 10);
                if (err && *err != 0)
                  {
@@ -368,7 +368,7 @@ TAO_Transport_Mux_Strategy *
 TAO_Default_Client_Strategy_Factory::create_transport_mux_strategy (
    TAO_Transport *transport)
 {
-  TAO_Transport_Mux_Strategy *tms = 0;
+  TAO_Transport_Mux_Strategy *tms = nullptr;
 
   switch (this->transport_mux_strategy_)
     {
@@ -394,7 +394,7 @@ TAO_Default_Client_Strategy_Factory::create_transport_mux_strategy (
 ACE_Lock *
 TAO_Default_Client_Strategy_Factory::create_transport_mux_strategy_lock (void)
 {
-  ACE_Lock *the_lock = 0;
+  ACE_Lock *the_lock = nullptr;
 
   switch (this->muxed_strategy_lock_type_)
     {
@@ -427,7 +427,7 @@ TAO_Wait_Strategy *
 TAO_Default_Client_Strategy_Factory::create_wait_strategy (
   TAO_Transport *transport)
 {
-  TAO_Wait_Strategy *ws = 0;
+  TAO_Wait_Strategy *ws = nullptr;
 
   switch (this->wait_strategy_)
     {
@@ -474,7 +474,7 @@ TAO_Connect_Strategy *
 TAO_Default_Client_Strategy_Factory::create_connect_strategy (
   TAO_ORB_Core *orb_core)
 {
-  TAO_Connect_Strategy *cs = 0;
+  TAO_Connect_Strategy *cs = nullptr;
 
   switch (this->connect_strategy_)
     {

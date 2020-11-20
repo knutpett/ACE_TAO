@@ -250,7 +250,7 @@ TAO_Notify_Constraint_Visitor::visit_union_pos (
                 TAO_OutputCDR cdr;
                 cdr.write_ulong ((CORBA::ULong) disc_val);
                 TAO_InputCDR in_cdr (cdr);
-                TAO::Unknown_IDL_Type *unk = 0;
+                TAO::Unknown_IDL_Type *unk = nullptr;
                 ACE_NEW_RETURN (unk,
                                 TAO::Unknown_IDL_Type (disc_tc.in (),
                                 in_cdr),
@@ -288,7 +288,7 @@ TAO_Notify_Constraint_Visitor::visit_union_pos (
             const char *name = (const char *) disc_val;
             CORBA::ULong count = tc->member_count ();
 
-            const char *member_name = 0;
+            const char *member_name = nullptr;
             CORBA::ULong i = 0;
 
             for (i = 0; i < count; ++i)
@@ -448,7 +448,7 @@ TAO_Notify_Constraint_Visitor::visit_component_assoc (
   }
 
   ETCL_Constraint *comp = assoc->component ();
-  CORBA::Any *any_ptr = 0;
+  CORBA::Any *any_ptr = nullptr;
 
   if (comp == 0)
     {
@@ -642,7 +642,7 @@ TAO_Notify_Constraint_Visitor::visit_component (
   ACE_CString component_name (identifier->value (),
                               0,
                               false);
-  CORBA::Any *any_ptr = 0;
+  CORBA::Any *any_ptr = nullptr;
   int result =
     this->implicit_ids_.find (component_name, this->implicit_id_);
 
@@ -799,7 +799,7 @@ TAO_Notify_Constraint_Visitor::visit_exist (ETCL_Exist *exist)
 
   if (component->accept (this) == 0)
     {
-      const char *value = 0;
+      const char *value = nullptr;
       CORBA::Boolean result = 0;
 
       // For the two cases below, we don't want the item at the top of
@@ -1394,7 +1394,7 @@ TAO_Notify_Constraint_Visitor::any_does_contain (
     TAO_ETCL_Literal_Constraint &item
   )
 {
-  const CORBA::Any *result = 0;
+  const CORBA::Any *result = nullptr;
   *any >>= result;
 
   TAO_ETCL_Literal_Constraint element (const_cast<CORBA::Any *>(result));

@@ -20,7 +20,7 @@ int StackExample::run (void)
 {
   ACE_TRACE ("StackExample::run");
 
-  ACE_Allocator *allocator = 0;
+  ACE_Allocator *allocator = nullptr;
   size_t block_size = sizeof(ACE_Node<DataElement>);
   ACE_NEW_RETURN
     (allocator,
@@ -59,7 +59,7 @@ int StackExample::runUnboundedStack (ACE_Allocator* allocator)
            -1);
     }
 
-  void* furtherMemory = 0;
+  void* furtherMemory = nullptr;
   furtherMemory = allocator->malloc
     (sizeof(ACE_Node<DataElement>));
   ACE_TEST_ASSERT (furtherMemory == 0);

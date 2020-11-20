@@ -96,8 +96,8 @@ be_sequence::be_sequence (AST_Expression *v,
     }
 
   AST_Decl::NodeType nt = t->node_type ();
-  AST_Typedef *td = 0;
-  AST_Type *pbt = 0;
+  AST_Typedef *td = nullptr;
+  AST_Type *pbt = nullptr;
 
   if (nt == AST_Decl::NT_typedef)
     {
@@ -135,7 +135,7 @@ char *
 be_sequence::gen_name (void)
 {
   char namebuf [NAMEBUFSIZE];
-  be_type *bt = 0;
+  be_type *bt = nullptr;
 
   // Reset the buffer.
   ACE_OS::memset (namebuf,
@@ -215,11 +215,11 @@ be_sequence::gen_name (void)
 int
 be_sequence::create_name (be_typedef *node)
 {
-  static char *namebuf = 0;
-  UTL_ScopedName *n = 0;
+  static char *namebuf = nullptr;
+  UTL_ScopedName *n = nullptr;
 
   // Scope in which we are defined.
-  be_decl *scope = 0;
+  be_decl *scope = nullptr;
 
   // If there is a typedef node, we use its name as our name.
   if (node)
@@ -243,12 +243,12 @@ be_sequence::create_name (be_typedef *node)
           // Make a copy of the enclosing scope's name.
           n = (UTL_ScopedName *) scope->name ()->copy ();
 
-          Identifier *id = 0;
+          Identifier *id = nullptr;
           ACE_NEW_RETURN (id,
                           Identifier (namebuf),
                           -1);
 
-          UTL_ScopedName *conc_name = 0;
+          UTL_ScopedName *conc_name = nullptr;
           ACE_NEW_RETURN (conc_name,
                           UTL_ScopedName (id,
                                           0),
@@ -280,8 +280,8 @@ be_sequence::managed_type (void)
   if (this->mt_ == be_sequence::MNG_UNKNOWN) // Not calculated yet.
     {
       // Base types.
-      be_type *bt = 0;
-      be_type *prim_type = 0;
+      be_type *bt = nullptr;
+      be_type *prim_type = nullptr;
 
       bt = dynamic_cast<be_type*> (this->base_type ());
 
@@ -426,7 +426,7 @@ be_sequence::instance_name ()
                   '\0',
                   NAMEBUFSIZE);
 
-  be_type *bt = 0;
+  be_type *bt = nullptr;
   bt = dynamic_cast<be_type*> (this->base_type ());
 
   if (bt == 0)
@@ -621,7 +621,7 @@ be_sequence::gen_base_class_name (TAO_OutStream *os,
       break;
     case be_sequence::MNG_STRING:
       {
-        be_type *prim_type = 0;
+        be_type *prim_type = nullptr;
         if (elem->node_type () == AST_Decl::NT_typedef)
           {
             // Get the primitive base type of this typedef node.
@@ -680,7 +680,7 @@ be_sequence::gen_base_class_name (TAO_OutStream *os,
       break;
     case be_sequence::MNG_WSTRING:
       {
-        be_type *prim_type = 0;
+        be_type *prim_type = nullptr;
         if (elem->node_type () == AST_Decl::NT_typedef)
           {
             // Get the primitive base type of this typedef node.
@@ -813,7 +813,7 @@ be_sequence::compute_tc_name (void)
   // TypeCode.  Generate a TypeCode name that is meant for internal
   // use alone.
 
-  Identifier * tao_id = 0;
+  Identifier * tao_id = nullptr;
   ACE_NEW (tao_id,
            Identifier ("TAO"));
 
@@ -832,22 +832,22 @@ be_sequence::compute_tc_name (void)
     + ACE_CString (this->flat_name ())
     + ACE_CString (bound);
 
-  Identifier * typecode_scope = 0;
+  Identifier * typecode_scope = nullptr;
   ACE_NEW (typecode_scope,
            Identifier ("TypeCode"));
 
-  UTL_ScopedName * tc_scope_conc_name = 0;
+  UTL_ScopedName * tc_scope_conc_name = nullptr;
   ACE_NEW (tc_scope_conc_name,
            UTL_ScopedName (typecode_scope,
                            0));
 
   this->tc_name_->nconc (tc_scope_conc_name);
 
-  Identifier * id = 0;
+  Identifier * id = nullptr;
   ACE_NEW (id,
            Identifier (local_tc_name.c_str ()));
 
-  UTL_ScopedName * conc_name = 0;
+  UTL_ScopedName * conc_name = nullptr;
   ACE_NEW (conc_name,
            UTL_ScopedName (id,
                            0));

@@ -55,7 +55,7 @@ try_ace_new (char **p)
 static char *
 try_ace_new_return (void)
 {
-  char *p = 0;
+  char *p = nullptr;
   ACE_NEW_RETURN (p, char[BIG_BLOCK], 0);
   return p;
 }
@@ -63,7 +63,7 @@ try_ace_new_return (void)
 static char *
 try_ace_new_noreturn (void)
 {
-  char *p = 0;
+  char *p = nullptr;
   ACE_NEW_NORETURN (p, char[BIG_BLOCK]);
   return p;
 }

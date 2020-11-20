@@ -2,7 +2,7 @@
 #include "ace/Get_Opt.h"
 #include "ace/High_Res_Timer.h"
 
-static FILE *output_file = 0;
+static FILE *output_file = nullptr;
 // File handle of the file into which received data is written.
 
 static const ACE_TCHAR *output_file_name = ACE_TEXT ("output");

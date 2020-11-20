@@ -67,7 +67,7 @@ TAO_Adapter_Registry::insert (TAO_Adapter *adapter)
   if (this->adapters_capacity_ == this->adapters_count_)
     {
       this->adapters_capacity_ *= 2;
-      TAO_Adapter **tmp = 0;
+      TAO_Adapter **tmp = nullptr;
       ACE_NEW_THROW_EX (tmp,
                         TAO_Adapter*[this->adapters_capacity_],
                         CORBA::NO_MEMORY ());

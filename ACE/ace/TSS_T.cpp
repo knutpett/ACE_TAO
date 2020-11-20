@@ -79,7 +79,7 @@ ACE_TSS<TYPE>::operator TYPE *(void) const
 template <class TYPE> TYPE *
 ACE_TSS<TYPE>::make_TSS_TYPE (void) const
 {
-  TYPE *temp = 0;
+  TYPE *temp = nullptr;
   ACE_NEW_RETURN (temp,
                   TYPE,
                   0);
@@ -171,7 +171,7 @@ ACE_TSS<TYPE>::ACE_TSS (TYPE *ts_obj)
 #if defined (ACE_HAS_THR_C_DEST)
       // Encapsulate a ts_obj and it's destructor in an
       // ACE_TSS_Adapter.
-      ACE_TSS_Adapter *tss_adapter = 0;
+      ACE_TSS_Adapter *tss_adapter = nullptr;
       ACE_NEW (tss_adapter,
                ACE_TSS_Adapter ((void *) ts_obj,
                                 ACE_TSS<TYPE>::cleanup));
@@ -198,11 +198,11 @@ ACE_TSS<TYPE>::ts_get (void) const
         return 0;
     }
 
-  TYPE *ts_obj = 0;
+  TYPE *ts_obj = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
   ACE_TSS_Adapter *tss_adapter = this->ts_value ();
-  ACE_TSS_Adapter *fake_tss_adapter = 0;
+  ACE_TSS_Adapter *fake_tss_adapter = nullptr;
 
   // If tss_adapter is not 0 but its ts_obj_ is 0 then we still need to create
   // a proper ts_obj. That's the intent of this member function.
@@ -274,7 +274,7 @@ ACE_TSS<TYPE>::ts_object (void) const
   if (!this->once_) // Return 0 if we've never been initialized.
     return 0;
 
-  TYPE *ts_obj = 0;
+  TYPE *ts_obj = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
   ACE_TSS_Adapter *tss_adapter = this->ts_value ();
@@ -304,7 +304,7 @@ ACE_TSS<TYPE>::ts_object (TYPE *new_ts_obj)
         return 0;
     }
 
-  TYPE *ts_obj = 0;
+  TYPE *ts_obj = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
   ACE_TSS_Adapter *tss_adapter = this->ts_value ();
@@ -316,7 +316,7 @@ ACE_TSS<TYPE>::ts_object (TYPE *new_ts_obj)
       // in case setspecific below fails.
     }
 
-  ACE_TSS_Adapter *new_tss_adapter = 0;
+  ACE_TSS_Adapter *new_tss_adapter = nullptr;
   ACE_NEW_RETURN (new_tss_adapter,
                   ACE_TSS_Adapter ((void *) new_ts_obj,
                                    ACE_TSS<TYPE>::cleanup),
@@ -373,10 +373,10 @@ ACE_TSS_Guard<ACE_LOCK>::ACE_TSS_Guard (void)
 template <class ACE_LOCK> int
 ACE_TSS_Guard<ACE_LOCK>::release (void)
 {
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -393,10 +393,10 @@ ACE_TSS_Guard<ACE_LOCK>::release (void)
 template <class ACE_LOCK> int
 ACE_TSS_Guard<ACE_LOCK>::remove (void)
 {
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -413,10 +413,10 @@ ACE_TSS_Guard<ACE_LOCK>::remove (void)
 template <class ACE_LOCK>
 ACE_TSS_Guard<ACE_LOCK>::~ACE_TSS_Guard (void)
 {
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -445,12 +445,12 @@ template <class ACE_LOCK>
 ACE_TSS_Guard<ACE_LOCK>::ACE_TSS_Guard (ACE_LOCK &lock, bool block)
 {
   this->init_key ();
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
   ACE_NEW (guard,
            Guard_Type (lock, block));
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   ACE_NEW (tss_adapter,
            ACE_TSS_Adapter ((void *) guard,
                             ACE_TSS_Guard<ACE_LOCK>::cleanup));
@@ -465,10 +465,10 @@ ACE_TSS_Guard<ACE_LOCK>::ACE_TSS_Guard (ACE_LOCK &lock, bool block)
 template <class ACE_LOCK> int
 ACE_TSS_Guard<ACE_LOCK>::acquire (void)
 {
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -485,10 +485,10 @@ ACE_TSS_Guard<ACE_LOCK>::acquire (void)
 template <class ACE_LOCK> int
 ACE_TSS_Guard<ACE_LOCK>::tryacquire (void)
 {
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -507,12 +507,12 @@ ACE_TSS_Write_Guard<ACE_LOCK>::ACE_TSS_Write_Guard (ACE_LOCK &lock,
                                                     bool block)
 {
   this->init_key ();
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
   ACE_NEW (guard,
            Write_Guard_Type (lock, block));
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   ACE_NEW (tss_adapter,
            ACE_TSS_Adapter ((void *) guard,
                             ACE_TSS_Guard<ACE_LOCK>::cleanup));
@@ -525,10 +525,10 @@ ACE_TSS_Write_Guard<ACE_LOCK>::ACE_TSS_Write_Guard (ACE_LOCK &lock,
 template <class ACE_LOCK> int
 ACE_TSS_Write_Guard<ACE_LOCK>::acquire (void)
 {
-  Write_Guard_Type *guard = 0;
+  Write_Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -545,10 +545,10 @@ ACE_TSS_Write_Guard<ACE_LOCK>::acquire (void)
 template <class ACE_LOCK> int
 ACE_TSS_Write_Guard<ACE_LOCK>::tryacquire (void)
 {
-  Write_Guard_Type *guard = 0;
+  Write_Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -586,7 +586,7 @@ template <class ACE_LOCK>
 ACE_TSS_Read_Guard<ACE_LOCK>::ACE_TSS_Read_Guard (ACE_LOCK &lock, bool block)
 {
   this->init_key ();
-  Guard_Type *guard = 0;
+  Guard_Type *guard = nullptr;
   ACE_NEW (guard,
            Read_Guard_Type (lock, block));
 #if defined (ACE_HAS_THR_C_DEST)
@@ -605,10 +605,10 @@ ACE_TSS_Read_Guard<ACE_LOCK>::ACE_TSS_Read_Guard (ACE_LOCK &lock, bool block)
 template <class ACE_LOCK> int
 ACE_TSS_Read_Guard<ACE_LOCK>::acquire (void)
 {
-  Read_Guard_Type *guard = 0;
+  Read_Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
@@ -625,10 +625,10 @@ ACE_TSS_Read_Guard<ACE_LOCK>::acquire (void)
 template <class ACE_LOCK> int
 ACE_TSS_Read_Guard<ACE_LOCK>::tryacquire (void)
 {
-  Read_Guard_Type *guard = 0;
+  Read_Guard_Type *guard = nullptr;
 
 #if defined (ACE_HAS_THR_C_DEST)
-  ACE_TSS_Adapter *tss_adapter = 0;
+  ACE_TSS_Adapter *tss_adapter = nullptr;
   void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
   ACE_Thread::getspecific (this->key_, &temp);
   tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);

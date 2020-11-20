@@ -208,7 +208,7 @@ Identifier::case_compare_quiet (Identifier *o)
 Identifier *
 Identifier::copy (void)
 {
-  Identifier *retval = 0;
+  Identifier *retval = nullptr;
   ACE_NEW_RETURN (retval,
                   Identifier (this->pv_string),
                   0);

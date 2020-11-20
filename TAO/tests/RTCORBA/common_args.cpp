@@ -156,7 +156,7 @@ get_values (const char *test_type,
     {
       // sscanf with "%ul" doesn't seem to work properly on HP-UX.  So,
       // we will use strtoul instead.
-      char* endptr = 0;
+      char* endptr = nullptr;
       values[i] = ACE_OS::strtoul (working_string, &endptr, 10);
 
       if (endptr != working_string && endptr != 0 && *endptr != '\0')

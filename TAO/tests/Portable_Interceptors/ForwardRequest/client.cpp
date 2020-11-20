@@ -6,8 +6,8 @@
 
 #include "tao/ORBInitializer_Registry.h"
 
-const ACE_TCHAR *ior1 = 0;
-const ACE_TCHAR *ior2 = 0;
+const ACE_TCHAR *ior1 = nullptr;
+const ACE_TCHAR *ior2 = nullptr;
 
 int
 parse_args (int argc, ACE_TCHAR *argv[])

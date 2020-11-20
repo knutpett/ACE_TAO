@@ -331,7 +331,7 @@ int TAO::FT_ReplicationManagerFaultAnalyzer::get_factories (
   prop_name[0].id = CORBA::string_dup (FT::FT_FACTORIES);
   int result = 0;
 
-  const PortableGroup::FactoryInfos* temp_factories = 0;
+  const PortableGroup::FactoryInfos* temp_factories = nullptr;
   PortableGroup::Value value;
   if (TAO_PG::get_property_value (prop_name, properties, value) == 1)
   {

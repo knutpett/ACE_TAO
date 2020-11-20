@@ -35,7 +35,7 @@ Server_Task::svc (void)
      PortableServer::POAManager_var poa_manager =
        root_poa->the_POAManager ();
 
-     Hello *hello_impl = 0;
+     Hello *hello_impl = nullptr;
      ACE_NEW_RETURN (hello_impl,
                      Hello (this->sorb_.in (),
                             ACE_Thread::self ()),
@@ -66,7 +66,7 @@ Server_Task::svc (void)
      ACE_OS::fprintf (output_file, "%s", ior.in ());
      ACE_OS::fclose (output_file);
 
-     Test_Simple_Test_i *simple_impl = 0;
+     Test_Simple_Test_i *simple_impl = nullptr;
      ACE_NEW_RETURN (simple_impl,
                      Test_Simple_Test_i (),
                      1);

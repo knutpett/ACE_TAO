@@ -66,7 +66,7 @@ be_visitor_sequence_any_op_ch::visit_sequence (be_sequence *node)
       name = node->full_name ();
     }
 
-  be_module *module = 0;
+  be_module *module = nullptr;
   if (node->is_nested ())
     {
       AST_Decl *d = node;

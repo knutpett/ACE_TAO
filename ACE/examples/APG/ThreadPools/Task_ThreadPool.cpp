@@ -18,7 +18,7 @@ public:
   {
     while (1)
       {
-        ACE_Message_Block *mb = 0;
+        ACE_Message_Block *mb = nullptr;
         if (this->getq (mb) == -1)
           {
             ACE_DEBUG ((LM_INFO,
@@ -75,7 +75,7 @@ public:
 
     while (!done ())
       {
-        ACE_Message_Block *mb = 0;
+        ACE_Message_Block *mb = nullptr;
         ACE_Time_Value tv ((long)MAX_TIMEOUT);
         tv += ACE_OS::time (0);
 
@@ -116,7 +116,7 @@ int ACE_TMAIN (int, ACE_TCHAR *[])
   ACE_Time_Value tv;
   tv.msec (100);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
   for (int i = 0; i < 30; i++)
     {
       ACE_NEW_RETURN

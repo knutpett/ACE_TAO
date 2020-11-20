@@ -393,7 +393,7 @@ CORBA::Any *
 Cubit_i::cube_any_struct (const CORBA::Any & any)
 {
   ACE_FUNCTION_TIMEPROBE (CUBIT_I_CUBE_ANY_STRUCT_START);
-  const Cubit::Many * arg_struct = 0;
+  const Cubit::Many * arg_struct = nullptr;
   Cubit::Many ret_struct;
   any >>= arg_struct;
 

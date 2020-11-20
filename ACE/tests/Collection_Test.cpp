@@ -42,7 +42,7 @@ void iterate_const(const UNBOUNDED_SET& set)
     UNBOUNDED_SET_CONST_ITERATOR iterator (set);
     while (!iterator.done ())
     {
-      DATA *data = 0;
+      DATA *data = nullptr;
       iterator.next (data);
 
       ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%x,%x\n"),
@@ -93,7 +93,7 @@ run_main (int, ACE_TCHAR *[])
       UNBOUNDED_SET_ITERATOR iterator (unbounded_set);
       while (!iterator.done ())
         {
-          DATA *data = 0;
+          DATA *data = nullptr;
           iterator.next (data);
           ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%x,%x\n"),
                       data->alloc_, (void *) data->dfunc_));
@@ -157,7 +157,7 @@ run_main (int, ACE_TCHAR *[])
       ARRAY_ITERATOR iterator (array1);
       while (!iterator.done ())
         {
-          ARRAY_DATA *data = 0;
+          ARRAY_DATA *data = nullptr;
           iterator.next (data);
           ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%d\n"),
                       (*data)));

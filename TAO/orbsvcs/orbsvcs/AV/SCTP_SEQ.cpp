@@ -418,7 +418,7 @@ TAO_AV_SCTP_SEQ_Connector::make_svc_handler (TAO_AV_SCTP_SEQ_Flow_Handler *&sctp
   if (TAO_debug_level > 0)
     ORBSVCS_DEBUG ((LM_DEBUG,"TAO_AV_SCTP_SEQ_Connector::make_svc_handler\n"));
 
-  //  TAO_AV_Callback *callback = 0;
+  //  TAO_AV_Callback *callback = nullptr;
   if (this->endpoint_ != 0)
     {
       //       this->endpoint_->get_callback (this->flowname_.c_str (),
@@ -469,7 +469,7 @@ TAO_AV_SCTP_SEQ_Connector::connect (TAO_FlowSpec_Entry *entry,
     this->flowname_ = entry->flowname ();
   ACE_Addr *remote_addr = entry->address ();
   ACE_INET_Addr *inet_addr = dynamic_cast<ACE_INET_Addr *> (remote_addr);
-  TAO_AV_SCTP_SEQ_Flow_Handler *handler = 0;
+  TAO_AV_SCTP_SEQ_Flow_Handler *handler = nullptr;
 
   ACE_Multihomed_INET_Addr remote_multi_addr;
   remote_multi_addr.set (inet_addr->get_port_number (),
@@ -532,7 +532,7 @@ TAO_AV_SCTP_SEQ_Connector::connect (TAO_FlowSpec_Entry *entry,
                   "Local Addrs\n"));
       char buf [BUFSIZ];
       size_t size = BUFSIZ;
-      ACE_INET_Addr *peer_addrs = 0;
+      ACE_INET_Addr *peer_addrs = nullptr;
       ACE_NEW_RETURN (peer_addrs,ACE_INET_Addr [size], -1);
       handler->peer ().get_local_addrs (peer_addrs, size);
       for (unsigned int i=0; i < size;i++)
@@ -598,7 +598,7 @@ TAO_AV_SCTP_SEQ_Factory::make_acceptor (void)
 {
   if (TAO_debug_level > 0)
     ORBSVCS_DEBUG ((LM_DEBUG,"TAO_AV_SCTP_SEQ_Factory::make_acceptor\n"));
-  TAO_AV_Acceptor *acceptor = 0;
+  TAO_AV_Acceptor *acceptor = nullptr;
   ACE_NEW_RETURN (acceptor,
                   TAO_AV_SCTP_SEQ_Acceptor,
                   0);
@@ -610,7 +610,7 @@ TAO_AV_SCTP_SEQ_Factory::make_connector (void)
 {
   if (TAO_debug_level > 0)
     ORBSVCS_DEBUG ((LM_DEBUG,"TAO_AV_SCTP_SEQ_Factory::make_connector\n"));
-  TAO_AV_Connector *connector = 0;
+  TAO_AV_Connector *connector = nullptr;
   ACE_NEW_RETURN (connector,
                   TAO_AV_SCTP_SEQ_Connector,
                   0);
@@ -878,12 +878,12 @@ TAO_AV_SCTP_SEQ_Flow_Factory::make_protocol_object (TAO_FlowSpec_Entry *entry,
                                                     TAO_AV_Flow_Handler *handler,
                                                     TAO_AV_Transport *transport)
 {
-  TAO_AV_Callback *callback = 0;
+  TAO_AV_Callback *callback = nullptr;
   if( endpoint->get_callback (entry->flowname (), callback) ) {
     ORBSVCS_ERROR_RETURN ((LM_ERROR, "(%N,%l) Invalid callback\n"), 0);
   }
 
-  TAO_AV_SCTP_SEQ_Object *object = 0;
+  TAO_AV_SCTP_SEQ_Object *object = nullptr;
   ACE_NEW_RETURN (object,
                   TAO_AV_SCTP_SEQ_Object (callback,
                                           transport),

@@ -587,7 +587,7 @@ private:
    *
    * @sa skip_whitespace
    */
-  int skip_whitespace_count (ACEXML_Char *peek = 0);
+  int skip_whitespace_count (ACEXML_Char *peek = nullptr);
 
   /**
    * Skip an equal sign.
@@ -666,14 +666,14 @@ private:
    */
   virtual int switch_input (ACEXML_CharStream* cstream,
                             const ACEXML_Char* systemId,
-                            const ACEXML_Char* publicId = 0);
+                            const ACEXML_Char* publicId = nullptr);
   /**
    *  Create a new ACEXML_InputSource from @a systemId and @a publicId and
    *  replace the current input source with the newly created InputSource.
    */
   virtual int switch_input (ACEXML_InputSource* input,
                             const ACEXML_Char* systemId,
-                            const ACEXML_Char* publicId = 0);
+                            const ACEXML_Char* publicId = nullptr);
 
   /**
    * Check for a parameter entity reference. This is used to check for the

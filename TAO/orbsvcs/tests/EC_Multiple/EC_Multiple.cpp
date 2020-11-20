@@ -1065,7 +1065,7 @@ Test_ECG::parse_args (int argc, ACE_TCHAR *argv [])
 
         case 'i':
           {
-            char* aux = 0;
+            char* aux = nullptr;
             char* arg = ACE_OS::strtok_r (ACE_TEXT_ALWAYS_CHAR(get_opt.opt_arg ()), ",", &aux);
             this->consumer_disconnects_ = ACE_OS::atoi (arg);
             arg = ACE_OS::strtok_r (0, ",", &aux);
@@ -1075,7 +1075,7 @@ Test_ECG::parse_args (int argc, ACE_TCHAR *argv [])
 
         case 'h':
           {
-            char* aux = 0;
+            char* aux = nullptr;
                 char* arg = ACE_OS::strtok_r (ACE_TEXT_ALWAYS_CHAR(get_opt.opt_arg ()), ",", &aux);
 
             this->hp_suppliers_ = ACE_OS::atoi (arg);
@@ -1100,7 +1100,7 @@ Test_ECG::parse_args (int argc, ACE_TCHAR *argv [])
 
         case 'w':
           {
-            char* aux = 0;
+            char* aux = nullptr;
                 char* arg = ACE_OS::strtok_r (ACE_TEXT_ALWAYS_CHAR(get_opt.opt_arg ()), ",", &aux);
 
             this->lp_suppliers_ = ACE_OS::atoi (arg);

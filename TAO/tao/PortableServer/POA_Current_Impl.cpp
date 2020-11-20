@@ -70,7 +70,7 @@ namespace TAO
     PortableServer::ObjectId *
     POA_Current_Impl::get_object_id (void)
     {
-      PortableServer::ObjectId *objid = 0;
+      PortableServer::ObjectId *objid = nullptr;
 
       // Create a new one and pass it back
       ACE_NEW_RETURN (objid,

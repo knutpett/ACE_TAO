@@ -15,7 +15,7 @@ ACEXML_Base64::encode (const ACEXML_Char* input,
     return 0;
   size_t len = ACE_OS::strlen (input);
 
-  ACE_Byte* buf = 0;
+  ACE_Byte* buf = nullptr;
   ACE_NEW_RETURN (buf,
                   ACE_Byte[len],
                   0);
@@ -31,7 +31,7 @@ ACEXML_Base64::encode (const ACEXML_Char* input,
   if (!encodedBuf)
     return 0;
 
-  ACEXML_Char* result = 0;
+  ACEXML_Char* result = nullptr;
   ACE_NEW_RETURN (result,
                   ACEXML_Char[encode_len+1],
                   0);
@@ -55,7 +55,7 @@ ACEXML_Base64::decode (const ACEXML_Char* input,
 
   size_t len = ACE_OS::strlen (input);
 
-  ACE_Byte* buf = 0;
+  ACE_Byte* buf = nullptr;
 
   ACE_NEW_RETURN (buf,
                   ACE_Byte[len],
@@ -75,7 +75,7 @@ ACEXML_Base64::decode (const ACEXML_Char* input,
   if (!decodedBuf)
     return 0;
 
-  ACEXML_Char* result = 0;
+  ACEXML_Char* result = nullptr;
 
   ACE_NEW_RETURN (result,
                   ACEXML_Char[decode_len+1],

@@ -153,7 +153,7 @@ be_visitor_operation_direct_proxy_impl_ss::gen_invoke (
       return 0;
     }
 
-  AST_Argument *arg = 0;
+  AST_Argument *arg = nullptr;
   int index = 1;
 
   for (; !si.is_done (); si.next (), ++index)

@@ -109,7 +109,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         }
 
 
-      Callback_i *callback_impl = 0;
+      Callback_i *callback_impl = nullptr;
       callback_impl = new Callback_i (orb.in ());
       PortableServer::ServantBase_var safe (callback_impl);
 

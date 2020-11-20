@@ -14,7 +14,7 @@ class JAWS_Timer_EH : public ACE_Event_Handler
 public:
 
   JAWS_Timer_EH ( JAWS_Event_Completer *completer
-                , void *act = 0
+                , void *act = nullptr
                 , int interval = 0
                 )
     : completer_ (completer)

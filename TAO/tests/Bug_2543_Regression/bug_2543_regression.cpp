@@ -33,7 +33,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
        CORBA::OctetSeq_var bin = codec->encode(any_o);
        CORBA::Any_var any_n = codec->decode(bin.in ());
 
-       const BaseSeq * out = 0;
+       const BaseSeq * out = nullptr;
        if (!(any_n.in () >>= out))
          {
             ACE_ERROR_RETURN ((LM_ERROR,

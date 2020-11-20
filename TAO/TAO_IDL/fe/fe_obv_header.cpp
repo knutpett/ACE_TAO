@@ -179,10 +179,10 @@ FE_OBVHeader::compile_supports (UTL_NameList *supports)
   ACE_NEW (this->supports_,
            AST_Type *[length]);
 
-  AST_Decl *d = 0;
-  UTL_ScopedName *item = 0;
-  AST_Interface *iface = 0;
-  AST_Type *t = 0;
+  AST_Decl *d = nullptr;
+  UTL_ScopedName *item = nullptr;
+  AST_Interface *iface = nullptr;
+  AST_Type *t = nullptr;
   int i = 0;
 
   for (UTL_NamelistActiveIterator l (supports); !l.is_done (); l.next ())
@@ -303,9 +303,9 @@ FE_OBVHeader::check_concrete_supported_inheritance (AST_Interface *d)
       return true;
     }
 
-  AST_ValueType *vt = 0;
-  AST_Type *concrete = 0;
-  AST_Interface *ancestor = 0;
+  AST_ValueType *vt = nullptr;
+  AST_Type *concrete = nullptr;
+  AST_Interface *ancestor = nullptr;
 
   for (long i = 0; i < this->n_inherits_; ++i)
     {

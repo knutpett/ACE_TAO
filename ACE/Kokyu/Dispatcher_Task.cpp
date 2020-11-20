@@ -93,7 +93,7 @@ Dispatcher_Task::svc (void)
 
   while (!done)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       if (this->getq (mb) == -1)
         {

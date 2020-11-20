@@ -103,7 +103,7 @@ public:
 
   /// A helper method that grabs the token for us, after which the
   /// thread that owns that can do some actual work.
-  int acquire_read_token (ACE_Time_Value *max_wait_time = 0);
+  int acquire_read_token (ACE_Time_Value *max_wait_time = nullptr);
 
   /**
    * A helper method that grabs the token for us, after which the
@@ -111,7 +111,7 @@ public:
    * acquire_read_token() as it uses acquire () to get the token instead of
    * acquire_read ()
    */
-  int acquire_token (ACE_Time_Value *max_wait_time = 0);
+  int acquire_token (ACE_Time_Value *max_wait_time = nullptr);
 
 private:
 
@@ -190,8 +190,8 @@ public:
    */
   ACE_TP_Reactor (size_t max_number_of_handles,
                   bool restart = false,
-                  ACE_Sig_Handler *sh = 0,
-                  ACE_Timer_Queue *tq = 0,
+                  ACE_Sig_Handler *sh = nullptr,
+                  ACE_Timer_Queue *tq = nullptr,
                   bool mask_signals = true,
                   int s_queue = ACE_Select_Reactor_Token::FIFO);
 
@@ -212,7 +212,7 @@ public:
    * @a max_wait_time elapsed without dispatching any handlers, or -1
    * if an error occurs (check @c errno for more information).
    */
-  virtual int handle_events (ACE_Time_Value *max_wait_time = 0);
+  virtual int handle_events (ACE_Time_Value *max_wait_time = nullptr);
 
   virtual int handle_events (ACE_Time_Value &max_wait_time);
 
@@ -228,7 +228,7 @@ public:
   /// The ACE_TP_Reactor implementation does not have a single owner thread.
   /// Attempts to set the owner explicitly are ignored. The reported owner
   /// thread is the current Leader in the pattern.
-  virtual int owner (ACE_thread_t n_id, ACE_thread_t *o_id = 0);
+  virtual int owner (ACE_thread_t n_id, ACE_thread_t *o_id = nullptr);
 
   /// Return the thread ID of the current Leader.
   virtual int owner (ACE_thread_t *t_id);

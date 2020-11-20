@@ -37,7 +37,7 @@
 // Init/setup exception
 struct RirFailedException
 {
-  RirFailedException (const char* token = 0) : token_(token) { }
+  RirFailedException (const char* token = nullptr) : token_(token) { }
   const char* token_;
 };
 
@@ -127,8 +127,8 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   ACE_OS::putenv (env.c_str ());
 
   CORBA::ORB_var orb;
-  Foo_i *server1 = 0;
-  Foo_i *server2 = 0;
+  Foo_i *server1 = nullptr;
+  Foo_i *server2 = nullptr;
 
   try
     {

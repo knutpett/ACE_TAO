@@ -132,7 +132,7 @@ ServerRequestInterceptor::send_reply (
       // following extraction from the CORBA::Any fails, then the
       // original data in the RSC was not replaced with the data in
       // the TSC after the test method completed.
-      const char *str = 0;
+      const char *str = nullptr;
       if (data.in () >>= str)
         {
           ACE_DEBUG ((LM_DEBUG,
@@ -166,7 +166,7 @@ ServerRequestInterceptor::send_reply (
       CORBA::Any_var data2 =
         ri->get_slot (this->slot_id_);
 
-      const char *str2 = 0;
+      const char *str2 = nullptr;
       if (!(data2.in () >>= str2)
           || ACE_OS::strcmp (str, str2) != 0)
         {

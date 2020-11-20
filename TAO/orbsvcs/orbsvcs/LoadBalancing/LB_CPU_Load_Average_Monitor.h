@@ -47,8 +47,8 @@ public:
    * If no location is supplied the hostname or IP address is used by
    * default.
    */
-  TAO_LB_CPU_Load_Average_Monitor (const ACE_TCHAR * location_id = 0,
-                                   const ACE_TCHAR * location_kind = 0);
+  TAO_LB_CPU_Load_Average_Monitor (const ACE_TCHAR * location_id = nullptr,
+                                   const ACE_TCHAR * location_kind = nullptr);
 
   /**
    * @name CosLoadBalancing::LoadMonitor Methods

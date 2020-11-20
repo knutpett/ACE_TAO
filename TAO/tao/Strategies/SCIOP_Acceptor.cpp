@@ -90,7 +90,7 @@ TAO_SCIOP_Acceptor::create_new_profile (const TAO::ObjectKey &object_key,
   // Create a profile for each acceptor endpoint.
   for (CORBA::ULong i = 0; i < this->endpoint_count_; ++i)
     {
-      TAO_SCIOP_Profile *pfile = 0;
+      TAO_SCIOP_Profile *pfile = nullptr;
       ACE_NEW_RETURN (pfile,
                       TAO_SCIOP_Profile (this->hosts_[i],
                                         this->addrs_[i].get_port_number (),
@@ -124,7 +124,7 @@ TAO_SCIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
                                            CORBA::Short priority)
 {
   CORBA::ULong index = 0;
-  TAO_SCIOP_Profile *sciop_profile = 0;
+  TAO_SCIOP_Profile *sciop_profile = nullptr;
 
   // Do not check <mprofile> for the presence of an existing
   // SCIOP_Profile.  With SCIOP, there is a one-to-one relationship
@@ -161,7 +161,7 @@ TAO_SCIOP_Acceptor::create_shared_profile (const TAO::ObjectKey &object_key,
        index < this->endpoint_count_;
        ++index)
     {
-      TAO_SCIOP_Endpoint *endpoint = 0;
+      TAO_SCIOP_Endpoint *endpoint = nullptr;
       ACE_NEW_RETURN (endpoint,
                       TAO_SCIOP_Endpoint (this->hosts_[index],
                                          this->addrs_[index].get_port_number (),
@@ -269,7 +269,7 @@ TAO_SCIOP_Acceptor::open (TAO_ORB_Core *orb_core,
   // more hostnames, followed perhaps by a port.
 
   u_short port_number = 0;
-  char *tmp_host = 0;
+  char *tmp_host = nullptr;
   size_t hostname_length = 0;
 
   if (port_separator_loc != 0) {
@@ -344,7 +344,7 @@ TAO_SCIOP_Acceptor::open (TAO_ORB_Core *orb_core,
   }
 
   // Allocate an array of secondary ip addresses.
-  ACE_UINT32 *secondary_ip_addrs = 0;
+  ACE_UINT32 *secondary_ip_addrs = nullptr;
   ACE_Auto_Basic_Array_Ptr<ACE_UINT32> secondary_ip_addrs_auto;
   size_t num_secondary_ip_addrs = hostnames.size() - 1;
   if (num_secondary_ip_addrs > 0) {
@@ -657,7 +657,7 @@ TAO_SCIOP_Acceptor::dotted_decimal_address (ACE_INET_Addr &addr,
                                            char *&host)
 {
   int result = 0;
-  const char *tmp = 0;
+  const char *tmp = nullptr;
 
   // If the IP address in the INET_Addr is the INADDR_ANY address,
   // then force the actual IP address to be used by initializing a new
@@ -696,7 +696,7 @@ TAO_SCIOP_Acceptor::probe_interfaces (TAO_ORB_Core *orb_core)
   // it.  The hostnames will then be used when creating a
   // TAO_SCIOP_Profile for each endpoint setup on the probed
   // network interfaces.
-  ACE_INET_Addr *if_addrs = 0;
+  ACE_INET_Addr *if_addrs = nullptr;
   size_t if_cnt = 0;
 
   if (ACE::get_ip_interfaces (if_cnt,
@@ -807,7 +807,7 @@ TAO_SCIOP_Acceptor::parse_multiple_hostnames (const char *hostnames,
 
   // Make a copy of hostnames string
   int const hostnames_string_length = ACE_OS::strlen(hostnames) + 1;
-  char* hostnames_copy = 0;
+  char* hostnames_copy = nullptr;
   ACE_NEW_RETURN (hostnames_copy,
                   char[hostnames_string_length],
                   -1);
@@ -816,7 +816,7 @@ TAO_SCIOP_Acceptor::parse_multiple_hostnames (const char *hostnames,
 
   // Count the number of hostnames separated by "+"
   size_t num_hostnames = 0;
-  char *last = 0;
+  char *last = nullptr;
   const char* hostname = ACE_OS::strtok_r (hostnames_copy, "+", &last);
 
   while (hostname != 0) {

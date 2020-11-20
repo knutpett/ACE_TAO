@@ -147,8 +147,8 @@ TAO_MProfile::grow (CORBA::ULong sz)
     return 0;
 
   // get the additional space
-  TAO_Profile **new_pfiles = 0;
-  TAO_Profile **old_pfiles = 0;
+  TAO_Profile **new_pfiles = nullptr;
+  TAO_Profile **old_pfiles = nullptr;
   ACE_NEW_RETURN (new_pfiles,
                   TAO_Profile *[sz],
                   -1);
@@ -337,7 +337,7 @@ TAO_MProfile::policy_list (void)
           this->init_policy_list ();
         }
     }
-  CORBA::PolicyList *ret_val = 0;
+  CORBA::PolicyList *ret_val = nullptr;
   ACE_NEW_THROW_EX (ret_val,
                     CORBA::PolicyList (*this->policy_list_),
                     CORBA::NO_MEMORY (0,

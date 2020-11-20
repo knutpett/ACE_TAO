@@ -100,7 +100,7 @@ test (ACE_Configuration *config,
   u_char *data_out (0);
 
   {
-    void *data_tmp = 0; // Workaround for GCC strict aliasing warning.
+    void *data_tmp = nullptr; // Workaround for GCC strict aliasing warning.
     size_t length = 0;
 
     if (config->get_binary_value (testsection,
@@ -1549,7 +1549,7 @@ Config_Test::get_section_boolean (ACE_Configuration&             config,
         *pVariable = 1;
       else if (ACE_OS::strcmp (pszString,
                                ACE_TEXT ("FALSE")) == 0)
-        *pVariable = 0;
+        *pVariable = nullptr;
     }
 }
 

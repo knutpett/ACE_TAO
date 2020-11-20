@@ -14,7 +14,7 @@ TAO_SSLIOP_Endpoint::iiop_endpoint (TAO_IIOP_Endpoint *iiop_endpoint,
 {
   if (iiop_endpoint != 0)
     {
-      TAO_IIOP_Endpoint *new_endpoint = 0;
+      TAO_IIOP_Endpoint *new_endpoint = nullptr;
 
       if (destroy)
         {

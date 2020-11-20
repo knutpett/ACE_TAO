@@ -120,7 +120,7 @@ AST_Array::compute_dims (UTL_ExprList *ds,
       return 0;
     }
 
-  AST_Expression **result = 0;
+  AST_Expression **result = nullptr;
   ACE_NEW_RETURN (result,
                   AST_Expression *[nds],
                   0);
@@ -137,7 +137,7 @@ AST_Array::compute_dims (UTL_ExprList *ds,
       AST_Expression::ExprType ex_type =
         (ph == 0 ? orig->ev ()->et : ph->info ()->const_type_);
 
-      AST_Expression *copy = 0;
+      AST_Expression *copy = nullptr;
       ACE_NEW_RETURN (copy,
                       AST_Expression (orig,
                                       ex_type),

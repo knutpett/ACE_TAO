@@ -29,7 +29,7 @@ ACE_MEM_Acceptor::dump (void) const
 // Do nothing routine for constructor.
 
 ACE_MEM_Acceptor::ACE_MEM_Acceptor (void)
-  : mmap_prefix_ (0),
+  : mmap_prefix_ (nullptr),
     malloc_options_ (ACE_DEFAULT_BASE_ADDR, 0),
     preferred_strategy_ (ACE_MEM_IO::Reactive)
 {
@@ -52,7 +52,7 @@ ACE_MEM_Acceptor::ACE_MEM_Acceptor (const ACE_MEM_Addr &remote_sap,
                                     int reuse_addr,
                                     int backlog,
                                     int protocol)
-  : mmap_prefix_ (0),
+  : mmap_prefix_ (nullptr),
     malloc_options_ (ACE_DEFAULT_BASE_ADDR, 0),
     preferred_strategy_ (ACE_MEM_IO::Reactive)
 {
@@ -97,12 +97,12 @@ ACE_MEM_Acceptor::accept (ACE_MEM_Stream &new_stream,
     return -1;
   else
     {
-      sockaddr *addr = 0;
+      sockaddr *addr = nullptr;
       struct sockaddr_in inet_addr;
-      int *len_ptr = 0;
+      int *len_ptr = nullptr;
       int len = 0;
 
-      if (remote_sap != 0)
+      if (remote_sap != nullptr)
         {
           addr = reinterpret_cast<sockaddr *> (&inet_addr);
           len = sizeof (inet_addr);
@@ -118,9 +118,9 @@ ACE_MEM_Acceptor::accept (ACE_MEM_Stream &new_stream,
       while (new_stream.get_handle () == ACE_INVALID_HANDLE
              && restart != 0
              && errno == EINTR
-             && timeout == 0);
+             && timeout == nullptr);
 
-      if (remote_sap != 0)
+      if (remote_sap != nullptr)
         {
           ACE_INET_Addr temp (&inet_addr, len);
           remote_sap->set_port_number (temp.get_port_number ());
@@ -140,7 +140,7 @@ ACE_MEM_Acceptor::accept (ACE_MEM_Stream &new_stream,
   if (new_stream.get_local_addr (local_addr) == -1)
     return -1;
 
-  if (this->mmap_prefix_ != 0)
+  if (this->mmap_prefix_ != nullptr)
     {
       ACE_OS::snprintf (buf, sizeof buf / sizeof buf[0],
                         ACE_TEXT ("%s_%d_"),

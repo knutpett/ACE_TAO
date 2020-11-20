@@ -4,7 +4,7 @@
 static int iterations = 5;
 static int shutdown_server = 0;
 
-static const ACE_TCHAR *ior = 0;
+static const ACE_TCHAR *ior = nullptr;
 
 static int
 parse_args (int argc, ACE_TCHAR **argv)

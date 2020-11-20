@@ -135,7 +135,7 @@ TAO_Acceptor_Registry::open (TAO_ORB_Core *orb_core,
   size_t acceptor_count = 0;
   TAO_EndpointSetIterator endpts (endpoint_set);
 
-  for (ACE_CString *ep = 0;
+  for (ACE_CString *ep = nullptr;
        endpts.next (ep) != 0;
        endpts.advance ())
     {
@@ -222,7 +222,7 @@ TAO_Acceptor_Registry::open (TAO_ORB_Core *orb_core,
 
   TAO_EndpointSetIterator endpoints (endpoint_set);
 
-  for (ACE_CString *endpoint = 0;
+  for (ACE_CString *endpoint = nullptr;
        endpoints.next (endpoint) != 0;
        endpoints.advance ())
     {
@@ -679,14 +679,14 @@ TAO_Acceptor_Registry::open_i (TAO_ORB_Core *orb_core,
   ACE_CString options_tmp;
   this->extract_endpoint_options (addrs, options_tmp, (*factory)->factory ());
 
-  const char *options = 0;
+  const char *options = nullptr;
 
   if (options_tmp.length () > 0)
     {
       options = options_tmp.c_str ();
     }
 
-  char *last_addr = 0;
+  char *last_addr = nullptr;
   ACE_Auto_Basic_Array_Ptr<char> addr_str (addrs.rep ());
 
   const char *astr = ACE_OS::strtok_r (addr_str.get (), ",", &last_addr);

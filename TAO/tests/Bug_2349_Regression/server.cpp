@@ -102,7 +102,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       PortableServer::POAManager_var poa_manager =
         root_poa->the_POAManager ();
 
-      foo_i* server_impl = 0;
+      foo_i* server_impl = nullptr;
       ACE_NEW_RETURN (server_impl,
                       foo_i (orb.in ()),
                       1);

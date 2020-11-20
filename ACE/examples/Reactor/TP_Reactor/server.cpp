@@ -39,7 +39,7 @@ int ACE_TMAIN(int, ACE_TCHAR **) {
     ACE_Reactor reactor(&tpReactor);
 
     // create a new accept handler using that reactor
-    AcceptHandler *acceptHandler = 0;
+    AcceptHandler *acceptHandler = nullptr;
     ACE_NEW_NORETURN (acceptHandler, AcceptHandler(&reactor));
     if (acceptHandler == 0)
       ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%N:%l: Failed to allocate ")

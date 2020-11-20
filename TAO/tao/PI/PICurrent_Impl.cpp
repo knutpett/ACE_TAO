@@ -32,7 +32,7 @@ TAO::PICurrent_Impl::get_slot (PortableInterceptor::SlotId identifier)
 
   // Get the slot table that is currently active
   PICurrent_Impl::Table & table = this->current_slot_table ();
-  CORBA::Any * any = 0;
+  CORBA::Any * any = nullptr;
 
   if (identifier < table.size ())
     {

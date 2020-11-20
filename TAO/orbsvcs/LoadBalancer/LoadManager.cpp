@@ -144,7 +144,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
                     argv,
                     default_strategy);
 
-      TAO_LB_LoadManager * lm = 0;
+      TAO_LB_LoadManager * lm = nullptr;
       ACE_NEW_THROW_EX (lm,
         TAO_LB_LoadManager(::ping_timeout_milliseconds,
                            ::ping_interval_seconds),

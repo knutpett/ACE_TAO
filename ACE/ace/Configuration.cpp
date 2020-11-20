@@ -299,8 +299,8 @@ ACE_Configuration::operator== (const ACE_Configuration& rhs) const
                     }
                   else if (valueType == BINARY)
                     {
-                      void* thisData = 0;
-                      void* rhsData = 0;
+                      void* thisData = nullptr;
+                      void* rhsData = nullptr;
                       size_t thisLength = 0;
                       size_t rhsLength = 0;
                       if (nonconst_this->get_binary_value (thisSection,
@@ -461,7 +461,7 @@ ACE_Configuration_Win32Registry::operator!= (const ACE_Configuration_Win32Regist
 ACE_Configuration_Win32Registry::ACE_Configuration_Win32Registry (HKEY hKey, u_long security_access)
   : security_access_ (security_access)
 {
-  ACE_Section_Key_Win32 *temp = 0;
+  ACE_Section_Key_Win32 *temp = nullptr;
 
   ACE_NEW (temp, ACE_Section_Key_Win32 (hKey));
 
@@ -780,7 +780,7 @@ ACE_Configuration_Win32Registry::get_string_value (const ACE_Configuration_Secti
       return -1;
     }
 
-  ACE_TCHAR *temp = 0;
+  ACE_TCHAR *temp = nullptr;
   ACE_NEW_RETURN (temp,
                   ACE_TCHAR[buffer_length],
                   -1);
@@ -876,7 +876,7 @@ ACE_Configuration_Win32Registry::get_binary_value (
 
   length = buffer_length;
 
-  BYTE * the_data = 0;
+  BYTE * the_data = nullptr;
   ACE_NEW_RETURN (the_data, BYTE[length], -1);
   ACE_Auto_Basic_Array_Ptr<BYTE> safe_data (the_data);
 
@@ -997,7 +997,7 @@ ACE_Configuration_Win32Registry::resolve_key (HKEY hKey,
     }
 
   // recurse through the path
-  ACE_TCHAR *temp_path = 0;
+  ACE_TCHAR *temp_path = nullptr;
   ACE_NEW_RETURN (temp_path,
                   ACE_TCHAR[ACE_OS::strlen (path) + 1],
                   0);
@@ -1238,7 +1238,7 @@ ACE_Configuration_Heap::ACE_Configuration_Heap (void)
     index_ (0),
     default_map_size_ (0)
 {
-  ACE_Configuration_Section_Key_Heap *temp = 0;
+  ACE_Configuration_Section_Key_Heap *temp = nullptr;
 
   ACE_NEW (temp, ACE_Configuration_Section_Key_Heap (ACE_TEXT ("")));
   root_ = ACE_Configuration_Section_Key (temp);
@@ -1316,7 +1316,7 @@ ACE_Configuration_Heap::open (const ACE_TCHAR* file_name,
 int
 ACE_Configuration_Heap::create_index (void)
 {
-  void *section_index = 0;
+  void *section_index = nullptr;
 
   // This is the easy case since if we find hash table in the
   // memory-mapped file we know it's already initialized.
@@ -1440,7 +1440,7 @@ ACE_Configuration_Heap::new_section (const ACE_TString& section,
       // Populate memory with data.
       ACE_OS::strcpy (ptr, section.fast_rep ());
 
-      void *value_hash_map = 0;
+      void *value_hash_map = nullptr;
       size_t map_size = sizeof (VALUE_MAP);
       value_hash_map = this->allocator_->malloc (map_size);
 
@@ -1456,7 +1456,7 @@ ACE_Configuration_Heap::new_section (const ACE_TString& section,
         }
 
       // create the section map
-      void* section_hash_map = 0;
+      void* section_hash_map = nullptr;
       map_size = sizeof (SUBSECTION_MAP);
       section_hash_map = this->allocator_->malloc (map_size);
 
@@ -1617,7 +1617,7 @@ ACE_Configuration_Heap::remove_section (const ACE_Configuration_Section_Key& key
 
   section += sub_section;
   ACE_Configuration_ExtId SectionExtId (section.fast_rep ());
-  SECTION_HASH::ENTRY* section_entry = 0;
+  SECTION_HASH::ENTRY* section_entry = nullptr;
   SECTION_HASH* hashmap = index_;
   if (hashmap->find (SectionExtId, section_entry))
     return -1;
@@ -1648,7 +1648,7 @@ ACE_Configuration_Heap::remove_section (const ACE_Configuration_Section_Key& key
 
   // Now remove subkey from parent key
   ACE_Configuration_ExtId SubSExtId (sub_section);
-  SUBSECTION_HASH::ENTRY* subsection_entry = 0;
+  SUBSECTION_HASH::ENTRY* subsection_entry = nullptr;
   if (((SUBSECTION_HASH*)ParentIntId.section_hash_map_)->
       find (SubSExtId, subsection_entry))
     return -1;
@@ -1667,7 +1667,7 @@ ACE_Configuration_Heap::remove_section (const ACE_Configuration_Section_Key& key
   VALUE_HASH::ITERATOR value_iter = value_hash_map->begin ();
   while (!value_iter.done ())
     {
-      VALUE_HASH::ENTRY* value_entry = 0;
+      VALUE_HASH::ENTRY* value_entry = nullptr;
       if (!value_iter.next (value_entry))
         return 1;
 
@@ -1727,7 +1727,7 @@ ACE_Configuration_Heap::enumerate_values (const ACE_Configuration_Section_Key& k
     }
 
   // Get the next entry
-  ACE_Hash_Map_Entry<ACE_Configuration_ExtId, ACE_Configuration_Value_IntId>* entry = 0;
+  ACE_Hash_Map_Entry<ACE_Configuration_ExtId, ACE_Configuration_Value_IntId>* entry = nullptr;
 
   if (!pKey->value_iter_->next (entry))
     return 1;
@@ -1770,7 +1770,7 @@ ACE_Configuration_Heap::enumerate_sections (const ACE_Configuration_Section_Key&
     }
 
   // Get the next entry
-  ACE_Hash_Map_Entry<ACE_Configuration_ExtId, int>* entry = 0;
+  ACE_Hash_Map_Entry<ACE_Configuration_ExtId, int>* entry = nullptr;
   if (!pKey->section_iter_->next (entry))
     return 1;
 
@@ -1801,7 +1801,7 @@ ACE_Configuration_Heap::set_string_value (const ACE_Configuration_Section_Key& k
     return -1;
 
   // Get the entry for this item (if it exists)
-  VALUE_HASH::ENTRY* entry = 0;
+  VALUE_HASH::ENTRY* entry = nullptr;
   ACE_Configuration_ExtId item_name (t_name);
   if (section_int.value_hash_map_->VALUE_HASH::find (item_name, entry) == 0)
     {
@@ -1860,7 +1860,7 @@ ACE_Configuration_Heap::set_integer_value (const ACE_Configuration_Section_Key& 
     return -1;  // section does not exist
 
   // Get the entry for this item (if it exists)
-  VALUE_HASH::ENTRY* entry = 0;
+  VALUE_HASH::ENTRY* entry = nullptr;
   ACE_Configuration_ExtId item_name (t_name);
   if (section_int.value_hash_map_->VALUE_HASH::find (item_name, entry) == 0)
     {
@@ -1910,7 +1910,7 @@ ACE_Configuration_Heap::set_binary_value (const ACE_Configuration_Section_Key& k
     return -1;    // section does not exist
 
   // Get the entry for this item (if it exists)
-  VALUE_HASH::ENTRY* entry = 0;
+  VALUE_HASH::ENTRY* entry = nullptr;
   ACE_Configuration_ExtId item_name (t_name);
   if (section_int.value_hash_map_->VALUE_HASH::find (item_name, entry) == 0)
     {
@@ -2104,7 +2104,7 @@ ACE_Configuration_Heap::find_value (const ACE_Configuration_Section_Key& key,
 
   // Find it
   ACE_Configuration_ExtId ValueExtId (t_name);
-  VALUE_HASH::ENTRY* value_entry = 0;
+  VALUE_HASH::ENTRY* value_entry = nullptr;
   if (((VALUE_HASH *) IntId.value_hash_map_)->find (ValueExtId, value_entry))
     return -1;  // value does not exist
 
@@ -2134,7 +2134,7 @@ ACE_Configuration_Heap::remove_value (const ACE_Configuration_Section_Key& key,
 
   // Find it
   ACE_Configuration_ExtId ValueExtId (t_name);
-  VALUE_HASH::ENTRY* value_entry = 0;
+  VALUE_HASH::ENTRY* value_entry = nullptr;
   if (((VALUE_HASH *) IntId.value_hash_map_)->find (ValueExtId, value_entry))
     return -1;
 

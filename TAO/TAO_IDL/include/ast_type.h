@@ -119,8 +119,8 @@ public:
   void ifr_fwd_added (bool val);
 
   const char *nested_type_name (AST_Decl *d,
-                                const char *suffix = 0,
-                                const char *prefix = 0);
+                                const char *suffix = nullptr,
+                                const char *prefix = nullptr);
   // Type name of a node used when generating declarations.
 
   AST_Type *unaliased_type (void);

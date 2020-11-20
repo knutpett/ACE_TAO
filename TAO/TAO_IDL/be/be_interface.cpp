@@ -204,7 +204,7 @@ be_interface::compute_full_skel_name (const char *prefix,
   size_t namelen = ACE_OS::strlen (prefix);
   long first = true;
   long second = false;
-  char *item_name = 0;
+  char *item_name = nullptr;
 
   // In the first loop compute the total length.
   for (UTL_IdListActiveIterator i (this->name ());
@@ -581,7 +581,7 @@ be_interface::redefine (AST_Interface *from)
       ACE_Unbounded_Queue<AST_Interface *> &q =
         idl_global->mixed_parentage_interfaces ();
       size_t slot = 0;
-      AST_Interface **t = 0;
+      AST_Interface **t = nullptr;
 
       // The queue of interfaces with mixed parentage must
       // replace each interface that has been forward
@@ -890,7 +890,7 @@ Pure_Virtual_Regenerator::emit (be_interface *derived_interface,
       return 0;
     }
 
-  be_decl *d = 0;
+  be_decl *d = nullptr;
 
   for (UTL_ScopeActiveIterator si (base_interface, UTL_Scope::IK_decls);
        !si.is_done ();
@@ -1107,7 +1107,7 @@ be_interface::gen_operation_table (const char *flat_name,
         // We must randomize this a bit in order to avoid problems with
         // processing more than one idl file (in separate processes) with
         // the same name (in different directories).
-        char *temp_file = 0;
+        char *temp_file = nullptr;
         ACE_NEW_RETURN (temp_file,
                         char [ACE_OS::strlen (idl_global->temp_dir ())
                               + 11 // The number of possible digits in
@@ -1148,7 +1148,7 @@ be_interface::gen_operation_table (const char *flat_name,
 
         // Make a new outstream to hold the gperf_temp_file for this
         // interface.
-        TAO_OutStream *os = 0;
+        TAO_OutStream *os = nullptr;
         ACE_NEW_NORETURN (os, TAO_OutStream);
 
         if (os == 0)
@@ -1767,7 +1767,7 @@ be_interface::traverse_inheritance_graph (
   bool abstract_paths_only,
   bool add_ccm_object)
 {
-  AST_Type *intf = 0;  // element inside the queue
+  AST_Type *intf = nullptr;  // element inside the queue
 
   if (!this->insert_queue.is_empty ())
     {
@@ -2340,7 +2340,7 @@ be_interface::copy_ctor_helper (be_interface *derived,
     }
   else if (base->is_nested ())
     {
-      be_decl *scope = 0;
+      be_decl *scope = nullptr;
       scope = dynamic_cast<be_scope*> (base->defined_in ())->decl ();
 
       *os << "POA_" << scope->name () << "::"
@@ -2706,7 +2706,7 @@ void
 be_interface::gen_skel_inheritance (TAO_OutStream *os)
 {
   long n_parents = this->n_inherits ();
-  AST_Type *parent = 0;
+  AST_Type *parent = nullptr;
   AST_Type **parents = this->inherits ();
   bool has_concrete_parent = false;
 
@@ -3019,7 +3019,7 @@ be_interface::create_with_prefix_suffix (const char *prefix,
                                          const char *suffix,
                                          const char *separator)
 {
-  char *cat_string = 0;
+  char *cat_string = nullptr;
   size_t length =
     ACE_OS::strlen (str) +
     ACE_OS::strlen (prefix) +

@@ -96,7 +96,7 @@ be_visitor_valuebox_cs::visit_valuebox (be_valuebox *node)
   *os << "::CORBA::ValueBase *" << be_nl
       << node->name () << "::_copy_value (void)" << be_nl
       << "{" << be_idt_nl
-      << "::CORBA::ValueBase *result = 0;" << be_nl
+      << "::CORBA::ValueBase *result = nullptr;" << be_nl
       << "ACE_NEW_RETURN (" << be_idt_nl
       << "result," << be_nl
       << node->local_name () << " (*this)," << be_nl

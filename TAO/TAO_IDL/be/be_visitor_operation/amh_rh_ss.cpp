@@ -63,7 +63,7 @@ be_visitor_amh_rh_operation_ss::visit_operation (be_operation *node)
         }
     }
 
-  char *buf = 0;
+  char *buf = nullptr;
   intf->compute_full_name ("TAO_", "", buf);
   ACE_CString response_handler_implementation_name ("POA_");
   response_handler_implementation_name += buf;

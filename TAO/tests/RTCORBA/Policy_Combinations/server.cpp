@@ -257,7 +257,7 @@ server::server (CORBA::ORB_ptr orb,
 void
 server::test_root_poa (void)
 {
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (this->orb_.in (),
                             this->root_poa_.in (),
@@ -293,7 +293,7 @@ server::test_child_poa (void)
                                  this->poa_manager_.in (),
                                  policies);
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (this->orb_.in (),
                             poa.in (),
@@ -447,7 +447,7 @@ server::test_no_bands_client_propagated_poa (CORBA::PolicyList &policies,
   RTPortableServer::POA_var rt_poa =
     RTPortableServer::POA::_narrow (poa.in ());
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (this->orb_.in (),
                             poa.in (),
@@ -555,7 +555,7 @@ server::test_no_bands_server_declared_poa (CORBA::PolicyList &policies,
   RTPortableServer::POA_var rt_poa =
     RTPortableServer::POA::_narrow (poa.in ());
 
-  test_i *servant = 0;
+  test_i *servant = nullptr;
   ACE_NEW_THROW_EX (servant,
                     test_i (this->orb_.in (),
                             poa.in (),

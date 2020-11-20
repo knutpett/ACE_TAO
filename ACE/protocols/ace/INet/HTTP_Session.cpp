@@ -62,7 +62,7 @@ namespace ACE
 
         connector_type connector;
 
-        connection_type* new_connection = 0;
+        connection_type* new_connection = nullptr;
         ACE_NEW_RETURN (new_connection,
                         connection_type(sync_opt),
                         false);

@@ -219,7 +219,7 @@ TAO_LB_CPU_Load_Average_Monitor::loads (void)
 
 #if defined (linux) || defined (sun) || defined (__hpux) || defined(__NetBSD__) || defined (__APPLE__)
 
-  CosLoadBalancing::LoadList * tmp = 0;
+  CosLoadBalancing::LoadList * tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     CosLoadBalancing::LoadList (1),
                     CORBA::NO_MEMORY (

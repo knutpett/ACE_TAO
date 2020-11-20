@@ -47,7 +47,7 @@ class ACE_Refcounted_Auto_Ptr
 public:
   /// Constructor that initializes an ACE_Refcounted_Auto_Ptr to
   /// the specified pointer value.
-  explicit ACE_Refcounted_Auto_Ptr (X *p = 0);
+  explicit ACE_Refcounted_Auto_Ptr (X *p = nullptr);
 
   /// Copy constructor binds the new ACE_Refcounted_Auto_Ptr to the
   /// representation object referenced by @a r.
@@ -94,7 +94,7 @@ public:
 
   /// Releases the current pointer value and then sets a new
   /// pointer value specified by @a p.
-  void reset (X *p = 0);
+  void reset (X *p = nullptr);
 
   /// Get the pointer value.
   X *get (void) const;
@@ -173,7 +173,7 @@ private:
 
 private:
   // = Constructor and destructor private.
-  ACE_Refcounted_Auto_Ptr_Rep (X *p = 0);
+  ACE_Refcounted_Auto_Ptr_Rep (X *p = nullptr);
   ~ACE_Refcounted_Auto_Ptr_Rep (void);
 };
 

@@ -203,7 +203,7 @@ int be_visitor_exception_cs::visit_exception (be_exception *node)
   *os << "::CORBA::Exception *" << node->name ()
       << "::_alloc (void)" << be_nl;
   *os << "{" << be_idt_nl;
-  *os << "::CORBA::Exception *retval = 0;" << be_nl
+  *os << "::CORBA::Exception *retval = nullptr;" << be_nl
       << "ACE_NEW_RETURN (retval, ::" << node->name ()
       << ", 0);" << be_nl
       << "return retval;" << be_uidt_nl;
@@ -212,7 +212,7 @@ int be_visitor_exception_cs::visit_exception (be_exception *node)
   *os << "::CORBA::Exception *" << be_nl
       << node->name () << "::_tao_duplicate (void) const" << be_nl
       << "{" << be_idt_nl
-      << "::CORBA::Exception *result = 0;" << be_nl
+      << "::CORBA::Exception *result = nullptr;" << be_nl
       << "ACE_NEW_RETURN (result, "
       << "::" << node->name () << " (*this), 0);"
       << be_nl

@@ -152,7 +152,7 @@ Server_Request_Interceptor::send_exception (
         {
           CORBA::Any_var exception;
           CORBA::TypeCode_var tc;
-          const char *id = 0;
+          const char *id = nullptr;
 
           switch (scenario)
             {

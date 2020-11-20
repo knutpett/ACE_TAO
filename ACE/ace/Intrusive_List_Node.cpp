@@ -15,8 +15,8 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 template<class T>
 ACE_Intrusive_List_Node<T>::ACE_Intrusive_List_Node (void)
-  : prev_ (0)
-  , next_ (0)
+  : prev_ (nullptr)
+  , next_ (nullptr)
 {
 }
 

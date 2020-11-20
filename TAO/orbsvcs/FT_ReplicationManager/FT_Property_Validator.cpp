@@ -184,7 +184,7 @@ TAO::FT_Property_Validator::validate_criteria (
         }
         else if (property.nam == this->factories_)
         {
-          const PortableGroup::FactoriesValue * factories = 0;
+          const PortableGroup::FactoriesValue * factories = nullptr;
           if (!(property.val >>= factories))
             invalid_criteria[p++] = property;
           else

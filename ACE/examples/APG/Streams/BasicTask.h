@@ -37,7 +37,7 @@ public:
   // Listing 1020 code/ch18
   virtual int svc (void)
   {
-    for (ACE_Message_Block *message = 0; ; )
+    for (ACE_Message_Block *message = nullptr; ; )
       {
         ACE_DEBUG ((LM_DEBUG,
                     ACE_TEXT ("BasicTask::svc() - ")

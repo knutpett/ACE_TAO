@@ -68,7 +68,7 @@ ACE_TMAIN (int, ACE_TCHAR *[])
 {
   int status = 0;
   Basic_Content_Tester tester;
-  ACEXML_StrCharStream *test_stream = 0;
+  ACEXML_StrCharStream *test_stream = nullptr;
   ACE_NEW_RETURN (test_stream, ACEXML_StrCharStream, -1);
   if (test_stream->open (tester.get_test_string (),
                          ACE_TEXT ("test_stream")) < 0)

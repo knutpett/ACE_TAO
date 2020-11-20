@@ -100,7 +100,7 @@ TAO_FT_IOGR_Property::get_primary (
   TAO_ORB_Core *orb_core = TAO_ORB_Core_instance ();
 
   // Make a stub Object
-  TAO_Stub *stub = 0;
+  TAO_Stub *stub = nullptr;
 
   // Make a MProfile object for the primary profile alone. So, the
   // size is 1

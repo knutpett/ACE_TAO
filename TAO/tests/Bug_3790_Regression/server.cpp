@@ -54,7 +54,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
       if (parse_args (argc, argv) != 0)
         return 1;
 
-      Simple_Test_i *test_impl = 0;
+      Simple_Test_i *test_impl = nullptr;
       ACE_NEW_RETURN (test_impl,
                       Simple_Test_i (orb.in ()),
                       1);

@@ -18,7 +18,7 @@
 class Event_Analyzer : public ACE_Task<ACE_MT_SYNCH>
 {
 public:
-  virtual int open (void *a = 0);
+  virtual int open (void *a = nullptr);
   virtual int close (u_long flags = 0);
   virtual int put (ACE_Message_Block *msg, ACE_Time_Value * = 0);
 

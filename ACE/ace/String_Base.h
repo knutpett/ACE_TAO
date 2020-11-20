@@ -84,7 +84,7 @@ public:
     *  @param the_allocator ACE_Allocator associated with string
     *  @return Default ACE_String_Base string.
     */
-  ACE_String_Base (ACE_Allocator *the_allocator = 0);
+  ACE_String_Base (ACE_Allocator *the_allocator = nullptr);
 
   /**
    * Constructor that copies @a s into dynamically allocated memory.
@@ -102,7 +102,7 @@ public:
    * @return ACE_String_Base containing const ACE_CHAR_T *s
    */
   ACE_String_Base (const ACE_CHAR_T *s,
-                   ACE_Allocator *the_allocator = 0,
+                   ACE_Allocator *the_allocator = nullptr,
                    bool release = true);
 
   /**
@@ -124,7 +124,7 @@ public:
    */
   ACE_String_Base (const ACE_CHAR_T *s,
                    size_type len,
-                   ACE_Allocator *the_allocator = 0,
+                   ACE_Allocator *the_allocator = nullptr,
                    bool release = true);
 
   /**
@@ -142,7 +142,7 @@ public:
    *  @param the_allocator ACE_Allocator associated with string
    *  @return ACE_String_Base containing ACE_CHAR_T 'c'
    */
-  ACE_String_Base (ACE_CHAR_T c, ACE_Allocator *the_allocator = 0);
+  ACE_String_Base (ACE_CHAR_T c, ACE_Allocator *the_allocator = nullptr);
 
   /**
    *  Constructor that allocates a len long string.
@@ -159,7 +159,7 @@ public:
    */
   ACE_String_Base (size_type len,
                    ACE_CHAR_T c = 0,
-                   ACE_Allocator *the_allocator = 0);
+                   ACE_Allocator *the_allocator = nullptr);
 
   /**
    *  Deletes the memory...

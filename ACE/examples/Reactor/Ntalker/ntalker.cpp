@@ -14,7 +14,7 @@
 // Network interface to subscribe to.  This is hardware specific.  use
 // netstat(1M) to find whether your interface is le0 or ie0
 
-static const ACE_TCHAR *INTERFACE = 0;
+static const ACE_TCHAR *INTERFACE = nullptr;
 static const char *MCAST_ADDR = ACE_DEFAULT_MULTICAST_ADDR;
 static const u_short UDP_PORT = ACE_DEFAULT_MULTICAST_PORT;
 

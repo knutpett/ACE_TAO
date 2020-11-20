@@ -13,7 +13,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR * argv [])
   {
     ACE_DLL module;
 
-    ACE_Service_Gestalt * gestalt = 0;
+    ACE_Service_Gestalt * gestalt = nullptr;
     ACE_NEW_NORETURN (gestalt, ACE_Service_Gestalt ());
     if (gestalt == 0)
       {

@@ -51,7 +51,7 @@ consumer (void *args)
   // message with a length == 0, which signals us to quit.
   for (char c = 'z'; ; c--)
     {
-      ACE_Message_Block *mb = 0;
+      ACE_Message_Block *mb = nullptr;
 
       int result = msg_queue->dequeue_head (mb);
 
@@ -97,7 +97,7 @@ producer (void *args)
   ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue =
     reinterpret_cast<ACE_Message_Queue<ACE_MT_SYNCH> *> (args);
 
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   for (const char *c = ACE_ALPHABET; *c != '\0'; c++)
     {

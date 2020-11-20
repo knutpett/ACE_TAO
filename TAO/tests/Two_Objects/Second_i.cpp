@@ -17,7 +17,7 @@ Second_i::Second_i (CORBA::ORB_ptr orb,
 Two_Objects_Test::Octet_Seq *
 Second_i::twoway_method (void)
 {
-  Two_Objects_Test::Octet_Seq  *preply_mesg = 0;
+  Two_Objects_Test::Octet_Seq  *preply_mesg = nullptr;
 
   ACE_NEW_THROW_EX (preply_mesg,
                     Two_Objects_Test::Octet_Seq (this->length_),

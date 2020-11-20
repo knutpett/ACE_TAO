@@ -16,7 +16,7 @@ Server<Servant>::Server (void)
   , ior_output_file_ (0)
   , ins_ (0)
 {
-  Servant *tmp = 0;
+  Servant *tmp = nullptr;
   ACE_NEW_THROW_EX (tmp,
                     Servant (),
                     CORBA::NO_MEMORY ());

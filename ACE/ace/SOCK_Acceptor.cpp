@@ -120,8 +120,8 @@ ACE_SOCK_Acceptor::accept (ACE_SOCK_Stream &new_stream,
     {
       // On Win32 the third parameter to <accept> must be a NULL
       // pointer if we want to ignore the client's address.
-      int *len_ptr = 0;
-      sockaddr *addr = 0;
+      int *len_ptr = nullptr;
+      sockaddr *addr = nullptr;
       int len = 0;
 
       if (remote_addr != 0)
@@ -176,9 +176,9 @@ ACE_SOCK_Acceptor::accept (ACE_SOCK_Stream &new_stream,
     {
       // On Win32 the third parameter to <accept> must be a NULL
       // pointer if we want to ignore the client's address.
-      int *len_ptr = 0;
+      int *len_ptr = nullptr;
       int len = 0;
-      sockaddr *addr = 0;
+      sockaddr *addr = nullptr;
 
       if (remote_addr != 0)
         {

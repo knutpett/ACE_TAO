@@ -30,7 +30,7 @@
 #include "ace/OS_NS_sys_stat.h"
 #include "ace/OS_NS_ctype.h"
 
-TAO_IDL_BE_Export BE_GlobalData *be_global = 0;
+TAO_IDL_BE_Export BE_GlobalData *be_global = nullptr;
 
 BE_GlobalData::BE_GlobalData (void)
   : changing_standard_include_files_ (1),
@@ -205,7 +205,7 @@ be_change_idl_file_extension (UTL_String* idl_file,
 
   // Get the base part of the filename, we try several extensions
   // before giving up.
-  const char *base = 0;
+  const char *base = nullptr;
 
   static const char* extensions[] = {
     ".idl",
@@ -2203,16 +2203,16 @@ BE_GlobalData::ccmobject (void)
 {
   if (0 == this->ccmobject_)
     {
-      Identifier *local_id = 0;
+      Identifier *local_id = nullptr;
       ACE_NEW_RETURN (local_id,
                       Identifier ("CCMObject"),
                       0);
-      UTL_ScopedName *local_name = 0;
+      UTL_ScopedName *local_name = nullptr;
       ACE_NEW_RETURN (local_name,
                       UTL_ScopedName (local_id, 0),
                       0);
 
-      Identifier *module_id = 0;
+      Identifier *module_id = nullptr;
       ACE_NEW_RETURN (module_id,
                       Identifier ("Components"),
                       0);
@@ -2244,8 +2244,8 @@ BE_GlobalData::messaging (void)
 {
   if (0 == this->messaging_)
     {
-      Identifier *id = 0;
-      UTL_ScopedName *sn = 0;
+      Identifier *id = nullptr;
+      UTL_ScopedName *sn = nullptr;
 
       ACE_NEW_RETURN (id,
                       Identifier ("Messaging"),
@@ -2271,7 +2271,7 @@ BE_GlobalData::messaging_exceptionholder (void)
 {
   if (0 == this->messaging_exceptionholder_)
     {
-      Identifier *id = 0;
+      Identifier *id = nullptr;
       be_module *msg = this->messaging ();
       idl_global->scopes ().push (msg);
 
@@ -2281,7 +2281,7 @@ BE_GlobalData::messaging_exceptionholder (void)
 
       // Create a valuetype "ExceptionHolder"
       // from which we inherit.
-      UTL_ScopedName *full_name = 0;
+      UTL_ScopedName *full_name = nullptr;
       ACE_NEW_RETURN (full_name,
                       UTL_ScopedName (id,
                                       0),
@@ -2291,7 +2291,7 @@ BE_GlobalData::messaging_exceptionholder (void)
                       Identifier ("ExceptionHolder"),
                       0);
 
-      UTL_ScopedName *local_name = 0;
+      UTL_ScopedName *local_name = nullptr;
       ACE_NEW_RETURN (local_name,
                       UTL_ScopedName (id,
                                       0),
@@ -2339,8 +2339,8 @@ BE_GlobalData::messaging_replyhandler (void)
       be_module *msg = this->messaging ();
       idl_global->scopes ().push (msg);
 
-      Identifier *id = 0;
-      UTL_ScopedName *local_name = 0;
+      Identifier *id = nullptr;
+      UTL_ScopedName *local_name = nullptr;
 
       // Create a virtual module named "Messaging"
       // "and an interface "ReplyHandler"
@@ -2349,7 +2349,7 @@ BE_GlobalData::messaging_replyhandler (void)
                       Identifier ("Messaging"),
                       0);
 
-      UTL_ScopedName *full_name = 0;
+      UTL_ScopedName *full_name = nullptr;
       ACE_NEW_RETURN (full_name,
                       UTL_ScopedName (id,
                                       0),

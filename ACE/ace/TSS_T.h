@@ -90,7 +90,7 @@ public:
    *                 threads use the ts_object (TYPE *) method to set
    *                 a specific value.
    */
-  ACE_TSS (TYPE *ts_obj = 0);
+  ACE_TSS (TYPE *ts_obj = nullptr);
 
   /// Deregister this object from thread-specific storage administration.
   /// Will cause all threads' copies of TYPE to be destroyed.

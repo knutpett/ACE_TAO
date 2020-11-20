@@ -112,7 +112,7 @@ TAO_Notify_Tests_Application_Command::handle_wait_for_completion (void)
 {
   ACE_DEBUG ((LM_DEBUG, "(%P, %t) Waiting for suppliers and consumers to finish...\n"));
 
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
   LOOKUP_MANAGER->resolve (act_mgr);
 
   act_mgr->wait_for_completion ();
@@ -123,7 +123,7 @@ TAO_Notify_Tests_Application_Command::handle_shutdown (void)
 {
   ACE_DEBUG ((LM_DEBUG, "(%P, %t)Shutting down the Application...\n"));
 
-  TAO_Notify_Tests_Driver_Base* driver = 0;
+  TAO_Notify_Tests_Driver_Base* driver = nullptr;
   LOOKUP_MANAGER->resolve (driver);
 
   driver->shutdown ();
@@ -135,7 +135,7 @@ TAO_Notify_Tests_Application_Command::handle_dump_stats (void)
 {
   ACE_DEBUG ((LM_DEBUG, "(%P, %t)Dumpimg stats...\n"));
 
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
   LOOKUP_MANAGER->resolve (act_mgr);
 
   act_mgr->dump_stats (this->dump_samples_);
@@ -148,7 +148,7 @@ TAO_Notify_Tests_Application_Command::handle_run (void)
 
 
   //= Run the Suppliers
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
   LOOKUP_MANAGER->resolve (act_mgr);
 
   if (act_mgr->activate_suppliers () == 0)
@@ -160,7 +160,7 @@ TAO_Notify_Tests_Application_Command::handle_run (void)
 void
 TAO_Notify_Tests_Application_Command::handle_signal_peer (void)
 {
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
   LOOKUP_MANAGER->resolve (act_mgr);
 
   act_mgr->signal_peer ();
@@ -169,7 +169,7 @@ TAO_Notify_Tests_Application_Command::handle_signal_peer (void)
 void
 TAO_Notify_Tests_Application_Command::handle_wait_to_start (void)
 {
-  TAO_Notify_Tests_Activation_Manager* act_mgr = 0;
+  TAO_Notify_Tests_Activation_Manager* act_mgr = nullptr;
   LOOKUP_MANAGER->resolve (act_mgr);
 
   act_mgr->write_ior ();

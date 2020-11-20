@@ -37,7 +37,7 @@ Factory::create_object (
 
   tmp_fcid = this->fcid_;
 
-  PortableGroup::GenericFactory::FactoryCreationId *my_fcid = 0;
+  PortableGroup::GenericFactory::FactoryCreationId *my_fcid = nullptr;
 
   ACE_NEW_THROW_EX (my_fcid,
                     PortableGroup::GenericFactory::FactoryCreationId,
@@ -68,7 +68,7 @@ Factory::delete_object (
   if (fcid >>= my_fcid)
     {
       ACE_GUARD (TAO_SYNCH_MUTEX, guard, this->lock_);
-      Factory_Map::ENTRY *entry = 0;
+      Factory_Map::ENTRY *entry = nullptr;
       if (this->factory_map_.find (my_fcid, entry) == 0)
         {
           if (this->factory_map_.unbind (my_fcid) != 0)

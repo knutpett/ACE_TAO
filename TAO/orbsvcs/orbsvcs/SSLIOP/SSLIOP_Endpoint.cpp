@@ -172,7 +172,7 @@ TAO_SSLIOP_Endpoint::is_equivalent (const TAO_Endpoint *other_endpoint)
 TAO_Endpoint *
 TAO_SSLIOP_Endpoint::duplicate (void)
 {
-  TAO_SSLIOP_Endpoint *endpoint = 0;
+  TAO_SSLIOP_Endpoint *endpoint = nullptr;
 
   // @@ We need to set the priority of the newly formed endpoint. It
   // shouldnt be a problem as long as SSL is not used with RTCORBA.
@@ -347,7 +347,7 @@ TAO_SSLIOP_Synthetic_Endpoint::is_equivalent (const TAO_Endpoint *other_endpoint
 TAO_Endpoint *
 TAO_SSLIOP_Synthetic_Endpoint::duplicate (void)
 {
-  TAO_SSLIOP_Synthetic_Endpoint *endpoint = 0;
+  TAO_SSLIOP_Synthetic_Endpoint *endpoint = nullptr;
 
   // @@ We need to set the priority of the newly formed endpoint. It
   // shouldnt be a problem as long as SSL is not used with RTCORBA.

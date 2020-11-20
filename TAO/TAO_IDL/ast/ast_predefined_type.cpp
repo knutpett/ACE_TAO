@@ -91,8 +91,8 @@ AST_PredefinedType::AST_PredefinedType (PredefinedType t,
                       n),
     pd_pt (t)
 {
-  UTL_ScopedName *new_name = 0;
-  Identifier *id = 0;
+  UTL_ScopedName *new_name = nullptr;
+  Identifier *id = nullptr;
 
   // Generate a new Scoped Name for us such that we belong to the CORBA
   // namespace.
@@ -114,7 +114,7 @@ AST_PredefinedType::AST_PredefinedType (PredefinedType t,
                UTL_ScopedName (id,
                                0));
 
-      UTL_ScopedName *conc_name = 0;
+      UTL_ScopedName *conc_name = nullptr;
 
       switch (this->pt ())
         {

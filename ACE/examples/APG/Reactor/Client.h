@@ -38,7 +38,7 @@ public:
 
   // Called when a timer expires.
   virtual int handle_timeout (const ACE_Time_Value &current_time,
-                              const void *act = 0);
+                              const void *act = nullptr);
 
 private:
   enum { ITERATIONS = 5 };

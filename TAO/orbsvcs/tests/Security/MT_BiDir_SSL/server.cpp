@@ -8,7 +8,7 @@
 #include "tao/Transport_Cache_Manager.h"
 #include "ace/Manual_Event.h"
 
-const ACE_TCHAR *ior_output_file = 0;
+const ACE_TCHAR *ior_output_file = nullptr;
 static int no_iterations = 10;
 static int no_clients = 2;
 
@@ -101,7 +101,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       ACE_Manual_Event manual_event;
 
-      Sender_i *sender = 0;
+      Sender_i *sender = nullptr;
       ACE_NEW_RETURN (sender,
                       Sender_i (no_clients,
                                 manual_event),

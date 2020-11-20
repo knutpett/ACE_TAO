@@ -64,7 +64,7 @@ AST_Decl *
 AST_Home::look_in_inherited (UTL_ScopedName *e,
                              bool full_def_only)
 {
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
 
   if (this->pd_base_home != 0)
     {
@@ -80,8 +80,8 @@ AST_Decl *
 AST_Home::look_in_supported (UTL_ScopedName *e,
                              bool full_def_only)
 {
-  AST_Decl *d = 0;
-  AST_Type **is = 0;
+  AST_Decl *d = nullptr;
+  AST_Type **is = nullptr;
   long nis = -1;
 
   // Can't look in an interface which was not yet defined.
@@ -179,10 +179,10 @@ AST_Home::transfer_scope_elements (AST_Interface *dst)
     {
       AST_Decl *d = src_iter.item ();
 
-      Identifier *local_id = 0;
+      Identifier *local_id = nullptr;
       ACE_NEW (local_id,
                Identifier (d->local_name ()->get_string ()));
-      UTL_ScopedName *last_segment = 0;
+      UTL_ScopedName *last_segment = nullptr;
       ACE_NEW (last_segment,
                UTL_ScopedName (local_id,
                                0));

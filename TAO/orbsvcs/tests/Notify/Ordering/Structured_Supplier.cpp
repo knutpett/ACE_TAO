@@ -14,7 +14,7 @@
 #include "ace/OS_NS_unistd.h"
 #include "ace/Auto_Ptr.h"
 
-static TAO_Notify_Tests_StructuredPushSupplier* supplier_1 = 0;
+static TAO_Notify_Tests_StructuredPushSupplier* supplier_1 = nullptr;
 static CORBA::Short order_policy = CosNotification::FifoOrder;
 static int num_events = 30;
 static const ACE_TCHAR *ior_output_file = ACE_TEXT ("supplier.ior");

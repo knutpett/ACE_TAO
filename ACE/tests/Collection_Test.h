@@ -23,7 +23,7 @@ struct UglyThing
   void *alloc_;
   deletion_func dfunc_;
 
-  UglyThing (void* alloc = 0, deletion_func dfunc = 0);
+  UglyThing (void* alloc = nullptr, deletion_func dfunc = 0);
   bool operator== (const UglyThing& r) const;
 };
 

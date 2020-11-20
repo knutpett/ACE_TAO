@@ -423,7 +423,7 @@ Server_Acceptor::handle_input (ACE_HANDLE)
                        ACE_TEXT ("(%t) %p\n"),
                        ACE_TEXT ("accept")),
                       -1);
-  Server_Handler *new_handler = 0;
+  Server_Handler *new_handler = nullptr;
   ACE_NEW_RETURN (new_handler, Server_Handler, -1);
   if (new_handler->open (new_stream.get_handle ()) != 0)
     delete new_handler;
@@ -481,7 +481,7 @@ start_clients (void *)
           continue;
         }
 
-      Client_Handler *new_handler = 0;
+      Client_Handler *new_handler = nullptr;
       ACE_NEW_RETURN (new_handler, Client_Handler, (ACE_THR_FUNC_RETURN)-1);
       if (new_handler->open (stream.get_handle ()) != 0)
         {

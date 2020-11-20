@@ -32,7 +32,7 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
    __extension__ char X[SIZE]
 #else
 # define ACE_TEMPORARY_STRING(X,SIZE) \
-   char* X = 0; \
+   char* X = nullptr; \
    char X ## buf[ACE_YY_BUF_SIZE]; \
    ACE_Auto_Ptr<char> X ## bufp (0); \
    if (SIZE > ACE_YY_BUF_SIZE) { \

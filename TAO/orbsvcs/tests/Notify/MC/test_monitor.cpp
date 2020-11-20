@@ -230,7 +230,7 @@ MonitorTestInterface_i::brain_dump(const char * /*context*/)
   ACE_DEBUG ((LM_DEBUG, "Statistic names [%d]\n", (int)length));
 
   // It's much easier to read once it's sorted
-  const char** narray = 0;
+  const char** narray = nullptr;
   ACE_NEW_THROW_EX (narray,
                     const char* [length],
                     CORBA::NO_MEMORY ());
@@ -359,7 +359,7 @@ MonitorTestInterface_i::finished (MonitorTestInterface::Which proc)
 }
 
 static const ACE_TCHAR* ior_output_file = ACE_TEXT ("test_monitor.ior");
-static const ACE_TCHAR* monitor_ior = 0;
+static const ACE_TCHAR* monitor_ior = nullptr;
 
 static int
 parse_args (int argc, ACE_TCHAR *argv[])
@@ -420,7 +420,7 @@ ACE_TMAIN (int argc, ACE_TCHAR* argv[])
                             1);
         }
 
-      MonitorTestInterface_i* mti = 0;
+      MonitorTestInterface_i* mti = nullptr;
       ACE_NEW_RETURN (mti, MonitorTestInterface_i (nsm.in ()), 1);
       PortableServer::ServantBase_var owner_transfer (mti);
 

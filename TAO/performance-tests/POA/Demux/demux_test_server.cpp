@@ -215,7 +215,7 @@ Demux_Test_Server::init (int argc, ACE_TCHAR *argv [])
               // activate the object
               try
                 {
-                  Demux_Test_i * demux_test_i_ptr = 0;
+                  Demux_Test_i * demux_test_i_ptr = nullptr;
                   ACE_NEW_RETURN (demux_test_i_ptr,
                                   Demux_Test_i,
                                   -1);

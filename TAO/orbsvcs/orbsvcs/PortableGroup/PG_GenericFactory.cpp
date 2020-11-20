@@ -138,7 +138,7 @@ TAO_PG_GenericFactory::create_object (
         }
 
       // Allocate a new FactoryCreationId for use as an "out" parameter.
-      PortableGroup::GenericFactory::FactoryCreationId * tmp = 0;
+      PortableGroup::GenericFactory::FactoryCreationId * tmp = nullptr;
       ACE_NEW_THROW_EX (tmp,
                         PortableGroup::GenericFactory::FactoryCreationId,
                         CORBA::NO_MEMORY (
@@ -191,7 +191,7 @@ TAO_PG_GenericFactory::delete_object (
 
       // If no entry exists in the factory map, infrastructure
       // controlled membership was not used.
-      TAO_PG_Factory_Map::ENTRY *entry = 0;
+      TAO_PG_Factory_Map::ENTRY *entry = nullptr;
       if (this->factory_map_.find (fcid, entry) == 0)
         {
           TAO_PG_Factory_Set & factory_set = entry->int_id_;
@@ -273,7 +273,7 @@ TAO_PG_GenericFactory::delete_member (
 
   // If no entry exists in the factory map, infrastructure
   // controlled membership was not used.
-  TAO_PG_Factory_Map::ENTRY *entry = 0;
+  TAO_PG_Factory_Map::ENTRY *entry = nullptr;
   if (this->factory_map_.find (group_id, entry) == 0)
     {
       TAO_PG_Factory_Set & factory_set = entry->int_id_;
@@ -467,7 +467,7 @@ TAO_PG_GenericFactory::process_criteria (
     }
 
   // Factories
-  const PortableGroup::FactoryInfos * factory_infos_tmp = 0;
+  const PortableGroup::FactoryInfos * factory_infos_tmp = nullptr;
   name[0].id = CORBA::string_dup ("org.omg.PortableGroup.Factories");
   if (TAO_PG::get_property_value (name, props.in (), value1)
       && !(value1 >>= factory_infos_tmp))
@@ -561,7 +561,7 @@ TAO_PG_GenericFactory::check_minimum_number_members (
   // If no entry exists in the factory map, infrastructure (this
   // GenericFactory implementation) controlled membership was not
   // used.
-  TAO_PG_Factory_Map::ENTRY *entry = 0;
+  TAO_PG_Factory_Map::ENTRY *entry = nullptr;
   if (this->factory_map_.find (group_id, entry) != 0)
     return;
 

@@ -41,7 +41,7 @@ TAO_Notify_Tests_Periodic_Consumer::init_state (ACE_Arg_Shifter& arg_shifter)
   if (TAO_Notify_Tests_StructuredPushConsumer::init_state (arg_shifter) == -1)
     return -1;
 
-  const ACE_TCHAR *current_arg = 0;
+  const ACE_TCHAR *current_arg = nullptr;
 
   while (arg_shifter.is_anything_left ())
     {

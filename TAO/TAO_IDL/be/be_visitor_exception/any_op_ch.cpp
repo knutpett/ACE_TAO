@@ -36,7 +36,7 @@ be_visitor_exception_any_op_ch::visit_exception (be_exception *node)
   *os << be_nl_2 << "// TAO_IDL - Generated from" << be_nl
       << "// " << __FILE__ << ":" << __LINE__;
 
-  be_module *module = 0;
+  be_module *module = nullptr;
   if (node->is_nested ())
     {
       AST_Decl *d = node;

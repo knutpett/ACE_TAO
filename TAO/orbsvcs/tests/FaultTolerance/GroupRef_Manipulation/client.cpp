@@ -5,7 +5,7 @@
 #include "tao/PI/PI.h"
 #include "orbsvcs/FaultTolerance/FT_Service_Activate.h"
 
-const ACE_TCHAR *ior = 0;
+const ACE_TCHAR *ior = nullptr;
 
 
 int

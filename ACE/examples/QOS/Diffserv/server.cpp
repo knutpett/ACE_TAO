@@ -27,7 +27,7 @@ public:
   virtual ACE_HANDLE get_handle (void) const;
   virtual int handle_input (ACE_HANDLE handle);
   virtual int handle_timeout (const ACE_Time_Value & tv,
-                              const void *arg = 0);
+                              const void *arg = nullptr);
   virtual int handle_close (ACE_HANDLE handle,
                             ACE_Reactor_Mask close_mask);
 

@@ -9,7 +9,7 @@
 void*
 ClientContext::get_attribute (const char *name)
 {
-  void * value = 0;
+  void * value = nullptr;
   attributeMap_.find (name, value);
   return value;
 }

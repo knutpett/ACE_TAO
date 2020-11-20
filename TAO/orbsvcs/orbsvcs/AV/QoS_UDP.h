@@ -70,33 +70,33 @@ public:
 
   /// Write the complete Message_Block chain to the connection.
   virtual ssize_t send (const ACE_Message_Block *mblk,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Write the contents of the buffer of length len to the connection.
   virtual ssize_t send (const char *buf,
                         size_t len,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Write the contents of iovcnt iovec's to the connection.
   virtual ssize_t send (const iovec *iov,
                         int iovcnt,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Read len bytes from into buf.
   virtual ssize_t recv (char *buf,
                         size_t len,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Read len bytes from into buf using flags.
   virtual ssize_t recv (char *buf,
                         size_t len,
                         int flags,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 
   /// Read received data into the iovec buffers.
   virtual ssize_t recv (iovec *iov,
                         int iovcnt,
-                        ACE_Time_Value *s = 0);
+                        ACE_Time_Value *s = nullptr);
 protected:
   TAO_AV_UDP_QoS_Flow_Handler *handler_;
   ACE_Addr *addr_;
@@ -119,7 +119,7 @@ public:
   virtual int set_remote_address (ACE_Addr *address);
   virtual ACE_HANDLE get_handle (void) const;
   virtual int handle_input (ACE_HANDLE fd);
-  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg = 0);
+  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg = nullptr);
   virtual int change_qos (AVStreams::QoS);
   /// Handles a QoS event. Right now, just
   /// prints a message.
@@ -224,7 +224,7 @@ protected:
 // {
 // public:
 //   TAO_AV_UDP_Object (TAO_AV_Callback *callback,
-//                      TAO_AV_Transport *transport = 0);
+//                      TAO_AV_Transport *transport = nullptr);
 
 //   virtual ~TAO_AV_UDP_Object (void);
 //   // Dtor
@@ -232,12 +232,12 @@ protected:
 //   virtual int handle_input (void);
 
 //   virtual int send_frame (ACE_Message_Block *frame,
-//                           TAO_AV_frame_info *frame_info = 0);
+//                           TAO_AV_frame_info *frame_info = nullptr);
 //   // send a data frame.
 
 //   virtual int send_frame (const iovec *iov,
 //                           int iovcnt,
-//                           TAO_AV_frame_info *frame_info = 0);
+//                           TAO_AV_frame_info *frame_info = nullptr);
 
 //   virtual int destroy (void);
 //   // end the stream.

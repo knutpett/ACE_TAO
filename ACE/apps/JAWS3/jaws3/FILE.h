@@ -21,13 +21,13 @@ public:
   ACE_Mem_Map *mem_map (int length = -1,
                         int prot = PROT_RDWR,
                         int share = ACE_MAP_PRIVATE,
-                        void *addr = 0,
+                        void *addr = nullptr,
                         ACE_OFF_T offset = 0,
                         LPSECURITY_ATTRIBUTES sa = 0);
   ACE_Mem_Map *mem_map (int length = -1,
                         int prot = PROT_RDWR,
                         int share = ACE_MAP_PRIVATE,
-                        void *addr = 0,
+                        void *addr = nullptr,
                         ACE_OFF_T offset = 0,
                         LPSECURITY_ATTRIBUTES sa = 0) const;
 

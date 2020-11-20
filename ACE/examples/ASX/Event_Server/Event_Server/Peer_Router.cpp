@@ -30,7 +30,7 @@ Peer_Router_Context::send_peers (ACE_Message_Block *mb)
   // a "real" application would probably "route" the data to a subset
   // of connected peers here, rather than send it to all the peers.
 
-  for (PEER_ENTRY *ss = 0;
+  for (PEER_ENTRY *ss = nullptr;
        map_iter.next (ss) != 0;
        map_iter.advance ())
     {
@@ -131,7 +131,7 @@ Peer_Router_Context::~Peer_Router_Context (void)
   // Make sure to take all the handles out of the map to avoid
   // "resource leaks."
 
-  for (PEER_ENTRY *ss = 0;
+  for (PEER_ENTRY *ss = nullptr;
        map_iter.next (ss) != 0;
        map_iter.advance ())
     {

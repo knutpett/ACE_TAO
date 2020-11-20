@@ -220,7 +220,7 @@ int be_visitor_array_ci::visit_array (be_array *node)
       << "{" << be_idt_nl;
 
   ACE_CDR::ULong ndims = node->n_dims ();
-  be_array *primitive_type = 0;
+  be_array *primitive_type = nullptr;
 
   if (bt->node_type () == AST_Decl::NT_typedef)
     {

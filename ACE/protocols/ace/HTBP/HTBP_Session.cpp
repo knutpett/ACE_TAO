@@ -45,7 +45,7 @@ ACE::HTBP::Session::remove_session (ACE::HTBP::Session *s)
 int
 ACE::HTBP::Session::find_session (const ACE::HTBP::Session_Id_t &sid, ACE::HTBP::Session *&out)
 {
-  ACE::HTBP::Session::Map_Entry *e = 0;
+  ACE::HTBP::Session::Map_Entry *e = nullptr;
   if (session_map_.find (sid,e) == -1)
     {
       out = 0;
@@ -243,8 +243,8 @@ ACE::HTBP::Session::flush_outbound_queue (void)
   int result = 0;
   if (this->outbound_queue_.message_count() > 0)
     {
-      ACE_Message_Block *msg = 0;
-      iovec *iov = 0;
+      ACE_Message_Block *msg = nullptr;
+      iovec *iov = nullptr;
       ACE_NEW_RETURN (iov,
                       iovec[this->outbound_queue_.message_count()],
                       -1);

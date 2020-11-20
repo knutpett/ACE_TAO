@@ -11,7 +11,7 @@ const ACE_TCHAR *ior_output_file = ACE_TEXT ("test.ior");
 size_t number_of_servers = 300;
 size_t steps = 10;
 int n_threads = 10;
-ACE_Barrier *barrier = 0;
+ACE_Barrier *barrier = nullptr;
 CORBA::ORB_var orb;
 
 int
@@ -206,7 +206,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
       PortableServer::POAManager_var poa_manager = root_poa->the_POAManager ();
 
-      MasterImpl *hello_impl = 0;
+      MasterImpl *hello_impl = nullptr;
       ACE_NEW_RETURN (hello_impl,
                       MasterImpl,
                       1);

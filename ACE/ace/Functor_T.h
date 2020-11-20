@@ -67,7 +67,7 @@ public:
   virtual ~ACE_Command_Callback (void);
 
   /// Invokes the method @c action_ from the object @c receiver_.
-  virtual int execute (void *arg = 0);
+  virtual int execute (void *arg = nullptr);
 
   ACE_ALLOC_HOOK_DECLARE;
 

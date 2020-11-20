@@ -758,7 +758,7 @@ CORBA::Object::tao_object_initialize (CORBA::Object *obj)
         }
     }
 
-  TAO_Stub *objdata = 0;
+  TAO_Stub *objdata = nullptr;
 
   try
     {
@@ -898,7 +898,7 @@ operator>> (TAO_InputCDR& cdr, CORBA::Object*& x)
 
       // Ownership of type_hint is given to TAO_Stub
       // TAO_Stub will make a copy of mp!
-      TAO_Stub *objdata = 0;
+      TAO_Stub *objdata = nullptr;
 
       try
         {
@@ -959,7 +959,7 @@ operator>> (TAO_InputCDR& cdr, CORBA::Object*& x)
   else
     {
       // Lazy strategy!
-      IOP::IOR *ior = 0;
+      IOP::IOR *ior = nullptr;
 
       ACE_NEW_RETURN (ior,
                       IOP::IOR (),

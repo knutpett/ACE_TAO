@@ -423,7 +423,7 @@ void FT_TestReplica_i::store(long counter)
   FILE * f = ACE_OS::fopen(this->name_persistent_storage, "w");
   if(f != 0)
   {
-    unsigned char* buffer = 0;
+    unsigned char* buffer = nullptr;
     ACE_NEW (buffer, unsigned char [sizeof(long)]);
     storeLong(buffer, 0, counter);
     ACE_OS::fwrite(buffer, 1, sizeof(long), f);

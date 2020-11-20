@@ -7,8 +7,8 @@
 #include "ace/Arg_Shifter.h"
 #include "ace/Dynamic_Service.h"
 
-static const ACE_TCHAR *supplierec = 0;
-static const ACE_TCHAR *consumerec = 0;
+static const ACE_TCHAR *supplierec = nullptr;
+static const ACE_TCHAR *consumerec = nullptr;
 
 int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])

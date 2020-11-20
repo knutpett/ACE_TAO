@@ -74,7 +74,7 @@ class ACE_Export ACE_Str_Buf : public strbuf
 {
 public:
   /// Constructor.
-  ACE_Str_Buf (void *b = 0, int l = 0, int max = 0);
+  ACE_Str_Buf (void *b = nullptr, int l = 0, int max = 0);
 
   /// Constructor.
   ACE_Str_Buf (strbuf &);
@@ -109,7 +109,7 @@ namespace ACE_OS {
   ACE_NAMESPACE_INLINE_FUNCTION
   int ioctl (ACE_HANDLE handle,
              ACE_IOCTL_TYPE_ARG2 cmd,
-             void * = 0);
+             void * = nullptr);
 
   /// QoS-enabled @c ioctl
   extern ACE_Export
@@ -130,10 +130,10 @@ namespace ACE_OS {
              unsigned long io_control_code,
              ACE_QoS &ace_qos,
              unsigned long *bytes_returned,
-             void *buffer_p = 0,
+             void *buffer_p = nullptr,
              unsigned long buffer = 0,
-             ACE_OVERLAPPED *overlapped = 0,
-             ACE_OVERLAPPED_COMPLETION_FUNC func = 0);
+             ACE_OVERLAPPED *overlapped = nullptr,
+             ACE_OVERLAPPED_COMPLETION_FUNC func = nullptr);
 
   ACE_NAMESPACE_INLINE_FUNCTION
   int isastream (ACE_HANDLE handle);

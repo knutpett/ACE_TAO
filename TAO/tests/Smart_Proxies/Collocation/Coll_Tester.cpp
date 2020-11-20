@@ -82,7 +82,7 @@ Collocation_Test::test_narrow (void)
   // Ensure that the smart proxy is the one which is used by registering
   // the user-defined factory. Its necessary to create one on the heap so
   // the lifetime of the factory object can be managed by the framework.
-  Smart_Diamond_Top_Factory *factory = 0;
+  Smart_Diamond_Top_Factory *factory = nullptr;
   ACE_NEW_RETURN (factory,
                   Smart_Diamond_Top_Factory,
                   -1);

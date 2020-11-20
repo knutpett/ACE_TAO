@@ -286,7 +286,7 @@ Worker::Worker (CORBA::ORB_ptr orb,
 int
 Worker::svc (void)
 {
-  const char * name = 0;
+  const char * name = nullptr;
   /*
   ACE_DEBUG ((LM_DEBUG, "(%t|%T):about to sleep for %d sec\n", sleep_time_));
   ACE_OS::sleep (sleep_time_);

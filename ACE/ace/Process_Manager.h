@@ -116,7 +116,7 @@ public:
    * ACE_Reactor.
    */
   ACE_Process_Manager (size_t size = ACE_Process_Manager::DEFAULT_SIZE,
-                       ACE_Reactor *reactor = 0);
+                       ACE_Reactor *reactor = nullptr);
 
   /**
    * Initialize an ACE_Process_Manager with a table containing up to
@@ -127,7 +127,7 @@ public:
    * ACE_Reactor.
    */
   int open (size_t size = ACE_Process_Manager::DEFAULT_SIZE,
-            ACE_Reactor *r = 0);
+            ACE_Reactor *r = nullptr);
 
   /// Release all resources.  Do not wait for processes to exit.
   int close (void);
@@ -173,7 +173,7 @@ public:
    */
   pid_t spawn (ACE_Process *proc,
                ACE_Process_Options &options,
-               ACE_Event_Handler *event_handler = 0);
+               ACE_Event_Handler *event_handler = nullptr);
 
   /**
    * Create a new process with the specified @a options.
@@ -183,7 +183,7 @@ public:
    * On failure, returns ACE_INVALID_PID.
    */
   pid_t spawn (ACE_Process_Options &options,
-               ACE_Event_Handler *event_handler = 0);
+               ACE_Event_Handler *event_handler = nullptr);
 
   /**
    * Create @a n new processes with the same @a options.
@@ -195,8 +195,8 @@ public:
    */
   int spawn_n (size_t n,
                ACE_Process_Options &options,
-               pid_t *child_pids = 0,
-               ACE_Event_Handler *event_Handler = 0);
+               pid_t *child_pids = nullptr,
+               ACE_Event_Handler *event_Handler = nullptr);
   //@}
 
   /**
@@ -267,13 +267,13 @@ public:
    */
   pid_t wait (pid_t pid,
               const ACE_Time_Value &timeout,
-              ACE_exitcode *status = 0);
+              ACE_exitcode *status = nullptr);
 
   /// @sa wait
   template< class Rep, class Period >
   pid_t wait (pid_t pid,
               const std::chrono::duration<Rep, Period>& timeout,
-              ACE_exitcode *status = 0)
+              ACE_exitcode *status = nullptr)
   {
     ACE_Time_Value const tv (timeout);
     return this->wait (pid, tv, status);
@@ -289,7 +289,7 @@ public:
    * ACE_INVALID_PID on error.
    */
   pid_t wait (pid_t pid,
-              ACE_exitcode *status = 0);
+              ACE_exitcode *status = nullptr);
   //@}
 
   /**
@@ -390,8 +390,8 @@ protected:
    * HANDLE of the Process that exited, so we can do all our work here
    */
   virtual int handle_signal (int signum,
-                             siginfo_t * = 0,
-                             ucontext_t * = 0);
+                             siginfo_t * = nullptr,
+                             ucontext_t * = nullptr);
 
 private:
 
@@ -438,7 +438,7 @@ private:
   /// the process handle won't work on Win32...
   /// Register @a event_handler to be called back when the process exits.
   int insert_proc (ACE_Process *process,
-                   ACE_Event_Handler *event_handler = 0);
+                   ACE_Event_Handler *event_handler = nullptr);
 
   /**
    * Append information about a process, i.e., its <process_id> in the
@@ -447,7 +447,7 @@ private:
    * Register @a event_handler to be called back when the process exits.
    */
   int append_proc (ACE_Process *process,
-                   ACE_Event_Handler *event_handler = 0);
+                   ACE_Event_Handler *event_handler = nullptr);
 
   /// Actually removes the process at index @a n from the table.  This method
   /// must be called with locks held.

@@ -71,7 +71,7 @@ ACE_OS::dlerror (void)
 {
   ACE_OS_TRACE ("ACE_OS::dlerror");
 # if defined (ACE_HAS_SVR4_DYNAMIC_LINKING)
-  const char *err = 0;
+  const char *err = nullptr;
   ACE_OSCALL (::dlerror (), const char *, 0, err);
   if (err == 0)
     return 0;
@@ -146,7 +146,7 @@ ACE_OS::dlopen (const ACE_TCHAR *fname,
 #   endif  /* aC++ vs. Hp C++ */
 # elif defined (ACE_VXWORKS) && !defined (__RTP__)
   ACE_UNUSED_ARG (mode);
-  MODULE* handle = 0;
+  MODULE* handle = nullptr;
   // Open readonly
   ACE_HANDLE filehandle = ACE_OS::open (fname,
                                         O_RDONLY,
@@ -196,7 +196,7 @@ ACE_OS::dlsym (ACE_SHLIB_HANDLE handle,
 #if defined (ACE_HAS_WINCE)
   // CE (at least thru Pocket PC 2003) offers GetProcAddressW, not ...A, so
   // we always need a wide-char string.
-  const wchar_t *symbolname = 0;
+  const wchar_t *symbolname = nullptr;
 #  if defined (ACE_USES_WCHAR)
   symbolname = sname;
 #  else
@@ -217,7 +217,7 @@ ACE_OS::dlsym (ACE_SHLIB_HANDLE handle,
 
 #   if defined (ACE_USES_ASM_SYMBOL_IN_DLSYM)
   int l = ACE_OS::strlen (symbolname) + 2;
-  char *asm_symbolname = 0;
+  char *asm_symbolname = nullptr;
   ACE_NEW_RETURN (asm_symbolname, char[l], 0);
   ACE_OS::strcpy (asm_symbolname, "_") ;
   ACE_OS::strcpy (asm_symbolname + 1, symbolname) ;
@@ -235,7 +235,7 @@ ACE_OS::dlsym (ACE_SHLIB_HANDLE handle,
 
 # elif defined (__hpux)
 
-  void *value = 0;
+  void *value = nullptr;
   int status;
   shl_t _handle = handle;
   ACE_OSCALL (::shl_findsym(&_handle, symbolname, TYPE_UNDEFINED, &value), int, -1, status);
@@ -249,7 +249,7 @@ ACE_OS::dlsym (ACE_SHLIB_HANDLE handle,
   ACE_UNUSED_ARG (handle);
 #if (ACE_VXWORKS < 0x690)
   SYM_TYPE symtype;
-  char *value = 0;
+  char *value = nullptr;
   STATUS status;
   ACE_OSCALL (::symFindByName(sysSymTbl, symbolname, &value, &symtype), int, -1, status);
 

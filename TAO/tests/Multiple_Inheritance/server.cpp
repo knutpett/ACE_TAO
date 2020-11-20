@@ -4,7 +4,7 @@
 #include "ace/OS_NS_stdio.h"
 #include "ace/OS_NS_string.h"
 
-static ACE_TCHAR *ior_output_file = 0;
+static ACE_TCHAR *ior_output_file = nullptr;
 
 Multiple_Inheritance_i::Multiple_Inheritance_i (void)
 {

@@ -694,7 +694,7 @@ ACE_SSL_Asynch_Stream::notify_close (void)
     return 2;   // too early , we will do later
 
   // create result for future notification
-  ACE_SSL_Asynch_Result * close_result = 0;
+  ACE_SSL_Asynch_Result * close_result = nullptr;
 
   ACE_NEW_RETURN (close_result,
                   ACE_SSL_Asynch_Result (*this),
@@ -1044,7 +1044,7 @@ ACE_SSL_Asynch_Stream::handle_read_stream (
 void
 ACE_SSL_Asynch_Stream::handle_wakeup (void)
 {
-  ACE_Handler * user_handler = 0;
+  ACE_Handler * user_handler = nullptr;
 
   {
     ACE_MT (ACE_GUARD (ACE_SYNCH_MUTEX, ace_mon, this->mutex_));

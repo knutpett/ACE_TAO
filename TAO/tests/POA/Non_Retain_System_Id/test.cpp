@@ -38,7 +38,7 @@ ID_Check_i::ID_Check_i (int num)
     current_ ()
 {
   int argc = 0;
-  char **argv = 0;
+  char **argv = nullptr;
   CORBA::ORB_var orb = CORBA::ORB_init (argc, argv);
   CORBA::Object_var obj = orb->resolve_initial_references ("POACurrent");
   current_ = PortableServer::Current::_narrow (obj.in());

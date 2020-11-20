@@ -417,7 +417,7 @@ public:
    */
   int handler (ACE_HANDLE handle,
                ACE_Reactor_Mask mask,
-               ACE_Event_Handler **event_handler = 0);
+               ACE_Event_Handler **event_handler = nullptr);
 
   /**
    * Check to see if @a handle is associated with a valid
@@ -510,9 +510,9 @@ public:
    * 0, the caller will block until action is possible, else will wait
    * until the relative time specified in @a timeout elapses).
    */
-  virtual int notify (ACE_Event_Handler *event_handler = 0,
+  virtual int notify (ACE_Event_Handler *event_handler = nullptr,
                       ACE_Reactor_Mask mask = ACE_Event_Handler::EXCEPT_MASK,
-                      ACE_Time_Value *timeout = 0);
+                      ACE_Time_Value *timeout = nullptr);
 
   /// No-op.
   virtual int dispatch_notifications (int &number_of_active_handles,
@@ -744,8 +744,8 @@ public:
    * <handle_events> is that in the alertable case, TRUE is passed to
    * <WaitForMultipleObjects> for the <bAlertable> option.
    */
-  virtual int handle_events (ACE_Time_Value *max_wait_time = 0);
-  virtual int alertable_handle_events (ACE_Time_Value *max_wait_time = 0);
+  virtual int handle_events (ACE_Time_Value *max_wait_time = nullptr);
+  virtual int alertable_handle_events (ACE_Time_Value *max_wait_time = nullptr);
 
   /**
    * This method is just like the one above, except the
@@ -837,15 +837,15 @@ public:
    */
   virtual int register_handler (int signum,
                                 ACE_Event_Handler *new_sh,
-                                ACE_Sig_Action *new_disp = 0,
-                                ACE_Event_Handler **old_sh = 0,
-                                ACE_Sig_Action *old_disp = 0);
+                                ACE_Sig_Action *new_disp = nullptr,
+                                ACE_Event_Handler **old_sh = nullptr,
+                                ACE_Sig_Action *old_disp = nullptr);
 
   /// Registers @a new_sh to handle a set of signals @a sigset using the
   /// @a new_disp.
   virtual int register_handler (const ACE_Sig_Set &sigset,
                                 ACE_Event_Handler *new_sh,
-                                ACE_Sig_Action *new_disp = 0);
+                                ACE_Sig_Action *new_disp = nullptr);
 
   /**
    * Removes @a event_handler from the ACE_WFMO_Reactor.  Note that
@@ -891,7 +891,7 @@ public:
    */
   virtual int remove_handler (int signum,
                               ACE_Sig_Action *new_disp,
-                              ACE_Sig_Action *old_disp = 0,
+                              ACE_Sig_Action *old_disp = nullptr,
                               int sigkey = -1);
 
   /// Calls remove_handler() for every signal in @a sigset.
@@ -988,7 +988,7 @@ public:
    * wasn't found.
    */
   virtual int cancel_timer (long timer_id,
-                            const void **arg = 0,
+                            const void **arg = nullptr,
                             int dont_call_handle_close = 1);
 
   // = High-level Event_Handler scheduling operations
@@ -1084,7 +1084,7 @@ public:
    */
   virtual int handler (ACE_HANDLE handle,
                        ACE_Reactor_Mask mask,
-                       ACE_Event_Handler **event_handler = 0);
+                       ACE_Event_Handler **event_handler = nullptr);
 
   /**
    * Check to see if @a signum is associated with a valid Event_Handler
@@ -1114,7 +1114,7 @@ public:
    * transfer will not complete until all threads are ready (just like
    * the handle set).
    */
-  virtual int owner (ACE_thread_t new_owner, ACE_thread_t *old_owner = 0);
+  virtual int owner (ACE_thread_t new_owner, ACE_thread_t *old_owner = nullptr);
 
   /// Return the ID of the "owner" thread.
   virtual int owner (ACE_thread_t *owner);
@@ -1177,7 +1177,7 @@ protected:
                                   ACE_Reactor_Mask mask);
 
   /// Event handling workhorse
-  virtual int event_handling (ACE_Time_Value *max_wait_time = 0,
+  virtual int event_handling (ACE_Time_Value *max_wait_time = nullptr,
                               int alertable = 0);
 
   /// Bit masking workhorse

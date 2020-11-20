@@ -72,7 +72,7 @@ AST_Decl *
 AST_Component::look_in_inherited (UTL_ScopedName *e,
                                   bool full_def_only)
 {
-  AST_Decl *d = 0;
+  AST_Decl *d = nullptr;
 
   if (this->pd_base_component != 0)
     {
@@ -90,8 +90,8 @@ AST_Decl *
 AST_Component::look_in_supported (UTL_ScopedName *e,
                                   bool full_def_only)
 {
-  AST_Decl *d = 0;
-  AST_Type **is = 0;
+  AST_Decl *d = nullptr;
+  AST_Type **is = nullptr;
   long nis = -1;
 
   // Can't look in an interface which was not yet defined.

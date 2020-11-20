@@ -64,7 +64,7 @@ TAO_COIOP_Connector::make_connection (TAO::Profile_Transport_Resolver *,
 TAO_Profile *
 TAO_COIOP_Connector::create_profile (TAO_InputCDR& cdr)
 {
-  TAO_Profile *pfile = 0;
+  TAO_Profile *pfile = nullptr;
   ACE_NEW_RETURN (pfile,
                   TAO_COIOP_Profile (this->orb_core ()),
                   0);
@@ -87,7 +87,7 @@ TAO_COIOP_Connector::make_profile (void)
   // or:
   //    uuid/object_key
 
-  TAO_Profile *profile = 0;
+  TAO_Profile *profile = nullptr;
   ACE_NEW_THROW_EX (profile,
                     TAO_COIOP_Profile (this->orb_core ()),
                     CORBA::NO_MEMORY (

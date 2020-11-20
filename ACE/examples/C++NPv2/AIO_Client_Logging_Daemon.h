@@ -20,7 +20,7 @@ class AIO_CLD_Acceptor;
 
 class AIO_Input_Handler : public ACE_Service_Handler {
 public:
-  AIO_Input_Handler (AIO_CLD_Acceptor *acc = 0)
+  AIO_Input_Handler (AIO_CLD_Acceptor *acc = nullptr)
     : acceptor_ (acc), mblk_ (0) {}
 
   virtual ~AIO_Input_Handler ();
@@ -69,7 +69,7 @@ protected:
   int can_write_;    // Safe to begin send a log record?
 
   // Initiate the send of a log record
-  void start_write (ACE_Message_Block *mblk = 0);
+  void start_write (ACE_Message_Block *mblk = nullptr);
 
   // Handle disconnects from the logging server.
   virtual void handle_read_stream

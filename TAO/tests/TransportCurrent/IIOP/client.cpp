@@ -152,7 +152,7 @@ ACE_TMAIN (int argc, ACE_TCHAR *argv[])
 
   try
     {
-      Test::Client_Request_Interceptor* cri = 0;
+      Test::Client_Request_Interceptor* cri = nullptr;
       ACE_NEW_RETURN (cri,
                       Test::Client_Request_Interceptor (CLIENT_ORB_ID,
                                                         test_transport_current),

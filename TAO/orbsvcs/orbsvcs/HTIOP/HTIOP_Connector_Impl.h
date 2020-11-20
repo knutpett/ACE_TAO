@@ -54,8 +54,8 @@ namespace TAO
       /// state/info to the service handler upon creation.  Currently used
       /// by HTIOP to pass protocol configuration properties.
       Connect_Creation_Strategy (ACE_Thread_Manager * = 0,
-                                 TAO_ORB_Core* orb_core = 0,
-                                 void *arg = 0,
+                                 TAO_ORB_Core* orb_core = nullptr,
+                                 void *arg = nullptr,
                                  CORBA::Boolean flag = 0);
 
       /// Makes HTIOP_Client_Connection_Handlers
