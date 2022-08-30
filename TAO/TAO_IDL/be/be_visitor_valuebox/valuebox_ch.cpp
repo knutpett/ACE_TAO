@@ -118,12 +118,12 @@ be_visitor_valuebox_ch::visit_valuebox (be_valuebox *node)
   *os << "virtual ~" << node->local_name () << " ();" << be_nl;
 
   // Methods for marshalling and unmarshalling the value
-  *os << "virtual ::CORBA::Boolean "
-      << "_tao_marshal_v (TAO_OutputCDR &) const;" << be_nl;
-  *os << "virtual ::CORBA::Boolean "
-      << "_tao_unmarshal_v (TAO_InputCDR &);" << be_nl;
-  *os << "virtual ::CORBA::Boolean "
-      << "_tao_match_formal_type (ptrdiff_t) const;" << be_nl;
+  *os << "::CORBA::Boolean "
+      << "_tao_marshal_v (TAO_OutputCDR &) const override;" << be_nl;
+  *os << "::CORBA::Boolean "
+      << "_tao_unmarshal_v (TAO_InputCDR &) overrode;" << be_nl;
+  *os << "::CORBA::Boolean "
+      << "_tao_match_formal_type (ptrdiff_t) const override;" << be_nl;
 
   // Private unimplemented default assignment operator
   *os << be_uidt_nl << "private:" << be_idt_nl;

@@ -261,12 +261,12 @@ be_visitor_valuetype_ch::visit_valuetype (be_valuetype *node)
   // Support for marshalling.
   if (!node->is_abstract () || is_an_amh_exception_holder)
     {
-      *os << "virtual ::CORBA::Boolean "
-          << "_tao_marshal_v (TAO_OutputCDR &) const;" << be_nl;
-      *os << "virtual ::CORBA::Boolean "
-          << "_tao_unmarshal_v (TAO_InputCDR &);" << be_nl;
-      *os << "virtual ::CORBA::Boolean "
-          << "_tao_match_formal_type (ptrdiff_t) const;" << be_nl;
+      *os << "::CORBA::Boolean "
+          << "_tao_marshal_v (TAO_OutputCDR &) const override;" << be_nl;
+      *os << "::CORBA::Boolean "
+          << "_tao_unmarshal_v (TAO_InputCDR &) override;" << be_nl;
+      *os << "::CORBA::Boolean "
+          << "_tao_match_formal_type (ptrdiff_t) const override;" << be_nl;
     }
 
   if (be_global->gen_ostream_operators ())

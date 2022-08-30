@@ -144,12 +144,12 @@ be_visitor_interface_ch::visit_interface (be_interface *node)
     }
 
   // The _is_a method
-  *os << "virtual ::CORBA::Boolean _is_a (const char *type_id);"
+  *os << "::CORBA::Boolean _is_a (const char *type_id) override;"
       << be_nl;
 
   // The _interface_repository_id method.
-  *os << "virtual const char* _interface_repository_id "
-      << "() const;";
+  *os << "const char* _interface_repository_id "
+      << "() const override;";
 
   if (be_global->gen_static_desc_operations ())
     {
@@ -160,8 +160,8 @@ be_visitor_interface_ch::visit_interface (be_interface *node)
 
   // The virtual marshal method, to prevent marshal of local interfaces.
   *os << be_nl
-      << "virtual ::CORBA::Boolean marshal "
-      << "(TAO_OutputCDR &cdr);";
+      << "::CORBA::Boolean marshal "
+      << "(TAO_OutputCDR &cdr) override;";
 
   // If we are generating CORBA Policy we need to add some more methods
   if (ACE_OS::strcmp (node->full_name (), "CORBA::Policy") == 0)

@@ -201,9 +201,9 @@ public:
   // since they are inherently error-prone to use.  They are only here
   // for (the rare) applications that know how to use them correctly.
   /// Suspend a task.
-  virtual int suspend ();
+  int suspend () override;
   /// Resume a suspended task.
-  virtual int resume ();
+  int resume () override;
 
   /// Get the current group id.
   int grp_id () const;

@@ -163,7 +163,7 @@ public:
                                  const ACE_Message_Block &mb) override;
 
   /// Dump the state of the strategy.
-  virtual void dump () const override;
+  void dump () const override;
 };
 
 /**
@@ -198,7 +198,7 @@ public:
                                  const ACE_Message_Block &mb) override;
 
   /// Dump the state of the strategy.
-  virtual void dump () const override;
+  void dump () const override;
 };
 
 ACE_END_VERSIONED_NAMESPACE_DECL
