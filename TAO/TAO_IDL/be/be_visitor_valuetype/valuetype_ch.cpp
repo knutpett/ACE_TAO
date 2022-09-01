@@ -200,7 +200,7 @@ be_visitor_valuetype_ch::visit_valuetype (be_valuetype *node)
   if (be_global->tc_support ())
     {
       *os << be_nl_2
-          << "virtual ::CORBA::TypeCode_ptr _tao_type () const;";
+          << "::CORBA::TypeCode_ptr _tao_type () const override;";
     }
 
   // Generate code for the valuetype definition.

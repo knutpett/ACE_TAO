@@ -113,7 +113,7 @@ public:
 
   static AST_Decl::NodeType const NT;
 
-  bool auto_dump_annotations () const { return false override; }
+  bool auto_dump_annotations () const override { return false; }
 
 private:
   // list of labels.

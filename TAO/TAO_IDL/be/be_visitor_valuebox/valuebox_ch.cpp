@@ -91,7 +91,7 @@ be_visitor_valuebox_ch::visit_valuebox (be_valuebox *node)
 
   if (be_global->tc_support ())
     {
-      *os << "virtual ::CORBA::TypeCode_ptr _tao_type () const;"
+      *os << "::CORBA::TypeCode_ptr _tao_type () const override;"
           << be_nl_2;
     }
 

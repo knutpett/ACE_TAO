@@ -105,7 +105,7 @@ int be_visitor_exception_ch::visit_exception (be_exception *node)
   if (be_global->tc_support ())
     {
       *os << be_nl_2
-          << "virtual ::CORBA::TypeCode_ptr _tao_type () const;";
+          << "::CORBA::TypeCode_ptr _tao_type () const override;";
     }
 
   *os << be_uidt_nl << "};";
