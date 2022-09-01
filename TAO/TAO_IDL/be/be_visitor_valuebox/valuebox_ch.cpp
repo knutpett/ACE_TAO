@@ -121,7 +121,7 @@ be_visitor_valuebox_ch::visit_valuebox (be_valuebox *node)
   *os << "::CORBA::Boolean "
       << "_tao_marshal_v (TAO_OutputCDR &) const override;" << be_nl;
   *os << "::CORBA::Boolean "
-      << "_tao_unmarshal_v (TAO_InputCDR &) overrode;" << be_nl;
+      << "_tao_unmarshal_v (TAO_InputCDR &) override;" << be_nl;
   *os << "::CORBA::Boolean "
       << "_tao_match_formal_type (ptrdiff_t) const override;" << be_nl;
 
