@@ -45,7 +45,7 @@ public:
                                  const char *suffix = 0);
 
   /// return the direction of the argument node
-  AST_Argument::Direction direction () override;
+  virtual AST_Argument::Direction direction ();
 
   /// must be overridden by derived classes
   int visit_argument (be_argument *node) override;

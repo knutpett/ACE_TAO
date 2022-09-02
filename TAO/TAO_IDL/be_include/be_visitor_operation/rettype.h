@@ -95,7 +95,7 @@ public:
   int visit_valuebox (be_valuebox *node) override;
 
 private:
-  const char *type_name (be_type *node) override;
+  virtual const char *type_name (be_type *node);
 
 private:
   TAO_OutStream *os;

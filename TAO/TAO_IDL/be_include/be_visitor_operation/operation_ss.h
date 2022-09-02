@@ -43,7 +43,7 @@ public:
   // template methods
 
   /// generate any pre skeleton code info
-  int gen_pre_skel_info (be_operation *node) override;
+  virtual int gen_pre_skel_info (be_operation *node);
 
   /// Generate the skeleton operation body.
   int gen_skel_operation_body (be_operation * node,

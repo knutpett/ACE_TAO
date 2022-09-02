@@ -36,7 +36,7 @@ public:
   int visit_operation (be_operation *node) override;
 
   /// A helper method to generate operation invocation code.
-  int gen_invoke (be_visitor_context &ctx, be_operation *node) override;
+  virtual int gen_invoke (be_visitor_context &ctx, be_operation *node);
 };
 
 #endif /* _BE_VISITOR_OPERATION_OPERATION_SMART_PROXY_CS_H_ */

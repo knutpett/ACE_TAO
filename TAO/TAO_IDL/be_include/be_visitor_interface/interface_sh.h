@@ -37,8 +37,8 @@ public:
                                       TAO_OutStream *os);
 
 protected:
-  void this_method (be_interface *node) override;
-  int generate_amh_classes (be_interface *node) override;
+  virtual void this_method (be_interface *node);
+  virtual int generate_amh_classes (be_interface *node);
 };
 
 #endif /* _BE_INTERFACE_INTERFACE_SH_H_ */
