@@ -121,7 +121,7 @@ class ACE_Export ACE_Adaptive_Lock : public ACE_Lock
 public:
   /// You must also override the destructor function to match with how
   /// you construct the underneath @c lock_.
-  virtual ~ACE_Adaptive_Lock () = default;
+  ~ACE_Adaptive_Lock () override = default;
 
   // = Lock/unlock operations.
 

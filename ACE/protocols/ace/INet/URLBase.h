@@ -171,16 +171,16 @@ namespace ACE
 
               u_short get_port () const;
 
-              virtual u_short default_port () const = 0;
+              u_short default_port () const = 0 override;
 
-              virtual ACE_CString get_authority () const;
+              ACE_CString get_authority () const override;
 
-              virtual bool validate ();
+              bool validate () override;
 
             protected:
-              virtual int parse_authority (std::istream& is);
+              int parse_authority (std::istream& is) override;
 
-              virtual bool has_authority ();
+              bool has_authority () override;
 
               int parse_authority_i (std::istream& is,
                                      std::ostream& os,
@@ -213,10 +213,10 @@ namespace ACE
 
               void set_user_info (const ACE_CString& userinfo);
 
-              virtual ACE_CString get_authority () const;
+              ACE_CString get_authority () const override;
 
             protected:
-              virtual int parse_authority (std::istream& is);
+              int parse_authority (std::istream& is) override;
 
             private:
               ACE_CString userinfo_;

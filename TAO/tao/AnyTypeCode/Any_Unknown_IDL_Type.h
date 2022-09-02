@@ -43,7 +43,7 @@ namespace TAO
 
     Unknown_IDL_Type (CORBA::TypeCode_ptr);
 
-    virtual ~Unknown_IDL_Type ();
+    ~Unknown_IDL_Type () override;
 
     CORBA::Boolean marshal_value (TAO_OutputCDR &) override;
     virtual const void *value () const;

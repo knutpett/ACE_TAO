@@ -68,7 +68,7 @@ public:
   ACE_Task_Base (ACE_Thread_Manager * = 0);
 
   /// Destructor.
-  virtual ~ACE_Task_Base ();
+  ~ACE_Task_Base () override;
 
   // These methods should be overridden by subclasses if you'd like to
   // provide <Task>-specific initialization and termination behavior.

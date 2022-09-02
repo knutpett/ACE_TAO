@@ -12,7 +12,7 @@ public:
   AST_StructureFwd (AST_Structure *full_defn,
                     UTL_ScopedName *n);
 
-  virtual ~AST_StructureFwd ();
+  ~AST_StructureFwd () override;
 
   AST_Structure *full_definition ();
   void set_full_definition (AST_Structure *nfd);

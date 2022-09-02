@@ -45,7 +45,7 @@ namespace TAO
                      CORBA::TypeCode_ptr,
                      const T &);
     Any_Dual_Impl_T (CORBA::TypeCode_ptr);
-    virtual ~Any_Dual_Impl_T ();
+    ~Any_Dual_Impl_T () override;
 
     static void insert (CORBA::Any &,
                         _tao_destructor,
@@ -65,7 +65,7 @@ namespace TAO
     void _tao_decode (TAO_InputCDR &) override;
 
     virtual const void *value () const;
-    virtual void free_value ();
+    void free_value () override;
 
   protected:
     void value (const T &);

@@ -336,7 +336,7 @@ namespace CORBA
   protected:
     DefaultValueRefCountBase ();
     DefaultValueRefCountBase (const DefaultValueRefCountBase&);
-    virtual ~DefaultValueRefCountBase ();
+    ~DefaultValueRefCountBase () override;
 
   private:
     void operator= (const DefaultValueRefCountBase &);

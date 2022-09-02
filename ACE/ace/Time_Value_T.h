@@ -68,7 +68,7 @@ public:
   {}
 
   /// Destructor
-  virtual ~ACE_Time_Value_T () {}
+  ~ACE_Time_Value_T () override {}
 
   /// Add @a tv to this.
   ACE_Time_Value_T<TIME_POLICY> &operator += (const ACE_Time_Value &tv);

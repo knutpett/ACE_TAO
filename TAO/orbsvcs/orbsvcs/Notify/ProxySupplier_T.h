@@ -34,60 +34,60 @@ public:
   TAO_Notify_ProxySupplier_T (void);
 
   /// Destructor
-  ~TAO_Notify_ProxySupplier_T ();
+  ~TAO_Notify_ProxySupplier_T () override;
 
   /// Notification of subscriptions set at the admin.
-  virtual void admin_types_changed (const CosNotification::EventTypeSeq & added,
-                                    const CosNotification::EventTypeSeq & removed);
+  void admin_types_changed (const CosNotification::EventTypeSeq & added,
+                                    const CosNotification::EventTypeSeq & removed) override;
 
   ///= POA_Notify_Internal methods
   /// POA_Notify_Internal::Event_Forwarder method
-  virtual void forward_structured (const CosNotification::StructuredEvent & event);
+  void forward_structured (const CosNotification::StructuredEvent & event);
 
   /// POA_Notify_Internal::Event_Forwarder method
-  virtual void forward_structured_no_filtering (const CosNotification::StructuredEvent & event);
+  void forward_structured_no_filtering (const CosNotification::StructuredEvent & event);
 
   /// POA_Notify_Internal::Event_Forwarder method
-  virtual void forward_any (const CORBA::Any & event);
+  void forward_any (const CORBA::Any & event) override;
 
   /// POA_Notify_Internal::Event_Forwarder method
-  virtual void forward_any_no_filtering (const CORBA::Any & event);
+  void forward_any_no_filtering (const CORBA::Any & event) override;
 protected:
   //= Data Members
   CORBA::Boolean is_suspended_;
 
   // = Interface methods
-  virtual CosNotifyChannelAdmin::ConsumerAdmin_ptr MyAdmin (
-  );
+  CosNotifyChannelAdmin::ConsumerAdmin_ptr MyAdmin (
+  ) override;
 
-  virtual void suspend_connection (
-  );
+  void suspend_connection (
+  ) override;
 
-  virtual void resume_connection (
-  );
+  void resume_connection (
+  ) override;
 
-  virtual CosNotifyFilter::MappingFilter_ptr priority_filter (
-  );
+  CosNotifyFilter::MappingFilter_ptr priority_filter (
+  ) override;
 
-  virtual void priority_filter (
+  void priority_filter (
     CosNotifyFilter::MappingFilter_ptr priority_filter
-  );
+  ) override;
 
-  virtual CosNotifyFilter::MappingFilter_ptr lifetime_filter (
-  );
+  CosNotifyFilter::MappingFilter_ptr lifetime_filter (
+  ) override;
 
-  virtual void lifetime_filter (
+  void lifetime_filter (
     CosNotifyFilter::MappingFilter_ptr lifetime_filter
-  );
+  ) override;
 
-  virtual CosNotification::EventTypeSeq * obtain_offered_types (
+  CosNotification::EventTypeSeq * obtain_offered_types (
     CosNotifyChannelAdmin::ObtainInfoMode mode
-  );
+  ) override;
 
-  virtual void subscription_change (
+  void subscription_change (
     const CosNotification::EventTypeSeq & added,
     const CosNotification::EventTypeSeq & removed
-  );
+  ) override;
 };
 
 TAO_END_VERSIONED_NAMESPACE_DECL

@@ -101,7 +101,7 @@ public:
   AST_PredefinedType (PredefinedType t,
                       UTL_ScopedName *n);
 
-  virtual ~AST_PredefinedType ();
+  ~AST_PredefinedType () override;
 
   // Data Accessors.
   PredefinedType pt ();

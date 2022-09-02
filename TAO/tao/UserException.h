@@ -57,7 +57,7 @@ namespace CORBA
 
     void _raise () const override = 0;
 
-    virtual CORBA::TypeCode_ptr _tao_type () const;
+    CORBA::TypeCode_ptr _tao_type () const override;
 
     // = TAO specific extension.
 

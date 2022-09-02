@@ -156,10 +156,10 @@ public:
                                  unsigned long dynamic_priority_offset = 0x200000UL); // 2^(22-1)
 
   /// Virtual destructor.
-  virtual ~ACE_Deadline_Message_Strategy ();
+  ~ACE_Deadline_Message_Strategy () override;
 
   /// Dynamic priority conversion function based on time to deadline.
-  virtual void convert_priority (ACE_Time_Value &priority,
+  void convert_priority (ACE_Time_Value &priority,
                                  const ACE_Message_Block &mb) override;
 
   /// Dump the state of the strategy.
@@ -191,10 +191,10 @@ public:
                                unsigned long dynamic_priority_offset = 0x200000UL); // 2^(22-1)
 
   /// virtual dtor.
-  virtual ~ACE_Laxity_Message_Strategy ();
+  ~ACE_Laxity_Message_Strategy () override;
 
   /// Dynamic priority conversion function based on laxity.
-  virtual void convert_priority (ACE_Time_Value &priority,
+  void convert_priority (ACE_Time_Value &priority,
                                  const ACE_Message_Block &mb) override;
 
   /// Dump the state of the strategy.

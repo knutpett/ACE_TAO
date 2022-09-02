@@ -65,7 +65,7 @@ public:
   typedef CORBA::Object_var _stub_var_type;
 
   /// Destructor.
-  virtual ~TAO_ServantBase ();
+  ~TAO_ServantBase () override;
 
   static void _is_a_skel (TAO_ServerRequest & req,
                           TAO::Portable_Server::Servant_Upcall* servant_upcall,
@@ -135,20 +135,20 @@ public:
    * results and out parameters (if any) or the exceptions thrown into
    * @a request.
    */
-  virtual void _dispatch (
+  void _dispatch (
     TAO_ServerRequest &request,
-    TAO::Portable_Server::Servant_Upcall* servant_upcall) = 0;
+    TAO::Portable_Server::Servant_Upcall* servant_upcall) override = 0;
 
   /// Please see documentation in tao/Abstract_Servant_Base.h for
   /// details.
-  virtual int _find (const char *opname,
+  int _find (const char *opname,
                      TAO_Skeleton &skelfunc,
-                     const size_t length = 0);
+                     const size_t length = 0) override;
 
-  virtual int _find (const char *opname,
+  int _find (const char *opname,
                      TAO_Collocated_Skeleton &skelfunc,
                      TAO::Collocation_Strategy st,
-                     const size_t length = 0);
+                     const size_t length = 0) override;
 
   /// Get this interface's repository id (TAO specific).
   const char *_interface_repository_id () const override = 0;
@@ -173,14 +173,14 @@ public:
   CORBA::ULong _refcount_value () const override;
   //@}
 
-  virtual void _collocated_dispatch (::CORBA::Object_ptr obj,
+  void _collocated_dispatch (::CORBA::Object_ptr obj,
                                      ::CORBA::Object_out forward_obj,
                                      bool &is_forwarded,
                                      TAO::Argument ** args,
                                      int num_args,
                                      const char * op,
                                      size_t op_len,
-                                     TAO::Collocation_Strategy strategy);
+                                     TAO::Collocation_Strategy strategy) override;
 
 protected:
   /// Default constructor, only derived classes can be created.

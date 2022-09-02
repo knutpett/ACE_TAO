@@ -37,49 +37,49 @@ public:
   TAO_Notify_Proxy_T (void);
 
   /// Destructor
-  ~TAO_Notify_Proxy_T ();
+  ~TAO_Notify_Proxy_T () override;
 
   /// Implements TAO_Notify_Object::servant method.
   virtual PortableServer::Servant servant (void);
 
   /// ServantBase refcount methods.
-  virtual void _add_ref (void);
-  virtual void _remove_ref (void);
+  void _add_ref (void) override;
+  void _remove_ref (void) override;
 
-  virtual void validate_event_qos (
+  void validate_event_qos (
     const CosNotification::QoSProperties & required_qos,
     CosNotification::NamedPropertyRangeSeq_out available_qos
-  );
+  ) override;
 
- virtual CosNotification::QoSProperties * get_qos (
-  );
+ CosNotification::QoSProperties * get_qos (
+  ) override;
 
-  virtual void set_qos (
+  void set_qos (
     const CosNotification::QoSProperties & qos
-  );
+  ) override;
 
-  virtual void validate_qos (
+  void validate_qos (
     const CosNotification::QoSProperties & required_qos,
     CosNotification::NamedPropertyRangeSeq_out available_qos
-  );
+  ) override;
 
-  virtual CosNotifyFilter::FilterID add_filter (
+  CosNotifyFilter::FilterID add_filter (
     CosNotifyFilter::Filter_ptr new_filter
-  );
+  ) override;
 
-  virtual void remove_filter (
+  void remove_filter (
     CosNotifyFilter::FilterID filter
-  );
+  ) override;
 
-  virtual CosNotifyFilter::Filter_ptr get_filter (
+  CosNotifyFilter::Filter_ptr get_filter (
     CosNotifyFilter::FilterID filter
-  );
+  ) override;
 
-  virtual CosNotifyFilter::FilterIDSeq * get_all_filters (
-  );
+  CosNotifyFilter::FilterIDSeq * get_all_filters (
+  ) override;
 
-  virtual void remove_all_filters (
-  );
+  void remove_all_filters (
+  ) override;
 };
 
 #if defined ACE_HAS_EXPLICIT_TEMPLATE_INSTANTIATION_EXPORT

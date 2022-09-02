@@ -35,21 +35,21 @@ public:
   TAO_Notify_ProxyConsumer_T (void);
 
   /// Destructor
-  ~TAO_Notify_ProxyConsumer_T ();
+  ~TAO_Notify_ProxyConsumer_T () override;
 
   /// Notification of subscriptions set at the admin.
-  virtual void admin_types_changed (const CosNotification::EventTypeSeq & added,
-                                    const CosNotification::EventTypeSeq & removed);
+  void admin_types_changed (const CosNotification::EventTypeSeq & added,
+                                    const CosNotification::EventTypeSeq & removed) override;
 
-  virtual CosNotifyChannelAdmin::SupplierAdmin_ptr MyAdmin (void);
+  CosNotifyChannelAdmin::SupplierAdmin_ptr MyAdmin (void) override;
 
-  virtual CosNotification::EventTypeSeq * obtain_subscription_types (
-    CosNotifyChannelAdmin::ObtainInfoMode mode);
+  CosNotification::EventTypeSeq * obtain_subscription_types (
+    CosNotifyChannelAdmin::ObtainInfoMode mode) override;
 
-  virtual void offer_change (
+  void offer_change (
     const CosNotification::EventTypeSeq & added,
     const CosNotification::EventTypeSeq & removed
-  );
+  ) override;
 
 };
 

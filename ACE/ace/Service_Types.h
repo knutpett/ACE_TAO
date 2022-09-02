@@ -107,7 +107,7 @@ public:
                            ACE_Service_Object_Exterminator gobbler = 0,
                            int stype = ACE_Service_Type::SERVICE_OBJECT);
 
-  ~ACE_Service_Object_Type ();
+  ~ACE_Service_Object_Type () override;
 
   // = Implement the hooks for <ACE_Service_Objects>.
   int suspend () const override;
@@ -135,7 +135,7 @@ public:
                    u_int flags = 0,
                    int stype = ACE_Service_Type::MODULE);
 
-  ~ACE_Module_Type ();
+  ~ACE_Module_Type () override;
 
   // = Implement the hooks for <ACE_Modules>.
   int suspend () const override;
@@ -175,7 +175,7 @@ public:
                    u_int flags = 0,
                    int stype = ACE_Service_Type::STREAM);
 
-  ~ACE_Stream_Type ();
+  ~ACE_Stream_Type () override;
 
   // = Implement the hooks for <ACE_Streams>.
   int suspend () const override;

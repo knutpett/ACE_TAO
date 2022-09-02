@@ -82,7 +82,7 @@ public:
                         size_t inc = ACE_DEFAULT_FREE_LIST_INC);
 
   /// Destructor - removes all the elements from the free_list.
-  virtual ~ACE_Locked_Free_List ();
+  ~ACE_Locked_Free_List () override;
 
   /// Inserts an element onto the free list (if it isn't past the high
   /// water mark).

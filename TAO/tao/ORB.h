@@ -169,7 +169,7 @@ namespace CORBA
     public:
       InvalidName ();
       InvalidName (const InvalidName &);
-      ~InvalidName ();
+      ~InvalidName () override;
 
       InvalidName &operator= (const InvalidName &);
 
