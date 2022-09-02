@@ -87,7 +87,7 @@ public:
 
   static AST_Decl::NodeType const NT;
 
-  virtual bool annotatable () const { return true; }
+  bool annotatable () const override { return true; }
 
   /// Parent Enum of this value
   ///{

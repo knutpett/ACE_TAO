@@ -45,7 +45,7 @@ namespace ACE
 
               ACE_CString to_string () const override;
 
-              virtual u_short default_port () const;
+              u_short default_port () const override;
 
               static const char* PROTOCOL;
 

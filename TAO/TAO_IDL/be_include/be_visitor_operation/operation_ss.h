@@ -35,15 +35,15 @@ public:
   ~be_visitor_operation_ss ();
 
   /// visit operation. We provide code for this method in the derived class
-  virtual int visit_operation (be_operation *node);
+  int visit_operation (be_operation *node) override;
 
   /// visit argument to generate ParamData entries
-  virtual int visit_argument (be_argument *node);
+  int visit_argument (be_argument *node) override;
 
   // template methods
 
   /// generate any pre skeleton code info
-  virtual int gen_pre_skel_info (be_operation *node);
+  int gen_pre_skel_info (be_operation *node) override;
 
   /// Generate the skeleton operation body.
   int gen_skel_operation_body (be_operation * node,

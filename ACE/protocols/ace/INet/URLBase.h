@@ -171,7 +171,7 @@ namespace ACE
 
               u_short get_port () const;
 
-              u_short default_port () const = 0 override;
+              virtual u_short default_port () const = 0;
 
               ACE_CString get_authority () const override;
 

@@ -38,10 +38,10 @@ public:
   ~be_visitor_operation_argument_invoke ();
 
   /// stuff to o/p before each element of the scope is handled
-  virtual int pre_process (be_decl *bd);
+  virtual int pre_process (be_decl *bd) override override;
 
   /// stuff to o/p after each element of the scope is handled
-  virtual int post_process (be_decl *bd);
+  virtual int post_process (be_decl *bd) override override;
 
   enum LAST_ARG_PRINTED
   {

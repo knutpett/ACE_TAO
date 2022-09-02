@@ -31,10 +31,10 @@ public:
   ~be_visitor_operation_direct_proxy_impl_ss ();
 
   /// visit operation node.
-  virtual int visit_operation (be_operation *node);
+  int visit_operation (be_operation *node) override;
 
   /// A helper method to generate operation invocation code.
-  virtual int gen_invoke (be_visitor_context &ctx, be_operation *node);
+  int gen_invoke (be_visitor_context &ctx, be_operation *node) override;
 };
 
 #endif /* _BE_VISITOR_OPERATION_DIRECT_PROXY_IMPL_SS_H_ */

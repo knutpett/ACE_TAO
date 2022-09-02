@@ -60,8 +60,8 @@ namespace ACE
                                 seekdir way,
                                 openmode which) override;
 
-              override pos_type seekpos (pos_type pos,
-                                         openmode which) override;
+              pos_type seekpos (pos_type pos,
+                                openmode which) override;
 
             private:
               enum

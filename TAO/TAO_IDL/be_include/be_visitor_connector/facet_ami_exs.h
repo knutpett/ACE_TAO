@@ -30,13 +30,13 @@ public:
 
   ~be_visitor_facet_ami_exs ();
 
-  virtual int visit_component (be_component *node);
-  virtual int visit_provides (be_provides *node);
-  virtual int visit_operation (be_operation *node);
-  virtual int visit_argument (be_argument *node);
-  virtual int visit_attribute (be_attribute *node);
+  int visit_component (be_component *node) override;
+  int visit_provides (be_provides *node) override;
+  int visit_operation (be_operation *node) override;
+  int visit_argument (be_argument *node) override;
+  int visit_attribute (be_attribute *node) override;
 
-  virtual int post_process (be_decl *node);
+  int post_process (be_decl *node) override;
 
 private:
   void init ();

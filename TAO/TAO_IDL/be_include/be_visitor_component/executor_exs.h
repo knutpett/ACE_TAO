@@ -25,11 +25,11 @@ public:
 
   ~be_visitor_executor_exs () = default;
 
-  virtual int visit_operation (be_operation *node);
-  virtual int visit_attribute (be_attribute *node);
-  virtual int visit_component (be_component *node);
-  virtual int visit_provides (be_provides *node);
-  virtual int visit_consumes (be_consumes *node);
+  int visit_operation (be_operation *node) override;
+  int visit_attribute (be_attribute *node) override;
+  int visit_component (be_component *node) override;
+  int visit_provides (be_provides *node) override;
+  int visit_consumes (be_consumes *node) override;
 
 private:
   be_interface *op_scope_;
