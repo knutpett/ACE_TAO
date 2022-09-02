@@ -28,7 +28,7 @@ public:
 
   int visit_provides (be_provides *node) override;
   int visit_attribute (be_attribute *node) override;
-  void set_flags (bool do_provides, bool do_attribute) override;
+  virtual void set_flags (bool do_provides, bool do_attribute);
 private:
   bool do_provides_;
   bool do_attribute_;

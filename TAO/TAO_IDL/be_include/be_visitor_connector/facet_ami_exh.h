@@ -62,9 +62,9 @@ private:
   public:
     Facet_AMI_ExecH_Op_Attr_Generator (be_visitor_scope * visitor);
 
-    virtual int emit (be_interface * derived_interface,
-                      TAO_OutStream * os,
-                      be_interface * base_interface);
+    int emit (be_interface * derived_interface,
+              TAO_OutStream * os,
+              be_interface * base_interface) override;
 
   private:
     be_visitor_scope * visitor_;

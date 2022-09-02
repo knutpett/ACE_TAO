@@ -83,7 +83,7 @@ public:
   // This override includes the supported
   // interfaces, so we can generate code to initialize attribute
   // inherited from them, if any.
-  int visit_component_scope (be_component *node) override;
+  virtual int visit_component_scope (be_component *node);
 };
 
 // ======================================================
@@ -252,9 +252,9 @@ class Component_Op_Attr_Generator
 public:
   Component_Op_Attr_Generator (be_visitor_scope * visitor);
 
-  virtual int emit (be_interface * derived_interface,
-                    TAO_OutStream * os,
-                    be_interface * base_interface);
+  int emit (be_interface * derived_interface,
+            TAO_OutStream * os,
+            be_interface * base_interface) override;
 
 private:
   be_visitor_scope * visitor_;

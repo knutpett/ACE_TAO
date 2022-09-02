@@ -48,7 +48,7 @@ public:
   int visit_attribute (be_attribute *node) override;
 
   /// visit a constant
-  virtual int visit_constant (be_constant *node);
+  int visit_constant (be_constant *node) override;
 
   /// visit an enum
   int visit_enum (be_enum *node) override;
