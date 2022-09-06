@@ -176,7 +176,7 @@ be_visitor_valuetype_ch::visit_valuetype (be_valuetype *node)
           << ": exception (ex)" << be_uidt_nl
           << "{}" << be_nl_2
           << "virtual ~" << node->local_name () << " ();" << be_nl
-          << "virtual ::CORBA::ValueBase *_copy_value ();";
+          << "::CORBA::ValueBase *_copy_value () override;";
     }
 
   *os << be_nl_2
@@ -188,11 +188,11 @@ be_visitor_valuetype_ch::visit_valuetype (be_valuetype *node)
       << "TAO_InputCDR &strm," << be_nl
       << node->local_name () << " *&new_object);" << be_uidt
       << be_uidt_nl << be_nl
-      << "virtual const char* "
-      << "_tao_obv_repository_id () const;"
+      << "const char* "
+      << "_tao_obv_repository_id () const override;"
       << be_nl_2
-      << "virtual void "
-      << "_tao_obv_truncatable_repo_ids (Repository_Id_List &) const;"
+      << "void "
+      << "_tao_obv_truncatable_repo_ids (Repository_Id_List &) const override;"
       << be_nl_2
       << "static const char* "
       << "_tao_obv_static_repository_id ();";
@@ -241,9 +241,9 @@ be_visitor_valuetype_ch::visit_valuetype (be_valuetype *node)
   if (node->n_supports () > 0)
     {
       *os << be_uidt_nl << be_nl << "public:" << be_idt_nl;
-      *os << be_nl << "virtual void _add_ref () = 0;" << be_nl;
+      *os << be_nl << " void _add_ref () = 0;" << be_nl;
       *os << "virtual void _remove_ref () = 0;" << be_nl;
-      *os << "virtual ::CORBA::ValueBase *_tao_to_value ();";
+      *os << "::CORBA::ValueBase *_tao_to_value () override;";
     }
 
   // Generate the "protected" constructor so that users cannot
@@ -271,7 +271,7 @@ be_visitor_valuetype_ch::visit_valuetype (be_valuetype *node)
 
   if (be_global->gen_ostream_operators ())
     {
-      *os << "virtual std::ostream &_tao_stream_v (std::ostream &) const;"
+      *os << "std::ostream &_tao_stream_v (std::ostream &) const override;"
       << be_nl;
     }
 

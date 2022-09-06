@@ -71,14 +71,14 @@ be_visitor_valuebox_ch::visit_valuebox (be_valuebox *node)
       << "_downcast ( ::CORBA::ValueBase *);" << be_nl;
 
   // _copy_value method
-  *os << "::CORBA::ValueBase * _copy_value ();" << be_nl_2;
+  *os << "::CORBA::ValueBase * _copy_value () override;" << be_nl_2;
 
   // repository id methods
-  *os << "virtual const char* "
-      << "_tao_obv_repository_id () const;"
+  *os << "const char* "
+      << "_tao_obv_repository_id () const override;"
       << be_nl_2
-      << "virtual void "
-      << "_tao_obv_truncatable_repo_ids (Repository_Id_List &ids) const;"
+      << "void "
+      << "_tao_obv_truncatable_repo_ids (Repository_Id_List &ids) const override;"
       << be_nl_2
       << "static const char* "
       << "_tao_obv_static_repository_id ();" << be_nl_2;

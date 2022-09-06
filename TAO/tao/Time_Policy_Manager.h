@@ -46,14 +46,14 @@ public:
 
   // = Service Configurator hooks.
   /// Dynamic linking hook
-  virtual int init (int argc, ACE_TCHAR* argv[]);
+  int init (int argc, ACE_TCHAR* argv[]) override;
 
   /// Parse svc.conf arguments
   int parse_args (int argc, ACE_TCHAR* argv[]);
 
-  virtual ACE_Timer_Queue * create_timer_queue (void);
+  ACE_Timer_Queue * create_timer_queue (void) override;
 
-  virtual void destroy_timer_queue (ACE_Timer_Queue *tmq);
+  void destroy_timer_queue (ACE_Timer_Queue *tmq) override;
 
 private:
   enum Time_Policy_Setting

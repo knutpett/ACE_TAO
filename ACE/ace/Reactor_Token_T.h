@@ -59,7 +59,7 @@ public:
 
   /// Called just before a token waiter goes to sleep.
   /// @see ACE_Token::sleep_hook
-  void sleep_hook (void) override;
+  void sleep_hook (void) ;
 
   /// Get the reactor implementation
   ACE_Reactor_Impl &reactor (void);
