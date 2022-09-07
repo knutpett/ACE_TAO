@@ -109,6 +109,7 @@ be_visitor_interface_ch::visit_interface (be_interface *node)
   // elements of its scope. We depend on the front-end to have made sure
   // that only legal syntactic elements appear in our scope.
 
+
   if (this->visit_scope (node) == -1)
     {
       ACE_ERROR_RETURN ((LM_ERROR,
@@ -140,7 +141,7 @@ be_visitor_interface_ch::visit_interface (be_interface *node)
   // we have to override _add_ref() to avoid ambiguity.
   if (node->has_mixed_parentage ())
     {
-      *os << "virtual void _add_ref ();" << be_nl_2;
+      *os << "void _add_ref () override;" << be_nl_2;
     }
 
   // The _is_a method
@@ -161,7 +162,7 @@ be_visitor_interface_ch::visit_interface (be_interface *node)
   // The virtual marshal method, to prevent marshal of local interfaces.
   *os << be_nl
       << "::CORBA::Boolean marshal "
-      << "(TAO_OutputCDR &cdr) override;";
+      << "(TAO_OutputCDR &cdr);";
 
   // If we are generating CORBA Policy we need to add some more methods
   if (ACE_OS::strcmp (node->full_name (), "CORBA::Policy") == 0)
